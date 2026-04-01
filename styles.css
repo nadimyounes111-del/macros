@@ -1,0 +1,374 @@
+/* =========================
+    BASE
+========================= */
+
+@font-face {
+  font-family: "Cal Sans";
+  src: url("calsans-regular.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+:root {
+  --orange: #ff8000;
+  --bg: #0b0b0b;
+  --dark-blue: #1e2c59;
+  --table-bg: #1a1a1a;
+  --light-gray: #5c5b5b;
+  --white: #ffffff;
+  --green: #28a745;
+
+  /* Column widths — change here and everything updates */
+  --col-check: 50px;
+  --col-food: 300px;
+  --col-servings: 100px;
+  --col-num: 100px;
+  --col-del: 50px;
+}
+
+body {
+  margin: 0;
+  font-family: "Cal Sans";
+  background: var(--bg);
+  user-select: none;
+  color: white;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* =========================
+   FOOD LOG (DIV-BASED)
+========================= */
+
+#log-wrapper {
+  margin: 20px;
+}
+
+#food-log {
+  background-color: var(--table-bg);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  padding: 5px;
+  width: max-content;
+  min-width: 850px;
+}
+
+/* Every row is a flex row */
+.log-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.log-row:not(.log-header):not(#add-row):hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 5px;
+}
+
+/* Header row */
+.log-header {
+  margin-bottom: 4px;
+}
+
+.log-header > div {
+  background-color: var(--dark-blue);
+  font-size: 16px;
+  padding: 5px 10px;
+  text-align: right;
+}
+
+.log-header > div:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.log-header > div:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+/* Column definitions */
+.col-check {
+  width: var(--col-check);
+  min-width: var(--col-check);
+  max-width: var(--col-check);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+}
+
+.col-food {
+  width: var(--col-food);
+  min-width: var(--col-food);
+  max-width: var(--col-food);
+  text-align: left;
+  padding: 5px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+
+.col-servings {
+  width: var(--col-servings);
+  min-width: var(--col-servings);
+  max-width: var(--col-servings);
+  text-align: left;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 5px;
+}
+
+.col-cal,
+.col-pro,
+.col-carb,
+.col-fat {
+  width: var(--col-num);
+  min-width: var(--col-num);
+  max-width: var(--col-num);
+  text-align: right;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.col-del {
+  width: var(--col-del);
+  min-width: var(--col-del);
+  max-width: var(--col-del);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+}
+
+/* Header text alignment overrides */
+.log-header .col-food {
+  text-align: left;
+}
+.log-header .col-check,
+.log-header .col-del {
+  background-color: transparent;
+}
+
+/* =========================
+   ADD ROW INPUTS
+========================= */
+
+#add-row {
+  margin-top: 4px;
+}
+
+#add-row input[type="text"],
+#add-row input[type="number"] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #444;
+  color: white;
+  font-family: "Cal Sans";
+  font-size: 16px;
+  padding: 3px 0;
+  width: 100%;
+}
+
+#add-row input[type="number"] {
+  width: 50px;
+}
+
+#add-row input:focus {
+  outline: none;
+  border-bottom-color: var(--orange);
+}
+
+#add-row input[type="number"]::-webkit-inner-spin-button,
+#add-row input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+#serving-size-label {
+  color: var(--light-gray);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* =========================
+   AUTOCOMPLETE
+========================= */
+
+#autocomplete-list {
+  position: fixed;
+  background-color: var(--dark-blue);
+  color: white;
+  max-height: 200px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 280px;
+  overflow-y: auto;
+  z-index: 9999;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+#autocomplete-list:empty {
+  display: none;
+}
+
+#autocomplete-list li {
+  padding: 6px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#autocomplete-list li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================
+   SERVING EDIT (in log rows)
+========================= */
+
+.serving-edit {
+  width: 50px;
+  background-color: var(--light-gray);
+  border-radius: 5px;
+  padding: 4px 6px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  text-align: right;
+  font-family: "Cal Sans";
+}
+
+.serving-edit:focus {
+  outline: none;
+}
+
+.serving-edit::-webkit-inner-spin-button,
+.serving-edit::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.serving-unit {
+  color: var(--light-gray);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* =========================
+   BUTTONS & SVGS
+========================= */
+
+#add-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-svg {
+  width: 30px;
+  height: 30px;
+  color: var(--green);
+}
+
+button:has(.delete-svg) {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.delete-svg {
+  width: 28px;
+  height: 28px;
+  color: red;
+}
+
+button:has(.check-svg) {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.check-svg {
+  width: 28px;
+  height: 28px;
+}
+
+button[data-checked="false"] .check-svg {
+  color: var(--light-gray);
+}
+
+button[data-checked="true"] .check-svg {
+  color: var(--green);
+}
+
+/* =========================
+    SUMMARY SECTION
+========================= */
+
+#summary-section {
+  margin: 8px 20px 20px;
+}
+
+#summary-log {
+  background-color: var(--table-bg);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  padding: 5px;
+  width: max-content;
+  min-width: 850px;
+}
+
+.sum-label {
+  color: var(--white);
+  font-size: 16px;
+}
+
+.sum-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.sum-vals {
+  font-size: 16px;
+  color: var(--white);
+}
+
+.sum-bar {
+  height: 4px;
+  background: var(--light-gray);
+  border-radius: 2px;
+  width: 80%;
+}
+
+.sum-fill {
+  height: 100%;
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+#bar-cal {
+  background: var(--orange);
+}
+#bar-pro {
+  background: var(--orange);
+}
+#bar-carb {
+  background: var(--orange);
+}
+#bar-fat {
+  background: var(--orange);
+}

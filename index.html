@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- FOOD LOG -->
+      <div id="log-wrapper">
+        <div id="food-log">
+          <!-- Header Row -->
+          <div class="log-row log-header">
+            <div class="col-check"></div>
+            <div class="col-food">Food</div>
+            <div class="col-servings">Servings</div>
+            <div class="col-cal">Calories</div>
+            <div class="col-pro">Protein (g)</div>
+            <div class="col-carb">Carbs (g)</div>
+            <div class="col-fat">Fat (g)</div>
+            <div class="col-del"></div>
+          </div>
+
+          <!-- Log Body -->
+          <div id="log-body"></div>
+
+          <!-- Add Row -->
+          <div class="log-row" id="add-row">
+            <div class="col-check"></div>
+            <div class="col-food" style="position: relative">
+              <input
+                type="text"
+                id="food-search"
+                placeholder="+ Add food..."
+                autocomplete="off"
+              />
+              <ul id="autocomplete-list"></ul>
+            </div>
+            <div class="col-servings">
+              <input type="number" id="servings" placeholder="Qty" min="0" />
+              <span id="serving-size-label"></span>
+            </div>
+            <div class="col-cal" id="cal-preview">-</div>
+            <div class="col-pro" id="pro-preview">-</div>
+            <div class="col-carb" id="carb-preview">-</div>
+            <div class="col-fat" id="fat-preview">-</div>
+            <div class="col-del">
+              <button id="add-btn">
+                <svg
+                  class="add-svg"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 640"
+                >
+                  <path
+                    d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUMMARY ROW -->
+      <div id="summary-section">
+        <div id="summary-log">
+          <div class="log-row" id="summary-row">
+            <div class="col-check"></div>
+            <div class="col-food sum-label">Daily totals</div>
+            <div class="col-servings"></div>
+            <div class="col-cal sum-cell">
+              <span class="sum-vals" id="sum-cal">0 / 2200</span>
+              <div class="sum-bar">
+                <div class="sum-fill" id="bar-cal"></div>
+              </div>
+            </div>
+            <div class="col-pro sum-cell">
+              <span class="sum-vals" id="sum-pro">0 / 185</span>
+              <div class="sum-bar">
+                <div class="sum-fill" id="bar-pro"></div>
+              </div>
+            </div>
+            <div class="col-carb sum-cell">
+              <span class="sum-vals" id="sum-carb">0 / 240</span>
+              <div class="sum-bar">
+                <div class="sum-fill" id="bar-carb"></div>
+              </div>
+            </div>
+            <div class="col-fat sum-cell">
+              <span class="sum-vals" id="sum-fat">0 / 55</span>
+              <div class="sum-bar">
+                <div class="sum-fill" id="bar-fat"></div>
+              </div>
+            </div>
+            <div class="col-del"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/papaparse.min.js"></script>
+    <script src="js/functions.js"></script>
+  </body>
+</html>
