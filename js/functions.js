@@ -5,7 +5,7 @@
 let foods = [];
 let selectedFood = null;
 
-Papa.parse("macros/foods.csv", {
+Papa.parse("../foods.csv", {
   download: true,
   header: true,
   skipEmptyLines: true,
