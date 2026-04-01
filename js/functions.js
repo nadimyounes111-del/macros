@@ -9,14 +9,11 @@ Papa.parse("foods.csv", {
   download: true,
   header: true,
   skipEmptyLines: true,
-  // This 'step' function handles your logic row-by-row
   step: function (row) {
     const firstCell = row.data[Object.keys(row.data)[0]];
-    // Ignores empty rows or rows starting with #
     if (!firstCell || firstCell.startsWith("#")) return;
     foods.push(row.data);
   },
-  // This 'complete' function triggers the UI updates
   complete: function () {
     console.log("Foods loaded:", foods);
     renderLog();
