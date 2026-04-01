@@ -5,19 +5,11 @@
 let foods = [];
 let selectedFood = null;
 
-Papa.parse("/macros/foods.csv", {
+Papa.parse("foods.csv", {
   download: true,
   header: true,
-  skipEmptyLines: true,
-  step: function (row) {
-    const firstCell = row.data[Object.keys(row.data)[0]];
-    if (!firstCell || firstCell.startsWith("#")) return;
-    foods.push(row.data);
-  },
-  complete: function () {
-    console.log("Foods loaded:", foods);
-    renderLog();
-    updateSummary();
+  complete: function (results) {
+    console.log("Got it!", results.data);
   },
 });
 
