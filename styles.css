@@ -16,7 +16,8 @@
   --table-bg: #1a1a1a;
   --light-gray: #5c5b5b;
   --white: #ffffff;
-  --green: #28a745;
+  --green: #37e760;
+  --light-blue: #19a8cc;
 
   /* Column widths — change here and everything updates */
   --col-check: 50px;
@@ -46,6 +47,10 @@ ul {
 
 #log-wrapper {
   margin: 20px;
+}
+
+li {
+  text-transform: capitalize;
 }
 
 #food-log {
@@ -105,6 +110,7 @@ ul {
   min-width: var(--col-food);
   max-width: var(--col-food);
   text-align: left;
+  text-transform: capitalize;
   padding: 5px 10px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -360,14 +366,14 @@ button[data-checked="true"] .check-svg {
 }
 
 #bar-cal {
-  background: #37e760;
+  background: var(--green);
 }
 #bar-pro {
-  background: #37e760;
+  background: var(--green);
 }
 #bar-carb {
-  background: #37e760;
+  background: var(--green);
 }
 #bar-fat {
-  background: #37e760;
+  background: var(--green);
 }

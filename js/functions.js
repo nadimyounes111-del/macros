@@ -56,10 +56,10 @@ function renderLog() {
         <input class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)"/>
         <span class="serving-unit">${unit}</span>
       </div>
-      <div class="col-cal">${entry.calories}</div>
-      <div class="col-pro">${entry.protein}</div>
-      <div class="col-carb">${entry.carbs}</div>
-      <div class="col-fat">${entry.fat}</div>
+<div class="col-cal">${Math.round(entry.calories)}</div>
+<div class="col-pro">${Math.round(entry.protein)}</div>
+<div class="col-carb">${Math.round(entry.carbs)}</div>
+<div class="col-fat">${Math.round(entry.fat)}</div>
       <div class="col-del">
         <button onclick="deleteEntry(${index})">
           <svg class="delete-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM231 231C240.4 221.6 255.6 221.6 264.9 231L319.9 286L374.9 231C384.3 221.6 399.5 221.6 408.8 231C418.1 240.4 418.2 255.6 408.8 264.9L353.8 319.9L408.8 374.9C418.2 384.3 418.2 399.5 408.8 408.8C399.4 418.1 384.2 418.2 374.9 408.8L319.9 353.8L264.9 408.8C255.5 418.2 240.3 418.2 231 408.8C221.7 399.4 221.6 384.2 231 374.9L286 319.9L231 264.9C221.6 255.5 221.6 240.3 231 231z"/></svg>
@@ -78,6 +78,10 @@ function setupAddRow() {
   const autocompleteList = document.getElementById("autocomplete-list");
   const servingsInput = document.getElementById("servings");
   selectedFood = null;
+
+  searchInput.value = "";
+  servingsInput.value = "";
+  updatePreview();
 
   searchInput.addEventListener("input", function () {
     const query = this.value.toLowerCase().trim();
@@ -122,14 +126,14 @@ function setupAddRow() {
     const entry = {
       food: selectedFood.Food,
       servings: servings,
-      calories: parseFloat(
-        (parseFloat(selectedFood.Calories) * servings).toFixed(1),
+      calories: parseInt(
+        (parseFloat(selectedFood.Calories) * servings).toFixed(0),
       ),
-      protein: parseFloat(
-        (parseFloat(selectedFood.Protein) * servings).toFixed(1),
+      protein: parseInt(
+        (parseFloat(selectedFood.Protein) * servings).toFixed(0),
       ),
-      carbs: parseFloat((parseFloat(selectedFood.Carbs) * servings).toFixed(1)),
-      fat: parseFloat((parseFloat(selectedFood.Fat) * servings).toFixed(1)),
+      carbs: parseInt((parseFloat(selectedFood.Carbs) * servings).toFixed(0)),
+      fat: parseInt((parseFloat(selectedFood.Fat) * servings).toFixed(0)),
       servingSize: selectedFood["Serving Size"],
     };
 
@@ -140,23 +144,30 @@ function setupAddRow() {
 }
 
 function updatePreview() {
-  if (!selectedFood) return;
+  if (!selectedFood) {
+    document.getElementById("serving-size-label").textContent = "";
+    document.getElementById("cal-preview").textContent = "-";
+    document.getElementById("pro-preview").textContent = "-";
+    document.getElementById("carb-preview").textContent = "-";
+    document.getElementById("fat-preview").textContent = "-";
+    return;
+  }
   const servings = parseFloat(document.getElementById("servings").value) || 0;
   const unit = selectedFood["Serving Size"].replace(/^[\d.\/\s]+/, "");
 
   document.getElementById("serving-size-label").textContent = unit;
   document.getElementById("cal-preview").textContent = (
     parseFloat(selectedFood.Calories) * servings
-  ).toFixed(1);
+  ).toFixed(0);
   document.getElementById("pro-preview").textContent = (
     parseFloat(selectedFood.Protein) * servings
-  ).toFixed(1);
+  ).toFixed(0);
   document.getElementById("carb-preview").textContent = (
     parseFloat(selectedFood.Carbs) * servings
-  ).toFixed(1);
+  ).toFixed(0);
   document.getElementById("fat-preview").textContent = (
     parseFloat(selectedFood.Fat) * servings
-  ).toFixed(1);
+  ).toFixed(0);
 }
 
 function toggleCheck(btn, index) {
@@ -173,10 +184,10 @@ function editServing(index, newServings) {
   const ratio = newServings / original.servings;
 
   original.servings = newServings;
-  original.calories = parseFloat((original.calories * ratio).toFixed(1));
-  original.protein = parseFloat((original.protein * ratio).toFixed(1));
-  original.carbs = parseFloat((original.carbs * ratio).toFixed(1));
-  original.fat = parseFloat((original.fat * ratio).toFixed(1));
+  original.calories = parseFloat((original.calories * ratio).toFixed(0));
+  original.protein = parseFloat((original.protein * ratio).toFixed(0));
+  original.carbs = parseFloat((original.carbs * ratio).toFixed(0));
+  original.fat = parseFloat((original.fat * ratio).toFixed(0));
 
   saveLog();
   renderLog();
@@ -207,13 +218,13 @@ function updateSummary() {
   );
 
   document.getElementById("sum-cal").textContent =
-    totals.calories.toFixed(1) + " / " + GOALS.calories;
+    totals.calories.toFixed(0) + " / " + GOALS.calories;
   document.getElementById("sum-pro").textContent =
-    totals.protein.toFixed(1) + " / " + GOALS.protein;
+    totals.protein.toFixed(0) + " / " + GOALS.protein;
   document.getElementById("sum-carb").textContent =
-    totals.carbs.toFixed(1) + " / " + GOALS.carbs;
+    totals.carbs.toFixed(0) + " / " + GOALS.carbs;
   document.getElementById("sum-fat").textContent =
-    totals.fat.toFixed(1) + " / " + GOALS.fat;
+    totals.fat.toFixed(0) + " / " + GOALS.fat;
 
   document.getElementById("bar-cal").style.width =
     Math.min((totals.calories / GOALS.calories) * 100, 100) + "%";
