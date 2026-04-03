@@ -80,10 +80,13 @@ function setupAddRow() {
   selectedFood = null;
 
   searchInput.value = "";
+  searchInput.placeholder = "Add food...";
   servingsInput.value = "";
   updatePreview();
+  setCustomMode(false);
 
   searchInput.addEventListener("input", function () {
+    if (selectedFood === "custom") return;
     const query = this.value.toLowerCase().trim();
     autocompleteList.innerHTML = "";
     if (!query) return;
@@ -91,6 +94,20 @@ function setupAddRow() {
     const rect = searchInput.getBoundingClientRect();
     autocompleteList.style.top = rect.bottom + window.scrollY + 4 + "px";
     autocompleteList.style.left = rect.left + "px";
+
+    // Always show Custom at the top
+    if ("custom".includes(query)) {
+      const li = document.createElement("li");
+      li.textContent = "Custom Entry";
+      li.classList.add("custom-option");
+      li.addEventListener("click", function () {
+        searchInput.value = "Custom Entry";
+        autocompleteList.innerHTML = "";
+        selectedFood = "custom";
+        setCustomMode(true);
+      });
+      autocompleteList.appendChild(li);
+    }
 
     const matches = foods.filter((f) => f.Food.toLowerCase().includes(query));
     matches.forEach(function (food) {
@@ -100,13 +117,13 @@ function setupAddRow() {
         searchInput.value = food.Food;
         autocompleteList.innerHTML = "";
         selectedFood = food;
+        setCustomMode(false);
         updatePreview();
       });
       autocompleteList.appendChild(li);
     });
   });
 
-  // hide autocomplete when clicking outside
   document.addEventListener("click", function (e) {
     if (
       !searchInput.contains(e.target) &&
@@ -119,6 +136,28 @@ function setupAddRow() {
   servingsInput.addEventListener("input", updatePreview);
 
   document.getElementById("add-btn").addEventListener("click", function () {
+    if (selectedFood === "custom") {
+      const name = searchInput.value.trim();
+      if (!name || name === "Custom Entry") return;
+      const entry = {
+        food: name,
+        servings: 1,
+        calories:
+          parseInt(document.getElementById("cal-preview").dataset.input) || 0,
+        protein:
+          parseInt(document.getElementById("pro-preview").dataset.input) || 0,
+        carbs:
+          parseInt(document.getElementById("carb-preview").dataset.input) || 0,
+        fat:
+          parseInt(document.getElementById("fat-preview").dataset.input) || 0,
+        servingSize: "",
+      };
+      foodLog.push(entry);
+      saveLog();
+      renderLog();
+      return;
+    }
+
     if (!selectedFood) return;
     const servings = parseFloat(servingsInput.value) || 0;
     if (servings <= 0) return;
@@ -143,13 +182,47 @@ function setupAddRow() {
   });
 }
 
+function setCustomMode(on) {
+  const servingsInput = document.getElementById("servings");
+  const servingLabel = document.getElementById("serving-size-label");
+
+  if (on) {
+    // hide servings, turn macro previews into inputs
+    servingsInput.style.display = "none";
+    servingLabel.style.display = "none";
+    ["cal-preview", "pro-preview", "carb-preview", "fat-preview"].forEach(
+      function (id) {
+        const div = document.getElementById(id);
+        div.innerHTML = `<input class="serving-edit" type="number" min="0" placeholder="0"/>`;
+        div.querySelector("input").addEventListener("input", function () {
+          div.dataset.input = this.value;
+        });
+      },
+    );
+    // clear food search so user can type actual name
+    document.getElementById("food-search").value = "";
+    document.getElementById("food-search").placeholder = "Custom Entry...";
+  } else {
+    // restore normal mode
+    servingsInput.style.display = "";
+    servingLabel.style.display = "";
+    document.getElementById("cal-preview").innerHTML = "-";
+    document.getElementById("pro-preview").innerHTML = "-";
+    document.getElementById("carb-preview").innerHTML = "-";
+    document.getElementById("fat-preview").innerHTML = "-";
+    document.getElementById("food-search").placeholder = "Add food...";
+  }
+}
+
 function updatePreview() {
-  if (!selectedFood) {
-    document.getElementById("serving-size-label").textContent = "";
-    document.getElementById("cal-preview").textContent = "-";
-    document.getElementById("pro-preview").textContent = "-";
-    document.getElementById("carb-preview").textContent = "-";
-    document.getElementById("fat-preview").textContent = "-";
+  if (!selectedFood || selectedFood === "custom") {
+    if (selectedFood !== "custom") {
+      document.getElementById("serving-size-label").textContent = "";
+      document.getElementById("cal-preview").textContent = "-";
+      document.getElementById("pro-preview").textContent = "-";
+      document.getElementById("carb-preview").textContent = "-";
+      document.getElementById("fat-preview").textContent = "-";
+    }
     return;
   }
   const servings = parseFloat(document.getElementById("servings").value) || 0;
