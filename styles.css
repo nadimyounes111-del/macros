@@ -44,7 +44,6 @@ ul {
 /* =========================
    FOOD LOG (DIV-BASED)
 ========================= */
-
 #log-wrapper {
   margin: 20px;
 }
@@ -58,8 +57,8 @@ li {
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.08);
   padding: 5px;
-  width: max-content;
-  min-width: 850px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 /* Every row is a flex row */
@@ -96,9 +95,7 @@ li {
 
 /* Column definitions */
 .col-check {
-  width: var(--col-check);
-  min-width: var(--col-check);
-  max-width: var(--col-check);
+  flex: 0 0 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,9 +103,8 @@ li {
 }
 
 .col-food {
-  width: var(--col-food);
-  min-width: var(--col-food);
-  max-width: var(--col-food);
+  flex: 2 1 0;
+  min-width: 80px;
   text-align: left;
   text-transform: capitalize;
   padding: 5px 10px;
@@ -119,9 +115,8 @@ li {
 }
 
 .col-servings {
-  width: var(--col-servings);
-  min-width: var(--col-servings);
-  max-width: var(--col-servings);
+  flex: 1 1 0;
+  min-width: 60px;
   text-align: left;
   padding: 5px 10px;
   display: flex;
@@ -134,9 +129,8 @@ li {
 .col-pro,
 .col-carb,
 .col-fat {
-  width: var(--col-num);
-  min-width: var(--col-num);
-  max-width: var(--col-num);
+  flex: 1 1 0;
+  min-width: 45px;
   text-align: right;
   padding: 5px 10px;
   font-size: 16px;
@@ -144,9 +138,7 @@ li {
 }
 
 .col-del {
-  width: var(--col-del);
-  min-width: var(--col-del);
-  max-width: var(--col-del);
+  flex: 0 0 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -330,8 +322,8 @@ button[data-checked="true"] .check-svg {
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.08);
   padding: 5px;
-  width: max-content;
-  min-width: 850px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .sum-label {
