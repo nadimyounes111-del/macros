@@ -19,12 +19,7 @@
   --green: #37e760;
   --light-blue: #19a8cc;
 
-  /* Column widths — change here and everything updates */
-  --col-check: 50px;
-  --col-food: 300px;
-  --col-servings: 100px;
-  --col-num: 100px;
-  --col-del: 50px;
+  --text: clamp(11px, 10px + 0.4vw, 16px);
 }
 
 body {
@@ -84,8 +79,7 @@ li {
 .log-header .col-carb,
 .log-header .col-fat {
   background-color: var(--dark-blue);
-  font-size: 16px;
-  padding: 5px 10px;
+  font-size: var(--text);
   text-align: right;
 }
 
@@ -112,7 +106,6 @@ li {
   min-width: 80px;
   text-align: left;
   text-transform: capitalize;
-  padding: 5px 10px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -123,7 +116,6 @@ li {
   flex: 1 1 0;
   min-width: 60px;
   text-align: left;
-  padding: 5px 10px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -135,11 +127,18 @@ li {
 .col-carb,
 .col-fat {
   flex: 1 1 0;
-  min-width: 45px;
+  min-width: 30px;
   text-align: right;
-  padding: 5px 10px;
-  font-size: 16px;
   border-radius: 5px;
+}
+
+.col-cal,
+.col-pro,
+.col-carb,
+.col-fat,
+.col-food,
+.col-servings {
+  font-size: var(--text);
 }
 
 .col-del {
@@ -173,7 +172,7 @@ li {
   border: none;
   color: white;
   font-family: "Cal Sans";
-  font-size: 16px;
+  font-size: var(--text);
   padding: 3px 0;
   width: 100%;
 }
@@ -241,7 +240,7 @@ li {
   padding: 4px 6px;
   border: none;
   color: white;
-  font-size: 15px;
+  font-size: var(--text);
   text-align: right;
   font-family: "Cal Sans";
 }
@@ -256,8 +255,8 @@ li {
 }
 
 .serving-unit {
-  color: var(--light-gray);
-  font-size: 13px;
+  color: var(--white);
+  font-size: var(--text);
   white-space: nowrap;
 }
 

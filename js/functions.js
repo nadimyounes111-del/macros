@@ -98,7 +98,7 @@ function setupAddRow() {
     // Always show Custom at the top
     if ("custom".includes(query)) {
       const li = document.createElement("li");
-      li.textContent = "Custom Entry";
+      li.textContent = "CUSTOM ENTRY";
       li.classList.add("custom-option");
       li.addEventListener("click", function () {
         searchInput.value = "Custom Entry";
