@@ -60,7 +60,6 @@ li {
   width: 100%;
   max-width: 1200px;
 }
-
 /* Every row is a flex row */
 .log-row {
   display: flex;
@@ -78,18 +77,24 @@ li {
   margin-bottom: 4px;
 }
 
-.log-header > div {
+.log-header .col-food,
+.log-header .col-servings,
+.log-header .col-cal,
+.log-header .col-pro,
+.log-header .col-carb,
+.log-header .col-fat {
   background-color: var(--dark-blue);
   font-size: 16px;
   padding: 5px 10px;
   text-align: right;
 }
 
-.log-header > div:first-child {
+.log-header .col-food {
+  text-align: left;
   border-radius: 5px 0 0 5px;
 }
 
-.log-header > div:last-child {
+.log-header .col-fat {
   border-radius: 0 5px 5px 0;
 }
 
@@ -230,7 +235,7 @@ li {
 ========================= */
 
 .serving-edit {
-  width: 50px;
+  width: clamp(25px, 17.9px + 2.23vw, 50px);
   background-color: var(--light-gray);
   border-radius: 5px;
   padding: 4px 6px;
