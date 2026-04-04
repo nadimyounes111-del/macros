@@ -4,6 +4,8 @@
 
 let foods = [];
 let selectedFood = null;
+let lastDeleted = null;
+let lastDeletedIndex = null;
 
 Papa.parse("foods.csv", {
   download: true,
@@ -18,6 +20,12 @@ Papa.parse("foods.csv", {
     console.log("Foods loaded:", foods);
     renderLog();
     updateSummary();
+
+    document.getElementById("servings").onkeydown = function (e) {
+      if (e.key === "Enter") {
+        document.getElementById("add-btn").click();
+      }
+    };
   },
 });
 
@@ -213,6 +221,25 @@ function setCustomMode(on) {
     searchInput.value = "";
     searchInput.placeholder = "Custom Entry";
     searchInput.focus();
+
+    const inputs = [
+      "cal-preview",
+      "pro-preview",
+      "carb-preview",
+      "fat-preview",
+    ];
+    inputs.forEach(function (id) {
+      document.getElementById(id).querySelector("input").onkeydown = function (
+        e,
+      ) {
+        if (e.key !== "Enter") return;
+        const allFilled = inputs.every(function (i) {
+          const val = document.getElementById(i).querySelector("input").value;
+          return val !== "" && val !== null;
+        });
+        if (allFilled) document.getElementById("add-btn").click();
+      };
+    });
   } else {
     servingsInput.style.display = "";
     servingLabel.style.display = "";
@@ -288,6 +315,11 @@ function deleteEntry(index) {
 
 const GOALS = { calories: 2200, protein: 185, carbs: 240, fat: 55 };
 
+function checkOverage(id, total, goal) {
+  const warn = document.getElementById("warn-" + id);
+  warn.style.display = total > goal ? "inline" : "none";
+}
+
 function updateSummary() {
   const totals = foodLog.reduce(
     (acc, entry) => {
@@ -299,6 +331,11 @@ function updateSummary() {
     },
     { calories: 0, protein: 0, carbs: 0, fat: 0 },
   );
+
+  document.getElementById("sum-cal").textContent = totals.calories.toFixed(0);
+  document.getElementById("sum-pro").textContent = totals.protein.toFixed(0);
+  document.getElementById("sum-carb").textContent = totals.carbs.toFixed(0);
+  document.getElementById("sum-fat").textContent = totals.fat.toFixed(0);
 
   document.getElementById("sum-cal").textContent =
     totals.calories.toFixed(0) + " / " + GOALS.calories;
@@ -317,4 +354,28 @@ function updateSummary() {
     Math.min((totals.carbs / GOALS.carbs) * 100, 100) + "%";
   document.getElementById("bar-fat").style.width =
     Math.min((totals.fat / GOALS.fat) * 100, 100) + "%";
+
+  checkOverage("cal", totals.calories, GOALS.calories);
+  checkOverage("pro", totals.protein, GOALS.protein);
+  checkOverage("carb", totals.carbs, GOALS.carbs);
+  checkOverage("fat", totals.fat, GOALS.fat);
+}
+
+// undo
+
+function deleteEntry(index) {
+  lastDeleted = foodLog[index];
+  lastDeletedIndex = index;
+  foodLog.splice(index, 1);
+  saveLog();
+  renderLog();
+}
+
+function undoDelete() {
+  if (!lastDeleted) return;
+  foodLog.splice(lastDeletedIndex, 0, lastDeleted);
+  lastDeleted = null;
+  lastDeletedIndex = null;
+  saveLog();
+  renderLog();
 }
