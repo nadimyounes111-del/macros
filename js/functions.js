@@ -310,7 +310,7 @@ function deleteEntry(index) {
 }
 
 /* =========================
-   GOALS & SUMMARY
+   SUMMARY TABLE
 ========================= */
 
 const GOALS = { calories: 2200, protein: 185, carbs: 240, fat: 55 };
@@ -361,7 +361,9 @@ function updateSummary() {
   checkOverage("fat", totals.fat, GOALS.fat);
 }
 
-// undo
+/* =========================
+    UNDO BUTTON
+========================= */
 
 function deleteEntry(index) {
   lastDeleted = foodLog[index];

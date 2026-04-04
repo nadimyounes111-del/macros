@@ -7,14 +7,19 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
     <title>Tracker</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/summary-table.css" />
+    <link rel="stylesheet" href="css/food-log.css" />
+    <link rel="stylesheet" href="css/svg.css" />
   </head>
+
   <body>
     <div id="app">
-      <!-- FOOD LOG -->
+      <!-- ========================= FOOD LOG ========================= -->
       <div id="log-wrapper">
         <div id="food-log">
-          <!-- Header Row -->
+          <!-- ========================= LOG HEADER ========================= -->
           <div class="log-row log-header">
             <div class="col-check"></div>
             <div class="col-food">Food</div>
@@ -39,10 +44,10 @@
             </div>
           </div>
 
-          <!-- Log Body -->
+          <!-- ========================= LOG BODY ========================= -->
           <div id="log-body"></div>
 
-          <!-- Add Row -->
+          <!-- ========================= ADD ROW ========================= -->
           <div class="log-row" id="add-row">
             <div class="col-check">
               <button id="custom-toggle" onclick="toggleCustomMode()">
@@ -88,10 +93,12 @@
         </div>
       </div>
 
-      <!-- SUMMARY ROW -->
+      <!-- ========================= SUMMARY TABLE ========================= -->
       <div id="summary-section">
         <div id="summary-log">
           <div id="summary-row">
+            <!-- ========================= CALORIE SUM =========================
+            -->
             <div class="macro-card">
               <div class="macro-header">
                 <svg
@@ -107,7 +114,7 @@
                 <span class="macro-val" id="sum-cal">0</span>
                 <span id="warn-cal" style="display: none">
                   <svg
-                    class="warn-icon"
+                    class="warn-svg"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 640 640"
                     fill="currentColor"
@@ -124,6 +131,8 @@
               </div>
             </div>
 
+            <!-- ========================= PROTEIN SUM =========================
+            -->
             <div class="macro-card">
               <div class="macro-header">
                 <svg
@@ -139,7 +148,7 @@
                 <span class="macro-val" id="sum-pro">0</span>
                 <span id="warn-pro" style="display: none">
                   <svg
-                    class="warn-icon"
+                    class="warn-svg"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 640 640"
                     fill="currentColor"
@@ -156,6 +165,7 @@
               </div>
             </div>
 
+            <!-- ========================= CARB SUM ========================= -->
             <div class="macro-card">
               <div class="macro-header">
                 <svg
@@ -171,7 +181,7 @@
                 <span class="macro-val" id="sum-carb">0</span>
                 <span id="warn-carb" style="display: none">
                   <svg
-                    class="warn-icon"
+                    class="warn-svg"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 640 640"
                     fill="currentColor"
@@ -188,6 +198,7 @@
               </div>
             </div>
 
+            <!-- ========================= FAT SUM ========================= -->
             <div class="macro-card">
               <div class="macro-header">
                 <svg
@@ -242,7 +253,7 @@
                 <span class="macro-val" id="sum-fat">0</span>
                 <span id="warn-fat" style="display: none">
                   <svg
-                    class="warn-icon"
+                    class="warn-svg"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 640 640"
                     fill="currentColor"
@@ -254,6 +265,8 @@
                 </span>
               </div>
 
+              <!-- ========================= PROGRESS BARS
+              ========================= -->
               <div class="macro-bar">
                 <div class="macro-fill" id="bar-fat"></div>
               </div>

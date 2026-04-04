@@ -1,6 +1,6 @@
 Food,Serving Size,Calories,Protein,Carbs,Fat
 #
-Almond Butter - Creamy - HEB,tbsp,95,3,3,8
+almond butter - Creamy - HEB,tbsp,95,3,3,8
 Almonds - Raw - HEB,100 g,571,21.5,21.5,50
 Apple,100 g,52,0.4,12,0
 Asparagus,oz,6,0.7,0.8,0
@@ -79,6 +79,8 @@ Potbelly - Southwest Avo Chk Wrap,x,710,60,48,36
 Pretzels - Milk Chocolate - Flipz,x,17.5,0.25,2.6,0.6
 Protein Powder - Chocolate - Isoflex,scoop,120,27,2,0.5
 Protein Powder - Chocolate - Whey Protein,scoop,120,24,4,1.5
+Protein Powder - Vanilla Ice Cream - Whey Protein,scoop,120,24,4,1.5
+Protein Powder - Peanut Butter - Isoflex,scoop,120,27,2,1
 Quinoa - Tri-color - HEB,cup,640,24,120,12
 Ramen - Beef - Top Ramen,packet,380,9,54,14
 Ramen - Chicken - Top Ramen,packet,380,9,52,14

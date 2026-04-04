@@ -1,0 +1,270 @@
+/* =========================
+    GENERAL
+========================= */
+
+#log-wrapper {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+#food-log {
+  background-color: var(--table-bg);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.log-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.col-check {
+  flex: 0 0 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-food {
+  flex: 2 1 0;
+  min-width: 80px;
+  text-align: left;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+
+.col-servings {
+  flex: 1 1 0;
+  min-width: 60px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 5px;
+}
+
+.col-cal,
+.col-pro,
+.col-carb,
+.col-fat {
+  flex: 1 1 0;
+  min-width: 30px;
+  text-align: right;
+  border-radius: 5px;
+}
+
+.col-cal,
+.col-pro,
+.col-carb,
+.col-fat,
+.col-food,
+.col-servings {
+  font-size: var(--text);
+}
+
+.col-del {
+  flex: 0 0 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+}
+
+.serving-edit {
+  width: clamp(25px, 17.9px + 2.23vw, 50px);
+  background-color: var(--light-gray);
+  border-radius: 5px;
+  padding: 4px 6px;
+  border: none;
+  color: white;
+  font-size: var(--text);
+  text-align: right;
+  font-family: "Cal Sans";
+}
+
+.serving-edit:focus {
+  outline: none;
+}
+
+.serving-edit::-webkit-inner-spin-button,
+.serving-edit::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.serving-unit {
+  color: var(--white);
+  font-size: var(--text);
+  white-space: nowrap;
+}
+
+button:has(.delete-svg) {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+button:has(.check-svg) {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+button[data-checked="false"] .check-svg {
+  color: var(--light-gray);
+}
+
+button[data-checked="true"] .check-svg {
+  color: var(--green);
+}
+
+#log-body .log-row:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+}
+
+/* =========================
+    HEADER
+========================= */
+
+.log-header {
+  margin-bottom: 4px;
+}
+
+.log-header .col-food,
+.log-header .col-servings,
+.log-header .col-cal,
+.log-header .col-pro,
+.log-header .col-carb,
+.log-header .col-fat {
+  background-color: var(--dark-blue);
+  font-size: var(--text);
+  text-align: right;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.log-header .col-food {
+  text-align: left;
+}
+
+.log-header .col-check,
+.log-header .col-del {
+  background-color: transparent;
+}
+
+button:has(.undo-svg) {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* =========================
+    AUTOCOMPLETE LIST
+========================= */
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#autocomplete-list {
+  position: fixed;
+  background-color: var(--dark-blue);
+  color: white;
+  max-height: 200px;
+  border-radius: 10px;
+  padding: 5px;
+  width: max-content;
+  overflow-y: auto;
+  z-index: 9999;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+#autocomplete-list:empty {
+  display: none;
+}
+
+#autocomplete-list li {
+  padding: 6px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: var(--text);
+}
+
+/* =========================
+    ADD ROW
+========================= */
+
+#add-row {
+  margin: 0;
+}
+
+#add-row input[type="text"],
+#add-row input[type="number"] {
+  background: transparent;
+  border: none;
+  color: white;
+  font-family: "Cal Sans";
+  font-size: var(--text);
+  padding: 3px 0;
+  width: 100%;
+}
+
+#add-row input[type="number"] {
+  width: 50px;
+}
+
+#add-row input:focus {
+  outline: none;
+  border-bottom-color: var(--orange);
+}
+
+#add-row input[type="number"]::-webkit-inner-spin-button,
+#add-row input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+#serving-size-label {
+  color: var(--light-gray);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+#cal-preview,
+#pro-preview,
+#carb-preview,
+#fat-preview {
+  color: var(--light-gray);
+}
+
+#add-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#custom-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

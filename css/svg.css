@@ -1,0 +1,68 @@
+/* =========================
+    SVG
+========================= */
+
+.add-svg {
+  width: 30px;
+  height: 30px;
+  color: var(--green);
+}
+
+.delete-svg {
+  width: 28px;
+  height: 28px;
+  color: red;
+}
+
+.check-svg {
+  width: 30px;
+  height: 30px;
+}
+
+.undo-svg {
+  width: 28px;
+  height: 28px;
+  color: var(--light-gray);
+}
+
+.cal-svg {
+  width: 22px;
+  height: 22px;
+  color: var(--light-blue);
+}
+
+.pro-svg {
+  width: 22px;
+  height: 22px;
+  color: var(--orange);
+}
+
+.carb-svg {
+  width: 22px;
+  height: 22px;
+  color: #facc15;
+}
+
+.fat-svg {
+  width: 22px;
+  height: 22px;
+  color: var(--green);
+}
+
+.warn-svg {
+  width: 22px;
+  height: 22px;
+  color: #ffdd00;
+  vertical-align: middle;
+}
+
+#custom-toggle .custom-svg {
+  width: 28px;
+  height: 28px;
+  color: var(--light-gray);
+  transition: color 0.2s ease;
+}
+
+#custom-toggle.active .custom-svg {
+  color: var(--light-blue);
+}
