@@ -1,115 +1,118 @@
 Food,Serving Size,Calories,Protein,Carbs,Fat
 #
-creamy Almond Butter - HEB,tbsp,95,3,3,8
-raw Almonds - HEB,g,5.71,0.22,0.22,0.5
-Apple,g,0.52,0,0.12,0
+Almond Butter - Creamy - HEB,tbsp,95,3,3,8
+Almonds - Raw - HEB,100 g,571,21.5,21.5,50
+Apple,100 g,52,0.4,12,0
 Asparagus,oz,6,0.7,0.8,0
-Avocado,g,1.27,0.01,0.06,0.12
-plain Bagel - Thomas',ct,270,10,53,1.5
-Banana,g,0.57,0,0.13,0
-Black Beans - Goya,pc,455,28,80.5,1.75
-green Bell Pepper,oz,6,0.2,1.4,0
-Black Beans - HEB,ct,385,24.5,73.5,0
-whole wheat Bread - Nature's Own,ct,60,3,12,0.5
-Broccoli Florets - Bonipak,g,0.35,0.035,0.047,0
-Broccoli Florets - HEB,g,0.41,0.025,0.07,0
-original Butter - Country Crock,tbsp,50,0,0,5
-Cheddar Cheese Reduced Fat - HEB,oz,90,8,1,6
-Cheddar Cheese Shredded Fat Free - HEB,cup,180,36,12,0
+Avocado,100 g,127,1.3,6,12
+Bagel - Plain - Thomas',x,270,10,53,1.5
+Banana,100 g,57,0.5,13.5,0
+Black Beans - Goya,can,455,28,80.5,1.75
+Bell Pepper - Green,oz,6,0.2,1.4,0
+Black Beans - HEB,cup,385,24.5,73.5,0
+Bread - Whole Wheat - Nature's Own,x,60,3,12,0.5
+Broccoli Florets - Bonipak,100 g,35,3.5,4.7,0
+Broccoli Florets - HEB,100 g,41,2.5,7,0
+Butter - Original - Country Crock,tbsp,50,0,0,5
+Cheddar Cheese - 2% Milk Reduced Fat - HEB,oz,90,8,1,6
+Cheddar Cheese Shredded - Fat Free - HEB,cup,180,36,12,0
 Chicken Breast - Hill County Fare,oz,30,5.75,0,0.75
-Chipotle Bowl WR/BB/C/P,ct,535,44,66,13
-Chipotle Bowl WR/BB/C/P/SC,ct,645,46,68,22
-Chipotle Bowl WR/BB/C/P/SC/G,ct,885,48,76,44
-Chips Lightly Salted - Pringles,pc,10,0.1,1,0.6
-Chop Shop - Teriyaki Chk + Brown R + Roasted Veg,ct,797,44.5,113,21
-chocolate Cliff Bar - Builders Protein,pc,280,20,31,9
-Cottage Cheese 4% Milk Fat - Breakstone's,cup,240,24,12,10
+Chipotle - Bowl White R + Black B + Chk + Tomato,bowl,535,44,66,13
+Chipotle - Bowl White R + Black B + Chk + Tomato + Sour C,bowl,645,46,68,22
+Chipotle - Bowl White R + Black B + Chk + Tomato + Sour C + Guac,bowl,885,48,76,44
+Chips - Lightly Salted - Pringles,x,10,0.1,1,0.6
+Chop Shop - Teriyaki Chk + Brown R + Roasted Veg,x,797,44.5,113,21
+Cliff Bar - Chocolate - Builders Protein,x,280,20,31,9
+Corn - Whole Kernel - Hill Country Fare,cup,160,2,34,2
+Cottage Cheese - 4% Milk Fat - Breakstone's,cup,240,24,12,10
 Cream Cheese - Philadelphia,tbsp,30,1.5,1,2.6
-plain Croissant - HEB Bakery,ct,290,5,31,16
-apple Danish - Bon Appetit,ct,500,6,54,26
-blueberry Danish - Bon Appetit,ct,480,6,52,26
-Dumplings - Crispy Spicy Chk & Veg - Bibigo,ct,550,18,63,25
-Lage brown eggs - HEB,ct,70,6,0,5
-Regular Cut Fries - Hill County Fare,oz,43.3,0.7,7,1.3
-Frozen Berries & Cherries Blend - HEB,g,0.50,,0.12,
-Frozen Dragon Fruit Tropical Medley - HEB,g,0.64,,0.157,0
-Classic Granola - Red Mill,cup,440,12,84,6
-Granola Nut Crunch - HEB,cup,435,9,52.5,21
-Greek Yogurt 2% - Fage Total,ct,120,12,13,2.5
-Ground Beef 93/7 - HEB,oz,43,6,0,2
-Ground Turkey 85/15 - HEB,oz,60,5,0,4
-Ground Turkey 93/7 - HEB,oz,40,6,0,2
-Hamburger Seeded Buns - HEB,ct,180,6,33,2.5
+Croissant - Plain - HEB Bakery,x,290,5,31,16
+Danish - Apple - Bon Appetit,x,500,6,54,26
+Danish - Blueberry - Bon Appetit,x,480,6,52,26
+Dominos - Parmesan Bread Bites,pc,52.5,1,7,2
+Dumplings - Crispy Spicy Chk & Veg - Bibigo,bag,550,18,63,25
+Egg - Brown Large Cage Free - HEB,x,70,6,0,5
+Fries - Regular Cut - Hill County Fare,oz,43.3,0.7,7,1.3
+Frozen Fruits - Berries & Cherries Blend - HEB,100 g,50,0.7,12,0.35
+Frozen Fruits - Dragon Fruit Tropical Medley - HEB,100 g,64,0.7,15.7,0
+Granola - Classic - Red Mill,cup,440,12,84,6
+Granola - Nut Crunch - HEB,cup,435,9,52.5,21
+Greek Yogurt 2% - Fage Total,cup,120,12,13,2.5
+Ground Beef - 93% - HEB,oz,43,6,0,2
+Ground Turkey - 85% - HEB,oz,60,5,0,4
+Ground Turkey - 93% - HEB,oz,40,6,0,2
+Hamburger Seeded Buns - HEB,bun,180,6,33,2.5
 Honey - Wildflower - Goodflow Honey,tbsp,70,0,17,0
-Ice Cream Chocolate Caramel Brownie - Halo Top,ct,360,19,72,8
-Ice Cream Chocolate Ice Cream Cake - Halo Top,ct,360,18,69,11
-Ice Cream Cookies & Cream - Halo Top,ct,310,16,69,6
-Ice Cream Sea Salt Caramel - Halo Top,ct,300,16,68,5
-apricot Jam - Smucker's,tbsp,50,0,13,0
-Blackberry Jam - HEB,tbsp,30,0,7,0
-Blackberry Jam - Smucker's,tbsp,50,0,13,0
-Strawberry Jam - Smucker's,tbsp,50,0,13,0
+Ice Cream - Chocolate Caramel Brownie - Halo Top,x,360,19,72,8
+Ice Cream - Chocolate Ice Cream Cake - Halo Top,x,360,18,69,11
+Ice Cream - Cookies & Cream - Halo Top,x,310,16,69,6
+Ice Cream - Sea Salt Caramel - Halo Top,x,300,16,68,5
+Jam - Apricot - Smucker's,tbsp,50,0,13,0
+Jam - Blackberry - HEB,tbsp,30,0,7,0
+Jam - Blackberry - Smucker's,tbsp,50,0,13,0
+Jam - Strawberry - Smucker's,tbsp,50,0,13,0
 Ketchup - Heinz,tbsp,20,0,5,0
 Korean BBQ Sauce - Primal Kitchen,tbsp,10,0,3,0.5
-Milk 2% Reduced Fat - Shamrock,cup,140,9,14,5
-Almond milk Unsweetened - Highest Harvest HEB,cup,30,1,1,3
-Whole milk - HEB,cup,150,8,12,8
-Shredded Mozzarella Low Moist Part Skim - Hill Country Fare,cup,320,24,8,24
+Milk - 2% Reduced Fat - Shamrock,cup,140,9,14,5
+Milk - Almond Unsweetened - Highest Harvest HEB,cup,30,1,1,3
+Milk - Whole - HEB,cup,150,8,12,8
+Mozzarella - Shredded Low Moist Part Skim - Hill Country Fare,cup,320,24,8,24
 Mustard - French's,tbsp,0,0,0,0
-Old Fashioned oats - HEB,cup,300,10,54,5
-Vegetable oil - Hill Country Fare,tbsp,120,0,0,14
-Olive Oil Extra Virgin - Bertolli,tbsp,120,0,0,14
+Oats - Old Fashioned - HEB,cup,300,10,54,5
+Oil - Vegetable - Hill Country Fare,tbsp,120,0,0,14
+Olive - Oil Extra Virgin- Bertolli,tbsp,120,0,0,14
 Onion,oz,11,0.3,2.6,0
-Panda - Bowl Chow Mein + Honey Sesame,ct,940,31,129,38
-Panda - Bowl Chow Mein + Orange Chk,ct,1110,41,147,47
-Panda - Bowl Fried Rice + Honey Sesame Chk,ct,960,29,136,34
-Panda - Bowl Fried Rice + Orange Chk,ct,1130,39,154,43
-Panda - Rangoons,ct,63.3,1.7,8,2.7
-Penne Rigate Whole Wheat Pasta - HEB,g,3.75,0.125,0.75,0.02
-rigatoni Pasta - HEB,g,3.57,0.125,0.75,0.018
-creamy Peanut Butter - Jif,tbsp,95,3.5,4,8
-Piada - Avocado Wrap,ct,1070,41,67,70
-Piada - Regular Carbonara + Penne + Grilled Chk,ct,1640,73,167,80
-Piada - Small Carbonara + Penne + Grilled Chk,ct,960,51,83,48
-Poctorn - Salted - HEB,ct,400,2,40,26
-Potbelly - Dream Bar,ct,430,4,54,23
-Potbelly - Southwest Avo Chk Wrap,ct,710,60,48,36
-Pretzels - Milk Chocolate - Flipz,pc,17.5,0.25,2.6,0.6
-Protein Powder Chocolate - Isoflex,scp,120,27,2,0.5
-Protein Powder Peanut Butter - Isoflex,scp,120,27,2,1
-Protein Powder Chocolate - Whey Protein,scp,120,24,4,1.5
+Panda - Bowl Chow Mein + Honey Sesame,x,940,31,129,38
+Panda - Bowl Chow Mein + Orange Chk,x,1110,41,147,47
+Panda - Bowl Fried Rice + Honey Sesame Chk,x,960,29,136,34
+Panda - Bowl Fried Rice + Orange Chk,x,1130,39,154,43
+Panda - Rangoons,x,190,5,24,8
+Pasta - Penne Rigate Whole Wheat - HEB,100 g,375,12.5,75,2
+Pasta - Rigatoni - HEB,100 g,357,12.5,75,1.8
+Peanut Butter - Creamy - Jif,tbsp,95,3.5,4,8
+Piada - Avocado Wrap,x,1070,41,67,70
+Piada - Regular Carbonara + Penne + Grilled Chk,x,1640,73,167,80
+Piada - Small Carbonara + Penne + Grilled Chk,x,960,51,83,48
+Popcorn - Salted - HEB,x,400,2,40,26
+Potbelly - Dream Bar,x,430,4,54,23
+Potbelly - Southwest Avo Chk Wrap,x,710,60,48,36
+Pretzels - Milk Chocolate - Flipz,x,17.5,0.25,2.6,0.6
+Protein Powder - Chocolate - Isoflex,scoop,120,27,2,0.5
+Protein Powder - Chocolate - Whey Protein,scoop,120,24,4,1.5
 Quinoa - Tri-color - HEB,cup,640,24,120,12
-Beef Ramen - Top Ramen,ct,380,9,54,14
-Chicken Ramen - Top Ramen,ct,380,9,52,14
-Brown rice Long Grain - HEB,cup,680,12,136,8
-White rice Long Grain - HEB,cup,640,12,144,0
-Caramel Rice Cake - Quaker,pc,50,0,11,0
-Rice Krispies Mini Squares,ct,45,0,8,1
-Atlantic Salmon Fillet - HEB,oz,60,5.75,0,3.75
-Sardines in Water - Chicken of the Sea,ct,120,11,0,8
-Alfredo Black Truffle sauce - Carbone,cup,440,12,8,40
-Alfredo Roasted Garlic sauce - Carbone,cup,400,3,2,9
-Marinara Tomato sauce - Yo Mama's,cup,120,2,10,9
-Schlotzskys - Deluxe Original Sandwich Medium,ct,890,61,74,40
-Schlotzskys - Original Sandwich Medium,ct,800,47,72,37
+Ramen - Beef - Top Ramen,packet,380,9,54,14
+Ramen - Chicken - Top Ramen,packet,380,9,52,14
+Rice - Brown Long Grain - HEB,cup,680,12,136,8
+Rice - White Long Grain - HEB,cup,640,12,144,0
+Rice Cake - Caramel - Quaker,x,50,0,11,0
+Rice Krispies - Mini Squares,x,45,0,8,1
+Salmon - Atlantic Fillet - HEB,oz,60,5.75,0,3.75
+Sardines - in Water - Chicken of the Sea,can,120,11,0,8
+Sauce - Alfredo Black Truffle - Carbone,cup,440,12,8,40
+Sauce - Alfredo Roasted Garlic - Carbone,cup,400,3,2,9
+Sauce - Marinara Tomato - Yo Mama's,cup,120,2,10,9
+Schlotzskys - Deluxe Original Sandwich Medium,x,890,61,74,40
+Schlotzskys - Original Sandwich Medium,x,800,47,72,37
+Shrimp - Bowers Homegrown,oz,23,5,0,0.15
 Shrimp - Gulf Large Raw Peeled - HEB,oz,18,4,0,0
 Soy Sauce - Kikkoman,tbsp,10,2,1,0
 Sriracha Mayo - Lee Kum Kee,tbsp,60,0,2,6
-Stir Fry Teriykai Beef,ct,380,9,56,13
-Subway - BMT,ct,1220,54,88,72
-Subway - Cookie Macadamia,ct,215,2,27,10
-Subway - Oven-Roasted Turkey (Mayo -> Mustard),ct,780,52,86,24
-Subway - Seasoned Steak Avo Sub,ct,920,70,90,32
-Subway - Sweet Onion Chicken Teriyaki,ct,860,58,110,22
+Stir Fry - Teriykai Beef,cup,380,9,56,13
+Subway - BMT,sub,1220,54,88,72
+Subway - Cookie Macadamia,x,215,2,27,10
+Subway - Oven-Roasted Turkey (Mayo -> Mustard),sub,780,52,86,24
+Subway - Seasoned Steak Avo Sub,sub,920,70,90,32
+Subway - Sweet Onion Chicken Teriyaki,sub,860,58,110,22
 Sweet Potato,oz,24,0.4,5.6,0
-Tilapia Fillets Lemon Pepper - HEB,oz,28,5.5,0.25,0.5
-Wheat tortilla - HEB,pc,100,3,17,2.5
-Tuna - HEB,ct,100,23,0,0.5
-Tuna - StarKist,ct,90,20,0,0.5
-Tuna - Bumble Bee,ct,120,24,3,1.5
-oven roasted Turkey Breast Sliced - HEB,pc,25,4.5,0.5,0.5
-mixed Vegetables - HEB,g,0.71,0.025,0.13,0
-Stir Fry Medley - HEB,g,0.35,0.024,0.08,0
-Yogurt - Yoplait,ct,140,5,26,1.5
+Tilapia - Fillets Lemon Pepper - HEB,oz,28,5.5,0.25,0.5
+Tortilla Wheat - HEB,x,100,3,17,2.5
+Tropical Punch 15g - Chobani,x,120,15,9,2
+Tuna - Chunk Light - HEB,can,100,23,0,0.5
+Tuna - Chunk Light in Water - StarKist,can,90,20,0,0.5
+Tuna - Light in Water - Bumble Bee,can,120,24,3,1.5
+Turkey Breast Sliced - Oven Roasted - HEB,slice,25,4.5,0.5,0.5
+Vegetables - Mixed- HEB,100 g,71,2.5,13,0
+Vegetables - Stir Fry Medley Mixed - HEB,100 g,35,2.4,8,0
+Yogurt - Yoplait,cup,140,5,26,1.5
 Zucchini,oz,5,0.4,0.9,0
 Lemon Juice,tbsp,0,0,0,0
