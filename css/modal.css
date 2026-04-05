@@ -1,0 +1,160 @@
+/* =========================
+    MODAL
+========================= */
+
+#add-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#modal-box {
+  position: relative;
+  background: var(--table-bg);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  width: 90%;
+  max-width: 420px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 0 20px;
+  font-size: 22px;
+}
+
+#modal-close-btn {
+  all: unset;
+  cursor: pointer;
+  color: var(--light-gray);
+  display: flex;
+}
+
+#modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+#modal-body input[type="text"],
+#modal-body input[type="number"] {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  font-family: "Cal Sans";
+  font-size: 15px;
+  padding: 10px 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#modal-servings input[type="number"]::-webkit-inner-spin-button,
+#modal-servings input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+#modal-body input:focus {
+  outline: none;
+}
+
+#modal-servings {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#modal-servings input {
+  width: 100px !important;
+}
+
+#modal-meal {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.meal-btn {
+  all: unset;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  border: 2px solid transparent;
+  color: var(--light-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  flex: 1;
+}
+
+.meal-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.meal-btn.active {
+  border-color: var(--light-blue);
+  color: var(--light-blue);
+}
+
+#modal-preview {
+  display: flex;
+  gap: 12px;
+  color: var(--light-gray);
+  font-size: var(--text);
+  margin: 10px 0;
+}
+
+#modal-preview span {
+  flex: 1;
+}
+
+#modal-preview b {
+  color: white;
+}
+
+#modal-footer {
+  padding: 0 20px 16px 20px;
+}
+
+#add-btn {
+  all: unset;
+  cursor: pointer;
+  background: var(--light-blue);
+  color: black;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+#open-modal-btn {
+  all: unset;
+  cursor: pointer;
+  background: var(--green);
+  padding: 5px 16px;
+  color: black;
+  border-radius: 10px;
+  font-size: var(--text);
+  margin: 10px 0;
+}

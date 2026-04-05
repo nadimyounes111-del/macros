@@ -98,7 +98,7 @@ function renderLog() {
     });
   });
 
-  setupAddRow();
+  setupAddFood();
   updateSummary();
 }
 
@@ -117,14 +117,14 @@ function toggleCustomMode() {
   }
 }
 
-function setupAddRow() {
+function setupAddFood() {
   const searchInput = document.getElementById("food-search");
   const autocompleteList = document.getElementById("autocomplete-list");
   const servingsInput = document.getElementById("servings");
   selectedFood = null;
 
   searchInput.value = "";
-  searchInput.placeholder = "Search...";
+  searchInput.placeholder = "Add From List . . .";
   servingsInput.value = "";
   updatePreview();
   setCustomMode(false);
@@ -178,12 +178,15 @@ function setupAddRow() {
   servingsInput.oninput = updatePreview;
 
   document.getElementById("add-btn").onclick = function () {
+    const activeMealBtn = document.querySelector(".meal-btn.active");
+    const meal = activeMealBtn ? activeMealBtn.dataset.meal : "Breakfast";
+
     if (selectedFood === "custom") {
       const name = searchInput.value.trim();
       if (!name) return;
       const entry = {
         food: name,
-        meal: document.getElementById("meal-select").value,
+        meal: meal,
         servings: 1,
         calories:
           parseInt(document.getElementById("cal-preview").dataset.input) || 0,
@@ -198,6 +201,7 @@ function setupAddRow() {
       foodLog.push(entry);
       saveLog();
       renderLog();
+      closeModal();
       return;
     }
 
@@ -207,7 +211,7 @@ function setupAddRow() {
 
     const entry = {
       food: selectedFood.Food,
-      meal: document.getElementById("meal-select").value,
+      meal: meal,
       servings: servings,
       calories: parseInt(
         (parseFloat(selectedFood.Calories) * servings).toFixed(0),
@@ -223,9 +227,9 @@ function setupAddRow() {
     foodLog.push(entry);
     saveLog();
     renderLog();
+    closeModal();
   };
 }
-
 function setCustomMode(on) {
   const servingsInput = document.getElementById("servings");
   const servingLabel = document.getElementById("serving-size-label");
@@ -272,7 +276,7 @@ function setCustomMode(on) {
     document.getElementById("pro-preview").innerHTML = "-";
     document.getElementById("carb-preview").innerHTML = "-";
     document.getElementById("fat-preview").innerHTML = "-";
-    searchInput.placeholder = "Search...";
+    searchInput.placeholder = "Add From List . . .";
   }
 }
 
@@ -406,3 +410,31 @@ function undoDelete() {
   saveLog();
   renderLog();
 }
+
+function openModal() {
+  document.getElementById("add-modal").style.display = "flex";
+}
+
+document.querySelectorAll(".meal-btn").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    document
+      .querySelectorAll(".meal-btn")
+      .forEach((b) => b.classList.remove("active"));
+    this.classList.add("active");
+  });
+});
+
+function closeModal() {
+  document.getElementById("add-modal").style.display = "none";
+}
+
+document.getElementById("modal-overlay").addEventListener("click", closeModal);
+
+document.querySelectorAll(".meal-btn").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    document
+      .querySelectorAll(".meal-btn")
+      .forEach((b) => b.classList.remove("active"));
+    this.classList.add("active");
+  });
+});

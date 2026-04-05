@@ -56,13 +56,7 @@
   vertical-align: middle;
 }
 
-#custom-toggle .custom-svg {
-  width: 28px;
-  height: 28px;
-  color: var(--light-gray);
-  transition: color 0.2s ease;
-}
-
-#custom-toggle.active .custom-svg {
-  color: var(--light-blue);
+#modal-close-btn svg {
+  width: 24px;
+  height: 24px;
 }
