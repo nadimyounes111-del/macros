@@ -133,12 +133,25 @@ button[data-checked="true"] .check-svg {
   border-radius: 5px;
 }
 
+.meal-header {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  justify-content: center;
+}
+
+.meal-label {
+  font-size: var(--text);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 /* =========================
     HEADER
 ========================= */
 
 .log-header {
-  margin-bottom: 4px;
+  margin: 0;
 }
 
 .log-header .col-food,
@@ -267,4 +280,23 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#meal-select {
+  background: transparent;
+  border: none;
+  color: var(--light-gray);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  font-family: "Cal Sans";
+}
+
+#meal-select:focus {
+  outline: none;
+}
+
+#meal-select option {
+  background: var(--dark-blue);
+  color: white;
 }

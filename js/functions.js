@@ -46,33 +46,56 @@ function renderLog() {
   const logBody = document.getElementById("log-body");
   logBody.innerHTML = "";
 
-  foodLog.forEach(function (entry, index) {
-    const unit = entry.servingSize || "";
+  const meals = ["Breakfast", "Lunch", "Snack", "Dinner"];
+  const mealColors = {
+    Breakfast: "#19a8cc",
+    Lunch: "#19a8cc",
+    Snack: "#19a8cc",
+    Dinner: "#19a8cc",
+  };
 
-    const row = document.createElement("div");
-    row.className = "log-row";
-    row.innerHTML = `
-      <div class="col-check">
-        <button onclick="toggleCheck(this, ${index})" data-checked="${entry.checked || false}">
-          ${entry.checked ? checkedSVG : uncheckedSVG}
-        </button>
-      </div>
-      <div class="col-food">${entry.food}</div>
-      <div class="col-servings">
-        <input class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)"/>
-        <span class="serving-unit">${unit}</span>
-      </div>
-<div class="col-cal">${Math.round(entry.calories)}</div>
-<div class="col-pro">${Math.round(entry.protein)}</div>
-<div class="col-carb">${Math.round(entry.carbs)}</div>
-<div class="col-fat">${Math.round(entry.fat)}</div>
-      <div class="col-del">
-        <button onclick="deleteEntry(${index})">
-          <svg class="delete-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM231 231C240.4 221.6 255.6 221.6 264.9 231L319.9 286L374.9 231C384.3 221.6 399.5 221.6 408.8 231C418.1 240.4 418.2 255.6 408.8 264.9L353.8 319.9L408.8 374.9C418.2 384.3 418.2 399.5 408.8 408.8C399.4 418.1 384.2 418.2 374.9 408.8L319.9 353.8L264.9 408.8C255.5 418.2 240.3 418.2 231 408.8C221.7 399.4 221.6 384.2 231 374.9L286 319.9L231 264.9C221.6 255.5 221.6 240.3 231 231z"/></svg>
-        </button>
-      </div>
+  meals.forEach(function (meal) {
+    const entries = foodLog.filter((e) => (e.meal || "Breakfast") === meal);
+    if (entries.length === 0) return;
+
+    const header = document.createElement("div");
+    header.className = "meal-header";
+    header.innerHTML = `
+     
+      <span class="meal-label" style="color:${mealColors[meal]}">${meal}</span>
+   
     `;
-    logBody.appendChild(row);
+    logBody.appendChild(header);
+
+    entries.forEach(function (entry) {
+      const index = foodLog.indexOf(entry);
+      const unit = entry.servingSize || "";
+
+      const row = document.createElement("div");
+      row.className = "log-row";
+      row.innerHTML = `
+        <div class="col-check">
+          <button onclick="toggleCheck(this, ${index})" data-checked="${entry.checked || false}">
+            ${entry.checked ? checkedSVG : uncheckedSVG}
+          </button>
+        </div>
+        <div class="col-food">${entry.food}</div>
+        <div class="col-servings">
+          <input class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)"/>
+          <span class="serving-unit">${unit}</span>
+        </div>
+        <div class="col-cal">${Math.round(entry.calories)}</div>
+        <div class="col-pro">${Math.round(entry.protein)}</div>
+        <div class="col-carb">${Math.round(entry.carbs)}</div>
+        <div class="col-fat">${Math.round(entry.fat)}</div>
+        <div class="col-del">
+          <button onclick="deleteEntry(${index})">
+            <svg class="delete-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM231 231C240.4 221.6 255.6 221.6 264.9 231L319.9 286L374.9 231C384.3 221.6 399.5 221.6 408.8 231C418.1 240.4 418.2 255.6 408.8 264.9L353.8 319.9L408.8 374.9C418.2 384.3 418.2 399.5 408.8 408.8C399.4 418.1 384.2 418.2 374.9 408.8L319.9 353.8L264.9 408.8C255.5 418.2 240.3 418.2 231 408.8C221.7 399.4 221.6 384.2 231 374.9L286 319.9L231 264.9C221.6 255.5 221.6 240.3 231 231z"/></svg>
+          </button>
+        </div>
+      `;
+      logBody.appendChild(row);
+    });
   });
 
   setupAddRow();
@@ -160,6 +183,7 @@ function setupAddRow() {
       if (!name) return;
       const entry = {
         food: name,
+        meal: document.getElementById("meal-select").value,
         servings: 1,
         calories:
           parseInt(document.getElementById("cal-preview").dataset.input) || 0,
@@ -183,6 +207,7 @@ function setupAddRow() {
 
     const entry = {
       food: selectedFood.Food,
+      meal: document.getElementById("meal-select").value,
       servings: servings,
       calories: parseInt(
         (parseFloat(selectedFood.Calories) * servings).toFixed(0),
