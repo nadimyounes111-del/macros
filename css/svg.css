@@ -60,3 +60,15 @@
   width: 24px;
   height: 24px;
 }
+
+.add-food-svg {
+  width: 28px;
+  height: 28px;
+  color: black;
+}
+
+.custom-svg {
+  width: 28px;
+  height: 28px;
+  color: var(--light-blue);
+}

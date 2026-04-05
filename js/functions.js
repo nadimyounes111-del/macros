@@ -156,10 +156,10 @@ function setupAddFood() {
       const li = document.createElement("li");
       li.textContent = food.Food;
       li.addEventListener("click", function () {
-        searchInput.value = food.Food;
         autocompleteList.innerHTML = "";
         selectedFood = food;
         setCustomMode(false);
+        searchInput.value = food.Food;
         updatePreview();
       });
       autocompleteList.appendChild(li);
@@ -188,14 +188,10 @@ function setupAddFood() {
         food: name,
         meal: meal,
         servings: 1,
-        calories:
-          parseInt(document.getElementById("cal-preview").dataset.input) || 0,
-        protein:
-          parseInt(document.getElementById("pro-preview").dataset.input) || 0,
-        carbs:
-          parseInt(document.getElementById("carb-preview").dataset.input) || 0,
-        fat:
-          parseInt(document.getElementById("fat-preview").dataset.input) || 0,
+        calories: parseInt(document.getElementById("cal-preview").value) || 0,
+        protein: parseInt(document.getElementById("pro-preview").value) || 0,
+        carbs: parseInt(document.getElementById("carb-preview").value) || 0,
+        fat: parseInt(document.getElementById("fat-preview").value) || 0,
         servingSize: "",
       };
       foodLog.push(entry);
@@ -234,22 +230,19 @@ function setCustomMode(on) {
   const servingsInput = document.getElementById("servings");
   const servingLabel = document.getElementById("serving-size-label");
   const searchInput = document.getElementById("food-search");
+  const ids = ["cal-preview", "pro-preview", "carb-preview", "fat-preview"];
 
   if (on) {
     servingsInput.style.display = "none";
     servingLabel.style.display = "none";
-    ["cal-preview", "pro-preview", "carb-preview", "fat-preview"].forEach(
-      function (id) {
-        const div = document.getElementById(id);
-        div.innerHTML = `<input class="serving-edit" type="number" min="0" placeholder="0"/>`;
-        div.querySelector("input").addEventListener("input", function () {
-          div.dataset.input = this.value;
-        });
-      },
-    );
     searchInput.value = "";
     searchInput.placeholder = "Custom Entry";
     searchInput.focus();
+    ids.forEach(function (id) {
+      const input = document.getElementById(id);
+      input.disabled = false;
+      input.value = "";
+    });
 
     const inputs = [
       "cal-preview",
@@ -258,13 +251,10 @@ function setCustomMode(on) {
       "fat-preview",
     ];
     inputs.forEach(function (id) {
-      document.getElementById(id).querySelector("input").onkeydown = function (
-        e,
-      ) {
+      document.getElementById(id).onkeydown = function (e) {
         if (e.key !== "Enter") return;
         const allFilled = inputs.every(function (i) {
-          const val = document.getElementById(i).querySelector("input").value;
-          return val !== "" && val !== null;
+          return document.getElementById(i).value !== "";
         });
         if (allFilled) document.getElementById("add-btn").click();
       };
@@ -272,11 +262,13 @@ function setCustomMode(on) {
   } else {
     servingsInput.style.display = "";
     servingLabel.style.display = "";
-    document.getElementById("cal-preview").innerHTML = "-";
-    document.getElementById("pro-preview").innerHTML = "-";
-    document.getElementById("carb-preview").innerHTML = "-";
-    document.getElementById("fat-preview").innerHTML = "-";
+    searchInput.value = "";
     searchInput.placeholder = "Add From List . . .";
+    ids.forEach(function (id) {
+      const input = document.getElementById(id);
+      input.disabled = true;
+      input.value = "";
+    });
   }
 }
 
@@ -284,10 +276,10 @@ function updatePreview() {
   if (!selectedFood || selectedFood === "custom") {
     if (selectedFood !== "custom") {
       document.getElementById("serving-size-label").textContent = "";
-      document.getElementById("cal-preview").textContent = "-";
-      document.getElementById("pro-preview").textContent = "-";
-      document.getElementById("carb-preview").textContent = "-";
-      document.getElementById("fat-preview").textContent = "-";
+      document.getElementById("cal-preview").value = "";
+      document.getElementById("pro-preview").value = "";
+      document.getElementById("carb-preview").value = "";
+      document.getElementById("fat-preview").value = "";
     }
     return;
   }
@@ -295,16 +287,16 @@ function updatePreview() {
   const unit = selectedFood["Serving Size"];
 
   document.getElementById("serving-size-label").textContent = unit;
-  document.getElementById("cal-preview").textContent = (
+  document.getElementById("cal-preview").value = (
     parseFloat(selectedFood.Calories) * servings
   ).toFixed(0);
-  document.getElementById("pro-preview").textContent = (
+  document.getElementById("pro-preview").value = (
     parseFloat(selectedFood.Protein) * servings
   ).toFixed(0);
-  document.getElementById("carb-preview").textContent = (
+  document.getElementById("carb-preview").value = (
     parseFloat(selectedFood.Carbs) * servings
   ).toFixed(0);
-  document.getElementById("fat-preview").textContent = (
+  document.getElementById("fat-preview").value = (
     parseFloat(selectedFood.Fat) * servings
   ).toFixed(0);
 }

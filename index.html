@@ -46,22 +46,6 @@
 
           <!-- ========================= LOG BODY ========================= -->
           <div id="log-body"></div>
-
-          <!-- ========================= ADD ROW ========================= -->
-          <div class="log-row" id="add-row">
-            <div class="col-check"></div>
-            <div class="col-food">
-              <button id="open-modal-btn" onclick="openModal()">
-                + Add Food
-              </button>
-            </div>
-            <div class="col-servings"></div>
-            <div class="col-cal"></div>
-            <div class="col-pro"></div>
-            <div class="col-carb"></div>
-            <div class="col-fat"></div>
-            <div class="col-del"></div>
-          </div>
         </div>
       </div>
 
@@ -254,20 +238,35 @@
       <div id="modal-box">
         <div id="modal-header">
           <span>Create Item</span>
-          <button id="modal-close-btn" onclick="closeModal()">
-            <svg
-              fill="currentColor"
-              viewBox="0 0 640 640"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM231 231C240.4 221.6 255.6 221.6 264.9 231L319.9 286L374.9 231C384.3 221.6 399.5 221.6 408.8 231C418.1 240.4 418.2 255.6 408.8 264.9L353.8 319.9L408.8 374.9C418.2 384.3 418.2 399.5 408.8 408.8C399.4 418.1 384.2 418.2 374.9 408.8L319.9 353.8L264.9 408.8C255.5 418.2 240.3 418.2 231 408.8C221.7 399.4 221.6 384.2 231 374.9L286 319.9L231 264.9C221.6 255.5 221.6 240.3 231 231z"
-              />
-            </svg>
-          </button>
+          <div style="display: flex; align-items: center; gap: 10px">
+            <button id="custom-toggle" onclick="toggleCustomMode()">
+              <svg
+                class="custom-svg"
+                fill="currentColor"
+                viewBox="0 0 640 640"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M535.6 85.7C513.7 63.8 478.3 63.8 456.4 85.7L432 110.1L529.9 208L554.3 183.6C576.2 161.7 576.2 126.3 554.3 104.4L535.6 85.7zM236.4 305.7C230.3 311.8 225.6 319.3 222.9 327.6L193.3 416.4C190.4 425 192.7 434.5 199.1 441C205.5 447.5 215 449.7 223.7 446.8L312.5 417.2C320.7 414.5 328.2 409.8 334.4 403.7L496 241.9L398.1 144L236.4 305.7zM160 128C107 128 64 171 64 224L64 480C64 533 107 576 160 576L416 576C469 576 512 533 512 480L512 384C512 366.3 497.7 352 480 352C462.3 352 448 366.3 448 384L448 480C448 497.7 433.7 512 416 512L160 512C142.3 512 128 497.7 128 480L128 224C128 206.3 142.3 192 160 192L256 192C273.7 192 288 177.7 288 160C288 142.3 273.7 128 256 128L160 128z"
+                />
+              </svg>
+            </button>
+            <button id="modal-close-btn" onclick="closeModal()">
+              <svg
+                fill="currentColor"
+                viewBox="0 0 640 640"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM231 231C240.4 221.6 255.6 221.6 264.9 231L319.9 286L374.9 231C384.3 221.6 399.5 221.6 408.8 231C418.1 240.4 418.2 255.6 408.8 264.9L353.8 319.9L408.8 374.9C418.2 384.3 418.2 399.5 408.8 408.8C399.4 418.1 384.2 418.2 374.9 408.8L319.9 353.8L264.9 408.8C255.5 418.2 240.3 418.2 231 408.8C221.7 399.4 221.6 384.2 231 374.9L286 319.9L231 264.9C221.6 255.5 221.6 240.3 231 231z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
         <div id="modal-body">
+          <!-- search mode -->
           <input
             type="text"
             id="food-search"
@@ -276,18 +275,35 @@
           />
           <ul id="autocomplete-list"></ul>
 
-          <!-- <span
-            style="display: flex; align-items: center; justify-content: center"
+          <!-- custom mode inputs (hidden by default) -->
+          <div
+            id="custom-inputs"
+            style="display: none; flex-direction: column; gap: 10px"
           >
-            or
-          </span>
+            <input type="text" id="custom-name" placeholder="Food name..." />
+            <div style="display: flex; gap: 10px">
+              <input
+                type="number"
+                id="custom-cal"
+                placeholder="Calories"
+                min="0"
+              />
+              <input
+                type="number"
+                id="custom-pro"
+                placeholder="Protein"
+                min="0"
+              />
+              <input
+                type="number"
+                id="custom-carb"
+                placeholder="Carbs"
+                min="0"
+              />
+              <input type="number" id="custom-fat" placeholder="Fat" min="0" />
+            </div>
+          </div>
 
-          <input
-            type="text"
-            id="food-search"
-            placeholder="Add Custom . . ."
-            autocomplete="off"
-          /> -->
           <div id="modal-servings">
             <input type="number" id="servings" placeholder="Servings" min="0" />
             <span id="serving-size-label"></span>
@@ -345,22 +361,38 @@
           </div>
 
           <div id="modal-preview">
-            <span>
-              Calories<br />
-              <b id="cal-preview">-</b>
-            </span>
-            <span>
-              Protein<br />
-              <b id="pro-preview">-</b>
-            </span>
-            <span>
-              Carbs<br />
-              <b id="carb-preview">-</b>
-            </span>
-            <span>
-              Fat<br />
-              <b id="fat-preview">-</b>
-            </span>
+            <span
+              >Calories<br /><input
+                class="serving-edit"
+                id="cal-preview"
+                type="number"
+                placeholder="0"
+                disabled
+            /></span>
+            <span
+              >Protein<br /><input
+                class="serving-edit"
+                id="pro-preview"
+                type="number"
+                placeholder="0"
+                disabled
+            /></span>
+            <span
+              >Carbs<br /><input
+                class="serving-edit"
+                id="carb-preview"
+                type="number"
+                placeholder="0"
+                disabled
+            /></span>
+            <span
+              >Fat<br /><input
+                class="serving-edit"
+                id="fat-preview"
+                type="number"
+                placeholder="0"
+                disabled
+            /></span>
           </div>
         </div>
 
@@ -368,6 +400,24 @@
           <button id="add-btn">Save</button>
         </div>
       </div>
+    </div>
+
+    <!-- ========================= ADD ROW ========================= -->
+
+    <div class="add-wrapper">
+      <button id="open-modal-btn" onclick="openModal()">
+        <svg
+          class="add-food-svg"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"
+        >
+          <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+          <path
+            d="M352 128C352 110.3 337.7 96 320 96C302.3 96 288 110.3 288 128L288 288L128 288C110.3 288 96 302.3 96 320C96 337.7 110.3 352 128 352L288 352L288 512C288 529.7 302.3 544 320 544C337.7 544 352 529.7 352 512L352 352L512 352C529.7 352 544 337.7 544 320C544 302.3 529.7 288 512 288L352 288L352 128z"
+          />
+        </svg>
+      </button>
     </div>
 
     <script src="js/papaparse.min.js"></script>
