@@ -430,3 +430,13 @@ document.querySelectorAll(".meal-btn").forEach(function (btn) {
     this.classList.add("active");
   });
 });
+
+let water = parseFloat(localStorage.getItem("water")) || 0;
+
+function adjustWater(amount) {
+  water = Math.max(0, parseFloat((water + amount).toFixed(1)));
+  localStorage.setItem("water", water);
+  document.getElementById("water-val").textContent = water + " L";
+}
+
+document.getElementById("water-val").textContent = water + " L";
