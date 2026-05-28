@@ -104,9 +104,10 @@ Sriracha Mayo - Lee Kum Kee,tbsp,60,0,2,6
 Stir Fry - Teriykai Beef,cup,380,9,56,13
 Subway - BMT,sub,1220,54,88,72
 Subway - Cookie Macadamia,x,215,2,27,10
-Subway - Oven-Roasted Turkey (Mayo -> Mustard),sub,780,52,86,24
+Subway - Oven-Roasted Turkey (Mayo > Mustard),sub,780,52,86,24
 Subway - Seasoned Steak Avo Sub,sub,920,70,90,32
 Subway - Sweet Onion Chicken Teriyaki,sub,860,58,110,22
+Subway - Black Forest Ham,sub,980,50,88,46
 Sweet Potato,oz,24,0.4,5.6,0
 Tilapia - Fillets Lemon Pepper - HEB,oz,28,5.5,0.25,0.5
 Tortilla Wheat - HEB,x,100,3,17,2.5
@@ -132,3 +133,8 @@ Rice Crisps Caramel - Quaker,pc,7,0.06,1.56,0.06
 Rice Crisps Apple Cinnamon - Quaker,pc,7,0.06,1.56,0.03
 Granola - Qatar,cup,810,24,114,30
 Dates,pc,41,0.24,9.8,0.14
+Chips - Sour Cream - Baked HEB,100g,393,7.14,78.54,7.14
+Chips - BBQ - Baked HEB,100g,393,7.14,78.54,7.14
+Sourdough - The Rustik Oven,slice,170,7,32,1.5
+Caramelized Onion & Gruyere Bread - Fresh & Simple,pack,840,30,126,27
+Vanilla Protein Shake 42g - Core Power,pc,230,42,8,3.5
