@@ -22,13 +22,6 @@
   gap: 5px;
 }
 
-.col-check {
-  flex: 0 0 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .col-food {
   flex: 2 1 0;
   min-width: 80px;
@@ -40,6 +33,29 @@
   border-radius: 5px;
 }
 
+.col-food::before {
+  content: attr(data-food);
+  position: absolute;
+  text-transform: none;
+  background-color: #1e2c59;
+  color: #19a8cc;
+  transform: translateY(clamp(25px, 23px + 0.625vw, 32px));
+  font-size: var(--text);
+  border-radius: 10px;
+  padding: clamp(3px, 2.43px + 0.179vw, 5px) clamp(6px, 4.86px + 0.357vw, 10px);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.col-food:hover::before {
+  transform: translateY(clamp(25px, 23px + 0.625vw, 32px));
+  opacity: 1;
+}
+
 .col-servings {
   flex: 1 1 0;
   min-width: 60px;
@@ -48,6 +64,14 @@
   align-items: center;
   gap: 5px;
   border-radius: 5px;
+}
+
+.col-check,
+.col-del {
+  display: flex;
+  margin: 0 3px 0 3px;
+  align-items: center;
+  justify-content: center;
 }
 
 .col-cal,
@@ -67,14 +91,6 @@
 .col-food,
 .col-servings {
   font-size: var(--text);
-}
-
-.col-del {
-  flex: 0 0 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 0;
 }
 
 .serving-edit {
@@ -221,90 +237,10 @@ ul {
 /* =========================
     ADD ROW
 ========================= */
-/* 
-#add-row {
-  margin: 0;
-}
-
-#add-row input[type="text"],
-#add-row input[type="number"] {
-  background: transparent;
-  border: none;
-  color: white;
-  font-family: "Cal Sans";
-  font-size: var(--text);
-  padding: 3px 0;
-  width: 100%;
-}
-
-#add-row input[type="number"] {
-  width: 50px;
-}
-
-#add-row input:focus {
-  outline: none;
-  border-bottom-color: var(--orange);
-}
-
-#add-row input[type="number"]::-webkit-inner-spin-button,
-#add-row input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-}
-
-#serving-size-label {
-  color: var(--light-gray);
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-#cal-preview,
-#pro-preview,
-#carb-preview,
-#fat-preview {
-  color: var(--light-gray);
-}
-
-#add-btn {
-  all: unset;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-#custom-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#meal-select {
-  background: transparent;
-  border: none;
-  color: var(--light-gray);
-  font-size: 14px;
-  cursor: pointer;
-  padding: 0;
-  font-family: "Cal Sans";
-}
-
-#meal-select:focus {
-  outline: none;
-}
-
-#meal-select option {
-  background: var(--dark-blue);
-  color: white;
-} */
 
 #water-section {
   max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 20px;
+  margin: 20px auto;
   padding: 0 20px;
 }
 
@@ -312,8 +248,9 @@ ul {
   background: var(--table-bg);
   border: 2px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
-  padding: 12px 20px;
+  padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
   display: flex;
+  max-width: 300px;
   align-items: center;
   justify-content: space-between;
 }
@@ -321,12 +258,14 @@ ul {
 #water-label {
   font-size: 15px;
   color: var(--white);
+  display: flex;
+  justify-content: center;
 }
 
 #water-controls {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 5px;
 }
 
 #water-controls button {
@@ -338,7 +277,6 @@ ul {
 }
 
 #water-val {
-  font-size: 18px;
-  min-width: 50px;
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
   text-align: center;
 }

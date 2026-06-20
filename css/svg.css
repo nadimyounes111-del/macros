@@ -9,49 +9,69 @@
 }
 
 .delete-svg {
-  width: 28px;
-  height: 28px;
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
   color: red;
 }
 
 .check-svg {
-  width: 30px;
-  height: 30px;
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
 }
 
 .undo-svg {
-  width: 28px;
-  height: 28px;
+  width: var(--svg);
+  height: var(--svg);
   color: var(--light-gray);
+  flex-shrink: 0;
 }
 
 .cal-svg {
-  width: 22px;
-  height: 22px;
+  width: var(--svg);
+  height: var(--svg);
   color: var(--light-blue);
+  flex-shrink: 0;
 }
 
 .pro-svg {
-  width: 22px;
-  height: 22px;
+  width: var(--svg);
+  height: var(--svg);
   color: var(--orange);
+  flex-shrink: 0;
 }
 
 .carb-svg {
-  width: 22px;
-  height: 22px;
+  width: var(--svg);
+  height: var(--svg);
   color: #facc15;
+  flex-shrink: 0;
 }
 
 .fat-svg {
-  width: 22px;
-  height: 22px;
+  width: var(--svg);
+  height: var(--svg);
   color: var(--green);
+  flex-shrink: 0;
+}
+
+.water-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: rgb(37, 198, 251);
+  flex-shrink: 0;
+}
+
+.water-btn-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: rgb(127, 127, 127);
 }
 
 .warn-svg {
-  width: 22px;
-  height: 22px;
+  width: var(--svg);
+  height: var(--svg);
   color: #ffdd00;
   vertical-align: middle;
 }

@@ -79,7 +79,7 @@ function renderLog() {
             ${entry.checked ? checkedSVG : uncheckedSVG}
           </button>
         </div>
-        <div class="col-food">${entry.food}</div>
+        <div class="col-food" data-food="${entry.food}">${entry.food}</div>
         <div class="col-servings">
           <input class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)"/>
           <span class="serving-unit">${unit}</span>

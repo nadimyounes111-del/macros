@@ -32,7 +32,8 @@
 }
 
 #summary-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(157px, 1fr));
   gap: 10px;
 }
 
@@ -41,11 +42,11 @@
 ========================= */
 
 .macro-card {
-  flex: 1;
   background-color: var(--table-bg);
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.08);
-  padding: 12px 14px;
+  padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
+  box-sizing: border-box;
 }
 
 .macro-header {

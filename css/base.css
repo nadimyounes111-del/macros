@@ -18,8 +18,8 @@
   --white: #ffffff;
   --green: #37e760;
   --light-blue: #19a8cc;
-
   --text: clamp(11px, 10px + 0.4vw, 16px);
+  --svg: clamp(16px, 15.14px + 0.536vw, 22px);
 }
 
 body {
