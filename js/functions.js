@@ -42,7 +42,8 @@ const creatineuncheckedSVG = `<svg class="creatine-svg" fill="currentColor" xmln
 
 function saveLog() {
   localStorage.setItem("foodLog", JSON.stringify(window.foodLog));
-  if (window.saveToFirestore) window.saveToFirestore(window.foodLog);
+  if (window.saveToFirestore)
+    window.saveToFirestore({ foodLog: window.foodLog });
 }
 
 function renderLog() {
@@ -445,7 +446,9 @@ function toggleCreatine(btn) {
   creatineTaken = !creatineTaken;
   localStorage.setItem("creatine", creatineTaken);
   btn.dataset.checked = creatineTaken;
-  btn.innerHTML = creatineTaken ? creatinecheckedSVG : creatineuncheckedSVG;
+  btn.innerHTML = creatineTaken ? checkedSVG : uncheckedSVG;
+  if (window.saveToFirestore)
+    window.saveToFirestore({ creatine: creatineTaken });
 }
 
 // open modal
@@ -480,6 +483,7 @@ function adjustWater(amount) {
   water = Math.max(0, parseFloat((water + amount).toFixed(1)));
   localStorage.setItem("water", water);
   document.getElementById("water-val").textContent = water + " L";
+  if (window.saveToFirestore) window.saveToFirestore({ water });
 }
 
 document.getElementById("water-val").textContent = water + " L";
