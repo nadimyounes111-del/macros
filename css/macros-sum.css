@@ -1,0 +1,115 @@
+/* #region ===== Cards ===== */
+
+.macro-cards-wrapper {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(157px, 1fr));
+  gap: 10px;
+}
+
+.macro-card {
+  background-color: var(--table-bg);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
+  box-sizing: border-box;
+}
+
+.macro-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(4px, 2.86px + 0.357vw, 8px);
+}
+
+.macro-val {
+  font-size: var(--text);
+  color: white;
+}
+
+/* #endregion */
+
+/* #region ===== SVGs & Fill Bar */
+
+.macro-bar {
+  height: 3px;
+  background: rgb(94, 93, 93);
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.macro-fill {
+  height: 3px;
+  border-radius: 2px;
+  background: white;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.sum-bar {
+  height: 4px;
+  background: #7a7979;
+  border-radius: 2px;
+  width: 80%;
+}
+
+.sum-fill {
+  height: 100%;
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+#bar-cal {
+  background: var(--light-blue);
+}
+
+#bar-pro {
+  background: var(--orange);
+}
+
+#bar-carb {
+  background: #facc15;
+}
+
+#bar-fat {
+  background: var(--green);
+}
+
+.cal-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-blue);
+  flex-shrink: 0;
+}
+
+.pro-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.carb-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: #facc15;
+  flex-shrink: 0;
+}
+
+.fat-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.warn-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: #ffdd00;
+  vertical-align: middle;
+}
+
+/* #endregion */

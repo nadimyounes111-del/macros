@@ -1,6 +1,10 @@
-/* =========================
-    GENERAL
-========================= */
+/* #region ===== Layout & Title  ===== */
+
+#log-body {
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
 
 #log-wrapper {
   max-width: 1200px;
@@ -16,11 +20,88 @@
   max-width: 1200px;
 }
 
-.log-row {
+.title-wrap {
+  margin-bottom: 10px;
   display: flex;
+  flex-direction: row;
+  gap: clamp(2px, 1.82px + 0.179vw, 5px);
   align-items: center;
-  gap: clamp(2px, 1.14px + 0.268vw, 5px);
 }
+
+.title-icon {
+  width: clamp(30px, 23.71px + 1.964vw, 52px);
+  height: clamp(30px, 23.71px + 1.964vw, 52px);
+  flex-shrink: 0;
+  color: var(--orange);
+}
+
+.title {
+  color: var(--orange);
+  font-size: clamp(24px, 17.14px + 2.143vw, 48px);
+}
+
+/* #endregion */
+
+/* #region ===== Header ===== */
+
+.log-header {
+  margin: 0;
+  background-color: var(--dark-blue);
+  border-radius: 8px 8px 0 0;
+  padding: 3px 0;
+}
+
+.log-header .col-food,
+.log-header .col-servings,
+.log-header .col-cal,
+.log-header .col-pro,
+.log-header .col-carb,
+.log-header .col-fat {
+  background-color: transparent;
+  font-size: var(--text);
+  text-align: right;
+  padding: 3px;
+  color: var(--light-blue);
+}
+
+.log-header .col-food {
+  text-align: left;
+}
+
+/* #endregion */
+
+/* #region ===== Serving ===== */
+
+.serving-edit {
+  width: clamp(25px, 17.9px + 2.23vw, 50px);
+  background-color: var(--light-gray);
+  border-radius: 5px;
+  padding: 4px 6px;
+  border: none;
+  color: white;
+  font-size: var(--text);
+  text-align: right;
+  font-family: "Cal Sans";
+}
+
+.serving-edit:focus {
+  outline: none;
+}
+
+.serving-edit::-webkit-inner-spin-button,
+.serving-edit::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.serving-unit {
+  color: var(--white);
+  font-size: var(--text);
+  white-space: nowrap;
+}
+
+/* #endregion */
+
+/* #region ===== Columns ===== */
 
 .col-food {
   flex: 2 1 0;
@@ -93,61 +174,14 @@
   font-size: var(--text);
 }
 
-.serving-edit {
-  width: clamp(25px, 17.9px + 2.23vw, 50px);
-  background-color: var(--light-gray);
-  border-radius: 5px;
-  padding: 4px 6px;
-  border: none;
-  color: white;
-  font-size: var(--text);
-  text-align: right;
-  font-family: "Cal Sans";
-}
+/* #endregion */
 
-.serving-edit:focus {
-  outline: none;
-}
+/* #region ===== Rows ===== */
 
-.serving-edit::-webkit-inner-spin-button,
-.serving-edit::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-}
-
-.serving-unit {
-  color: var(--white);
-  font-size: var(--text);
-  white-space: nowrap;
-}
-
-button:has(.delete-svg) {
-  all: unset;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-button:has(.check-svg) {
-  all: unset;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-button[data-checked="false"] .check-svg {
-  color: var(--light-gray);
-}
-
-button[data-checked="true"] .check-svg {
-  color: var(--green);
-}
-
-#log-body {
-  gap: 5px;
+.log-row {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: clamp(2px, 1.14px + 0.268vw, 5px);
 }
 
 .log-row.row-alt {
@@ -158,7 +192,11 @@ button[data-checked="true"] .check-svg {
   opacity: 0.4;
 }
 
-.header-wrap {
+/* #endregion */
+
+/* #region ===== Meal Header ===== */
+
+.meal-header-wrap {
   display: flex;
   flex-direction: row;
   gap: 5px;
@@ -175,134 +213,26 @@ button[data-checked="true"] .check-svg {
 .meal-label {
   font-size: var(--text);
   white-space: nowrap;
-  color: var(--light-gray);
+  color: var(--light-blue);
 }
 
 .meal-protein {
   font-size: var(--text);
   white-space: nowrap;
-  color: var(--light-gray);
+  color: var(--light-blue);
   text-transform: none;
 }
 
-/* =========================
-    HEADER
-========================= */
-.log-header {
-  margin: 0;
-  background-color: var(--dark-blue);
-  border-radius: 8px 8px 0 0;
-  padding: 3px 0;
-}
-
-.log-header .col-food,
-.log-header .col-servings,
-.log-header .col-cal,
-.log-header .col-pro,
-.log-header .col-carb,
-.log-header .col-fat {
-  background-color: transparent;
-  font-size: var(--text);
-  text-align: right;
-  padding: 3px;
+.pro-svg-table {
+  width: var(--svg);
+  height: var(--svg);
   color: var(--light-blue);
+  flex-shrink: 0;
 }
 
-.log-header .col-food {
-  text-align: left;
-}
+/* #endregion */
 
-/* button:has(.undo-svg) {
-  all: unset;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-} */
-
-/* =========================
-    AUTOCOMPLETE LIST
-========================= */
-
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-#autocomplete-list {
-  position: fixed;
-  background-color: var(--dark-blue);
-  color: white;
-  max-height: 200px;
-  border-radius: 10px;
-  padding: 5px;
-  width: max-content;
-  overflow-y: auto;
-  z-index: 9999;
-  border: 2px solid rgba(255, 255, 255, 0.08);
-}
-
-#autocomplete-list:empty {
-  display: none;
-}
-
-#autocomplete-list li {
-  padding: 6px 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: var(--text);
-}
-
-/* =========================
-    ADD ROW
-========================= */
-
-#water-section {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
-}
-
-#water-counter {
-  background: var(--table-bg);
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
-  display: flex;
-  max-width: 280px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#water-label {
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
-  color: var(--white);
-  display: flex;
-  justify-content: center;
-}
-
-#water-controls {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-#water-controls button {
-  all: unset;
-  cursor: pointer;
-  font-size: 24px;
-  color: var(--light-blue);
-  line-height: 1;
-}
-
-#water-val {
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
-  text-align: center;
-  width: 45px;
-}
-
-/* empty state */
+/* #region ===== Empty State ===== */
 
 #empty-state {
   text-align: center;
@@ -328,3 +258,46 @@ ul {
   font-size: var(--text);
   color: var(--light-gray);
 }
+
+/* #endregion */
+
+/* #region ===== Buttons & SVGs ===== */
+
+button:has(.delete-svg) {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+button:has(.check-svg) {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+button[data-checked="false"] .check-svg {
+  color: var(--light-gray);
+}
+
+button[data-checked="true"] .check-svg {
+  color: var(--green);
+}
+
+.delete-svg {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+  color: red;
+}
+
+.check-svg {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+}
+
+/* #endregion */
