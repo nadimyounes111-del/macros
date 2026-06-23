@@ -8,7 +8,7 @@
 }
 
 body {
-  margin: 5px;
+  margin: 15px;
   font-family: "Cal Sans";
   background: var(--bg);
   user-select: none;

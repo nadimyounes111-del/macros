@@ -1,54 +1,67 @@
-/* #region ===== Water ===== */
+/* #region ===== Combined Classes ===== */
 
-#water-section {
+.trackers-wrapper {
   max-width: 1200px;
   margin: 20px auto;
-  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(157px, 1fr));
+  gap: 10px;
 }
 
-#water-counter {
-  background: var(--table-bg);
-  border: 2px solid rgba(255, 255, 255, 0.08);
+.water-counter,
+.creatine-counter {
+  background-color: var(--table-bg);
   border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
   padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
+  box-sizing: border-box;
   display: flex;
-  max-width: 280px;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
 
-#water-label {
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
-  color: var(--white);
+.water-label-wrap,
+.creatine-label-wrap {
   display: flex;
   justify-content: center;
+  gap: 5px;
 }
 
-#water-controls {
+.water-label,
+.creatine-label {
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  color: var(--white);
+}
+
+.water-svg,
+.creatine-svg {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+}
+
+/* #endregion */
+
+/* #region ===== Singular Classes ===== */
+
+/* Water */
+.water-svg {
+  color: rgb(37, 198, 251);
+}
+
+.water-controls {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-#water-controls button {
+.water-controls button {
   all: unset;
   cursor: pointer;
   font-size: 24px;
   color: var(--light-blue);
   line-height: 1;
-}
-
-#water-val {
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
-  text-align: center;
-  width: 45px;
-}
-
-.water-svg {
-  width: var(--svg);
-  height: var(--svg);
-  color: rgb(37, 198, 251);
-  flex-shrink: 0;
 }
 
 .water-btn-svg {
@@ -57,33 +70,13 @@
   color: rgb(161, 161, 161);
 }
 
-/* #endregion */
-
-/* #region ===== Creatine ===== */
-
-#creatine-section {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
+#water-val {
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  text-align: center;
+  width: 45px;
 }
 
-#creatine-counter {
-  background: var(--table-bg);
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
-  display: flex;
-  max-width: 280px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#creatine-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
+/* Creatine */
 #creatine-check-btn {
   all: unset;
   display: inline-flex;
@@ -93,8 +86,6 @@
 }
 
 .creatine-svg {
-  width: var(--svg);
-  height: var(--svg);
   color: #aa6ae5;
 }
 

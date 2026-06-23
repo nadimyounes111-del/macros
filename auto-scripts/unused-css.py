@@ -10,21 +10,22 @@ from collections import defaultdict
 PROJECT_ROOT = "/Users/nadimyounes/Desktop/Macros" 
 
 CSS_FILES = [
+    "css/add-modal.css",
+    "css/base.css",
     "css/buttons.css",
     "css/food-log.css",
-    "css/summary-table.css",
-    "css/svg.css",
-    "cssNEW/base.css",
-    "cssNEW/buttons.css",
-    "cssNEW/food-log.css",
-    "cssNEW/macros.css",
-    "cssNEW/modals.css",
-    "cssNEW/trackers.css",
+    "css/macros-sum.css",
+    "css/trackers.css"
 ]
 
 HTML_JS_FILES = [
     "index.html",
-    "js/functions.js"
+    "js/libraries/firebase.js",
+    "js/buttons.js",
+    "js/config.js",
+    "js/food-log.js",
+    "js/macros-sum.js",
+    "js/trackers.js",
 ]
 
 PSEUDO = {
@@ -33,8 +34,7 @@ PSEUDO = {
     "not", "is", "where", "has", "root", "before", "after", "placeholder",
     "focus-within", "focus-visible", "empty", "target", "required", "optional",
     "valid", "invalid", "read-only", "read-write", "link", "ttf", "woff",
-    "woff2", "eot", "svg", "otf", "region", "endregion", "cosmic", "tech",
-    "mutant", "skill", "science", "mystic" ,
+    "woff2", "eot", "svg", "otf", "region", "endregion", "row-alt"
 }
 
 # used to ignore hex codes after (#) when looking for IDs

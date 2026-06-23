@@ -3,7 +3,6 @@
 .macro-cards-wrapper {
   max-width: 1200px;
   margin: 20px auto;
-  padding: 0 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(157px, 1fr));
   gap: 10px;
@@ -43,20 +42,6 @@
   height: 3px;
   border-radius: 2px;
   background: white;
-  width: 0%;
-  transition: width 0.3s ease;
-}
-
-.sum-bar {
-  height: 4px;
-  background: #7a7979;
-  border-radius: 2px;
-  width: 80%;
-}
-
-.sum-fill {
-  height: 100%;
-  border-radius: 2px;
   width: 0%;
   transition: width 0.3s ease;
 }

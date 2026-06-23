@@ -14,7 +14,7 @@
 
   <body>
     <!-- Food Log -->
-    <div id="log-wrapper">
+    <div class="log-wrapper">
       <!-- Title -->
       <div class="title-wrap">
         <svg
@@ -29,6 +29,7 @@
         </svg>
         <span class="title" id="day-title"></span>
       </div>
+
       <div id="food-log">
         <!-- Header -->
         <div class="log-row log-header">
@@ -456,10 +457,10 @@
     </div>
 
     <!-- Water Tracker -->
-    <div id="water-section">
-      <div id="water-counter">
-        <span id="water-label"
-          ><svg
+    <div class="trackers-wrapper">
+      <div class="water-counter">
+        <div class="water-label-wrap">
+          <svg
             class="water-svg"
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
@@ -469,9 +470,9 @@
               d="M320 576C214 576 128 490 128 384C128 292.8 258.2 109.9 294.6 60.5C300.5 52.5 309.8 48 319.8 48L320.2 48C330.2 48 339.5 52.5 345.4 60.5C381.8 109.9 512 292.8 512 384C512 490 426 576 320 576zM240 376C240 362.7 229.3 352 216 352C202.7 352 192 362.7 192 376C192 451.1 252.9 512 328 512C341.3 512 352 501.3 352 488C352 474.7 341.3 464 328 464C279.4 464 240 424.6 240 376z"
             />
           </svg>
-          Water</span
-        >
-        <div id="water-controls">
+          <span class="water-label">Water</span>
+        </div>
+        <div class="water-controls">
           <button onclick="adjustWater(-0.5)">
             <svg
               class="water-btn-svg"
@@ -499,31 +500,32 @@
           </button>
         </div>
       </div>
+
+      <div class="creatine-section">
+        <div class="creatine-counter">
+          <div class="creatine-label-wrap">
+            <svg
+              class="creatine-svg"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <path
+                d="M128 96C128 78.3 142.3 64 160 64L480 64C497.7 64 512 78.3 512 96L512 128C512 145.7 497.7 160 480 160L160 160C142.3 160 128 145.7 128 128L128 96zM160 208L480 208L480 512C480 547.3 451.3 576 416 576L224 576C188.7 576 160 547.3 160 512L160 208zM288 312L288 352L248 352C239.2 352 232 359.2 232 368L232 400C232 408.8 239.2 416 248 416L288 416L288 456C288 464.8 295.2 472 304 472L336 472C344.8 472 352 464.8 352 456L352 416L392 416C400.8 416 408 408.8 408 400L408 368C408 359.2 400.8 352 392 352L352 352L352 312C352 303.2 344.8 296 336 296L304 296C295.2 296 288 303.2 288 312z"
+              />
+            </svg>
+            <span class="creatine-label">Creatine</span>
+          </div>
+          <button
+            id="creatine-check-btn"
+            data-checked="false"
+            onclick="toggleCreatine(this)"
+          ></button>
+        </div>
+      </div>
     </div>
 
     <!-- Creatine Tracker -->
-    <div id="creatine-section">
-      <div id="creatine-counter">
-        <span id="creatine-label">
-          <svg
-            class="creatine-svg"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 640 640"
-          >
-            <path
-              d="M128 96C128 78.3 142.3 64 160 64L480 64C497.7 64 512 78.3 512 96L512 128C512 145.7 497.7 160 480 160L160 160C142.3 160 128 145.7 128 128L128 96zM160 208L480 208L480 512C480 547.3 451.3 576 416 576L224 576C188.7 576 160 547.3 160 512L160 208zM288 312L288 352L248 352C239.2 352 232 359.2 232 368L232 400C232 408.8 239.2 416 248 416L288 416L288 456C288 464.8 295.2 472 304 472L336 472C344.8 472 352 464.8 352 456L352 416L392 416C400.8 416 408 408.8 408 400L408 368C408 359.2 400.8 352 392 352L352 352L352 312C352 303.2 344.8 296 336 296L304 296C295.2 296 288 303.2 288 312z"
-            />
-          </svg>
-          Creatine
-        </span>
-        <button
-          id="creatine-check-btn"
-          data-checked="false"
-          onclick="toggleCreatine(this)"
-        ></button>
-      </div>
-    </div>
 
     <script type="module" src="js/libraries/firebase.js"></script>
     <script src="js/libraries/papaparse.min.js"></script>
