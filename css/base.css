@@ -23,9 +23,18 @@
 }
 
 body {
-  margin: 0;
+  margin: 5px;
   font-family: "Cal Sans";
   background: var(--bg);
   user-select: none;
   color: white;
+}
+
+#day-title {
+  color: var(--orange);
+  font-size: clamp(24px, 17.14px + 2.143vw, 48px);
+}
+
+.title {
+  margin-bottom: 10px;
 }

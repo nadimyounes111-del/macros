@@ -5,11 +5,46 @@
 .add-wrapper {
   display: flex;
   justify-content: flex-end;
-  margin: 25px auto;
   max-width: 1200px;
   position: fixed;
   bottom: 20px;
   right: 20px;
+}
+
+.clear-all-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1200px;
+  position: fixed;
+  bottom: 20px;
+  right: 80px;
+}
+
+#clear-all-btn {
+  all: unset;
+  display: flex;
+  cursor: pointer;
+  background: red;
+  padding: 12px;
+  border-radius: 999px;
+}
+
+.undo-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1200px;
+  position: fixed;
+  bottom: 20px;
+  right: 140px;
+}
+
+.undo-btn {
+  all: unset;
+  display: flex;
+  cursor: pointer;
+  background: darkgray;
+  padding: 12px;
+  border-radius: 999px;
 }
 
 #add-modal {
@@ -165,7 +200,6 @@
   background: var(--green);
   padding: 12px;
   border-radius: 999px;
-  margin-right: 15px;
 }
 
 #custom-toggle {

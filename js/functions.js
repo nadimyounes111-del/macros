@@ -4,8 +4,6 @@
 
 let foods = [];
 let selectedFood = null;
-let lastDeleted = null;
-let lastDeletedIndex = null;
 
 Papa.parse("foods.csv", {
   download: true,
@@ -36,6 +34,9 @@ Papa.parse("foods.csv", {
 const checkedSVG = `<svg class="check-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM438 209.7C427.3 201.9 412.3 204.3 404.5 215L285.1 379.2L233 327.1C223.6 317.7 208.4 317.7 199.1 327.1C189.8 336.5 189.7 351.7 199.1 361L271.1 433C276.1 438 283 440.5 289.9 440C296.8 439.5 303.3 435.9 307.4 430.2L443.3 243.2C451.1 232.5 448.7 217.5 438 209.7z"/></svg>`;
 const uncheckedSVG = `<svg class="check-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 144C488.8 144 496 151.2 496 160L496 480C496 488.8 488.8 496 480 496L160 496C151.2 496 144 488.8 144 480L144 160C144 151.2 151.2 144 160 144L480 144zM160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96z"/></svg>`;
 
+const creatinecheckedSVG = `<svg class="creatine-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM438 209.7C427.3 201.9 412.3 204.3 404.5 215L285.1 379.2L233 327.1C223.6 317.7 208.4 317.7 199.1 327.1C189.8 336.5 189.7 351.7 199.1 361L271.1 433C276.1 438 283 440.5 289.9 440C296.8 439.5 303.3 435.9 307.4 430.2L443.3 243.2C451.1 232.5 448.7 217.5 438 209.7z"/></svg>`;
+const creatineuncheckedSVG = `<svg class="creatine-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 144C488.8 144 496 151.2 496 160L496 480C496 488.8 488.8 496 480 496L160 496C151.2 496 144 488.8 144 480L144 160C144 151.2 151.2 144 160 144L480 144zM160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96z"/></svg>`;
+
 let foodLog = JSON.parse(localStorage.getItem("foodLog")) || [];
 
 function saveLog() {
@@ -47,23 +48,31 @@ function renderLog() {
   logBody.innerHTML = "";
 
   const meals = ["Breakfast", "Lunch", "Snack", "Dinner"];
-  const mealColors = {
-    Breakfast: "#19a8cc",
-    Lunch: "#19a8cc",
-    Snack: "#19a8cc",
-    Dinner: "#19a8cc",
-  };
 
   meals.forEach(function (meal) {
     const entries = foodLog.filter((e) => (e.meal || "Breakfast") === meal);
     if (entries.length === 0) return;
 
+    const mealProtein = entries.reduce((sum, e) => sum + e.protein, 0);
+
     const header = document.createElement("div");
     header.className = "meal-header";
     header.innerHTML = `
-     
-      <span class="meal-label" style="color:${mealColors[meal]}">${meal}</span>
-   
+    <div class="header-wrap">
+    <span class="meal-label">${meal} •</span>
+    
+    <span class="meal-protein">${Math.round(mealProtein)}g</span>
+    <svg
+                    class="pro-svg"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <path
+                      d="M224 329.2C224 337.7 220.6 345.8 214.6 351.8L187.8 378.6C175.5 390.9 155.3 390 138.4 385.8C133.8 384.7 128.9 384 123.9 384C90.8 384 63.9 410.9 63.9 444C63.9 477.1 90.8 504 123.9 504C130.2 504 135.9 509.7 135.9 516C135.9 549.1 162.8 576 195.9 576C229 576 255.9 549.1 255.9 516C255.9 511 255.3 506.2 254.1 501.5C249.9 484.6 248.9 464.4 261.3 452.1L288.1 425.3C294.1 419.3 302.2 415.9 310.7 415.9L399.9 415.9C406.2 415.9 412.3 415.6 418.4 414.9C430.3 413.7 434.8 399.4 429.2 388.9C420.7 373.1 415.9 355.1 415.9 335.9C415.9 274 466 223.9 527.9 223.9C535.9 223.9 543.6 224.7 551.1 226.3C562.8 228.8 575.2 220.4 573.1 208.7C558.4 126.4 486.4 63.9 399.9 63.9C302.7 63.9 223.9 142.7 223.9 239.9L223.9 329.1z"
+                    />
+                  </svg>
+    </div>
     `;
     logBody.appendChild(header);
 
@@ -97,6 +106,9 @@ function renderLog() {
       logBody.appendChild(row);
     });
   });
+
+  document.getElementById("empty-state").style.display =
+    foodLog.length === 0 ? "flex" : "none";
 
   setupAddFood();
   updateSummary();
@@ -324,12 +336,6 @@ function editServing(index, newServings) {
   renderLog();
 }
 
-function deleteEntry(index) {
-  foodLog.splice(index, 1);
-  saveLog();
-  renderLog();
-}
-
 /* =========================
    SUMMARY TABLE
 ========================= */
@@ -386,35 +392,63 @@ function updateSummary() {
     UNDO BUTTON
 ========================= */
 
+let undoStack = [];
+
 function deleteEntry(index) {
-  lastDeleted = foodLog[index];
-  lastDeletedIndex = index;
+  undoStack.push({ entry: foodLog[index], index: index });
   foodLog.splice(index, 1);
   saveLog();
   renderLog();
 }
 
-function undoDelete() {
-  if (!lastDeleted) return;
-  foodLog.splice(lastDeletedIndex, 0, lastDeleted);
-  lastDeleted = null;
-  lastDeletedIndex = null;
+function clearAll() {
+  if (foodLog.length === 0) return;
+  undoStack.push({ snapshot: [...foodLog] }); // clear all still uses a snapshot
+  foodLog = [];
   saveLog();
   renderLog();
 }
 
+function undoDelete() {
+  if (undoStack.length === 0) return;
+  const last = undoStack.pop();
+
+  if (last.snapshot) {
+    // undo a clear all
+    foodLog = [...last.snapshot];
+  } else {
+    // undo a single delete
+    foodLog.splice(last.index, 0, last.entry);
+  }
+
+  saveLog();
+  renderLog();
+}
+
+document.getElementById("clear-all-btn").onclick = clearAll;
+
+// creatine
+
+let creatineTaken = localStorage.getItem("creatine") === "true";
+
+const creatineBtn = document.getElementById("creatine-check-btn");
+creatineBtn.dataset.checked = creatineTaken;
+creatineBtn.innerHTML = creatineTaken
+  ? creatinecheckedSVG
+  : creatineuncheckedSVG;
+
+function toggleCreatine(btn) {
+  creatineTaken = !creatineTaken;
+  localStorage.setItem("creatine", creatineTaken);
+  btn.dataset.checked = creatineTaken;
+  btn.innerHTML = creatineTaken ? creatinecheckedSVG : creatineuncheckedSVG;
+}
+
+// open modal
+
 function openModal() {
   document.getElementById("add-modal").style.display = "flex";
 }
-
-document.querySelectorAll(".meal-btn").forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    document
-      .querySelectorAll(".meal-btn")
-      .forEach((b) => b.classList.remove("active"));
-    this.classList.add("active");
-  });
-});
 
 function closeModal() {
   document.getElementById("add-modal").style.display = "none";
@@ -431,6 +465,11 @@ document.querySelectorAll(".meal-btn").forEach(function (btn) {
   });
 });
 
+document.addEventListener("keydown", function (e) {
+  if (e.code === "Space" && e.target === document.body) openModal();
+});
+
+// water counter
 let water = parseFloat(localStorage.getItem("water")) || 0;
 
 function adjustWater(amount) {
@@ -440,3 +479,14 @@ function adjustWater(amount) {
 }
 
 document.getElementById("water-val").textContent = water + " L";
+
+// title date
+const now = new Date();
+document.getElementById("day-title").textContent = now.toLocaleDateString(
+  "en-US",
+  {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+  },
+);

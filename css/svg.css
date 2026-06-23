@@ -2,10 +2,16 @@
     SVG
 ========================= */
 
-.add-svg {
+/* .add-svg {
   width: 30px;
   height: 30px;
   color: var(--green);
+} */
+
+.clear-all-svg {
+  width: 30px;
+  height: 30px;
+  color: white;
 }
 
 .delete-svg {
@@ -22,10 +28,9 @@
 }
 
 .undo-svg {
-  width: var(--svg);
-  height: var(--svg);
-  color: var(--light-gray);
-  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  color: black;
 }
 
 .cal-svg {
@@ -63,10 +68,30 @@
   flex-shrink: 0;
 }
 
+.creatine-icon {
+  width: var(--svg);
+  height: var(--svg);
+  color: #aa6ae5;
+}
+
+.creatine-svg {
+  width: clamp(26px, 24.29px + 0.536vw, 32px);
+  height: clamp(26px, 24.29px + 0.536vw, 32px);
+  flex-shrink: 0;
+}
+
+button[data-checked="false"] .creatine-svg {
+  color: var(--light-gray);
+}
+
+button[data-checked="true"] .creatine-svg {
+  color: var(--green);
+}
+
 .water-btn-svg {
   width: var(--svg);
   height: var(--svg);
-  color: rgb(127, 127, 127);
+  color: rgb(161, 161, 161);
 }
 
 .warn-svg {
