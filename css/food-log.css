@@ -150,9 +150,8 @@ button[data-checked="true"] .check-svg {
   flex-direction: column;
 }
 
-#log-body .log-row:nth-child(even) {
+.log-row.row-alt {
   background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 5px;
 }
 
 .header-wrap {
@@ -178,7 +177,7 @@ button[data-checked="true"] .check-svg {
 .meal-protein {
   font-size: var(--text);
   white-space: nowrap;
-  color: var(--orange);
+  color: var(--light-gray);
   text-transform: none;
 }
 

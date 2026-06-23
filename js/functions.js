@@ -27,6 +27,9 @@ Papa.parse("foods.csv", {
   },
 });
 
+window.foodLog = JSON.parse(localStorage.getItem("foodLog")) || [];
+window.renderLog = renderLog;
+
 /* =========================
    FOOD LOG
 ========================= */
@@ -37,10 +40,9 @@ const uncheckedSVG = `<svg class="check-svg" fill="currentColor" xmlns="http://w
 const creatinecheckedSVG = `<svg class="creatine-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 96C515.3 96 544 124.7 544 160L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96zM438 209.7C427.3 201.9 412.3 204.3 404.5 215L285.1 379.2L233 327.1C223.6 317.7 208.4 317.7 199.1 327.1C189.8 336.5 189.7 351.7 199.1 361L271.1 433C276.1 438 283 440.5 289.9 440C296.8 439.5 303.3 435.9 307.4 430.2L443.3 243.2C451.1 232.5 448.7 217.5 438 209.7z"/></svg>`;
 const creatineuncheckedSVG = `<svg class="creatine-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M480 144C488.8 144 496 151.2 496 160L496 480C496 488.8 488.8 496 480 496L160 496C151.2 496 144 488.8 144 480L144 160C144 151.2 151.2 144 160 144L480 144zM160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96z"/></svg>`;
 
-let foodLog = JSON.parse(localStorage.getItem("foodLog")) || [];
-
 function saveLog() {
-  localStorage.setItem("foodLog", JSON.stringify(foodLog));
+  localStorage.setItem("foodLog", JSON.stringify(window.foodLog));
+  if (window.saveToFirestore) window.saveToFirestore(window.foodLog);
 }
 
 function renderLog() {
@@ -50,7 +52,9 @@ function renderLog() {
   const meals = ["Breakfast", "Lunch", "Snack", "Dinner"];
 
   meals.forEach(function (meal) {
-    const entries = foodLog.filter((e) => (e.meal || "Breakfast") === meal);
+    const entries = window.foodLog.filter(
+      (e) => (e.meal || "Breakfast") === meal,
+    );
     if (entries.length === 0) return;
 
     const mealProtein = entries.reduce((sum, e) => sum + e.protein, 0);
@@ -63,25 +67,25 @@ function renderLog() {
     
     <span class="meal-protein">${Math.round(mealProtein)}g</span>
     <svg
-                    class="pro-svg"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 640"
-                  >
-                    <path
-                      d="M224 329.2C224 337.7 220.6 345.8 214.6 351.8L187.8 378.6C175.5 390.9 155.3 390 138.4 385.8C133.8 384.7 128.9 384 123.9 384C90.8 384 63.9 410.9 63.9 444C63.9 477.1 90.8 504 123.9 504C130.2 504 135.9 509.7 135.9 516C135.9 549.1 162.8 576 195.9 576C229 576 255.9 549.1 255.9 516C255.9 511 255.3 506.2 254.1 501.5C249.9 484.6 248.9 464.4 261.3 452.1L288.1 425.3C294.1 419.3 302.2 415.9 310.7 415.9L399.9 415.9C406.2 415.9 412.3 415.6 418.4 414.9C430.3 413.7 434.8 399.4 429.2 388.9C420.7 373.1 415.9 355.1 415.9 335.9C415.9 274 466 223.9 527.9 223.9C535.9 223.9 543.6 224.7 551.1 226.3C562.8 228.8 575.2 220.4 573.1 208.7C558.4 126.4 486.4 63.9 399.9 63.9C302.7 63.9 223.9 142.7 223.9 239.9L223.9 329.1z"
-                    />
-                  </svg>
+        class="pro-svg-table"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 640"
+      >
+        <path
+          d="M224 329.2C224 337.7 220.6 345.8 214.6 351.8L187.8 378.6C175.5 390.9 155.3 390 138.4 385.8C133.8 384.7 128.9 384 123.9 384C90.8 384 63.9 410.9 63.9 444C63.9 477.1 90.8 504 123.9 504C130.2 504 135.9 509.7 135.9 516C135.9 549.1 162.8 576 195.9 576C229 576 255.9 549.1 255.9 516C255.9 511 255.3 506.2 254.1 501.5C249.9 484.6 248.9 464.4 261.3 452.1L288.1 425.3C294.1 419.3 302.2 415.9 310.7 415.9L399.9 415.9C406.2 415.9 412.3 415.6 418.4 414.9C430.3 413.7 434.8 399.4 429.2 388.9C420.7 373.1 415.9 355.1 415.9 335.9C415.9 274 466 223.9 527.9 223.9C535.9 223.9 543.6 224.7 551.1 226.3C562.8 228.8 575.2 220.4 573.1 208.7C558.4 126.4 486.4 63.9 399.9 63.9C302.7 63.9 223.9 142.7 223.9 239.9L223.9 329.1z"
+        />
+      </svg>
     </div>
     `;
     logBody.appendChild(header);
 
-    entries.forEach(function (entry) {
-      const index = foodLog.indexOf(entry);
+    entries.forEach(function (entry, i) {
+      const index = window.foodLog.indexOf(entry);
       const unit = entry.servingSize || "";
 
       const row = document.createElement("div");
-      row.className = "log-row";
+      row.className = "log-row" + (i % 2 === 0 ? " row-alt" : "");
       row.innerHTML = `
         <div class="col-check">
           <button onclick="toggleCheck(this, ${index})" data-checked="${entry.checked || false}">
@@ -108,7 +112,7 @@ function renderLog() {
   });
 
   document.getElementById("empty-state").style.display =
-    foodLog.length === 0 ? "flex" : "none";
+    window.foodLog.length === 0 ? "flex" : "none";
 
   setupAddFood();
   updateSummary();
@@ -206,7 +210,7 @@ function setupAddFood() {
         fat: parseInt(document.getElementById("fat-preview").value) || 0,
         servingSize: "",
       };
-      foodLog.push(entry);
+      window.foodLog.push(entry);
       saveLog();
       renderLog();
       closeModal();
@@ -232,7 +236,7 @@ function setupAddFood() {
       servingSize: selectedFood["Serving Size"],
     };
 
-    foodLog.push(entry);
+    window.foodLog.push(entry);
     saveLog();
     renderLog();
     closeModal();
@@ -314,7 +318,7 @@ function updatePreview() {
 }
 
 function toggleCheck(btn, index) {
-  foodLog[index].checked = !foodLog[index].checked;
+  window.foodLog[index].checked = !window.foodLog[index].checked;
   saveLog();
   renderLog();
 }
@@ -323,7 +327,7 @@ function editServing(index, newServings) {
   newServings = parseFloat(newServings);
   if (!newServings || newServings <= 0) return;
 
-  const original = foodLog[index];
+  const original = window.foodLog[index];
   const ratio = newServings / original.servings;
 
   original.servings = newServings;
@@ -348,7 +352,7 @@ function checkOverage(id, total, goal) {
 }
 
 function updateSummary() {
-  const totals = foodLog.reduce(
+  const totals = window.foodLog.reduce(
     (acc, entry) => {
       acc.calories += entry.calories;
       acc.protein += entry.protein;
@@ -395,16 +399,16 @@ function updateSummary() {
 let undoStack = [];
 
 function deleteEntry(index) {
-  undoStack.push({ entry: foodLog[index], index: index });
-  foodLog.splice(index, 1);
+  undoStack.push({ entry: window.foodLog[index], index: index });
+  window.foodLog.splice(index, 1);
   saveLog();
   renderLog();
 }
 
 function clearAll() {
-  if (foodLog.length === 0) return;
-  undoStack.push({ snapshot: [...foodLog] }); // clear all still uses a snapshot
-  foodLog = [];
+  if (window.foodLog.length === 0) return;
+  undoStack.push({ snapshot: [...window.foodLog] }); // clear all still uses a snapshot
+  window.foodLog = [];
   saveLog();
   renderLog();
 }
@@ -415,10 +419,10 @@ function undoDelete() {
 
   if (last.snapshot) {
     // undo a clear all
-    foodLog = [...last.snapshot];
+    window.foodLog = [...last.snapshot];
   } else {
     // undo a single delete
-    foodLog.splice(last.index, 0, last.entry);
+    window.foodLog.splice(last.index, 0, last.entry);
   }
 
   saveLog();

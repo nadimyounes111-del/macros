@@ -47,6 +47,13 @@
   flex-shrink: 0;
 }
 
+.pro-svg-table {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-gray);
+  flex-shrink: 0;
+}
+
 .carb-svg {
   width: var(--svg);
   height: var(--svg);

@@ -524,6 +524,50 @@
       </div>
     </div>
 
+    <!-- firebase -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+      import {
+        getFirestore,
+        doc,
+        setDoc,
+        onSnapshot,
+      } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBxya9XqbeIwDJnrCRHQjzJRMZi8JNoLbI",
+        authDomain: "macro-tracker-3cc53.firebaseapp.com",
+        projectId: "macro-tracker-3cc53",
+        storageBucket: "macro-tracker-3cc53.firebasestorage.app",
+        messagingSenderId: "112928342238",
+        appId: "1:112928342238:web:d1ed41546de73f67af824f",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const docRef = doc(db, "users", "nadim");
+
+      // expose save to global scope so your existing saveLog() can call it
+      window.saveToFirestore = async function (log) {
+        try {
+          await setDoc(docRef, { foodLog: log });
+        } catch (e) {
+          console.warn("Firestore save failed, localStorage still has it:", e);
+        }
+      };
+
+      // real-time listener — fires on load AND whenever another device saves
+      onSnapshot(docRef, (snap) => {
+        if (!snap.exists()) return;
+        const data = snap.data();
+        if (data.foodLog) {
+          window.foodLog = data.foodLog;
+          localStorage.setItem("foodLog", JSON.stringify(window.foodLog));
+          window.renderLog();
+        }
+      });
+    </script>
+
     <script src="js/papaparse.min.js"></script>
     <script src="js/functions.js"></script>
   </body>
