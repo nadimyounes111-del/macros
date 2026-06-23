@@ -86,7 +86,10 @@ function renderLog() {
       const unit = entry.servingSize || "";
 
       const row = document.createElement("div");
-      row.className = "log-row" + (i % 2 === 0 ? " row-alt" : "");
+      row.className =
+        "log-row" +
+        (i % 2 === 0 ? " row-alt" : "") +
+        (entry.checked ? " row-checked" : "");
       row.innerHTML = `
         <div class="col-check">
           <button onclick="toggleCheck(this, ${index})" data-checked="${entry.checked || false}">
@@ -95,7 +98,9 @@ function renderLog() {
         </div>
         <div class="col-food" data-food="${entry.food}">${entry.food}</div>
         <div class="col-servings">
-          <input class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)"/>
+          <input class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" 
+  onchange="editServing(${index}, this.value)"
+  onfocus="this.select()"/>
           <span class="serving-unit">${unit}</span>
         </div>
         <div class="col-cal">${Math.round(entry.calories)}</div>
@@ -320,8 +325,11 @@ function updatePreview() {
 
 function toggleCheck(btn, index) {
   window.foodLog[index].checked = !window.foodLog[index].checked;
+  btn.dataset.checked = window.foodLog[index].checked;
+  btn.innerHTML = window.foodLog[index].checked ? checkedSVG : uncheckedSVG;
+  const row = btn.closest(".log-row");
+  row.classList.toggle("row-checked", window.foodLog[index].checked);
   saveLog();
-  renderLog();
 }
 
 function editServing(index, newServings) {
@@ -446,7 +454,7 @@ function toggleCreatine(btn) {
   creatineTaken = !creatineTaken;
   localStorage.setItem("creatine", creatineTaken);
   btn.dataset.checked = creatineTaken;
-  btn.innerHTML = creatineTaken ? checkedSVG : uncheckedSVG;
+  btn.innerHTML = creatineTaken ? creatinecheckedSVG : creatineuncheckedSVG;
   if (window.saveToFirestore)
     window.saveToFirestore({ creatine: creatineTaken });
 }
@@ -459,6 +467,7 @@ function openModal() {
 
 function closeModal() {
   document.getElementById("add-modal").style.display = "none";
+  setupAddFood();
 }
 
 document.getElementById("modal-overlay").addEventListener("click", closeModal);

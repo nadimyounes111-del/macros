@@ -154,6 +154,10 @@ button[data-checked="true"] .check-svg {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
+.row-checked {
+  opacity: 0.4;
+}
+
 .header-wrap {
   display: flex;
   flex-direction: row;

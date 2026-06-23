@@ -30,11 +30,22 @@ body {
   color: white;
 }
 
+.title {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: clamp(2px, 1.82px + 0.179vw, 5px);
+  align-items: center;
+}
+
 #day-title {
   color: var(--orange);
   font-size: clamp(24px, 17.14px + 2.143vw, 48px);
 }
 
-.title {
-  margin-bottom: 10px;
+.title-icon {
+  width: clamp(30px, 23.71px + 1.964vw, 52px);
+  height: clamp(30px, 23.71px + 1.964vw, 52px);
+  flex-shrink: 0;
+  color: var(--orange);
 }
