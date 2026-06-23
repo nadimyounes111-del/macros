@@ -7,6 +7,13 @@ const creatineuncheckedSVG = `<svg class="creatine-checkbox" fill="currentColor"
 window.foodLog = JSON.parse(localStorage.getItem("foodLog")) || [];
 window.renderLog = renderLog;
 
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2000);
+}
+
 function saveLog() {
   localStorage.setItem("foodLog", JSON.stringify(window.foodLog));
   if (window.saveToFirestore)
@@ -187,6 +194,7 @@ function setupAddFood() {
       window.foodLog.push(entry);
       saveLog();
       renderLog();
+      showToast(`Food Added`);
       closeModal();
       return;
     }
@@ -213,6 +221,7 @@ function setupAddFood() {
     window.foodLog.push(entry);
     saveLog();
     renderLog();
+    showToast(`Food Added`);
     closeModal();
   };
 }
