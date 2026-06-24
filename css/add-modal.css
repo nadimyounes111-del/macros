@@ -33,7 +33,6 @@
 #modal-body {
   display: flex;
   flex-direction: column;
-  gap: 16px;
   position: relative;
 }
 
@@ -230,7 +229,7 @@ ul {
 
 /* #endregion */
 
-/* #region ===== EDIT ===== */
+/* #region ===== Edit Modal ===== */
 
 #goals-modal {
   position: fixed;
@@ -260,7 +259,6 @@ ul {
   margin: 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
 .goals-modal-content input[type="number"] {
@@ -309,8 +307,8 @@ ul {
 .edit-svg-pro,
 .edit-svg-carb,
 .edit-svg-fat {
-  width: 24px;
-  height: 24px;
+  width: var(--svg);
+  height: var(--svg);
   flex-shrink: 0;
 }
 
@@ -334,5 +332,17 @@ ul {
   font-size: var(--text);
   color: white;
 }
+
+/* #endregion */
+
+/* #region ===== Template Items ===== */
+
+/* #endregion */
+
+/* #region ===== Add Food ===== */
+
+/* #endregion */
+
+/* #region ===== Edit Macros ===== */
 
 /* #endregion */

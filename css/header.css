@@ -65,6 +65,11 @@
 
 /* #region ===== Streak ===== */
 
+.streak-wrap {
+  cursor: pointer;
+  min-width: 42px;
+}
+
 .streak-svg {
   width: var(--svg);
   height: var(--svg);
@@ -79,6 +84,10 @@
 /* #endregion */
 
 /* #region ===== Sign Out ===== */
+
+.sign-out-wrap {
+  cursor: pointer;
+}
 
 .sign-out-svg {
   width: var(--svg);

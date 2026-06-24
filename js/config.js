@@ -33,7 +33,7 @@ const now = new Date();
 document.getElementById("day-title").textContent = now.toLocaleDateString(
   "en-US",
   {
-    weekday: "long",
+    weekday: "short",
   },
 );
 
@@ -67,8 +67,7 @@ updateStreakDisplay();
     Firebase Pins
 ========================= */
 const USERS = {
-  1234: "nadim",
-  1111: "My bubu",
+  3641: "Nad",
 };
 
 function signOut() {
