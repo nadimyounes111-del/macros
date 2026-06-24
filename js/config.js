@@ -64,8 +64,6 @@ updateStreakDisplay();
 // firebase pins
 const USERS = {
   1234: "nadim",
-  5678: "friend",
-  3641: "Nad",
   1111: "My bubu",
 };
 
@@ -94,17 +92,6 @@ function submitPin() {
   initApp();
 }
 
-function checkPin() {
-  if (currentUser) {
-    updateUserName();
-    document.getElementById("pin-screen").style.display = "none";
-    window.initFirestore(currentUser);
-    initApp();
-  }
-}
-
 document.getElementById("pin-input").addEventListener("keydown", function (e) {
   if (e.key === "Enter") submitPin();
 });
-
-checkPin();

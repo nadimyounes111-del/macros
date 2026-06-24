@@ -1,5 +1,5 @@
 window.foodLog = [];
-let GOALS = { calories: 1, protein: 1, carbs: 1, fat: 1 };
+let GOALS = { calories: 0, protein: 0, carbs: 0, fat: 0 };
 
 function saveGoals() {
   GOALS.calories =
