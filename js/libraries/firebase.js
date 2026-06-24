@@ -17,53 +17,51 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const docRef = doc(db, "users", "nadim");
+let docRef = null;
 
-// expose save to global scope so your existing saveLog() can call it
-window.saveToFirestore = async function (data) {
-  try {
-    await setDoc(docRef, data, { merge: true });
-  } catch (e) {
-    console.warn("Firestore save failed:", e);
-  }
+window.initFirestore = function (user) {
+  docRef = doc(db, "users", user);
+
+  window.saveToFirestore = async function (data) {
+    try {
+      await setDoc(docRef, data, { merge: true });
+    } catch (e) {
+      console.warn("Firestore save failed:", e);
+    }
+  };
+
+  onSnapshot(docRef, (snap) => {
+    if (!snap.exists()) return;
+    const data = snap.data();
+
+    if (data.foodLog) {
+      window.foodLog = data.foodLog;
+      localStorage.setItem("foodLog", JSON.stringify(window.foodLog));
+      window.renderLog();
+    }
+    if (data.water !== undefined) {
+      water = data.water;
+      localStorage.setItem("water", water);
+      document.getElementById("water-val").textContent = water + " L";
+    }
+    if (data.creatine !== undefined) {
+      creatineTaken = data.creatine;
+      localStorage.setItem("creatine", creatineTaken);
+      const btn = document.getElementById("creatine-check-btn");
+      btn.dataset.checked = creatineTaken;
+      btn.innerHTML = creatineTaken ? creatinecheckedSVG : creatineuncheckedSVG;
+    }
+    if (data.goals) {
+      GOALS = data.goals;
+      localStorage.setItem("goals", JSON.stringify(GOALS));
+      updateSummary();
+    }
+    if (data.streak !== undefined) {
+      streak = data.streak;
+      lastStreakDate = data.lastStreakDate || null;
+      localStorage.setItem("streak", streak);
+      localStorage.setItem("lastStreakDate", lastStreakDate);
+      updateStreakDisplay();
+    }
+  });
 };
-
-// real-time listener — fires on load AND whenever another device saves
-onSnapshot(docRef, (snap) => {
-  if (!snap.exists()) return;
-  const data = snap.data();
-
-  if (data.foodLog) {
-    window.foodLog = data.foodLog;
-    localStorage.setItem("foodLog", JSON.stringify(window.foodLog));
-    window.renderLog();
-  }
-
-  if (data.water !== undefined) {
-    water = data.water;
-    localStorage.setItem("water", water);
-    document.getElementById("water-val").textContent = water + " L";
-  }
-
-  if (data.creatine !== undefined) {
-    creatineTaken = data.creatine;
-    localStorage.setItem("creatine", creatineTaken);
-    const btn = document.getElementById("creatine-check-btn");
-    btn.dataset.checked = creatineTaken;
-    btn.innerHTML = creatineTaken ? creatinecheckedSVG : creatineuncheckedSVG;
-  }
-
-  if (data.streak !== undefined) {
-    streak = data.streak;
-    lastStreakDate = data.lastStreakDate || null;
-    localStorage.setItem("streak", streak);
-    localStorage.setItem("lastStreakDate", lastStreakDate);
-    updateStreakDisplay();
-  }
-
-  if (data.goals) {
-    GOALS = data.goals;
-    localStorage.setItem("goals", JSON.stringify(GOALS));
-    updateSummary();
-  }
-});

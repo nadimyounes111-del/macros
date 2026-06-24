@@ -177,9 +177,23 @@
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* .row-checked {
-  opacity: 0.4;
-} */
+@keyframes flash {
+  0% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: rgb(14, 154, 14);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.row-flash {
+  animation: flash 0.8s ease-out forwards;
+}
 
 /* #endregion */
 

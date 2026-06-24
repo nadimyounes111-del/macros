@@ -64,6 +64,7 @@ function renderLog() {
         "log-row" +
         (i % 2 === 0 ? " row-alt" : "") +
         (entry.checked ? " row-checked" : "");
+      row.dataset.index = index;
       row.innerHTML = `
         <div class="col-check">
           <button onclick="toggleCheck(this, ${index})" data-checked="${entry.checked || false}">
@@ -192,10 +193,15 @@ function setupAddFood() {
         servingSize: "",
       };
       window.foodLog.push(entry);
+      const newIndex = window.foodLog.length - 1;
       saveLog();
       renderLog();
-      showToast(`Food Added`);
       closeModal();
+
+      setTimeout(() => {
+        const row = document.querySelector(`[data-index="${newIndex}"]`);
+        if (row) row.classList.add("row-flash");
+      }, 200);
       return;
     }
 
@@ -219,10 +225,15 @@ function setupAddFood() {
     };
 
     window.foodLog.push(entry);
+    const newIndex = window.foodLog.length - 1;
     saveLog();
     renderLog();
-    showToast(`Food Added`);
     closeModal();
+
+    setTimeout(() => {
+      const row = document.querySelector(`[data-index="${newIndex}"]`);
+      if (row) row.classList.add("row-flash");
+    }, 200);
   };
 }
 function setCustomMode(on) {

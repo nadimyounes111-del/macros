@@ -1,6 +1,11 @@
 let foods = [];
 let selectedFood = null;
 
+function initApp() {
+  renderLog();
+  updateSummary();
+}
+
 // parser
 Papa.parse("foods.csv", {
   download: true,
@@ -13,8 +18,7 @@ Papa.parse("foods.csv", {
   },
   complete: function () {
     console.log("Foods loaded:", foods);
-    renderLog();
-    updateSummary();
+    initApp();
 
     document.getElementById("servings").onkeydown = function (e) {
       if (e.key === "Enter") {
@@ -61,3 +65,43 @@ function tapStreak() {
 }
 
 updateStreakDisplay();
+
+// firebase pins
+const USERS = {
+  1234: "nadim",
+  5678: "friend",
+};
+
+let currentUser = sessionStorage.getItem("user") || null;
+
+function submitPin() {
+  const pin = document.getElementById("pin-input").value;
+  const user = USERS[pin];
+
+  if (!user) {
+    document.getElementById("pin-label").textContent = "Wrong PIN, try again";
+    document.getElementById("pin-input").value = "";
+    return;
+  }
+
+  currentUser = user;
+  sessionStorage.setItem("user", user);
+  document.getElementById("pin-screen").style.display = "none";
+  window.initFirestore(user); // init Firestore with the right user
+  initApp();
+}
+
+function checkPin() {
+  if (currentUser) {
+    document.getElementById("pin-screen").style.display = "none";
+    window.initFirestore(currentUser); // restore on page reload
+    initApp();
+  }
+}
+
+// submit on Enter key
+document.getElementById("pin-input").addEventListener("keydown", function (e) {
+  if (e.key === "Enter") submitPin();
+});
+
+checkPin();

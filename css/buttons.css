@@ -55,27 +55,6 @@
   color: black;
 }
 
-#toast {
-  position: fixed;
-  bottom: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--green);
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  color: black;
-  padding: 5px 10px;
-  border-radius: 999px;
-  font-size: var(--text);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  white-space: nowrap;
-}
-
-#toast.show {
-  opacity: 1;
-}
-
 /* #endregion */
 
 /* #region ===== Clear All ===== */

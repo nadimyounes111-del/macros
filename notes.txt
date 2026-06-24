@@ -6,3 +6,9 @@ streak = 0;
 lastStreakDate = null;
 updateStreakDisplay();
 if (window.saveToFirestore) window.saveToFirestore({ streak: 0, lastStreakDate: null });
+
+
+run this to reset pin and show it 
+
+sessionStorage.removeItem("user");
+location.reload();
