@@ -38,9 +38,8 @@ document.getElementById("day-title").textContent = now.toLocaleDateString(
 );
 
 // streak counter
-let streak = parseInt(localStorage.getItem("streak")) || 0;
-let lastStreakDate = localStorage.getItem("lastStreakDate") || null;
-
+let streak = 0;
+let lastStreakDate = null;
 function updateStreakDisplay() {
   document.querySelector(".streak-num").textContent = streak;
 }
@@ -55,8 +54,6 @@ function tapStreak() {
 
   streak++;
   lastStreakDate = today;
-  localStorage.setItem("streak", streak);
-  localStorage.setItem("lastStreakDate", lastStreakDate);
   updateStreakDisplay();
   if (window.saveToFirestore)
     window.saveToFirestore({ streak, lastStreakDate });

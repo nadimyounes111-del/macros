@@ -1,9 +1,5 @@
-let GOALS = JSON.parse(localStorage.getItem("goals")) || {
-  calories: 1,
-  protein: 1,
-  carbs: 1,
-  fat: 1,
-};
+window.foodLog = [];
+let GOALS = { calories: 1, protein: 1, carbs: 1, fat: 1 };
 
 function saveGoals() {
   GOALS.calories =

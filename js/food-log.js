@@ -15,7 +15,6 @@ function showToast(message) {
 }
 
 function saveLog() {
-  localStorage.setItem("foodLog", JSON.stringify(window.foodLog));
   if (window.saveToFirestore)
     window.saveToFirestore({ foodLog: window.foodLog });
 }

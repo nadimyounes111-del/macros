@@ -36,31 +36,25 @@ window.initFirestore = function (user) {
 
     if (data.foodLog) {
       window.foodLog = data.foodLog;
-      localStorage.setItem("foodLog", JSON.stringify(window.foodLog));
       window.renderLog();
     }
     if (data.water !== undefined) {
       water = data.water;
-      localStorage.setItem("water", water);
       document.getElementById("water-val").textContent = water + " L";
     }
     if (data.creatine !== undefined) {
       creatineTaken = data.creatine;
-      localStorage.setItem("creatine", creatineTaken);
       const btn = document.getElementById("creatine-check-btn");
       btn.dataset.checked = creatineTaken;
       btn.innerHTML = creatineTaken ? creatinecheckedSVG : creatineuncheckedSVG;
     }
     if (data.goals) {
       GOALS = data.goals;
-      localStorage.setItem("goals", JSON.stringify(GOALS));
       updateSummary();
     }
     if (data.streak !== undefined) {
       streak = data.streak;
       lastStreakDate = data.lastStreakDate || null;
-      localStorage.setItem("streak", streak);
-      localStorage.setItem("lastStreakDate", lastStreakDate);
       updateStreakDisplay();
     }
   });
