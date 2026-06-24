@@ -7,8 +7,11 @@ lastStreakDate = null;
 updateStreakDisplay();
 if (window.saveToFirestore) window.saveToFirestore({ streak: 0, lastStreakDate: null });
 
-
-run this to reset pin and show it 
+run this to reset pin and show it
 
 sessionStorage.removeItem("user");
 location.reload();
+
+to add an extra column in the csv in second place
+find: ^([^,#\n][^,]\*),
+replace: $1,,

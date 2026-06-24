@@ -75,11 +75,9 @@ function renderLog() {
             ${entry.checked ? checkedSVG : uncheckedSVG}
           </button>
         </div>
-        <div class="col-food" data-food="${entry.food}">${entry.food}</div>
+        <div class="col-food" data-food="${entry.food}">${entry.shorthand}</div>
         <div class="col-servings">
-          <input class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" 
-  onchange="editServing(${index}, this.value)"
-  onfocus="this.select()"/>
+          <input inputmode="decimal" class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)" onfocus="this.select()"/>
           <span class="serving-unit">${unit}</span>
         </div>
         <div class="col-cal">${Math.round(entry.calories)}</div>
@@ -215,6 +213,7 @@ function setupAddFood() {
 
     const entry = {
       food: selectedFood.Food,
+      shorthand: selectedFood.Food.split(" - ")[0],
       meal: meal,
       servings: servings,
       calories: parseInt(

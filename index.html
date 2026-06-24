@@ -19,7 +19,7 @@
 
   <body>
     <!-- pin -->
-    <div id="pin-screen">
+    <!-- <div id="pin-screen">
       <div class="pin-box">
         <svg
           class="pin-svg"
@@ -41,7 +41,7 @@
         />
         <button class="pin-enter" onclick="submitPin()">Enter</button>
       </div>
-    </div>
+    </div> -->
 
     <div class="header-wrap">
       <div class="header">
@@ -676,7 +676,12 @@
             </svg>
             <span class="edit-text">Calories</span>
           </div>
-          <input inputmode="numeric" id="goal-cal" type="number" />
+          <input
+            onfocus="this.select()"
+            inputmode="decimal"
+            id="goal-cal"
+            type="text"
+          />
         </div>
         <div class="edit-option">
           <div class="edit-label-wrap">
@@ -692,7 +697,12 @@
             </svg>
             <span class="edit-text">Protein</span>
           </div>
-          <input inputmode="numeric" id="goal-pro" type="number" />
+          <input
+            onfocus="this.select()"
+            inputmode="decimal"
+            id="goal-pro"
+            type="text"
+          />
         </div>
         <div class="edit-option">
           <div class="edit-label-wrap">
@@ -708,7 +718,12 @@
             </svg>
             <span class="edit-text">Carbs</span>
           </div>
-          <input inputmode="numeric" id="goal-carb" type="number" />
+          <input
+            onfocus="this.select()"
+            inputmode="decimal"
+            id="goal-carb"
+            type="text"
+          />
         </div>
         <div class="edit-option">
           <div class="edit-label-wrap">
@@ -763,7 +778,12 @@
             </svg>
             <span class="edit-text">Fat</span>
           </div>
-          <input inputmode="numeric" id="goal-fat" type="number" />
+          <input
+            onfocus="this.select()"
+            inputmode="decimal"
+            id="goal-fat"
+            type="text"
+          />
         </div>
         <button class="save-btn" onclick="saveGoals()">Save</button>
       </div>

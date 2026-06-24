@@ -14,8 +14,7 @@ Papa.parse("foods.csv", {
     foods.push(row.data);
   },
   complete: function () {
-    console.log("Foods loaded:", foods);
-    // window.initFirestore("nadim"); // ONLY ACTIVE IN PREVIEW
+    window.initFirestore("Nad"); // ONLY ACTIVE IN PREVIEW
     initApp();
 
     document.getElementById("servings").onkeydown = function (e) {
@@ -68,6 +67,7 @@ updateStreakDisplay();
 ========================= */
 const USERS = {
   3641: "Nad",
+  8484: "Jandrussy",
 };
 
 function signOut() {
@@ -101,6 +101,6 @@ function submitPin() {
 }
 
 // ONLY INACTIVE IN PREVIEW
-document.getElementById("pin-input").addEventListener("keydown", function (e) {
-  if (e.key === "Enter") submitPin();
-});
+// document.getElementById("pin-input").addEventListener("keydown", function (e) {
+//   if (e.key === "Enter") submitPin();
+// });

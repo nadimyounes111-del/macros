@@ -261,7 +261,7 @@ ul {
   flex-direction: column;
 }
 
-.goals-modal-content input[type="number"] {
+.goals-modal-content input[type="text"] {
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
