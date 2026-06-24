@@ -1,0 +1,78 @@
+/* #region ===== Layout ===== */
+
+.header-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5px 10px;
+  position: sticky;
+  top: 0px;
+  background: var(--table-bg);
+  border-radius: 0 0 10px 10px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+}
+
+.title-wrap,
+.user-wrap,
+.streak-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: clamp(2px, 1.14px + 0.268vw, 5px);
+  align-items: center;
+}
+
+/* #endregion */
+
+/* #region ===== Title ===== */
+
+.title-header {
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  color: var(--orange);
+}
+
+.title-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--orange);
+}
+
+/* #endregion */
+
+/* #region ===== User ===== */
+
+.user-name {
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  color: var(--light-blue);
+}
+
+.user-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-blue);
+}
+
+/* #endregion */
+
+/* #region ===== Streak ===== */
+
+.streak-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: #aa6ae5;
+}
+
+.streak-num {
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  color: #aa6ae5;
+}
+
+/* #endregion */

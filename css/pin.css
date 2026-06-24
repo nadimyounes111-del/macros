@@ -1,3 +1,9 @@
+/* #region ===== Layout ===== */
+
+/* #endregion */
+
+/* #region ===== Pin ===== */
+
 #pin-screen {
   position: fixed;
   inset: 0;
@@ -8,27 +14,48 @@
   justify-content: center;
 }
 
-#pin-box {
+.pin-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
 }
 
 #pin-input {
   text-align: center;
-  font-size: 24px;
-  letter-spacing: 8px;
-  width: 140px;
-  padding: 10px;
-  background: var(--table-bg);
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  width: 80px;
+  padding: 5px 10px;
+  background: var(--dark-blue);
   border: 2px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  color: white;
+  border-radius: 8px;
+  color: var(--light-blue);
+  font-family: "Cal Sans";
   outline: none;
 }
 
 #pin-label {
   color: var(--light-gray);
-  font-size: var(--text);
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
 }
+
+.pin-svg {
+  width: 72px;
+  height: 72px;
+  color: var(--light-gray);
+}
+
+.pin-enter {
+  all: unset;
+  cursor: pointer;
+  background: var(--orange);
+  color: black;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  margin-top: 30px;
+}
+
+/* #endregion */

@@ -34,8 +34,6 @@ document.getElementById("day-title").textContent = now.toLocaleDateString(
   "en-US",
   {
     weekday: "long",
-    month: "short",
-    day: "numeric",
   },
 );
 
@@ -70,7 +68,13 @@ updateStreakDisplay();
 const USERS = {
   1234: "nadim",
   5678: "friend",
+  3641: "Nad",
+  1111: "My bubu",
 };
+
+function updateUserName() {
+  document.querySelector(".user-name").textContent = currentUser;
+}
 
 let currentUser = sessionStorage.getItem("user") || null;
 
@@ -79,27 +83,29 @@ function submitPin() {
   const user = USERS[pin];
 
   if (!user) {
-    document.getElementById("pin-label").textContent = "Wrong PIN, try again";
+    document.getElementById("pin-label").textContent =
+      "This PIN does not exist";
     document.getElementById("pin-input").value = "";
     return;
   }
 
   currentUser = user;
   sessionStorage.setItem("user", user);
+  updateUserName();
   document.getElementById("pin-screen").style.display = "none";
-  window.initFirestore(user); // init Firestore with the right user
+  window.initFirestore(user);
   initApp();
 }
 
 function checkPin() {
   if (currentUser) {
+    updateUserName();
     document.getElementById("pin-screen").style.display = "none";
-    window.initFirestore(currentUser); // restore on page reload
+    window.initFirestore(currentUser);
     initApp();
   }
 }
 
-// submit on Enter key
 document.getElementById("pin-input").addEventListener("keydown", function (e) {
   if (e.key === "Enter") submitPin();
 });
