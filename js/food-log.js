@@ -7,6 +7,11 @@ const creatineuncheckedSVG = `<svg class="creatine-checkbox" fill="currentColor"
 window.foodLog = JSON.parse(localStorage.getItem("foodLog")) || [];
 window.renderLog = renderLog;
 
+function initApp() {
+  renderLog();
+  updateSummary();
+}
+
 function showToast(message) {
   const toast = document.getElementById("toast");
   toast.textContent = message;

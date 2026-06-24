@@ -1,11 +1,6 @@
 let foods = [];
 let selectedFood = null;
 
-function initApp() {
-  renderLog();
-  updateSummary();
-}
-
 // parser
 Papa.parse("foods.csv", {
   download: true,
