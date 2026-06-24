@@ -8,7 +8,7 @@
 }
 
 body {
-  margin: 15px;
+  margin: 0 15px 0 15px;
   font-family: "Cal Sans";
   background: var(--bg);
   user-select: none;
@@ -31,8 +31,52 @@ body {
 }
 
 :root {
-  --text: clamp(11px, 10px + 0.4vw, 16px);
+  --text: clamp(10px, 10px + 0.4vw, 16px);
   --svg: clamp(16px, 15.14px + 0.536vw, 22px);
+}
+
+/* #endregion */
+
+/* #region ===== Header ===== */
+
+.header-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 10px;
+  position: sticky;
+  top: 0px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+}
+
+.title-header {
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  color: var(--orange);
+}
+
+.streak-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
+
+.streak-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: #aa6ae5;
+}
+
+.streak-num {
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  color: #aa6ae5;
 }
 
 /* #endregion */

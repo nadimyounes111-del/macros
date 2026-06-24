@@ -7,7 +7,7 @@
 }
 
 .log-wrapper {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 20px auto;
 }
 
@@ -19,24 +19,18 @@
   max-width: 1200px;
 }
 
-.title-wrap {
-  margin-bottom: 10px;
+.table-title-wrap {
+  margin-bottom: clamp(5px, 3.57px + 0.446vw, 10px);
   display: flex;
   flex-direction: row;
   gap: clamp(2px, 1.82px + 0.179vw, 5px);
-  align-items: center;
+  align-items: end;
+  justify-content: space-between;
 }
 
-.title-icon {
-  width: clamp(30px, 23.71px + 1.964vw, 52px);
-  height: clamp(30px, 23.71px + 1.964vw, 52px);
-  flex-shrink: 0;
-  color: var(--orange);
-}
-
-.title {
-  color: var(--orange);
-  font-size: clamp(24px, 17.14px + 2.143vw, 48px);
+.table-title {
+  font-size: clamp(20px, 18.29px + 0.536vw, 26px);
+  color: var(--light-gray);
 }
 
 /* #endregion */
@@ -212,20 +206,20 @@
 .meal-label {
   font-size: var(--text);
   white-space: nowrap;
-  color: var(--light-blue);
+  color: var(--light-gray);
 }
 
 .meal-protein {
   font-size: var(--text);
   white-space: nowrap;
-  color: var(--light-blue);
+  color: var(--orange);
   text-transform: none;
 }
 
 .pro-svg-table {
   width: var(--svg);
   height: var(--svg);
-  color: var(--light-blue);
+  color: var(--orange);
   flex-shrink: 0;
 }
 

@@ -1,7 +1,7 @@
 /* #region ===== Combined Classes ===== */
 
 .trackers-wrapper {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 20px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(157px, 1fr));

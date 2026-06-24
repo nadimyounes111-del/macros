@@ -1,26 +1,54 @@
-/* #region ===== Add Food ===== */
+/* #region ===== Wrappers & Combined ===== */
 
-.add-wrapper {
+.table-btn-wrapper {
   display: flex;
-  justify-content: flex-end;
-  max-width: 1200px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+  flex-direction: row;
+  gap: clamp(5px, 3.57px + 0.446vw, 10px);
 }
 
-.add-food-btn {
+.table-btn {
   all: unset;
   display: flex;
   cursor: pointer;
-  background: var(--green);
-  padding: 12px;
-  border-radius: 999px;
+  display: flex;
+  flex-direction: row;
 }
 
-.add-food-svg {
-  width: 28px;
-  height: 28px;
+.add-food-label,
+.clear-all-label,
+.undo-label {
+  font-size: clamp(6px, 4.29px + 0.536vw, 12px);
+}
+
+.add-food-btn,
+.clear-all-btn,
+.undo-btn {
+  all: unset;
+  display: flex;
+  cursor: pointer;
+  padding: clamp(2px, 1.71px + 0.089vw, 3px) clamp(4px, 3.43px + 0.179vw, 6px);
+  border-radius: clamp(4px, 3.43px + 0.179vw, 6px);
+  align-items: center;
+  gap: 3px;
+}
+
+.add-food-svg,
+.clear-all-svg,
+.undo-svg {
+  width: clamp(10px, 8.86px + 0.357vw, 14px);
+  height: clamp(10px, 8.86px + 0.357vw, 14px);
+}
+
+/* #endregion */
+
+/* #region ===== Add Food ===== */
+
+.add-food-btn {
+  background: var(--green);
+}
+
+.add-food-svg,
+.add-food-label {
   color: black;
 }
 
@@ -49,27 +77,12 @@
 
 /* #region ===== Clear All ===== */
 
-.clear-all-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  max-width: 1200px;
-  position: fixed;
-  bottom: 20px;
-  right: 80px;
-}
-
 .clear-all-btn {
-  all: unset;
-  display: flex;
-  cursor: pointer;
   background: red;
-  padding: 12px;
-  border-radius: 999px;
 }
 
-.clear-all-svg {
-  width: 28px;
-  height: 28px;
+.clear-all-svg,
+.clear-all-label {
   color: white;
 }
 
@@ -77,27 +90,12 @@
 
 /* #region ===== Undo ===== */
 
-.undo-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  max-width: 1200px;
-  position: fixed;
-  bottom: 20px;
-  right: 140px;
-}
-
 .undo-btn {
-  all: unset;
-  display: flex;
-  cursor: pointer;
-  background: darkgray;
-  padding: 12px;
-  border-radius: 999px;
+  background: var(--light-blue);
 }
 
-.undo-svg {
-  width: 28px;
-  height: 28px;
+.undo-svg,
+.undo-label {
   color: black;
 }
 
