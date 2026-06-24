@@ -13,7 +13,7 @@ body {
   background: var(--bg);
   user-select: none;
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
