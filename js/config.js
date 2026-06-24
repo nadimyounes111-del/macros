@@ -1,7 +1,9 @@
+/* =========================
+    Parser
+========================= */
 let foods = [];
 let selectedFood = null;
 
-// parser
 Papa.parse("foods.csv", {
   download: true,
   header: true,
@@ -13,6 +15,7 @@ Papa.parse("foods.csv", {
   },
   complete: function () {
     console.log("Foods loaded:", foods);
+    // window.initFirestore("nadim"); // ONLY ACTIVE IN PREVIEW
     initApp();
 
     document.getElementById("servings").onkeydown = function (e) {
@@ -23,7 +26,9 @@ Papa.parse("foods.csv", {
   },
 });
 
-// header title
+/* =========================
+    Header Date
+========================= */
 const now = new Date();
 document.getElementById("day-title").textContent = now.toLocaleDateString(
   "en-US",
@@ -32,7 +37,9 @@ document.getElementById("day-title").textContent = now.toLocaleDateString(
   },
 );
 
-// streak counter
+/* =========================
+    Streak Counter
+========================= */
 let streak = 0;
 let lastStreakDate = null;
 function updateStreakDisplay() {
@@ -56,11 +63,18 @@ function tapStreak() {
 
 updateStreakDisplay();
 
-// firebase pins
+/* =========================
+    Firebase Pins
+========================= */
 const USERS = {
   1234: "nadim",
   1111: "My bubu",
 };
+
+function signOut() {
+  sessionStorage.removeItem("user");
+  location.reload();
+}
 
 function updateUserName() {
   document.querySelector(".user-name").textContent = currentUser;
@@ -87,6 +101,7 @@ function submitPin() {
   initApp();
 }
 
+// ONLY INACTIVE IN PREVIEW
 document.getElementById("pin-input").addEventListener("keydown", function (e) {
   if (e.key === "Enter") submitPin();
 });

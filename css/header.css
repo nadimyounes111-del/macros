@@ -23,7 +23,8 @@
 
 .title-wrap,
 .user-wrap,
-.streak-wrap {
+.streak-wrap,
+.sign-out-wrap {
   display: flex;
   flex-direction: row;
   gap: clamp(2px, 1.14px + 0.268vw, 5px);
@@ -73,6 +74,21 @@
 .streak-num {
   font-size: clamp(14px, 12.29px + 0.536vw, 20px);
   color: #aa6ae5;
+}
+
+/* #endregion */
+
+/* #region ===== Sign Out ===== */
+
+.sign-out-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-gray);
+}
+
+.sign-out-text {
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  color: var(--light-gray);
 }
 
 /* #endregion */

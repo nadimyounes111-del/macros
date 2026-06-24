@@ -1,3 +1,6 @@
+/* =========================
+    Macro Summary
+========================= */
 window.foodLog = [];
 let GOALS = { calories: 0, protein: 0, carbs: 0, fat: 0 };
 
@@ -61,7 +64,9 @@ function updateSummary() {
   checkOverage("fat", totals.fat, GOALS.fat);
 }
 
-// edit modal
+/* =========================
+    Macro Edit Modal
+========================= */
 function openGoalsModal() {
   document.getElementById("goal-cal").value = GOALS.calories;
   document.getElementById("goal-pro").value = GOALS.protein;

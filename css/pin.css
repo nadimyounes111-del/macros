@@ -31,6 +31,7 @@
   color: var(--light-blue);
   font-family: "Cal Sans";
   outline: none;
+  letter-spacing: 3px;
 }
 
 #pin-label {

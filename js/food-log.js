@@ -240,6 +240,7 @@ function setupAddFood() {
     }, 200);
   };
 }
+
 function setCustomMode(on) {
   const servingsInput = document.getElementById("servings");
   const servingLabel = document.getElementById("serving-size-label");

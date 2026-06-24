@@ -1,3 +1,6 @@
+/* =========================
+    Delete & Clear All
+========================= */
 let undoStack = [];
 
 function deleteEntry(index) {
@@ -28,6 +31,9 @@ function clearAll() {
   renderLog();
 }
 
+/* =========================
+    Undo
+========================= */
 function undoDelete() {
   if (undoStack.length === 0) return;
   const last = undoStack.pop();
@@ -46,6 +52,9 @@ function undoDelete() {
 
 document.getElementById("clear-all-btn").onclick = clearAll;
 
+/* =========================
+    Modal
+========================= */
 function openModal() {
   document.getElementById("add-modal").style.display = "flex";
   document.getElementById("food-search").focus();

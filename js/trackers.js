@@ -1,6 +1,7 @@
-let water = 0;
+/* =========================
+    Creatine
+========================= */
 let creatineTaken = false;
-
 const creatineBtn = document.getElementById("creatine-check-btn");
 creatineBtn.dataset.checked = creatineTaken;
 creatineBtn.innerHTML = creatineTaken
@@ -14,6 +15,11 @@ function toggleCreatine(btn) {
   if (window.saveToFirestore)
     window.saveToFirestore({ creatine: creatineTaken });
 }
+
+/* =========================
+    Water
+========================= */
+let water = 0;
 
 function adjustWater(amount) {
   water = Math.max(0, parseFloat((water + amount).toFixed(1)));
