@@ -439,28 +439,43 @@
             <div style="display: flex; gap: 10px">
               <input
                 type="number"
+                inputmode="numeric"
                 id="custom-cal"
                 placeholder="Calories"
                 min="0"
               />
               <input
                 type="number"
+                inputmode="numeric"
                 id="custom-pro"
                 placeholder="Protein"
                 min="0"
               />
               <input
                 type="number"
+                inputmode="numeric"
                 id="custom-carb"
                 placeholder="Carbs"
                 min="0"
               />
-              <input type="number" id="custom-fat" placeholder="Fat" min="0" />
+              <input
+                type="number"
+                inputmode="numeric"
+                id="custom-fat"
+                placeholder="Fat"
+                min="0"
+              />
             </div>
           </div>
 
           <div id="modal-servings">
-            <input type="number" id="servings" placeholder="Servings" min="0" />
+            <input
+              type="number"
+              inputmode="numeric"
+              id="servings"
+              placeholder="Servings"
+              min="0"
+            />
             <span id="serving-size-label"></span>
           </div>
 
@@ -661,7 +676,7 @@
             </svg>
             <span class="edit-text">Calories</span>
           </div>
-          <input id="goal-cal" type="number" />
+          <input inputmode="numeric" id="goal-cal" type="number" />
         </div>
         <div class="edit-option">
           <div class="edit-label-wrap">
@@ -677,7 +692,7 @@
             </svg>
             <span class="edit-text">Protein</span>
           </div>
-          <input id="goal-pro" type="number" />
+          <input inputmode="numeric" id="goal-pro" type="number" />
         </div>
         <div class="edit-option">
           <div class="edit-label-wrap">
@@ -693,7 +708,7 @@
             </svg>
             <span class="edit-text">Carbs</span>
           </div>
-          <input id="goal-carb" type="number" />
+          <input inputmode="numeric" id="goal-carb" type="number" />
         </div>
         <div class="edit-option">
           <div class="edit-label-wrap">
@@ -748,7 +763,7 @@
             </svg>
             <span class="edit-text">Fat</span>
           </div>
-          <input id="goal-fat" type="number" />
+          <input inputmode="numeric" id="goal-fat" type="number" />
         </div>
         <button class="save-btn" onclick="saveGoals()">Save</button>
       </div>
