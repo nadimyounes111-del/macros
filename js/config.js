@@ -1,6 +1,7 @@
 let foods = [];
 let selectedFood = null;
 
+// parser
 Papa.parse("foods.csv", {
   download: true,
   header: true,
@@ -23,6 +24,7 @@ Papa.parse("foods.csv", {
   },
 });
 
+// header title
 const now = new Date();
 document.getElementById("day-title").textContent = now.toLocaleDateString(
   "en-US",
@@ -32,3 +34,30 @@ document.getElementById("day-title").textContent = now.toLocaleDateString(
     day: "numeric",
   },
 );
+
+// streak counter
+let streak = parseInt(localStorage.getItem("streak")) || 0;
+let lastStreakDate = localStorage.getItem("lastStreakDate") || null;
+
+function updateStreakDisplay() {
+  document.querySelector(".streak-num").textContent = streak;
+}
+
+function tapStreak() {
+  const today = new Date().toDateString();
+  if (lastStreakDate === today) return;
+
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  if (lastStreakDate !== yesterday.toDateString()) streak = 0;
+
+  streak++;
+  lastStreakDate = today;
+  localStorage.setItem("streak", streak);
+  localStorage.setItem("lastStreakDate", lastStreakDate);
+  updateStreakDisplay();
+  if (window.saveToFirestore)
+    window.saveToFirestore({ streak, lastStreakDate });
+}
+
+updateStreakDisplay();

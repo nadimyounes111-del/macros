@@ -52,4 +52,18 @@ onSnapshot(docRef, (snap) => {
     btn.dataset.checked = creatineTaken;
     btn.innerHTML = creatineTaken ? creatinecheckedSVG : creatineuncheckedSVG;
   }
+
+  if (data.streak !== undefined) {
+    streak = data.streak;
+    lastStreakDate = data.lastStreakDate || null;
+    localStorage.setItem("streak", streak);
+    localStorage.setItem("lastStreakDate", lastStreakDate);
+    updateStreakDisplay();
+  }
+
+  if (data.goals) {
+    GOALS = data.goals;
+    localStorage.setItem("goals", JSON.stringify(GOALS));
+    updateSummary();
+  }
 });

@@ -1,0 +1,8 @@
+run this in console to reset streak counter:
+
+localStorage.removeItem("streak");
+localStorage.removeItem("lastStreakDate");
+streak = 0;
+lastStreakDate = null;
+updateStreakDisplay();
+if (window.saveToFirestore) window.saveToFirestore({ streak: 0, lastStreakDate: null });

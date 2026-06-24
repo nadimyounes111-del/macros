@@ -1,4 +1,23 @@
-const GOALS = { calories: 2200, protein: 185, carbs: 240, fat: 55 };
+let GOALS = JSON.parse(localStorage.getItem("goals")) || {
+  calories: 1,
+  protein: 1,
+  carbs: 1,
+  fat: 1,
+};
+
+function saveGoals() {
+  GOALS.calories =
+    parseInt(document.getElementById("goal-cal").value) || GOALS.calories;
+  GOALS.protein =
+    parseInt(document.getElementById("goal-pro").value) || GOALS.protein;
+  GOALS.carbs =
+    parseInt(document.getElementById("goal-carb").value) || GOALS.carbs;
+  GOALS.fat = parseInt(document.getElementById("goal-fat").value) || GOALS.fat;
+  localStorage.setItem("goals", JSON.stringify(GOALS));
+  if (window.saveToFirestore) window.saveToFirestore({ goals: GOALS });
+  updateSummary();
+  closeGoalsModal();
+}
 
 function checkOverage(id, total, goal) {
   const warn = document.getElementById("warn-" + id);
@@ -45,3 +64,20 @@ function updateSummary() {
   checkOverage("carb", totals.carbs, GOALS.carbs);
   checkOverage("fat", totals.fat, GOALS.fat);
 }
+
+// edit modal
+function openGoalsModal() {
+  document.getElementById("goal-cal").value = GOALS.calories;
+  document.getElementById("goal-pro").value = GOALS.protein;
+  document.getElementById("goal-carb").value = GOALS.carbs;
+  document.getElementById("goal-fat").value = GOALS.fat;
+  document.getElementById("goals-modal").style.display = "flex";
+}
+
+function closeGoalsModal() {
+  document.getElementById("goals-modal").style.display = "none";
+}
+
+document
+  .getElementById("goals-modal-overlay")
+  .addEventListener("click", closeGoalsModal);

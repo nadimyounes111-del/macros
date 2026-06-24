@@ -2,7 +2,8 @@
 
 .trackers-wrapper {
   max-width: 1000px;
-  margin: 20px auto;
+  margin: 0 auto;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(157px, 1fr));
   gap: 10px;

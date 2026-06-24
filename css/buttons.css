@@ -18,7 +18,7 @@
 .clear-all-label,
 .undo-label,
 .edit-label {
-  font-size: clamp(6px, 4.29px + 0.536vw, 12px);
+  font-size: var(--text);
 }
 
 .add-food-btn,
@@ -38,8 +38,8 @@
 .clear-all-svg,
 .undo-svg,
 .edit-svg {
-  width: clamp(10px, 8.86px + 0.357vw, 14px);
-  height: clamp(10px, 8.86px + 0.357vw, 14px);
+  width: clamp(14px, 12.29px + 0.536vw, 20px);
+  height: clamp(14px, 12.29px + 0.536vw, 20px);
 }
 
 /* #endregion */

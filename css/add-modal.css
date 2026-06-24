@@ -1,3 +1,5 @@
+/* need to overhaul the modal system and overlays and ids and classes and html */
+
 /* #region ===== Overlay & Body ===== */
 
 #add-modal {
@@ -17,17 +19,18 @@
 
 #modal-box {
   position: relative;
+  padding: 20px;
   background: var(--table-bg);
   border: 2px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   width: 90%;
+  margin: 20px;
   max-width: 420px;
   z-index: 1;
   overflow: hidden;
 }
 
 #modal-body {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -59,7 +62,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px 0 20px;
   font-size: 22px;
 }
 
@@ -210,7 +212,7 @@ ul {
 /* #region ===== Footer ===== */
 
 #modal-footer {
-  padding: 0 20px 16px 20px;
+  padding-top: 10px;
 }
 
 #save-btn {
@@ -224,6 +226,113 @@ ul {
   padding: 12px;
   border-radius: 8px;
   font-size: 18px;
+}
+
+/* #endregion */
+
+/* #region ===== EDIT ===== */
+
+#goals-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#goals-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.goals-modal-content {
+  position: relative;
+  background: var(--table-bg);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  width: 90%;
+  max-width: 420px;
+  z-index: 1;
+  overflow: hidden;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.goals-modal-content input[type="number"] {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  font-family: "Cal Sans";
+  font-size: var(--text);
+  padding: 5px 10px;
+  max-width: 80px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.goals-modal-content input:focus {
+  outline: none;
+}
+
+.save-btn {
+  all: unset;
+  cursor: pointer;
+  background: var(--light-blue);
+  color: black;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.edit-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-label-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.edit-svg-cal,
+.edit-svg-pro,
+.edit-svg-carb,
+.edit-svg-fat {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.edit-svg-cal {
+  color: var(--light-blue);
+}
+
+.edit-svg-pro {
+  color: var(--orange);
+}
+
+.edit-svg-carb {
+  color: #facc15;
+}
+
+.edit-svg-fat {
+  color: var(--green);
+}
+
+.edit-text {
+  font-size: var(--text);
+  color: white;
 }
 
 /* #endregion */
