@@ -68,12 +68,12 @@
 }
 
 #modal-body input:focus {
-  border: 2px solid var(--orange);
+  border: 2px solid var(--light-blue);
   outline: none;
 }
 
 #modal-footer {
-  margin-top: clamp(10px, 7.14px + 0.893vw, 20px);
+  margin-top: 20px;
 }
 
 /* #endregion */
@@ -174,7 +174,7 @@ ul {
 #servings.custom {
   text-align: center;
   border: 2px solid transparent;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 #servings.custom::placeholder {
@@ -194,7 +194,7 @@ ul {
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   color: rgba(255, 255, 255, 0.5);
   text-align: left;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   border: 2px solid transparent;
 }
 
