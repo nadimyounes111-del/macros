@@ -9,7 +9,6 @@
 .log-wrapper {
   max-width: 800px;
   margin: 0 auto;
-  margin-top: 30px;
 }
 
 #food-log {
@@ -18,13 +17,6 @@
   border: 2px solid rgba(255, 255, 255, 0.08);
   width: 100%;
   max-width: 1200px;
-}
-
-.table-button-wrap {
-  margin: clamp(5px, 3.57px + 0.446vw, 10px) 0 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
 
 /* #endregion */
@@ -87,7 +79,7 @@
 
 .col-food {
   flex: 2 1 0;
-  min-width: 80px;
+  min-width: 60px;
   text-align: left;
   text-transform: capitalize;
   overflow: hidden;
@@ -132,7 +124,7 @@
 .col-check,
 .col-del {
   display: flex;
-  margin: 0 3px 0 3px;
+  margin-left: 3px;
   align-items: center;
   justify-content: center;
 }

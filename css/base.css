@@ -39,8 +39,19 @@ input[type="number"]::-webkit-outer-spin-button {
 :root {
   --text: clamp(10px, 10px + 0.4vw, 16px);
   --svg: clamp(20px, 18.29px + 0.536vw, 26px);
-  /* clamp(18px, 16.29px + 0.536vw, 24px); */
-  /*  original --svg: clamp(16px, 15.14px + 0.536vw, 22px); */
 }
 
 /* #endregion */
+
+.main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: clamp(10px, 7.14px + 0.893vw, 20px) 0
+    clamp(20px, 14.29px + 1.786vw, 40px) 0;
+}
+
+.main-title-text {
+  color: var(--orange);
+  font-size: clamp(46px, 35.14px + 3.393vw, 84px);
+}

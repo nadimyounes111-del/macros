@@ -18,6 +18,8 @@
   border: 2px solid rgba(255, 255, 255, 0.08);
   padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
   box-sizing: border-box;
+  width: clamp(140px, 125.71px + 4.464vw, 190px);
+  flex-shrink: 0;
 }
 
 .macro-header {
@@ -29,6 +31,61 @@
 .macro-val {
   font-size: var(--text);
   color: white;
+}
+
+/* #endregion */
+
+/* #region ===== Carousel ===== */
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: clamp(16px, 14.28px + 0.536vw, 22px);
+  width: clamp(200px, 142.86px + 17.857vw, 400px);
+  margin: 10px auto;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+}
+.carousel-section {
+  margin-bottom: 20px;
+}
+.carousel-track-wrap {
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.carousel-track-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: clamp(8px, 5.71px + 0.714vw, 16px);
+  -webkit-overflow-scrolling: touch;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.carousel-btn-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.table-button-wrap {
+  margin: clamp(5px, 3.57px + 0.446vw, 10px) 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 /* #endregion */
