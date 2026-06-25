@@ -37,8 +37,10 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 :root {
-  --text: clamp(10px, 10px + 0.4vw, 16px);
-  --svg: clamp(16px, 15.14px + 0.536vw, 22px);
+  --text: clamp(12px, 10.29px + 0.536vw, 18px);
+  /*   --text: clamp(10px, 10px + 0.4vw, 16px); */
+  --svg: clamp(18px, 16.29px + 0.536vw, 24px);
+  /*   --svg: clamp(16px, 15.14px + 0.536vw, 22px); */
 }
 
 /* #endregion */

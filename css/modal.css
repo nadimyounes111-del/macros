@@ -21,9 +21,8 @@
   background: var(--table-bg);
   border: 2px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  width: 90%;
+  width: clamp(260px, 205.71px + 16.964vw, 450px);
   margin: 20px;
-  max-width: 380px;
   z-index: 1;
   overflow: hidden;
 }
@@ -44,8 +43,8 @@
 }
 
 .modal-close-svg {
-  width: 24px;
-  height: 24px;
+  width: clamp(24px, 21.71px + 0.714vw, 32px);
+  height: clamp(24px, 21.71px + 0.714vw, 32px);
   flex-shrink: 0;
 }
 
@@ -59,7 +58,7 @@
 #modal-body input[type="number"] {
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
   font-family: "Cal Sans";
-  font-size: clamp(12px, 10.29px + 0.536vw, 18px);
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
   width: 100%;
   box-sizing: border-box;
 }
@@ -152,33 +151,34 @@ ul {
 #food-search {
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   color: var(--white);
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
 }
 
 #food-search::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--light-blue);
 }
 
 #servings {
   width: clamp(80px, 74.29px + 1.786vw, 100px) !important;
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   color: var(--white);
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
 }
 
 #servings::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--light-blue);
 }
 
 #servings.custom {
   text-align: center;
   border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 #servings.custom::placeholder {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 #serving-size-label {
@@ -192,23 +192,24 @@ ul {
 
 .macro-edit {
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.5);
   text-align: left;
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid transparent;
 }
 
 .macro-edit::placeholder {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .macro-edit.custom {
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--dark-blue);
+  background-color: var(--dark-blue);
   color: var(--white);
 }
 
 .macro-edit.custom::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--light-blue);
 }
 
 #macros-preview {
@@ -225,11 +226,11 @@ ul {
 
 .macro-label {
   font-size: var(--text);
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .macro-label.custom {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--light-blue);
 }
 
 /* #endregion */
@@ -251,7 +252,7 @@ ul {
   cursor: pointer;
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   border-radius: clamp(6px, 4.86px + 0.357vw, 10px);
-  font-size: var(--text);
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
   color: var(--light-blue);
   background-color: var(--dark-blue);
   transition: background-color 0.2s ease;
@@ -318,8 +319,8 @@ ul {
 }
 
 .goals-modal-content input[type="text"] {
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
   border-radius: 8px;
   color: white;
   font-family: "Cal Sans";
