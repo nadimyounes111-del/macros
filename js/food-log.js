@@ -123,7 +123,6 @@ function setupAddFood() {
   selectedFood = null;
 
   searchInput.value = "";
-  searchInput.placeholder = "Add From List . . .";
   servingsInput.value = "";
   updatePreview();
   setCustomMode(false);
@@ -187,6 +186,7 @@ function setupAddFood() {
       const entry = {
         food: name,
         meal: meal,
+        shorthand: name,
         servings: 1,
         calories: parseInt(document.getElementById("cal-preview").value) || 0,
         protein: parseInt(document.getElementById("pro-preview").value) || 0,
@@ -247,16 +247,15 @@ function setCustomMode(on) {
   const ids = ["cal-preview", "pro-preview", "carb-preview", "fat-preview"];
 
   if (on) {
-    servingsInput.style.display = "none";
-    servingLabel.style.display = "none";
+    document.getElementById("servings").placeholder = "—";
+    document.getElementById("servings").value = "";
+    document.getElementById("servings").disabled = true;
+    document.getElementById("servings").classList.add("custom");
+
+    document.getElementById("serving-size-label").textContent = "";
     searchInput.value = "";
-    searchInput.placeholder = "Custom Entry";
+    searchInput.placeholder = "Create custom";
     searchInput.focus();
-    ids.forEach(function (id) {
-      const input = document.getElementById(id);
-      input.disabled = false;
-      input.value = "";
-    });
 
     const inputs = [
       "cal-preview",
@@ -274,16 +273,31 @@ function setCustomMode(on) {
       };
     });
   } else {
+    document.getElementById("servings").disabled = false;
+    document.getElementById("servings").classList.remove("custom");
+    document.getElementById("servings").placeholder = "Servings";
+    document.getElementById("serving-size-label").textContent = "";
+    document.getElementById("serving-size-label").classList.remove("custom");
     servingsInput.style.display = "";
     servingLabel.style.display = "";
     searchInput.value = "";
-    searchInput.placeholder = "Add From List . . .";
+    searchInput.placeholder = "Choose from list";
+    searchInput.focus();
     ids.forEach(function (id) {
       const input = document.getElementById(id);
       input.disabled = true;
       input.value = "";
     });
   }
+  ids.forEach(function (id) {
+    const input = document.getElementById(id);
+    input.disabled = !on;
+    input.value = "";
+    input.classList.toggle("custom", on);
+  });
+  document
+    .querySelectorAll(".macro-label")
+    .forEach((el) => el.classList.toggle("custom", on));
 }
 
 function updatePreview() {

@@ -56,12 +56,12 @@ document.getElementById("clear-all-btn").onclick = clearAll;
     Modal
 ========================= */
 function openModal() {
-  document.getElementById("add-modal").style.display = "flex";
+  document.getElementById("modal").style.display = "flex";
   document.getElementById("food-search").focus();
 }
 
 function closeModal() {
-  document.getElementById("add-modal").style.display = "none";
+  document.getElementById("modal").style.display = "none";
   setupAddFood();
 }
 

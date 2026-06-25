@@ -14,8 +14,10 @@ CSS_FILES = [
     "css/base.css",
     "css/buttons.css",
     "css/food-log.css",
+    "css/header.css",
     "css/macros-sum.css",
     "css/trackers.css"
+    "css/pin.css"
 ]
 
 HTML_JS_FILES = [

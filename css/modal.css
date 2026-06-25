@@ -1,0 +1,392 @@
+/* #region Template Reusable */
+
+#modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+#modal-box {
+  position: relative;
+  padding: 20px;
+  background: var(--table-bg);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  width: 90%;
+  margin: 20px;
+  max-width: 380px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: clamp(16px, 14.29px + 0.536vw, 22px);
+  margin-bottom: clamp(10px, 7.14px + 0.893vw, 20px);
+}
+
+#modal-close-btn {
+  all: unset;
+  cursor: pointer;
+  color: var(--light-gray);
+  display: flex;
+}
+
+.modal-close-svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+#modal-body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#modal-body input[type="text"],
+#modal-body input[type="number"] {
+  border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
+  font-family: "Cal Sans";
+  font-size: clamp(12px, 10.29px + 0.536vw, 18px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#modal-body input {
+  transition: border 0.2s ease;
+}
+
+#modal-body input:focus {
+  border: 2px solid var(--orange);
+  outline: none;
+}
+
+#modal-footer {
+  margin-top: clamp(10px, 7.14px + 0.893vw, 20px);
+}
+
+/* #endregion */
+
+/* #region ADD FOOD | Custom Toggle */
+
+#custom-toggle {
+  all: unset;
+  display: flex;
+  cursor: pointer;
+  background-color: transparent;
+  transition: transform 0.2s ease;
+  background-color: var(--dark-blue);
+  padding: 5px;
+  border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
+}
+
+#custom-toggle:active {
+  transform: scale(0.95);
+}
+
+.custom-svg {
+  width: clamp(18px, 12.86px + 1.607vw, 36px);
+  height: clamp(18px, 12.86px + 1.607vw, 36px);
+  color: var(--light-blue);
+}
+
+/* #endregion */
+
+/* #region ADD FOOD | Search & Servings */
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#autocomplete-list {
+  position: fixed;
+  background-color: var(--dark-blue);
+  color: white;
+  max-height: 200px;
+  border-radius: 10px;
+  padding: 5px;
+  width: max-content;
+  overflow-y: auto;
+  z-index: 9999;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+#autocomplete-list:empty {
+  display: none;
+}
+
+#autocomplete-list li {
+  padding: 6px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: var(--text);
+}
+
+.add-food-servings {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 4.86px + 0.357vw, 10px);
+}
+
+.food-search-wrap {
+  display: flex;
+  margin-bottom: clamp(5px, 3.57px + 0.446vw, 10px);
+  gap: 5px;
+  align-items: center;
+}
+
+#food-search {
+  padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+#food-search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#servings {
+  width: clamp(80px, 74.29px + 1.786vw, 100px) !important;
+  padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+#servings::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#servings.custom {
+  text-align: center;
+  border: 2px solid transparent;
+}
+
+#servings.custom::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+#serving-size-label {
+  font-size: clamp(12px, 10.29px + 0.536vw, 18px);
+  color: white;
+}
+
+/* #endregion */
+
+/* #region ADD FOOD | Macro Preview & Edit */
+
+.macro-edit {
+  padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
+  color: rgba(255, 255, 255, 0.2);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+}
+
+.macro-edit::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.macro-edit.custom {
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.macro-edit.custom::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#macros-preview {
+  display: flex;
+  gap: clamp(8px, 6.86px + 0.357vw, 12px);
+  margin: clamp(10px, 7.14px + 0.893vw, 20px) 0;
+}
+
+.macro-item {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2px, 1.43px + 0.179vw, 4px);
+}
+
+.macro-label {
+  font-size: var(--text);
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.macro-label.custom {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* #endregion */
+
+/* #region ADD FOOD | Meal Type */
+
+.modal-meal-types {
+  display: flex;
+  gap: clamp(4px, 2.86px + 0.357vw, 8px);
+  flex-wrap: wrap;
+}
+
+.meal-btn {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  cursor: pointer;
+  padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
+  border-radius: clamp(6px, 4.86px + 0.357vw, 10px);
+  font-size: var(--text);
+  color: var(--light-blue);
+  background-color: var(--dark-blue);
+  transition: background-color 0.2s ease;
+}
+
+.meal-btn.active {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+/* #endregion */
+
+/* #region ADD FOOD | Save */
+
+#save-btn {
+  all: unset;
+  cursor: pointer;
+  background: #639922;
+  color: white;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: clamp(6px, 4.29px + 0.536vw, 12px);
+  border-radius: 8px;
+  font-size: clamp(16px, 14.29px + 0.536vw, 22px);
+  transition: transform 0.2s ease;
+}
+
+#save-btn:active {
+  transform: scale(0.95);
+}
+
+/* #endregion */
+
+/* #region goals modal */
+#goals-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#goals-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.goals-modal-content {
+  position: relative;
+  background: var(--table-bg);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  width: 90%;
+  max-width: 420px;
+  z-index: 1;
+  overflow: hidden;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.goals-modal-content input[type="text"] {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  font-family: "Cal Sans";
+  font-size: var(--text);
+  padding: 5px 10px;
+  max-width: 80px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.goals-modal-content input:focus {
+  outline: none;
+}
+
+.save-btn {
+  all: unset;
+  cursor: pointer;
+  background: var(--light-blue);
+  color: black;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.edit-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-label-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.edit-svg-cal,
+.edit-svg-pro,
+.edit-svg-carb,
+.edit-svg-fat {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+}
+
+.edit-svg-cal {
+  color: var(--light-blue);
+}
+
+.edit-svg-pro {
+  color: var(--orange);
+}
+
+.edit-svg-carb {
+  color: #facc15;
+}
+
+.edit-svg-fat {
+  color: var(--green);
+}
+
+.edit-text {
+  font-size: var(--text);
+  color: white;
+}
+
+/* #endregion */
