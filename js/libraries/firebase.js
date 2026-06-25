@@ -55,7 +55,7 @@ window.initFirestore = function (user) {
     if (data.streak !== undefined) {
       streak = data.streak;
       lastStreakDate = data.lastStreakDate || null;
-      updateStreakDisplay();
+      // updateStreakDisplay();
     }
   });
 };

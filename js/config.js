@@ -43,26 +43,26 @@ document.getElementById("day-title").textContent = now.toLocaleDateString(
 ========================= */
 let streak = 0;
 let lastStreakDate = null;
-function updateStreakDisplay() {
-  document.querySelector(".streak-num").textContent = streak;
-}
+// function updateStreakDisplay() {
+//   document.querySelector(".streak-num").textContent = streak;
+// }
 
-function tapStreak() {
-  const today = new Date().toDateString();
-  if (lastStreakDate === today) return;
+// function tapStreak() {
+//   const today = new Date().toDateString();
+//   if (lastStreakDate === today) return;
 
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-  if (lastStreakDate !== yesterday.toDateString()) streak = 0;
+//   const yesterday = new Date();
+//   yesterday.setDate(yesterday.getDate() - 1);
+//   if (lastStreakDate !== yesterday.toDateString()) streak = 0;
 
-  streak++;
-  lastStreakDate = today;
-  updateStreakDisplay();
-  if (window.saveToFirestore)
-    window.saveToFirestore({ streak, lastStreakDate });
-}
+//   streak++;
+//   lastStreakDate = today;
+//   updateStreakDisplay();
+//   if (window.saveToFirestore)
+//     window.saveToFirestore({ streak, lastStreakDate });
+// }
 
-updateStreakDisplay();
+// updateStreakDisplay();
 
 /* =========================
     Firebase Pins
