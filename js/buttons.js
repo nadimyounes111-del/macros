@@ -53,19 +53,21 @@ function undoDelete() {
 document.getElementById("clear-all-btn").onclick = clearAll;
 
 /* =========================
-    Modal
+    Add Food Modal
 ========================= */
-function openModal() {
-  document.getElementById("modal").style.display = "flex";
+function openFoodModal() {
+  document.getElementById("add-modal").style.display = "flex";
   document.getElementById("food-search").focus();
 }
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
+function closeFoodModal() {
+  document.getElementById("add-modal").style.display = "none";
   setupAddFood();
 }
 
-document.getElementById("modal-overlay").addEventListener("click", closeModal);
+document
+  .getElementById("add-modal-overlay")
+  .addEventListener("click", closeFoodModal);
 
 document.querySelectorAll(".meal-btn").forEach(function (btn) {
   btn.addEventListener("click", function () {
@@ -77,5 +79,5 @@ document.querySelectorAll(".meal-btn").forEach(function (btn) {
 });
 
 document.addEventListener("keydown", function (e) {
-  if (e.code === "Space" && e.target === document.body) openModal();
+  if (e.code === "Space" && e.target === document.body) openFoodModal();
 });

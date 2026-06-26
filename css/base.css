@@ -43,15 +43,18 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* #endregion */
 
+/* #region ===== Title ===== */
+
 .main-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: clamp(10px, 7.14px + 0.893vw, 20px) 0
-    clamp(20px, 14.29px + 1.786vw, 40px) 0;
+  margin-top: clamp(10px, 6px + 1.25vw, 24px);
 }
 
 .main-title-text {
-  color: var(--orange);
+  color: var(--white);
   font-size: clamp(46px, 35.14px + 3.393vw, 84px);
 }
+
+/* #endregion */

@@ -44,7 +44,7 @@
   color: rgba(255, 255, 255, 0.3);
   font-size: clamp(16px, 14.28px + 0.536vw, 22px);
   width: clamp(200px, 142.86px + 17.857vw, 400px);
-  margin: 10px auto;
+  margin: 10px auto clamp(0px, -2.857px + 0.893vw, 8px);
 }
 
 .section-divider::before,
@@ -56,7 +56,7 @@
   border-radius: 999px;
 }
 .carousel-section {
-  margin-bottom: 20px;
+  margin: 10px 0 20px 0;
 }
 .carousel-track-wrap {
   position: relative;

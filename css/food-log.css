@@ -8,7 +8,8 @@
 
 .log-wrapper {
   max-width: 800px;
-  margin: 0 auto;
+  margin: clamp(15px, 12.14px + 0.893vw, 25px) auto;
+  /* margin-top: clamp(5px, 3.57px + 0.446vw, 10px); */
 }
 
 #food-log {

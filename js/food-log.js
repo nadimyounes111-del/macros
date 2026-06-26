@@ -102,17 +102,17 @@ function renderLog() {
 }
 
 function toggleCustomMode() {
-  const btn = document.getElementById("custom-toggle");
+  // const btn = document.getElementById("custom-toggle");
   const isCustom = selectedFood === "custom";
 
   if (isCustom) {
     selectedFood = null;
     setCustomMode(false);
-    btn.classList.remove("active");
+    // btn.classList.remove("active");
   } else {
     selectedFood = "custom";
     setCustomMode(true);
-    btn.classList.add("active");
+    // btn.classList.add("active");
   }
 }
 
@@ -127,8 +127,8 @@ function setupAddFood() {
   updatePreview();
   setCustomMode(false);
 
-  const toggleBtn = document.getElementById("custom-toggle");
-  if (toggleBtn) toggleBtn.classList.remove("active");
+  // const toggleBtn = document.getElementById("custom-toggle");
+  // if (toggleBtn) toggleBtn.classList.remove("active");
 
   searchInput.onfocus = function () {
     if (selectedFood === "custom") return;

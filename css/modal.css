@@ -1,6 +1,6 @@
 /* #region Template Reusable */
 
-#modal {
+.modal {
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -9,13 +9,13 @@
   justify-content: center;
 }
 
-#modal-overlay {
+.modal-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.8);
 }
 
-#modal-box {
+.modal-box {
   position: relative;
   padding: 20px;
   background: var(--table-bg);
@@ -27,7 +27,7 @@
   overflow: hidden;
 }
 
-#modal-header {
+.modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -35,7 +35,7 @@
   margin-bottom: clamp(10px, 7.14px + 0.893vw, 20px);
 }
 
-#modal-close-btn {
+.modal-close-btn {
   all: unset;
   cursor: pointer;
   color: var(--light-gray);
@@ -48,14 +48,14 @@
   flex-shrink: 0;
 }
 
-#modal-body {
+.modal-body {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-#modal-body input[type="text"],
-#modal-body input[type="number"] {
+.modal-body input[type="text"],
+.modal-body input[type="number"] {
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
   font-family: "Cal Sans";
   font-size: clamp(14px, 12.86px + 0.357vw, 18px);
@@ -63,26 +63,45 @@
   box-sizing: border-box;
 }
 
-#modal-body input {
+.modal-body input {
   transition: border 0.2s ease;
 }
 
-#modal-body input:focus {
+.modal-body input:focus {
+  /* if an input is an ID add focus to it directly, it ignores him */
   border: 2px solid var(--light-blue);
   outline: none;
 }
 
-#modal-footer {
+.modal-footer {
   margin-top: 20px;
   display: flex;
   justify-content: end;
+}
+
+.modal-complete-btn {
+  all: unset;
+  cursor: pointer;
+  background: var(--light-blue);
+  color: black;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: clamp(8px, 6.86px + 0.357vw, 12px);
+  border-radius: clamp(8px, 7.43px + 0.179vw, 10px);
+  font-size: clamp(16px, 14.29px + 0.536vw, 22px);
+  transition: transform 0.2s ease;
+}
+
+.modal-complete-btn:active {
+  transform: scale(0.95);
 }
 
 /* #endregion */
 
 /* #region ADD FOOD | Custom Toggle */
 
-#custom-toggle {
+.custom-toggle {
   all: unset;
   display: flex;
   cursor: pointer;
@@ -93,7 +112,7 @@
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
 }
 
-#custom-toggle:active {
+.custom-toggle:active {
   transform: scale(0.95);
 }
 
@@ -145,7 +164,7 @@ ul {
 
 .food-search-wrap {
   display: flex;
-  margin-bottom: clamp(5px, 3.57px + 0.446vw, 10px);
+  margin-bottom: 10px;
   gap: 5px;
   align-items: center;
 }
@@ -155,6 +174,11 @@ ul {
   color: var(--white);
   background: var(--dark-blue);
   border: 2px solid var(--dark-blue);
+}
+
+#food-search:focus {
+  border: 2px solid var(--light-blue);
+  outline: none;
 }
 
 #food-search::placeholder {
@@ -167,6 +191,11 @@ ul {
   color: var(--white);
   background: var(--dark-blue);
   border: 2px solid var(--dark-blue);
+}
+
+#servings:focus {
+  border: 2px solid var(--light-blue);
+  outline: none;
 }
 
 #servings::placeholder {
@@ -217,7 +246,7 @@ ul {
 #macros-preview {
   display: flex;
   gap: clamp(8px, 6.86px + 0.357vw, 12px);
-  margin: clamp(10px, 7.14px + 0.893vw, 20px) 0;
+  margin: 20px 0;
 }
 
 .macro-item {
@@ -263,35 +292,6 @@ ul {
 .meal-btn.active {
   background-color: var(--orange);
   color: var(--white);
-}
-
-/* #endregion */
-
-/* #region ADD FOOD | Save */
-
-#save-btn {
-  all: unset;
-  cursor: pointer;
-  display: flex;
-  background: var(--orange);
-  color: white;
-  box-sizing: border-box;
-  text-align: center;
-  padding: clamp(3px, 2.14px + 0.268vw, 6px) clamp(6px, 4.29px + 0.536vw, 12px);
-  border-radius: 8px;
-  font-size: clamp(16px, 14.29px + 0.536vw, 22px);
-  transition: transform 0.2s ease;
-  align-items: center;
-}
-
-#save-btn:active {
-  transform: scale(0.95);
-}
-
-.done-icon {
-  width: clamp(18px, 12.86px + 1.607vw, 36px);
-  height: clamp(18px, 12.86px + 1.607vw, 36px);
-  color: white;
 }
 
 /* #endregion */

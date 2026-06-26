@@ -6,9 +6,7 @@
   padding: 5px 10px;
   position: sticky;
   top: 0px;
-  background: var(--table-bg);
-  border-radius: 0 0 10px 10px;
-  border: 2px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg);
   box-sizing: border-box;
 }
 
