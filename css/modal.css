@@ -54,8 +54,7 @@
   position: relative;
 }
 
-.modal-body input[type="text"],
-.modal-body input[type="number"] {
+.modal-body input {
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
   font-family: "Cal Sans";
   font-size: clamp(14px, 12.86px + 0.357vw, 18px);
@@ -69,7 +68,7 @@
 
 .modal-body input:focus {
   /* if an input is an ID add focus to it directly, it ignores him */
-  border: 2px solid var(--light-blue);
+  border: 2px solid var(--orange);
   outline: none;
 }
 
@@ -177,7 +176,7 @@ ul {
 }
 
 #food-search:focus {
-  border: 2px solid var(--light-blue);
+  border: 2px solid var(--orange);
   outline: none;
 }
 
@@ -194,7 +193,7 @@ ul {
 }
 
 #servings:focus {
-  border: 2px solid var(--light-blue);
+  border: 2px solid var(--orange);
   outline: none;
 }
 
@@ -397,6 +396,28 @@ ul {
 .edit-text {
   font-size: var(--text);
   color: white;
+}
+
+.edit-input:focus {
+  border: 2px solid var(--orange);
+  outline: none;
+}
+
+#goals-modal .edit-input {
+  width: clamp(70px, 61.43px + 2.679vw, 100px);
+}
+
+.edit-input {
+  display: block;
+  padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
+  color: var(--white);
+  background: var(--dark-blue);
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+#goals-modal .modal-body {
+  gap: clamp(6px, 4.29px + 0.536vw, 12px);
 }
 
 /* #endregion */

@@ -14,14 +14,13 @@ Papa.parse("foods.csv", {
     foods.push(row.data);
   },
   complete: function () {
-    // window.initFirestore("Nad"); // ONLY ACTIVE IN PREVIEW
-    initApp();
-
-    document.getElementById("servings").onkeydown = function (e) {
-      if (e.key === "Enter") {
-        document.getElementById("save-btn").click();
-      }
-    };
+    if (currentUser) {
+      // already logged in, skip PIN screen
+      document.getElementById("pin-screen").style.display = "none";
+      window.initFirestore(currentUser);
+      initApp();
+    }
+    // else: just wait, submitPin() will call initApp() when they log in
   },
 });
 
@@ -70,18 +69,19 @@ let lastStreakDate = null;
 const USERS = {
   3641: "Nad",
   4040: "Visitor",
+  7184: "Maria",
 };
 
+let currentUser = localStorage.getItem("user") || null;
+
 function signOut() {
-  sessionStorage.removeItem("user");
+  localStorage.removeItem("user");
   location.reload();
 }
 
 function updateUserName() {
   document.querySelector(".user-name").textContent = currentUser;
 }
-
-let currentUser = sessionStorage.getItem("user") || null;
 
 function submitPin() {
   const pin = document.getElementById("pin-input").value;
@@ -95,14 +95,19 @@ function submitPin() {
   }
 
   currentUser = user;
-  sessionStorage.setItem("user", user);
+  localStorage.setItem("user", user);
   updateUserName();
   document.getElementById("pin-screen").style.display = "none";
   window.initFirestore(user);
   initApp();
 }
 
-// ONLY INACTIVE IN PREVIEW
 document.getElementById("pin-input").addEventListener("keydown", function (e) {
   if (e.key === "Enter") submitPin();
 });
+
+document.getElementById("servings").onkeydown = function (e) {
+  if (e.key === "Enter") {
+    document.getElementById("save-btn").click();
+  }
+};
