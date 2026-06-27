@@ -10,13 +10,71 @@ window.renderLog = renderLog;
 function initApp() {
   renderLog();
   updateSummary();
+  setTimeout(() => {
+    document.getElementById("page").classList.add("visible");
+    document.getElementById("pin-screen").style.display = "none";
+  }, 50);
 }
 
-function showToast(message) {
-  const toast = document.getElementById("toast");
-  toast.textContent = message;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 2000);
+function saveFood() {
+  const activeMealBtn = document.querySelector(".meal-btn.active");
+  const meal = activeMealBtn ? activeMealBtn.dataset.meal : "Breakfast";
+  const servingsInput = document.getElementById("servings");
+  const searchInput = document.getElementById("food-search");
+
+  if (selectedFood === "custom") {
+    const name = searchInput.value.trim();
+    if (!name) return;
+    const entry = {
+      food: name,
+      meal: meal,
+      shorthand: name,
+      servings: 1,
+      calories: parseInt(document.getElementById("cal-preview").value) || 0,
+      protein: parseInt(document.getElementById("pro-preview").value) || 0,
+      carbs: parseInt(document.getElementById("carb-preview").value) || 0,
+      fat: parseInt(document.getElementById("fat-preview").value) || 0,
+      servingSize: "",
+    };
+    window.foodLog.push(entry);
+    const newIndex = window.foodLog.length - 1;
+    saveLog();
+    renderLog();
+    closeFoodModal(); // consistent — every save closes its own modal
+    setTimeout(() => {
+      const row = document.querySelector(`[data-index="${newIndex}"]`);
+      if (row) row.classList.add("row-flash");
+    }, 200);
+    return;
+  }
+
+  if (!selectedFood) return;
+  const servings = parseFloat(servingsInput.value) || 0;
+  if (servings <= 0) return;
+
+  const entry = {
+    food: selectedFood.Food,
+    shorthand: selectedFood.Food.split(" - ")[0],
+    meal: meal,
+    servings: servings,
+    calories: parseInt(
+      (parseFloat(selectedFood.Calories) * servings).toFixed(0),
+    ),
+    protein: parseInt((parseFloat(selectedFood.Protein) * servings).toFixed(0)),
+    carbs: parseInt((parseFloat(selectedFood.Carbs) * servings).toFixed(0)),
+    fat: parseInt((parseFloat(selectedFood.Fat) * servings).toFixed(0)),
+    servingSize: selectedFood["Serving Size"],
+  };
+
+  window.foodLog.push(entry);
+  const newIndex = window.foodLog.length - 1;
+  saveLog();
+  renderLog();
+  closeFoodModal();
+  setTimeout(() => {
+    const row = document.querySelector(`[data-index="${newIndex}"]`);
+    if (row) row.classList.add("row-flash");
+  }, 200);
 }
 
 function saveLog() {
@@ -176,67 +234,8 @@ function setupAddFood() {
 
   servingsInput.oninput = updatePreview;
 
-  document.getElementById("save-btn").onclick = function () {
-    const activeMealBtn = document.querySelector(".meal-btn.active");
-    const meal = activeMealBtn ? activeMealBtn.dataset.meal : "Breakfast";
-
-    if (selectedFood === "custom") {
-      const name = searchInput.value.trim();
-      if (!name) return;
-      const entry = {
-        food: name,
-        meal: meal,
-        shorthand: name,
-        servings: 1,
-        calories: parseInt(document.getElementById("cal-preview").value) || 0,
-        protein: parseInt(document.getElementById("pro-preview").value) || 0,
-        carbs: parseInt(document.getElementById("carb-preview").value) || 0,
-        fat: parseInt(document.getElementById("fat-preview").value) || 0,
-        servingSize: "",
-      };
-      window.foodLog.push(entry);
-      const newIndex = window.foodLog.length - 1;
-      saveLog();
-      renderLog();
-      closeModal();
-
-      setTimeout(() => {
-        const row = document.querySelector(`[data-index="${newIndex}"]`);
-        if (row) row.classList.add("row-flash");
-      }, 200);
-      return;
-    }
-
-    if (!selectedFood) return;
-    const servings = parseFloat(servingsInput.value) || 0;
-    if (servings <= 0) return;
-
-    const entry = {
-      food: selectedFood.Food,
-      shorthand: selectedFood.Food.split(" - ")[0],
-      meal: meal,
-      servings: servings,
-      calories: parseInt(
-        (parseFloat(selectedFood.Calories) * servings).toFixed(0),
-      ),
-      protein: parseInt(
-        (parseFloat(selectedFood.Protein) * servings).toFixed(0),
-      ),
-      carbs: parseInt((parseFloat(selectedFood.Carbs) * servings).toFixed(0)),
-      fat: parseInt((parseFloat(selectedFood.Fat) * servings).toFixed(0)),
-      servingSize: selectedFood["Serving Size"],
-    };
-
-    window.foodLog.push(entry);
-    const newIndex = window.foodLog.length - 1;
-    saveLog();
-    renderLog();
-    closeModal();
-
-    setTimeout(() => {
-      const row = document.querySelector(`[data-index="${newIndex}"]`);
-      if (row) row.classList.add("row-flash");
-    }, 200);
+  document.getElementById("add-modal").onkeydown = function (e) {
+    if (e.key === "Enter") saveFood();
   };
 }
 
@@ -269,7 +268,7 @@ function setCustomMode(on) {
         const allFilled = inputs.every(function (i) {
           return document.getElementById(i).value !== "";
         });
-        if (allFilled) document.getElementById("save-btn").click();
+        if (allFilled) saveFood();
       };
     });
   } else {

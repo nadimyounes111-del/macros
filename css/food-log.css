@@ -169,7 +169,7 @@
   }
 
   50% {
-    background-color: #ff8000;
+    background-color: rgb(6, 148, 6);
   }
 
   100% {
@@ -179,6 +179,10 @@
 
 .row-flash {
   animation: flash 0.8s ease-out forwards;
+}
+
+.row-checked {
+  opacity: 0.4;
 }
 
 /* #endregion */

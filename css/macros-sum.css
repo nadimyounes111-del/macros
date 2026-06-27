@@ -1,17 +1,5 @@
 /* #region ===== Cards ===== */
 
-.macros-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: 30px;
-}
-
-.macro-cards-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(157px, 1fr));
-  gap: 10px;
-}
-
 .macro-card {
   background-color: var(--table-bg);
   border-radius: 10px;

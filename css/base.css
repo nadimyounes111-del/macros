@@ -16,9 +16,22 @@ body {
   overflow-x: hidden;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
+}
+
+#page {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#page.visible {
+  opacity: 1;
 }
 
 /* #endregion */
@@ -34,6 +47,7 @@ input[type="number"]::-webkit-outer-spin-button {
   --white: #ffffff;
   --green: #37e760;
   --light-blue: #19a8cc;
+  --red: #ff5c5c;
 }
 
 :root {

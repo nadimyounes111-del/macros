@@ -19,7 +19,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 let docRef = null;
 
-window.initFirestore = function (user) {
+window.initFirestore = function (user, onFirstLoad) {
   docRef = doc(db, "users", user);
 
   window.saveToFirestore = async function (data) {
@@ -30,13 +30,22 @@ window.initFirestore = function (user) {
     }
   };
 
+  let isFirst = true;
+
   onSnapshot(docRef, (snap) => {
-    if (!snap.exists()) return;
+    if (!snap.exists()) {
+      if (isFirst) {
+        isFirst = false;
+        onFirstLoad?.();
+      }
+      return;
+    }
+
     const data = snap.data();
 
     if (data.foodLog) {
       window.foodLog = data.foodLog;
-      window.renderLog();
+      window.renderLog?.();
     }
     if (data.water !== undefined) {
       water = data.water;
@@ -55,7 +64,11 @@ window.initFirestore = function (user) {
     if (data.streak !== undefined) {
       streak = data.streak;
       lastStreakDate = data.lastStreakDate || null;
-      // updateStreakDisplay();
+    }
+
+    if (isFirst) {
+      isFirst = false;
+      onFirstLoad?.();
     }
   });
 };

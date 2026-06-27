@@ -12,10 +12,13 @@ function saveGoals() {
   GOALS.carbs =
     parseInt(document.getElementById("goal-carb").value) || GOALS.carbs;
   GOALS.fat = parseInt(document.getElementById("goal-fat").value) || GOALS.fat;
-  localStorage.setItem("goals", JSON.stringify(GOALS));
   if (window.saveToFirestore) window.saveToFirestore({ goals: GOALS });
   updateSummary();
   closeGoalsModal();
+}
+
+function goalsModalEnter(e) {
+  if (e.key === "Enter") saveGoals();
 }
 
 function checkOverage(id, total, goal) {
@@ -73,10 +76,14 @@ function openGoalsModal() {
   document.getElementById("goal-carb").value = GOALS.carbs;
   document.getElementById("goal-fat").value = GOALS.fat;
   document.getElementById("goals-modal").style.display = "flex";
+  document.body.classList.add("modal-open");
+  document.addEventListener("keydown", goalsModalEnter);
 }
 
 function closeGoalsModal() {
   document.getElementById("goals-modal").style.display = "none";
+  document.body.classList.remove("modal-open");
+  document.removeEventListener("keydown", goalsModalEnter);
 }
 
 document

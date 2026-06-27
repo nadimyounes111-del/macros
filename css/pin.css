@@ -23,7 +23,7 @@
 #pin-input {
   text-align: center;
   font-size: clamp(14px, 12.29px + 0.536vw, 20px);
-  width: 80px;
+  width: clamp(60px, 54.29px + 1.786vw, 80px);
   padding: 5px 10px;
   background: var(--dark-blue);
   border: 2px solid rgba(255, 255, 255, 0.08);
@@ -31,13 +31,17 @@
   color: var(--light-blue);
   font-family: "Cal Sans";
   outline: none;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   margin-top: 10px;
 }
 
 #pin-label {
   color: var(--light-gray);
   font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+}
+
+#pin-label.incorrect {
+  color: var(--red);
 }
 
 .pin-svg {
@@ -51,13 +55,35 @@
   cursor: pointer;
   background: var(--orange);
   color: black;
-  width: 104px;
+  width: clamp(120px, 114.29px + 1.786vw, 140px);
   box-sizing: border-box;
   text-align: center;
   padding: 5px 10px;
   border-radius: 8px;
   font-size: clamp(14px, 12.29px + 0.536vw, 20px);
-  margin-top: 30px;
+  margin-top: clamp(20px, 17.14px + 0.893vw, 30px);
 }
 
 /* #endregion */
+
+#pin-loading {
+  display: flex;
+  width: 72px;
+  height: 72px;
+  align-items: center;
+  justify-content: center;
+}
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 5px solid var(--dark-blue);
+  border-top-color: var(--orange);
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

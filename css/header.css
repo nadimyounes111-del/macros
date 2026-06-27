@@ -31,21 +31,6 @@
 
 /* #endregion */
 
-/* #region ===== Title ===== */
-
-.title-header {
-  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
-  color: var(--orange);
-}
-
-.title-svg {
-  width: var(--svg);
-  height: var(--svg);
-  color: var(--orange);
-}
-
-/* #endregion */
-
 /* #region ===== User ===== */
 
 .user-name {

@@ -15,19 +15,6 @@ function clearAll() {
   undoStack.push({ snapshot: [...window.foodLog] });
   window.foodLog = [];
   saveLog();
-
-  water = 0;
-  localStorage.setItem("water", 0);
-  document.getElementById("water-val").textContent = "0 L";
-  if (window.saveToFirestore) window.saveToFirestore({ water: 0 });
-
-  creatineTaken = false;
-  localStorage.setItem("creatine", false);
-  const btn = document.getElementById("creatine-check-btn");
-  btn.dataset.checked = false;
-  btn.innerHTML = creatineuncheckedSVG;
-  if (window.saveToFirestore) window.saveToFirestore({ creatine: false });
-
   renderLog();
 }
 
@@ -55,14 +42,23 @@ document.getElementById("clear-all-btn").onclick = clearAll;
 /* =========================
     Add Food Modal
 ========================= */
+
+function addModalEnter(e) {
+  if (e.key === "Enter") saveFood();
+}
+
 function openFoodModal() {
   document.getElementById("add-modal").style.display = "flex";
   document.getElementById("food-search").focus();
+  document.body.classList.add("modal-open");
+  document.addEventListener("keydown", addModalEnter);
 }
 
 function closeFoodModal() {
   document.getElementById("add-modal").style.display = "none";
   setupAddFood();
+  document.body.classList.remove("modal-open");
+  document.removeEventListener("keydown", addModalEnter);
 }
 
 document
