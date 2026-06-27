@@ -5,7 +5,7 @@ let foods = [];
 let selectedFood = null;
 
 const foodsReady = new Promise((resolve) => {
-  Papa.parse("../csv/foods.csv", {
+  Papa.parse("csv/foods.csv", {
     download: true,
     header: true,
     skipEmptyLines: true,
