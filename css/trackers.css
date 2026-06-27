@@ -76,6 +76,18 @@
   width: 45px;
 }
 
+.water-bottle-empty {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-gray);
+}
+
+.water-bottle-full {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-blue);
+}
+
 /* Creatine */
 #creatine-check-btn {
   all: unset;
