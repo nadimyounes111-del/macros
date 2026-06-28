@@ -51,7 +51,6 @@ window.initFirestore = function (user, onFirstLoad) {
       water = data.water;
       if (document.getElementById("water-fill-rect")) updateWaterUI();
     }
-
     if (data.goals) {
       GOALS = data.goals;
       updateSummary();
@@ -62,6 +61,14 @@ window.initFirestore = function (user, onFirstLoad) {
     if (data.supplements) {
       supplements = data.supplements;
       renderSupplements();
+    }
+    if (data.weightUnit !== undefined) {
+      unit = data.weightUnit;
+    }
+    if (data.currentWeight !== undefined) {
+      currentWeight = data.currentWeight;
+      previousWeight = data.previousWeight || null;
+      if (document.getElementById("weight-val")) updateWeightUI();
     }
     // if (data.streak !== undefined) {
     //   streak = data.streak;

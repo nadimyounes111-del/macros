@@ -69,3 +69,58 @@ function addSupp() {
 function saveSupplements() {
   if (window.saveToFirestore) window.saveToFirestore({ supplements });
 }
+
+// weight
+let currentWeight = null;
+let previousWeight = null;
+let unit = "kg";
+
+function toDisplay(kg) {
+  return unit === "kg" ? parseFloat(kg).toFixed(1) : (kg * 2.205).toFixed(1);
+}
+
+function toKg(val) {
+  return unit === "kg" ? val : val / 2.205;
+}
+
+function toggleUnit() {
+  unit = unit === "kg" ? "lbs" : "kg";
+  if (window.saveToFirestore) window.saveToFirestore({ weightUnit: unit });
+  updateWeightUI();
+}
+
+function submitWeight() {
+  const val = parseFloat(document.getElementById("weight-input").value);
+  if (!val || val <= 0) return;
+  logWeight(toKg(val)); // always store in kg
+  document.getElementById("weight-input").value = "";
+}
+
+function logWeight(newWeightKg) {
+  previousWeight = currentWeight;
+  currentWeight = newWeightKg;
+  updateWeightUI();
+  if (window.saveToFirestore)
+    window.saveToFirestore({ currentWeight, previousWeight });
+}
+
+function updateWeightUI() {
+  document.getElementById("unit-toggle").textContent = unit;
+  if (!currentWeight) return;
+
+  document.getElementById("weight-val").textContent =
+    toDisplay(currentWeight) + " " + unit;
+
+  const diffEl = document.getElementById("weight-diff");
+
+  if (!previousWeight) {
+    diffEl.textContent = "";
+    return;
+  }
+
+  const diff = currentWeight - previousWeight;
+  const sign = diff < 0 ? "↓" : "↑";
+  diffEl.textContent = sign + " " + toDisplay(Math.abs(diff)) + " " + unit;
+  diffEl.classList.remove("weight-up", "weight-down");
+  diffEl.classList.add(diff < 0 ? "weight-down" : "weight-up");
+}

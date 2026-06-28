@@ -643,6 +643,53 @@
                 </div>
               </div>
             </div>
+
+            <!-- weight -->
+            <div class="widget-card weight">
+              <div class="widget-header weight">
+                <div class="weight-icon-title">
+                  <svg
+                    class="widget-icon weight"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <path
+                      d="M376 88C376 57.1 350.9 32 320 32C289.1 32 264 57.1 264 88C264 118.9 289.1 144 320 144C350.9 144 376 118.9 376 88zM400 300.7L446.3 363.1C456.8 377.3 476.9 380.3 491.1 369.7C505.3 359.1 508.3 339.1 497.7 324.9L427.2 229.9C402 196 362.3 176 320 176C277.7 176 238 196 212.8 229.9L142.3 324.9C131.8 339.1 134.7 359.1 148.9 369.7C163.1 380.3 183.1 377.3 193.7 363.1L240 300.7L240 576C240 593.7 254.3 608 272 608C289.7 608 304 593.7 304 576L304 416C304 407.2 311.2 400 320 400C328.8 400 336 407.2 336 416L336 576C336 593.7 350.3 608 368 608C385.7 608 400 593.7 400 576L400 300.7z"
+                    />
+                  </svg>
+                  <div class="widget-label">Weight</div>
+                </div>
+                <button onclick="toggleUnit()" id="unit-toggle">kg</button>
+              </div>
+              <div class="weight-body">
+                <div id="weight-val">--</div>
+                <div id="weight-diff"></div>
+
+                <div class="weight-add-row">
+                  <input
+                    id="weight-input"
+                    type="number"
+                    inputmode="decimal"
+                    placeholder="New weight"
+                    step="0.1"
+                    onkeydown="if (event.key === 'Enter') submitWeight();"
+                  />
+                  <button class="add-weight-btn" onclick="submitWeight()">
+                    <svg
+                      class="add-weight-svg"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 640 640"
+                    >
+                      <path
+                        d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
             <!-- notes -->
             <div class="widget-card notes">
               <div class="widget-header">
@@ -667,11 +714,7 @@
 
             <!-- workout -->
             <div class="widget-card">
-              <div class="workout-label">Workout</div>
-            </div>
-            <!-- weight -->
-            <div class="widget-card">
-              <div class="weight-label">Weight</div>
+              <div class="workout-label">Gym</div>
             </div>
           </div>
         </div>
