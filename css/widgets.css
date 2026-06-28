@@ -1,0 +1,206 @@
+/* #region ===== Widget Carousel (Template from macros-sum.css) ===== */
+
+/* .carousel-section {
+  margin: 10px 0 20px 0;
+}
+.carousel-track-wrap {
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.carousel-track-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: clamp(8px, 5.71px + 0.714vw, 16px);
+  -webkit-overflow-scrolling: touch;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.carousel-btn-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.table-button-wrap {
+  margin: clamp(5px, 3.57px + 0.446vw, 10px) 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+} */
+
+/* #endregion */
+
+/* #region ==== Card Template */
+
+.widget-card {
+  background-color: var(--table-bg);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  aspect-ratio: 1;
+  width: clamp(140px, 125.71px + 4.464vw, 190px);
+  height: clamp(140px, 125.71px + 4.464vw, 190px);
+}
+
+/* #endregion */
+
+/* #region ===== Hydration ===== */
+
+.water-label-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.water-label {
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  color: var(--white);
+}
+
+.water-svg {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+  color: rgb(37, 198, 251);
+}
+
+.water-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.water-controls button {
+  all: unset;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--light-blue);
+  line-height: 1;
+}
+
+.water-btn-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: rgb(161, 161, 161);
+}
+
+#water-val {
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  text-align: center;
+  width: 45px;
+}
+
+.water-bottle-empty {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-gray);
+}
+
+.water-bottle-full {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-blue);
+}
+
+.water-bottles-wrap {
+  display: flex;
+}
+
+/* #endregion */
+
+/* #region ===== Supplements ===== */
+
+.creatine-label-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.creatine-label {
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  color: var(--white);
+}
+
+.creatine-svg {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+}
+
+.creatine-checkbox {
+  width: clamp(26px, 24.29px + 0.536vw, 32px);
+  height: clamp(26px, 24.29px + 0.536vw, 32px);
+  flex-shrink: 0;
+}
+
+button[data-checked="false"] .creatine-checkbox {
+  color: var(--light-gray);
+}
+
+button[data-checked="true"] .creatine-checkbox {
+  color: var(--green);
+}
+
+#creatine-check-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.creatine-svg {
+  color: rgb(163, 161, 161);
+}
+
+/* #endregion */
+
+/* #region ===== Weight ===== */
+
+.weight-label {
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  color: white;
+}
+/* #endregion */
+
+/* #region ===== Notes ===== */
+
+.notes-title {
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  color: white;
+}
+
+.notes-text {
+  box-sizing: border-box;
+  color: white;
+  font-size: var(--text);
+  background-color: var(--dark-blue);
+  font-family: "Cal Sans";
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+  resize: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* #endregion */
+
+/* #region ===== Workout Day ===== */
+
+.workout-label {
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  color: white;
+}
+
+/* #endregion */
