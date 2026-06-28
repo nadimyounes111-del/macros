@@ -10,13 +10,14 @@ from collections import defaultdict
 PROJECT_ROOT = "/Users/nadimyounes/Desktop/Macros" 
 
 CSS_FILES = [
-    "css/add-modal.css",
+    "css/widget.css",
+    "css/modal.css",
     "css/base.css",
     "css/buttons.css",
     "css/food-log.css",
     "css/header.css",
     "css/macros-sum.css",
-    "css/trackers.css"
+    "css/trackers.css",
     "css/pin.css"
 ]
 

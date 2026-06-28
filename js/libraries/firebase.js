@@ -49,7 +49,7 @@ window.initFirestore = function (user, onFirstLoad) {
     }
     if (data.water !== undefined) {
       water = data.water;
-      document.getElementById("water-val").textContent = water + " L";
+      if (document.getElementById("water-fill-rect")) updateWaterUI();
     }
 
     if (data.goals) {

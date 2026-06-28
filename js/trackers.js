@@ -2,14 +2,23 @@
     Water
 ========================= */
 let water = 0;
+const WATER_GOAL = 3;
 
 function adjustWater(amount) {
   water = Math.max(0, parseFloat((water + amount).toFixed(1)));
-  document.getElementById("water-val").textContent = water + " L";
+  updateWaterUI();
   if (window.saveToFirestore) window.saveToFirestore({ water });
 }
 
-document.getElementById("water-val").textContent = water + " L";
+function updateWaterUI() {
+  const pct = Math.min(water / WATER_GOAL, 1);
+  const fillHeight = pct * 528;
+  const fillY = 576 - fillHeight;
+
+  document.getElementById("water-fill-rect").setAttribute("y", fillY);
+  document.getElementById("water-fill-rect").setAttribute("height", fillHeight);
+  document.getElementById("water-val").textContent = water.toFixed(1) + " L";
+}
 
 // supplements
 
