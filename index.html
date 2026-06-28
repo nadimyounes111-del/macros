@@ -607,11 +607,11 @@
                 </button>
               </div>
             </div>
-            <!-- supplement -->
-            <div class="widget-card">
-              <div class="creatine-label-wrap">
+            <!-- supplements -->
+            <div class="widget-card supp">
+              <div class="widget-header">
                 <svg
-                  class="creatine-svg"
+                  class="widget-icon supp"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 640 640"
@@ -620,23 +620,55 @@
                     d="M128 176C128 149.5 149.5 128 176 128C202.5 128 224 149.5 224 176L224 288L128 288L128 176zM240 432C240 383.3 258.1 338.8 288 305L288 176C288 114.1 237.9 64 176 64C114.1 64 64 114.1 64 176L64 464C64 525.9 114.1 576 176 576C213.3 576 246.3 557.8 266.7 529.7C249.7 501.1 240 467.7 240 432zM304.7 499.4C309.3 508.1 321 509.1 328 502.1L502.1 328C509.1 321 508.1 309.3 499.4 304.7C479.3 294 456.4 288 432 288C352.5 288 288 352.5 288 432C288 456.3 294 479.3 304.7 499.4zM361.9 536C354.9 543 355.9 554.7 364.6 559.3C384.7 570 407.6 576 432 576C511.5 576 576 511.5 576 432C576 407.7 570 384.7 559.3 364.6C554.7 355.9 543 354.9 536 361.9L361.9 536z"
                   />
                 </svg>
-                <span class="creatine-label">Supplements</span>
+                <div class="supp-label">Supplements</div>
               </div>
-              <button
-                id="creatine-check-btn"
-                data-checked="false"
-                onclick="toggleCreatine(this)"
-              ></button>
+              <div class="supp-body">
+                <div id="supp-list"></div>
+                <div class="supp-add-row">
+                  <input
+                    id="supp-input"
+                    type="text"
+                    placeholder="Add item"
+                    onkeydown="if (event.key === 'Enter') addSupp();"
+                  />
+                  <button class="add-supp-btn" onclick="addSupp()">
+                    <svg
+                      class="add-supp-svg"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 640 640"
+                    >
+                      <path
+                        d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
             </div>
+
             <!-- notes -->
             <div class="widget-card">
-              <div class="notes-title">Notes</div>
+              <div class="widget-header">
+                <svg
+                  class="widget-icon notes"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 640 640"
+                >
+                  <path
+                    d="M160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96C515.3 96 544 124.7 544 160L544 373.5C544 390.5 537.3 406.8 525.3 418.8L418.7 525.3C406.7 537.3 390.4 544 373.4 544L160 544zM485.5 368L392 368C378.7 368 368 378.7 368 392L368 485.5L485.5 368z"
+                  />
+                </svg>
+                <div class="notes-label">Notes</div>
+              </div>
               <textarea
                 class="notes-text"
                 id="notes"
-                placeholder="Quick note"
+                placeholder="Text"
               ></textarea>
             </div>
+
             <!-- workout -->
             <div class="widget-card">
               <div class="workout-label">Workout</div>

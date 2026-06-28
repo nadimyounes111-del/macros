@@ -51,20 +51,22 @@ window.initFirestore = function (user, onFirstLoad) {
       water = data.water;
       document.getElementById("water-val").textContent = water + " L";
     }
-    if (data.creatine !== undefined) {
-      creatineTaken = data.creatine;
-      const btn = document.getElementById("creatine-check-btn");
-      btn.dataset.checked = creatineTaken;
-      btn.innerHTML = creatineTaken ? creatinecheckedSVG : creatineuncheckedSVG;
-    }
+
     if (data.goals) {
       GOALS = data.goals;
       updateSummary();
     }
-    if (data.streak !== undefined) {
-      streak = data.streak;
-      lastStreakDate = data.lastStreakDate || null;
+    if (data.notes !== undefined) {
+      document.getElementById("notes").value = data.notes;
     }
+    if (data.supplements) {
+      supplements = data.supplements;
+      renderSupplements();
+    }
+    // if (data.streak !== undefined) {
+    //   streak = data.streak;
+    //   lastStreakDate = data.lastStreakDate || null;
+    // }
 
     if (isFirst) {
       isFirst = false;

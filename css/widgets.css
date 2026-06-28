@@ -37,11 +37,25 @@
 
 /* #region ==== Card Template */
 
+.widget-header {
+  display: flex;
+  gap: 3px;
+  width: 100%;
+  align-items: center;
+  margin-bottom: clamp(6px, 4.29px + 0.536vw, 12px);
+}
+
+.widget-icon {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+}
+
 .widget-card {
   background-color: var(--table-bg);
   border-radius: 10px;
   border: 2px solid rgba(255, 255, 255, 0.08);
-  padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
+  padding: clamp(6px, 4.29px + 0.536vw, 12px);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -49,6 +63,12 @@
   aspect-ratio: 1;
   width: clamp(140px, 125.71px + 4.464vw, 190px);
   height: clamp(140px, 125.71px + 4.464vw, 190px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.widget-card::-webkit-scrollbar {
+  display: none;
 }
 
 /* #endregion */
@@ -119,6 +139,115 @@
 
 /* #region ===== Supplements ===== */
 
+.widget-card.supp {
+  background-color: rgba(139, 92, 246, 0.12);
+}
+
+.supp-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  gap: 3px;
+}
+#supp-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+}
+
+.supp-name {
+  font-size: var(--text);
+}
+
+.supp-check-name {
+  display: flex;
+  align-items: center;
+}
+
+.supp-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.supp-add-row {
+  display: flex;
+  width: 100%;
+  gap: 3px;
+}
+
+#supp-input {
+  all: unset;
+  flex: 1;
+  min-width: 0;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 2px 5px;
+  font-size: var(--text);
+}
+
+.add-supp-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-supp-svg {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+  color: var(--light-blue);
+}
+
+.del-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.widget-icon.supp {
+  color: rgba(139, 92, 246);
+}
+
+.supp-label {
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  color: white;
+}
+
+.check-svg {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+  color: var(--green);
+}
+
+.uncheck-svg {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+  color: var(--light-gray);
+}
+
+.check-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* creatine
+
+*/
 .creatine-label-wrap {
   display: flex;
   justify-content: center;
@@ -174,7 +303,11 @@ button[data-checked="true"] .creatine-checkbox {
 
 /* #region ===== Notes ===== */
 
-.notes-title {
+.widget-icon.notes {
+  color: rgb(155, 155, 155);
+}
+
+.notes-label {
   font-size: clamp(14px, 12.86px + 0.357vw, 18px);
   color: white;
 }
