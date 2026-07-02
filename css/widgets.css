@@ -344,11 +344,12 @@
 }
 
 #weight-val {
-  font-size: 32px;
+  font-size: clamp(22px, 18.57px + 1.071vw, 34px);
 }
 
 #weight-diff {
-  font-size: 18px;
+  font-size: clamp(14px, 11.71px + 0.714vw, 22px);
+  display: flex;
 }
 
 .weight-down {
@@ -415,6 +416,54 @@
 .workout-label {
   font-size: clamp(14px, 12.86px + 0.357vw, 18px);
   color: white;
+}
+
+/* #endregion */
+
+/* #region Overlay */
+
+.widget-edit-panel {
+  position: relative;
+  z-index: 1;
+}
+
+.widget-select-card {
+  position: relative;
+  border: 2px dashed #333;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.15s;
+}
+
+.widget-select-card.selected {
+  border: 2px solid #f97316;
+  border-style: solid;
+  opacity: 1;
+}
+
+.check-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f97316;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.widget-select-card.selected .check-badge {
+  display: flex;
+}
+.widget-preview-img {
+  width: 140px;
+  border-radius: 8px;
+  pointer-events: none;
 }
 
 /* #endregion */

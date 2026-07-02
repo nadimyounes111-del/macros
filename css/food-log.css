@@ -264,33 +264,11 @@ button:has(.delete-svg) {
   cursor: pointer;
 }
 
-/* button:has(.check-svg) {
-  all: unset;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-button[data-checked="false"] .check-svg {
-  color: var(--light-gray);
-}
-
-button[data-checked="true"] .check-svg {
-  color: var(--green);
-} */
-
 .delete-svg {
   width: var(--svg);
   height: var(--svg);
   flex-shrink: 0;
   color: red;
 }
-
-/* .check-svg {
-  width: var(--svg);
-  height: var(--svg);
-  flex-shrink: 0;
-} */
 
 /* #endregion */
