@@ -422,6 +422,16 @@
 
 /* #region Overlay */
 
+.widget-modal-title {
+  font-size: 24px;
+}
+
+.widget-select-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
 .widget-edit-panel {
   position: relative;
   z-index: 1;
@@ -429,37 +439,39 @@
 
 .widget-select-card {
   position: relative;
-  border: 2px dashed #333;
+  border: 3px transparent;
   border-radius: 12px;
-  padding: 16px;
   text-align: center;
   cursor: pointer;
-  opacity: 0.6;
   transition: all 0.15s;
 }
 
 .widget-select-card.selected {
-  border: 2px solid #f97316;
+  border: 3px solid #ff8000;
   border-style: solid;
-  opacity: 1;
 }
 
 .check-badge {
   position: absolute;
   top: 6px;
   right: 6px;
-  width: 18px;
-  height: 18px;
   border-radius: 50%;
-  background: #f97316;
   display: none;
+  background: white;
   align-items: center;
   justify-content: center;
+}
+
+.check-badge-svg {
+  color: #ff8000;
+  width: 24px;
+  height: 24px;
 }
 
 .widget-select-card.selected .check-badge {
   display: flex;
 }
+
 .widget-preview-img {
   width: 140px;
   border-radius: 8px;
