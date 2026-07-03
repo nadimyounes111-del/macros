@@ -111,7 +111,61 @@
         <span class="main-title-text" id="day-title"></span>
       </div>
 
-      <div class="section-divider">Overview</div>
+      <div class="section-divider">Widgets</div>
+
+      <div class="widget-container-top">
+        <div class="widget-thumbnail-wrap" onclick="openWidgetEdit()">
+          <div class="widget-thumbnail hydration">
+            <svg
+              class="widget-svg hydration"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <path
+                d="M272 32L368 32C385.7 32 400 46.3 400 64C400 81.7 385.7 96 368 96L272 96C254.3 96 240 81.7 240 64C240 46.3 254.3 32 272 32zM176 208C176 172.7 204.7 144 240 144L400 144C435.3 144 464 172.7 464 208C464 232.1 450.7 253.1 431 264C450.7 274.9 464 295.9 464 320C464 344.1 450.7 365.1 431 376C450.7 386.9 464 407.9 464 432C464 456.1 450.7 477.1 431 488C450.7 498.9 464 519.9 464 544C464 579.3 435.3 608 400 608L240 608C204.7 608 176 579.3 176 544C176 519.9 189.3 498.9 209 488C189.3 477.1 176 456.1 176 432C176 407.9 189.3 386.9 209 376C189.3 365.1 176 344.1 176 320C176 295.9 189.3 274.9 209 264C189.3 253.1 176 232.1 176 208z"
+              />
+            </svg>
+          </div>
+          <div class="widget-thumbnail supplements">
+            <svg
+              class="widget-svg supplements"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <path
+                d="M128 176C128 149.5 149.5 128 176 128C202.5 128 224 149.5 224 176L224 288L128 288L128 176zM240 432C240 383.3 258.1 338.8 288 305L288 176C288 114.1 237.9 64 176 64C114.1 64 64 114.1 64 176L64 464C64 525.9 114.1 576 176 576C213.3 576 246.3 557.8 266.7 529.7C249.7 501.1 240 467.7 240 432zM304.7 499.4C309.3 508.1 321 509.1 328 502.1L502.1 328C509.1 321 508.1 309.3 499.4 304.7C479.3 294 456.4 288 432 288C352.5 288 288 352.5 288 432C288 456.3 294 479.3 304.7 499.4zM361.9 536C354.9 543 355.9 554.7 364.6 559.3C384.7 570 407.6 576 432 576C511.5 576 576 511.5 576 432C576 407.7 570 384.7 559.3 364.6C554.7 355.9 543 354.9 536 361.9L361.9 536z"
+              />
+            </svg>
+          </div>
+
+          <div class="widget-thumbnail weight">
+            <svg
+              class="widget-svg weight"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <path
+                d="M376 88C376 57.1 350.9 32 320 32C289.1 32 264 57.1 264 88C264 118.9 289.1 144 320 144C350.9 144 376 118.9 376 88zM400 300.7L446.3 363.1C456.8 377.3 476.9 380.3 491.1 369.7C505.3 359.1 508.3 339.1 497.7 324.9L427.2 229.9C402 196 362.3 176 320 176C277.7 176 238 196 212.8 229.9L142.3 324.9C131.8 339.1 134.7 359.1 148.9 369.7C163.1 380.3 183.1 377.3 193.7 363.1L240 300.7L240 576C240 593.7 254.3 608 272 608C289.7 608 304 593.7 304 576L304 416C304 407.2 311.2 400 320 400C328.8 400 336 407.2 336 416L336 576C336 593.7 350.3 608 368 608C385.7 608 400 593.7 400 576L400 300.7z"
+              />
+            </svg>
+          </div>
+          <div class="widget-thumbnail notes">
+            <svg
+              class="widget-svg notes"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <path
+                d="M160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96C515.3 96 544 124.7 544 160L544 373.5C544 390.5 537.3 406.8 525.3 418.8L418.7 525.3C406.7 537.3 390.4 544 373.4 544L160 544zM485.5 368L392 368C378.7 368 368 378.7 368 392L368 485.5L485.5 368z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
 
       <div class="carousel-section">
         <div class="carousel-track-wrap">
@@ -522,196 +576,6 @@
       <div class="carousel-section">
         <div class="carousel-track-wrap">
           <div class="carousel-track">
-            <!-- hydration -->
-            <div class="widget-card water" data-widget-id="water">
-              <div class="widget-header">
-                <svg
-                  class="widget-icon water"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 640"
-                >
-                  <path
-                    d="M272 32L368 32C385.7 32 400 46.3 400 64C400 81.7 385.7 96 368 96L272 96C254.3 96 240 81.7 240 64C240 46.3 254.3 32 272 32zM176 208C176 172.7 204.7 144 240 144L400 144C435.3 144 464 172.7 464 208C464 232.1 450.7 253.1 431 264C450.7 274.9 464 295.9 464 320C464 344.1 450.7 365.1 431 376C450.7 386.9 464 407.9 464 432C464 456.1 450.7 477.1 431 488C450.7 498.9 464 519.9 464 544C464 579.3 435.3 608 400 608L240 608C204.7 608 176 579.3 176 544C176 519.9 189.3 498.9 209 488C189.3 477.1 176 456.1 176 432C176 407.9 189.3 386.9 209 376C189.3 365.1 176 344.1 176 320C176 295.9 189.3 274.9 209 264C189.3 253.1 176 232.1 176 208z"
-                  />
-                </svg>
-                <span class="widget-label">Hydration</span>
-              </div>
-
-              <div class="water-body">
-                <div class="water-drop-wrap">
-                  <svg
-                    viewBox="0 0 640 640"
-                    class="water-drop-svg"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <clipPath id="drop-clip">
-                        <!-- same path as your icon -->
-                        <path
-                          d="M320 576C214 576 128 490 128 384C128 292.8 258.2 109.9 294.6 60.5C300.5 52.5 309.8 48 319.8 48L320.2 48C330.2 48 339.5 52.5 345.4 60.5C381.8 109.9 512 292.8 512 384C512 490 426 576 320 576zM240 376C240 362.7 229.3 352 216 352C202.7 352 192 362.7 192 376C192 451.1 252.9 512 328 512C341.3 512 352 501.3 352 488C352 474.7 341.3 464 328 464C279.4 464 240 424.6 240 376z"
-                        />
-                      </clipPath>
-                    </defs>
-
-                    <!-- bg fill -->
-                    <path
-                      d="M320 576C214 576 128 490 128 384C128 292.8 258.2 109.9 294.6 60.5C300.5 52.5 309.8 48 319.8 48L320.2 48C330.2 48 339.5 52.5 345.4 60.5C381.8 109.9 512 292.8 512 384C512 490 426 576 320 576zM240 376C240 362.7 229.3 352 216 352C202.7 352 192 362.7 192 376C192 451.1 252.9 512 328 512C341.3 512 352 501.3 352 488C352 474.7 341.3 464 328 464C279.4 464 240 424.6 240 376z"
-                      fill="#5c5b5b"
-                    />
-
-                    <!-- fill rect clipped to your drop shape -->
-                    <rect
-                      id="water-fill-rect"
-                      x="128"
-                      y="576"
-                      width="384"
-                      height="0"
-                      fill="#3b82f6"
-                      clip-path="url(#drop-clip)"
-                    />
-                  </svg>
-                </div>
-
-                <div class="water-controls">
-                  <button class="water-control-btn" onclick="adjustWater(-0.5)">
-                    <svg
-                      class="water-btn-svg"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 640 640"
-                    >
-                      <path
-                        d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM232 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296z"
-                      />
-                    </svg>
-                  </button>
-
-                  <span id="water-val">0</span>
-
-                  <button class="water-control-btn" onclick="adjustWater(0.5)">
-                    <svg
-                      class="water-btn-svg"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 640 640"
-                    >
-                      <path
-                        d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- supplements -->
-            <div class="widget-card supp" data-widget-id="supplements">
-              <div class="widget-header">
-                <svg
-                  class="widget-icon supp"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 640"
-                >
-                  <path
-                    d="M128 176C128 149.5 149.5 128 176 128C202.5 128 224 149.5 224 176L224 288L128 288L128 176zM240 432C240 383.3 258.1 338.8 288 305L288 176C288 114.1 237.9 64 176 64C114.1 64 64 114.1 64 176L64 464C64 525.9 114.1 576 176 576C213.3 576 246.3 557.8 266.7 529.7C249.7 501.1 240 467.7 240 432zM304.7 499.4C309.3 508.1 321 509.1 328 502.1L502.1 328C509.1 321 508.1 309.3 499.4 304.7C479.3 294 456.4 288 432 288C352.5 288 288 352.5 288 432C288 456.3 294 479.3 304.7 499.4zM361.9 536C354.9 543 355.9 554.7 364.6 559.3C384.7 570 407.6 576 432 576C511.5 576 576 511.5 576 432C576 407.7 570 384.7 559.3 364.6C554.7 355.9 543 354.9 536 361.9L361.9 536z"
-                  />
-                </svg>
-                <div class="widget-label">Supplements</div>
-              </div>
-              <div class="supp-body">
-                <div id="supp-list"></div>
-                <div class="supp-add-row">
-                  <input
-                    id="supp-input"
-                    type="text"
-                    placeholder="Add item"
-                    onkeydown="if (event.key === 'Enter') addSupp();"
-                  />
-                  <button class="add-supp-btn" onclick="addSupp()">
-                    <svg
-                      class="add-supp-svg"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 640 640"
-                    >
-                      <path
-                        d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- weight -->
-            <div class="widget-card weight" data-widget-id="weight">
-              <div class="widget-header weight">
-                <div class="weight-icon-title">
-                  <svg
-                    class="widget-icon weight"
-                    fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 640 640"
-                  >
-                    <path
-                      d="M376 88C376 57.1 350.9 32 320 32C289.1 32 264 57.1 264 88C264 118.9 289.1 144 320 144C350.9 144 376 118.9 376 88zM400 300.7L446.3 363.1C456.8 377.3 476.9 380.3 491.1 369.7C505.3 359.1 508.3 339.1 497.7 324.9L427.2 229.9C402 196 362.3 176 320 176C277.7 176 238 196 212.8 229.9L142.3 324.9C131.8 339.1 134.7 359.1 148.9 369.7C163.1 380.3 183.1 377.3 193.7 363.1L240 300.7L240 576C240 593.7 254.3 608 272 608C289.7 608 304 593.7 304 576L304 416C304 407.2 311.2 400 320 400C328.8 400 336 407.2 336 416L336 576C336 593.7 350.3 608 368 608C385.7 608 400 593.7 400 576L400 300.7z"
-                    />
-                  </svg>
-                  <div class="widget-label">Weight</div>
-                </div>
-                <button onclick="toggleUnit()" id="unit-toggle">kg</button>
-              </div>
-              <div class="weight-body">
-                <div id="weight-val">--</div>
-                <div id="weight-diff"></div>
-
-                <div class="weight-add-row">
-                  <input
-                    id="weight-input"
-                    type="number"
-                    inputmode="decimal"
-                    placeholder="New weight"
-                    step="0.1"
-                    onkeydown="if (event.key === 'Enter') submitWeight();"
-                  />
-                  <button class="add-weight-btn" onclick="submitWeight()">
-                    <svg
-                      class="add-weight-svg"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 640 640"
-                    >
-                      <path
-                        d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- notes -->
-            <div class="widget-card notes" data-widget-id="notes">
-              <div class="widget-header">
-                <svg
-                  class="widget-icon notes"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 640"
-                >
-                  <path
-                    d="M160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96C515.3 96 544 124.7 544 160L544 373.5C544 390.5 537.3 406.8 525.3 418.8L418.7 525.3C406.7 537.3 390.4 544 373.4 544L160 544zM485.5 368L392 368C378.7 368 368 378.7 368 392L368 485.5L485.5 368z"
-                  />
-                </svg>
-                <div class="widget-label">Notes</div>
-              </div>
-              <textarea
-                class="notes-text"
-                id="notes"
-                placeholder="Text"
-              ></textarea>
-            </div>
-
             <!-- workout -->
             <!-- <div class="widget-card">
               <div class="workout-label">Gym</div>
@@ -722,7 +586,7 @@
         <div class="carousel-btn-wrap">
           <div class="table-button-wrap">
             <div class="table-btn">
-              <button class="edit-btn" onclick="openWidgetEdit()">
+              <button class="edit-btn">
                 <svg
                   class="edit-btn-svg"
                   fill="currentColor"
@@ -906,85 +770,194 @@
         <div class="widget-edit-panel">
           <span class="widget-modal-title">Choose widgets</span>
           <div class="widget-select-grid">
-            <div
-              class="widget-select-card"
-              data-widget="water"
-              onclick="toggleWidgetSelect('water')"
-            >
-              <img src="water.png" class="widget-preview-img" />
-              <div class="check-badge">
+            <!-- hydration -->
+            <div class="widget-card water">
+              <div class="widget-header">
                 <svg
-                  class="check-badge-svg"
+                  class="widget-icon water"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 640 640"
                 >
-                  <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
                   <path
-                    d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM438 209.7C427.3 201.9 412.3 204.3 404.5 215L285.1 379.2L233 327.1C223.6 317.7 208.4 317.7 199.1 327.1C189.8 336.5 189.7 351.7 199.1 361L271.1 433C276.1 438 282.9 440.5 289.9 440C296.9 439.5 303.3 435.9 307.4 430.2L443.3 243.2C451.1 232.5 448.7 217.5 438 209.7z"
+                    d="M272 32L368 32C385.7 32 400 46.3 400 64C400 81.7 385.7 96 368 96L272 96C254.3 96 240 81.7 240 64C240 46.3 254.3 32 272 32zM176 208C176 172.7 204.7 144 240 144L400 144C435.3 144 464 172.7 464 208C464 232.1 450.7 253.1 431 264C450.7 274.9 464 295.9 464 320C464 344.1 450.7 365.1 431 376C450.7 386.9 464 407.9 464 432C464 456.1 450.7 477.1 431 488C450.7 498.9 464 519.9 464 544C464 579.3 435.3 608 400 608L240 608C204.7 608 176 579.3 176 544C176 519.9 189.3 498.9 209 488C189.3 477.1 176 456.1 176 432C176 407.9 189.3 386.9 209 376C189.3 365.1 176 344.1 176 320C176 295.9 189.3 274.9 209 264C189.3 253.1 176 232.1 176 208z"
                   />
                 </svg>
+                <span class="widget-label">Hydration</span>
+              </div>
+
+              <div class="water-body">
+                <div class="water-drop-wrap">
+                  <svg
+                    viewBox="0 0 640 640"
+                    class="water-drop-svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <clipPath id="drop-clip">
+                        <!-- same path as your icon -->
+                        <path
+                          d="M320 576C214 576 128 490 128 384C128 292.8 258.2 109.9 294.6 60.5C300.5 52.5 309.8 48 319.8 48L320.2 48C330.2 48 339.5 52.5 345.4 60.5C381.8 109.9 512 292.8 512 384C512 490 426 576 320 576zM240 376C240 362.7 229.3 352 216 352C202.7 352 192 362.7 192 376C192 451.1 252.9 512 328 512C341.3 512 352 501.3 352 488C352 474.7 341.3 464 328 464C279.4 464 240 424.6 240 376z"
+                        />
+                      </clipPath>
+                    </defs>
+
+                    <!-- bg fill -->
+                    <path
+                      d="M320 576C214 576 128 490 128 384C128 292.8 258.2 109.9 294.6 60.5C300.5 52.5 309.8 48 319.8 48L320.2 48C330.2 48 339.5 52.5 345.4 60.5C381.8 109.9 512 292.8 512 384C512 490 426 576 320 576zM240 376C240 362.7 229.3 352 216 352C202.7 352 192 362.7 192 376C192 451.1 252.9 512 328 512C341.3 512 352 501.3 352 488C352 474.7 341.3 464 328 464C279.4 464 240 424.6 240 376z"
+                      fill="#5c5b5b"
+                    />
+
+                    <!-- fill rect clipped to your drop shape -->
+                    <rect
+                      id="water-fill-rect"
+                      x="128"
+                      y="576"
+                      width="384"
+                      height="0"
+                      fill="#3b82f6"
+                      clip-path="url(#drop-clip)"
+                    />
+                  </svg>
+                </div>
+
+                <div class="water-controls">
+                  <button class="water-control-btn" onclick="adjustWater(-0.5)">
+                    <svg
+                      class="water-btn-svg"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 640 640"
+                    >
+                      <path
+                        d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM232 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296z"
+                      />
+                    </svg>
+                  </button>
+
+                  <span id="water-val">0</span>
+
+                  <button class="water-control-btn" onclick="adjustWater(0.5)">
+                    <svg
+                      class="water-btn-svg"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 640 640"
+                    >
+                      <path
+                        d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-            <div
-              class="widget-select-card"
-              data-widget="supplements"
-              onclick="toggleWidgetSelect('supplements')"
-            >
-              <img src="supplements.png" class="widget-preview-img" />
-              <div class="check-badge">
+            <!-- supplements -->
+            <div class="widget-card supp">
+              <div class="widget-header">
                 <svg
-                  class="check-badge-svg"
+                  class="widget-icon supp"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 640 640"
                 >
-                  <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
                   <path
-                    d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM438 209.7C427.3 201.9 412.3 204.3 404.5 215L285.1 379.2L233 327.1C223.6 317.7 208.4 317.7 199.1 327.1C189.8 336.5 189.7 351.7 199.1 361L271.1 433C276.1 438 282.9 440.5 289.9 440C296.9 439.5 303.3 435.9 307.4 430.2L443.3 243.2C451.1 232.5 448.7 217.5 438 209.7z"
+                    d="M128 176C128 149.5 149.5 128 176 128C202.5 128 224 149.5 224 176L224 288L128 288L128 176zM240 432C240 383.3 258.1 338.8 288 305L288 176C288 114.1 237.9 64 176 64C114.1 64 64 114.1 64 176L64 464C64 525.9 114.1 576 176 576C213.3 576 246.3 557.8 266.7 529.7C249.7 501.1 240 467.7 240 432zM304.7 499.4C309.3 508.1 321 509.1 328 502.1L502.1 328C509.1 321 508.1 309.3 499.4 304.7C479.3 294 456.4 288 432 288C352.5 288 288 352.5 288 432C288 456.3 294 479.3 304.7 499.4zM361.9 536C354.9 543 355.9 554.7 364.6 559.3C384.7 570 407.6 576 432 576C511.5 576 576 511.5 576 432C576 407.7 570 384.7 559.3 364.6C554.7 355.9 543 354.9 536 361.9L361.9 536z"
                   />
                 </svg>
+                <div class="widget-label">Supplements</div>
+              </div>
+              <div class="supp-body">
+                <div id="supp-list"></div>
+                <div class="supp-add-row">
+                  <input
+                    id="supp-input"
+                    type="text"
+                    placeholder="Add item"
+                    onkeydown="if (event.key === 'Enter') addSupp();"
+                  />
+                  <button class="add-supp-btn" onclick="addSupp()">
+                    <svg
+                      class="add-supp-svg"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 640 640"
+                    >
+                      <path
+                        d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-            <div
-              class="widget-select-card"
-              data-widget="notes"
-              onclick="toggleWidgetSelect('notes')"
-            >
-              <img src="notes.png" class="widget-preview-img" />
-              <div class="check-badge">
-                <svg
-                  class="check-badge-svg"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 640"
-                >
-                  <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
-                  <path
-                    d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM438 209.7C427.3 201.9 412.3 204.3 404.5 215L285.1 379.2L233 327.1C223.6 317.7 208.4 317.7 199.1 327.1C189.8 336.5 189.7 351.7 199.1 361L271.1 433C276.1 438 282.9 440.5 289.9 440C296.9 439.5 303.3 435.9 307.4 430.2L443.3 243.2C451.1 232.5 448.7 217.5 438 209.7z"
+
+            <!-- weight -->
+            <div class="widget-card weight">
+              <div class="widget-header weight">
+                <div class="weight-icon-title">
+                  <svg
+                    class="widget-icon weight"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <path
+                      d="M376 88C376 57.1 350.9 32 320 32C289.1 32 264 57.1 264 88C264 118.9 289.1 144 320 144C350.9 144 376 118.9 376 88zM400 300.7L446.3 363.1C456.8 377.3 476.9 380.3 491.1 369.7C505.3 359.1 508.3 339.1 497.7 324.9L427.2 229.9C402 196 362.3 176 320 176C277.7 176 238 196 212.8 229.9L142.3 324.9C131.8 339.1 134.7 359.1 148.9 369.7C163.1 380.3 183.1 377.3 193.7 363.1L240 300.7L240 576C240 593.7 254.3 608 272 608C289.7 608 304 593.7 304 576L304 416C304 407.2 311.2 400 320 400C328.8 400 336 407.2 336 416L336 576C336 593.7 350.3 608 368 608C385.7 608 400 593.7 400 576L400 300.7z"
+                    />
+                  </svg>
+                  <div class="widget-label">Weight</div>
+                </div>
+                <button onclick="toggleUnit()" id="unit-toggle">kg</button>
+              </div>
+              <div class="weight-body">
+                <div id="weight-val">--</div>
+                <div id="weight-diff"></div>
+
+                <div class="weight-add-row">
+                  <input
+                    id="weight-input"
+                    type="number"
+                    inputmode="decimal"
+                    placeholder="New weight"
+                    step="0.1"
+                    onkeydown="if (event.key === 'Enter') submitWeight();"
                   />
-                </svg>
+                  <button class="add-weight-btn" onclick="submitWeight()">
+                    <svg
+                      class="add-weight-svg"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 640 640"
+                    >
+                      <path
+                        d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
-            <div
-              class="widget-select-card"
-              data-widget="weight"
-              onclick="toggleWidgetSelect('weight')"
-            >
-              <img src="weight.png" class="widget-preview-img" />
-              <div class="check-badge">
+            <!-- notes -->
+            <div class="widget-card notes">
+              <div class="widget-header">
                 <svg
-                  class="check-badge-svg"
+                  class="widget-icon notes"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 640 640"
                 >
-                  <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
                   <path
-                    d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM438 209.7C427.3 201.9 412.3 204.3 404.5 215L285.1 379.2L233 327.1C223.6 317.7 208.4 317.7 199.1 327.1C189.8 336.5 189.7 351.7 199.1 361L271.1 433C276.1 438 282.9 440.5 289.9 440C296.9 439.5 303.3 435.9 307.4 430.2L443.3 243.2C451.1 232.5 448.7 217.5 438 209.7z"
+                    d="M160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96C515.3 96 544 124.7 544 160L544 373.5C544 390.5 537.3 406.8 525.3 418.8L418.7 525.3C406.7 537.3 390.4 544 373.4 544L160 544zM485.5 368L392 368C378.7 368 368 378.7 368 392L368 485.5L485.5 368z"
                   />
                 </svg>
+                <div class="widget-label">Notes</div>
               </div>
+              <textarea
+                class="notes-text"
+                id="notes"
+                placeholder="Text"
+              ></textarea>
             </div>
             <button onclick="saveEnabledWidgets()">Done</button>
           </div>
