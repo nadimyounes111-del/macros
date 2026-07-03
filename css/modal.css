@@ -12,7 +12,7 @@
 .modal-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
 }
 
 .modal-box {
@@ -52,15 +52,12 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  scrollbar-width: none;
 }
 
-/* .modal-body input {
-  border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
-  font-family: "Cal Sans";
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
-  width: 100%;
-  box-sizing: border-box;
-} */
+.modal-body::-webkit-scrollbar {
+  display: none;
+}
 
 .modal-body input {
   transition: border 0.2s ease;
@@ -316,7 +313,7 @@ ul {
 #goals-modal-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 1);
 }
 
 .goals-modal-content {
