@@ -17,10 +17,6 @@ function saveGoals() {
   closeGoalsModal();
 }
 
-function goalsModalEnter(e) {
-  if (e.key === "Enter") saveGoals();
-}
-
 function checkOverage(id, total, goal) {
   const warn = document.getElementById("warn-" + id);
   warn.style.display = total > goal ? "inline" : "none";

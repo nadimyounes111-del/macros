@@ -19,6 +19,7 @@ CSS_FILES = [
     "css/macros-sum.css",
     "css/trackers.css",
     "css/pin.css"
+    "css/settings.css"
 ]
 
 HTML_JS_FILES = [

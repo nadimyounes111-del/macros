@@ -126,40 +126,11 @@ function updateWeightUI() {
 }
 
 // widget selector
-let enabledWidgets = []; // default all on
 
 function openWidgetEdit() {
-  document.getElementById("widget-edit-modal").style.display = "flex";
-  document.querySelectorAll(".widget-select-card").forEach((card) => {
-    const id = card.dataset.widget;
-    card.classList.toggle("selected", enabledWidgets.includes(id));
-  });
+  document.getElementById("widget-show-modal").style.display = "flex";
 }
 
 function closeWidgetEdit() {
-  document.getElementById("widget-edit-modal").style.display = "none";
-}
-
-function toggleWidgetSelect(id) {
-  const card = document.querySelector(
-    `.widget-select-card[data-widget="${id}"]`,
-  );
-  card.classList.toggle("selected");
-}
-
-function saveEnabledWidgets() {
-  enabledWidgets = [
-    ...document.querySelectorAll(".widget-select-card.selected"),
-  ].map((c) => c.dataset.widget);
-
-  if (window.saveToFirestore) window.saveToFirestore({ enabledWidgets });
-  renderWidgetVisibility();
-  closeWidgetEdit(); // 👈 instead of hiding just the overlay
-}
-
-function renderWidgetVisibility() {
-  document.querySelectorAll(".widget-card[data-widget-id]").forEach((card) => {
-    const id = card.dataset.widgetId;
-    card.style.display = enabledWidgets.includes(id) ? "" : "none";
-  });
+  document.getElementById("widget-show-modal").style.display = "none";
 }

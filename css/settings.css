@@ -1,0 +1,152 @@
+/* settings */
+
+.modal-box.settings {
+}
+
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.modal-header.settings {
+  font-size: clamp(28px, 26.86px + 0.357vw, 32px);
+  font-weight: bold;
+}
+
+.settings-header {
+  font-size: clamp(20px, 19.43px + 0.179vw, 22px);
+  color: var(--orange);
+}
+
+.settings-option-title {
+  font-size: clamp(15px, 14.71px + 0.089vw, 16px);
+  color: var(--white);
+  margin-right: 10px;
+}
+
+.modal-body.settings {
+  height: 600px;
+  overflow-y: auto;
+  gap: 12px;
+}
+
+.settings-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-gray);
+}
+
+.settings-btn {
+  all: unset;
+  display: flex;
+  cursor: pointer;
+  display: flex;
+}
+
+.settings-option-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-svg-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.settings-checkbox {
+  all: unset;
+  display: flex;
+  cursor: pointer;
+  display: flex;
+}
+
+.settings-checkbox-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-gray);
+}
+
+.settings-checkbox-svg.selected {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--green);
+}
+
+.settings-title-svg {
+  width: var(--svg);
+  height: var(--svg);
+}
+
+.settings-title-svg.calories {
+  color: var(--light-blue);
+}
+
+.settings-title-svg.protein {
+  color: var(--orange);
+}
+
+.settings-title-svg.carbs {
+  color: #facc15;
+}
+
+.settings-title-svg.fat {
+  color: var(--green);
+}
+
+.settings-title-svg.hydration {
+  color: rgb(37, 198, 251);
+}
+
+.settings-title-svg.supplements {
+  color: rgba(139, 92, 246);
+}
+
+.settings-title-svg.weight {
+  color: rgb(255, 128, 0);
+}
+
+.settings-title-svg.notes {
+  color: rgb(155, 155, 155);
+}
+
+.settings-edit-input:focus {
+  border: 2px solid var(--orange);
+  outline: none;
+}
+
+.settings-edit-input {
+  display: block;
+  border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
+  font-family: "Cal Sans";
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  box-sizing: border-box;
+  color: var(--white);
+  background: var(--dark-blue);
+  border: 2px solid transparent;
+  text-align: center;
+  width: clamp(70px, 61.43px + 2.679vw, 100px);
+  min-height: 0;
+}
+
+.sign-out {
+  display: flex;
+}
+
+.sign-out-wrap {
+  cursor: pointer;
+  justify-content: center;
+}
+
+.sign-out-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-gray);
+}
+
+.sign-out-text {
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  color: var(--light-gray);
+}

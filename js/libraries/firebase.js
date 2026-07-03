@@ -55,10 +55,7 @@ window.initFirestore = function (user, onFirstLoad) {
       GOALS = data.goals;
       updateSummary();
     }
-    if (data.enabledWidgets !== undefined) {
-      enabledWidgets = data.enabledWidgets;
-      if (document.querySelector(".widget-card")) renderWidgetVisibility();
-    }
+
     if (data.notes !== undefined) {
       document.getElementById("notes").value = data.notes;
     }

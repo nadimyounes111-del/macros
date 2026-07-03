@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/macros-sum.css" />
     <link rel="stylesheet" href="css/widgets.css" />
+    <link rel="stylesheet" href="css/settings.css" />
   </head>
 
   <body>
@@ -91,7 +92,7 @@
           <span class="streak-num">0</span>
         </div> -->
 
-          <div class="sign-out-wrap" onclick="signOut()">
+          <!-- <div class="sign-out-wrap" onclick="signOut()">
             <svg
               class="sign-out-svg"
               fill="currentColor"
@@ -103,7 +104,19 @@
               />
             </svg>
             <span class="sign-out-text">Log Out</span>
-          </div>
+          </div> -->
+          <button class="settings-btn" onclick="openSettings()">
+            <svg
+              class="settings-svg"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <path
+                d="M259.1 73.5C262.1 58.7 275.2 48 290.4 48L350.2 48C365.4 48 378.5 58.7 381.5 73.5L396 143.5C410.1 149.5 423.3 157.2 435.3 166.3L503.1 143.8C517.5 139 533.3 145 540.9 158.2L570.8 210C578.4 223.2 575.7 239.8 564.3 249.9L511 297.3C511.9 304.7 512.3 312.3 512.3 320C512.3 327.7 511.8 335.3 511 342.7L564.4 390.2C575.8 400.3 578.4 417 570.9 430.1L541 481.9C533.4 495 517.6 501.1 503.2 496.3L435.4 473.8C423.3 482.9 410.1 490.5 396.1 496.6L381.7 566.5C378.6 581.4 365.5 592 350.4 592L290.6 592C275.4 592 262.3 581.3 259.3 566.5L244.9 496.6C230.8 490.6 217.7 482.9 205.6 473.8L137.5 496.3C123.1 501.1 107.3 495.1 99.7 481.9L69.8 430.1C62.2 416.9 64.9 400.3 76.3 390.2L129.7 342.7C128.8 335.3 128.4 327.7 128.4 320C128.4 312.3 128.9 304.7 129.7 297.3L76.3 249.8C64.9 239.7 62.3 223 69.8 209.9L99.7 158.1C107.3 144.9 123.1 138.9 137.5 143.7L205.3 166.2C217.4 157.1 230.6 149.5 244.6 143.4L259.1 73.5zM320.3 400C364.5 399.8 400.2 363.9 400 319.7C399.8 275.5 363.9 239.8 319.7 240C275.5 240.2 239.8 276.1 240 320.3C240.2 364.5 276.1 400.2 320.3 400z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -342,25 +355,6 @@
             </div>
           </div>
         </div>
-        <div class="carousel-btn-wrap">
-          <div class="table-button-wrap">
-            <div class="table-btn">
-              <button class="edit-btn" onclick="openGoalsModal()">
-                <svg
-                  class="edit-btn-svg"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 640"
-                >
-                  <path
-                    d="M416.9 85.2L372 130.1L509.9 268L554.8 223.1C568.4 209.6 576 191.2 576 172C576 152.8 568.4 134.4 554.8 120.9L519.1 85.2C505.6 71.6 487.2 64 468 64C448.8 64 430.4 71.6 416.9 85.2zM338.1 164L122.9 379.1C112.2 389.8 104.4 403.2 100.3 417.8L64.9 545.6C62.6 553.9 64.9 562.9 71.1 569C77.3 575.1 86.2 577.5 94.5 575.2L222.3 539.7C236.9 535.6 250.2 527.9 261 517.1L476 301.9L338.1 164z"
-                  />
-                </svg>
-                <span class="edit-btn-label">Edit</span>
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Food Log -->
@@ -477,7 +471,7 @@
             </button>
           </div>
 
-          <div class="modal-body">
+          <div class="modal-body add-food">
             <div class="food-search-wrap">
               <input
                 id="food-search"
@@ -571,39 +565,6 @@
         </div>
       </div>
 
-      <!-- <div class="section-divider">Widgets</div> -->
-
-      <div class="carousel-section">
-        <div class="carousel-track-wrap">
-          <div class="carousel-track">
-            <!-- workout -->
-            <!-- <div class="widget-card">
-              <div class="workout-label">Gym</div>
-            </div> -->
-          </div>
-        </div>
-
-        <div class="carousel-btn-wrap">
-          <div class="table-button-wrap">
-            <div class="table-btn">
-              <button class="edit-btn">
-                <svg
-                  class="edit-btn-svg"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 640"
-                >
-                  <path
-                    d="M416.9 85.2L372 130.1L509.9 268L554.8 223.1C568.4 209.6 576 191.2 576 172C576 152.8 568.4 134.4 554.8 120.9L519.1 85.2C505.6 71.6 487.2 64 468 64C448.8 64 430.4 71.6 416.9 85.2zM338.1 164L122.9 379.1C112.2 389.8 104.4 403.2 100.3 417.8L64.9 545.6C62.6 553.9 64.9 562.9 71.1 569C77.3 575.1 86.2 577.5 94.5 575.2L222.3 539.7C236.9 535.6 250.2 527.9 261 517.1L476 301.9L338.1 164z"
-                  />
-                </svg>
-                <span class="edit-btn-label">Edit</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="modal" id="goals-modal" style="display: none">
         <div class="modal-overlay" id="goals-modal-overlay"></div>
         <div class="modal-box">
@@ -623,135 +584,7 @@
             </button>
           </div>
 
-          <div class="modal-body" id="goals-modal-body">
-            <div class="edit-option">
-              <div class="edit-label-wrap">
-                <svg
-                  class="edit-svg-cal"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 640"
-                >
-                  <path
-                    d="M256.5 37.6C265.8 29.8 279.5 30.1 288.4 38.5C300.7 50.1 311.7 62.9 322.3 75.9C335.8 92.4 352 114.2 367.6 140.1C372.8 133.3 377.6 127.3 381.8 122.2C382.9 120.9 384 119.5 385.1 118.1C393 108.3 402.8 96 415.9 96C429.3 96 438.7 107.9 446.7 118.1C448 119.8 449.3 121.4 450.6 122.9C460.9 135.3 474.6 153.2 488.3 175.3C515.5 219.2 543.9 281.7 543.9 351.9C543.9 475.6 443.6 575.9 319.9 575.9C196.2 575.9 96 475.7 96 352C96 260.9 137.1 182 176.5 127C196.4 99.3 216.2 77.1 231.1 61.9C239.3 53.5 247.6 45.2 256.6 37.7zM321.7 480C347 480 369.4 473 390.5 459C432.6 429.6 443.9 370.8 418.6 324.6C414.1 315.6 402.6 315 396.1 322.6L370.9 351.9C364.3 359.5 352.4 359.3 346.2 351.4C328.9 329.3 297.1 289 280.9 268.4C275.5 261.5 265.7 260.4 259.4 266.5C241.1 284.3 207.9 323.3 207.9 370.8C207.9 439.4 258.5 480 321.6 480z"
-                  />
-                </svg>
-                <span class="edit-text">Calories</span>
-              </div>
-              <input
-                class="edit-input"
-                onfocus="this.select()"
-                inputmode="decimal"
-                id="goal-cal"
-                type="text"
-              />
-            </div>
-            <div class="edit-option">
-              <div class="edit-label-wrap">
-                <svg
-                  class="edit-svg-pro"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 640"
-                >
-                  <path
-                    d="M224 329.2C224 337.7 220.6 345.8 214.6 351.8L187.8 378.6C175.5 390.9 155.3 390 138.4 385.8C133.8 384.7 128.9 384 123.9 384C90.8 384 63.9 410.9 63.9 444C63.9 477.1 90.8 504 123.9 504C130.2 504 135.9 509.7 135.9 516C135.9 549.1 162.8 576 195.9 576C229 576 255.9 549.1 255.9 516C255.9 511 255.3 506.2 254.1 501.5C249.9 484.6 248.9 464.4 261.3 452.1L288.1 425.3C294.1 419.3 302.2 415.9 310.7 415.9L399.9 415.9C406.2 415.9 412.3 415.6 418.4 414.9C430.3 413.7 434.8 399.4 429.2 388.9C420.7 373.1 415.9 355.1 415.9 335.9C415.9 274 466 223.9 527.9 223.9C535.9 223.9 543.6 224.7 551.1 226.3C562.8 228.8 575.2 220.4 573.1 208.7C558.4 126.4 486.4 63.9 399.9 63.9C302.7 63.9 223.9 142.7 223.9 239.9L223.9 329.1z"
-                  />
-                </svg>
-                <span class="edit-text">Protein</span>
-              </div>
-              <input
-                class="edit-input"
-                onfocus="this.select()"
-                inputmode="decimal"
-                id="goal-pro"
-                type="text"
-              />
-            </div>
-            <div class="edit-option">
-              <div class="edit-label-wrap">
-                <svg
-                  class="edit-svg-carb"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 640 640"
-                >
-                  <path
-                    d="M111.7 298.6C117.9 294.5 126.4 295.2 131.8 300.7L177.9 346.8L184 353.5C203.7 377.3 210.3 408.5 203.2 437.4C234.9 429.7 269.4 438.4 293.8 462.7L339.9 508.8C346.1 515 346.1 525.2 339.9 531.4L332.5 538.8C295 576.3 234.2 576.3 196.7 538.8L166.1 508.3L81.4 593C72 602.4 56.9 602.4 47.5 593C38.1 583.6 38.1 568.4 47.5 559.1L132.2 474.4L101.7 443.9C64.2 406.4 64.2 345.6 101.7 308.2L109.1 300.8L111.6 298.7zM215.7 194.6C221.9 190.5 230.4 191.2 235.8 196.7L281.9 242.8L288 249.5C307.7 273.3 314.3 304.5 307.2 333.4C338.9 325.7 373.4 334.4 397.8 358.7L443.9 404.8C450.1 411 450.1 421.2 443.9 427.4L436.5 434.8C399 472.3 338.2 472.3 300.7 434.8L205.8 339.9C168.3 302.4 168.3 241.6 205.8 204.2L213.2 196.8L215.7 194.7zM527.2 79C536.6 69.6 551.8 69.6 561.2 79C570 87.8 570.5 101.7 562.8 111.2L561.2 113L446.7 227.4C454.4 228.4 461.9 230.4 469.2 233.3L527.5 175C536.9 165.6 552.1 165.6 561.5 175C570.3 183.8 570.8 197.7 563.1 207.1L561.4 208.9L508.7 261.6L547.7 300.6C553.9 306.8 553.9 317 547.7 323.2L540.3 330.6C502.8 368.1 442 368.1 404.5 330.6L309.6 235.7C272.1 198.2 272.1 137.4 309.6 100L317 92.6L319.5 90.5C325.7 86.4 334.2 87.1 339.6 92.6L378.6 131.6L431.3 78.9C440.7 69.5 455.9 69.5 465.3 78.9C474.1 87.7 474.6 101.6 466.9 111L465.2 112.8L406.9 171.1C409.7 178.2 411.6 185.6 412.6 193.2L527.2 79z"
-                  />
-                </svg>
-                <span class="edit-text">Carbs</span>
-              </div>
-              <input
-                class="edit-input"
-                onfocus="this.select()"
-                inputmode="decimal"
-                id="goal-carb"
-                type="text"
-              />
-            </div>
-            <div class="edit-option">
-              <div class="edit-label-wrap">
-                <svg
-                  class="edit-svg-fat"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  version="1.1"
-                  id="Capa_1"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 2122 2122"
-                  style="enable-background: new 0 0 2122 2122"
-                  xml:space="preserve"
-                >
-                  <g>
-                    <path
-                      d="M1694.555,1132.629c-12.692-69.272-34.358-136.575-50.499-205.126   c-11.191-47.556-19.746-95.717-25.579-144.189c-6.694-55.581-9.832-111.606-9.364-167.576   c0.92-110.66,15.142-225.764-26.022-328.482c-59.108-147.629-239.21-234.407-391.512-188.658   c-175.376,52.721-269.539,236.043-391.81,372.37C669.943,615.684,512.754,721.346,417.261,895.557   c-111.303,203.045-154.577,457.782-71.557,678.381c27.416,72.833,67.084,140.97,116.745,200.463   c65.306,78.334,147.912,141.661,242.489,180.935c101.135,41.973,210.046,59.639,317.344,54.387   c207.936-10.251,409.841-106.607,537.446-279.011C1684.752,1561.773,1732.386,1339.371,1694.555,1132.629z"
-                    />
-                    <path
-                      d="M1623.559,1123.966c-11.386-62.168-30.831-122.524-45.301-184.019   c-0.218-0.927-0.397-1.861-0.614-2.788c-21.142-90.648-31.491-183.795-30.719-276.865c0.804-99.274,13.554-202.519-23.362-294.68   c-27.415-68.467-83.859-122.358-150.855-152.745c-62.578-28.385-134.383-36.302-200.35-16.468   c-157.325,47.274-241.822,211.737-351.483,334.012C704.413,660.239,563.419,755.011,477.728,911.308   c-88.053,160.628-128.604,357.344-85.885,537.276c5.695,24.113,12.916,47.917,21.72,71.274   c39.277,104.352,106.661,198.005,193.669,266.424c39.142,30.78,82.251,56.462,128.567,75.7   c90.743,37.666,188.433,53.525,284.706,48.774c186.518-9.164,367.619-95.605,482.09-250.265   C1614.779,1508.945,1657.503,1309.427,1623.559,1123.966z"
-                    />
-                    <path
-                      d="M1623.559,1123.966c-11.386-62.168-30.831-122.524-45.301-184.019   c-0.218-0.927-0.397-1.861-0.614-2.788c-21.142-90.648-31.491-183.795-30.719-276.865c0.804-99.274,13.554-202.519-23.362-294.68   c-27.415-68.467-83.859-122.358-150.855-152.745c39.22,83.747,43.167,166.66,17.5,260.379   c-26.251,95.825-70.967,187.99-76.497,287.206c-2.312,41.487,2.36,82.676,9.599,123.739c-9.642-18.364-20.954-35.761-34.349-51.656   c-39.605-47.055-94.578-75.055-155.878-72.555c-2.026,0.083-4.059,0.195-6.085,0.336   c-154.991,11.333-301.208,163.24-360.063,298.372c-43.917,100.882-67.055,224.628-37.247,333.568   c6.387,23.416,15.221,46.105,26.831,67.771c4.38,8.179,9.117,16.005,14.126,23.541c-109.346-36.382-218.743-92.441-326.613-58.927   c-18.499,5.749-35.859,13.915-52.19,23.941c5.695,24.113,12.916,47.917,21.72,71.274   c39.277,104.352,106.661,198.005,193.669,266.424c39.142,30.78,82.251,56.462,128.567,75.7   c90.743,37.666,188.433,53.525,284.706,48.774c186.518-9.164,367.619-95.605,482.09-250.265   C1614.779,1508.945,1657.503,1309.427,1623.559,1123.966z"
-                    />
-                    <path
-                      style="fill: #1a1a1a"
-                      d="M1359.072,980.249c-8.582-33.073-19.91-65.872-35.76-96.056   c-9.642-18.364-20.954-35.761-34.349-51.656c-39.605-47.055-94.578-75.055-155.878-72.555c-2.026,0.083-4.059,0.195-6.085,0.336   c-154.991,11.333-301.208,163.24-360.063,298.372c-43.917,100.882-67.055,224.628-37.247,333.568   c6.387,23.416,15.221,46.105,26.831,67.771c4.38,8.179,9.117,16.005,14.126,23.541c67.32,101.282,189.312,144.172,309.191,119.508   c37.023-7.61,70.801-20.39,101.217-37.471c92.633-52.024,153.964-144.185,180.546-253.349   C1388.041,1203.625,1387.155,1088.463,1359.072,980.249z"
-                    />
-                    <path
-                      d="M1644.056,927.503c-11.191-47.556-19.746-95.717-25.579-144.189   c-13.605,51.275-27.223,102.563-40.833,153.845c0.217,0.927,0.396,1.862,0.614,2.788c14.47,61.495,33.914,121.851,45.301,184.019   c33.944,185.462-8.78,384.979-120.964,536.526c-114.47,154.66-295.571,241.1-482.09,250.265   c-96.273,4.751-193.963-11.108-284.706-48.774c-46.317-19.238-89.425-44.919-128.567-75.7c-11.797-0.037-23.59-0.167-35.369-0.49   c-37.968-1.057-74.329-4.473-109.413-11.391c65.306,78.334,147.912,141.661,242.489,180.935   c101.135,41.973,210.046,59.639,317.344,54.387c207.936-10.251,409.841-106.607,537.446-279.011   c125.023-168.94,172.657-391.342,134.825-598.084C1681.863,1063.357,1660.197,996.054,1644.056,927.503z"
-                    />
-                    <path
-                      style="fill: #1a1a1a"
-                      d="M1133.084,759.981c67.162,124.94,83.635,277.184,41.525,412.925   c-30.831,99.41-95.216,192.492-189.242,237.101c-94.548,44.828-169.573,16.775-255.678-17.749   c6.387,23.416,15.221,46.105,26.831,67.771c4.38,8.179,9.117,16.005,14.126,23.541c67.32,101.282,189.312,144.172,309.191,119.508   c37.023-7.61,70.801-20.39,101.217-37.471c92.633-52.024,153.964-144.185,180.546-253.349   c26.441-108.633,25.554-223.795-2.529-332.009c-8.582-33.073-19.91-65.872-35.76-96.056c-9.642-18.364-20.954-35.761-34.349-51.656   C1249.357,785.482,1194.385,757.482,1133.084,759.981z"
-                    />
-                    <path
-                      style="fill: #1a1a1a"
-                      d="M960.675,1155.747c33.394-35.464,70.465-67.961,97.978-108.166   c15.99-23.367,28.809-50.299,28.433-78.616c-0.38-28.317-16.892-57.773-43.907-66.251c-19.513-6.119-40.779-0.736-59.649,7.152   c-84.307,35.24-140.984,117.607-170.562,204.063c-13.452,39.308-38.509,158.884,31.24,164.034   C891.594,1281.462,933.206,1184.916,960.675,1155.747z"
-                    />
-                    <path
-                      d="M505.991,1057.233c20.936-6.709,23.639-35.586,31.513-53.793   c11.279-26.095,24.589-51.298,39.371-75.571c14.728-24.19,30.991-48.151,48.814-70.158c16.662-20.57,37.008-38.67,51.323-60.994   c5.184-8.093-4.843-16.731-12.59-12.59c-24.463,13.077-43.629,35.756-61.583,56.453c-18.68,21.54-35.776,43.81-51.084,67.902   c-15.97,25.14-29.836,51.591-41.773,78.87c-7.936,18.144-27.206,47.284-14.188,65.734   C498.045,1056.273,501.977,1058.519,505.991,1057.233z"
-                    />
-                    <path
-                      d="M486.293,1256.585c7.849-16.838,4.273-35.562,5.852-53.788c1.9-21.866,9.393-42.641,10.694-64.477   c0.629-10.524-13.31-12.473-18.44-4.994c-12.205,17.798-15.684,40.136-18.222,61.242c-2.368,19.737-6.295,44.979,5.725,62.017   C475.151,1261.193,483.419,1262.758,486.293,1256.585z"
-                    />
-                    <path
-                      d="M769.056,684.994c113.408-23.688,178.553-134.85,234.855-225.315   c33.53-53.88,69.447-109.803,122.314-146.777c23.362-16.341,49.296-29.062,77.018-35.936c32.779-8.127,59.79-2.865,92.039,2.699   c16.014,2.757,27.736-18.792,11.703-27.766c-46.885-26.251-110.738-12.331-156.507,9.169   c-56.102,26.353-98.582,71.956-133.725,121.958C943.209,487.67,893.377,619.406,764.028,666.748   C752.646,670.914,757.022,687.508,769.056,684.994z"
-                    />
-                  </g>
-                </svg>
-                <span class="edit-text">Fat</span>
-              </div>
-              <input
-                class="edit-input"
-                onfocus="this.select()"
-                inputmode="decimal"
-                id="goal-fat"
-                type="text"
-              />
-            </div>
-          </div>
+          <div class="modal-body" id="goals-modal-body"></div>
           <div class="modal-footer">
             <button class="modal-complete-btn" onclick="saveGoals()">
               Save
@@ -761,7 +594,7 @@
       </div>
 
       <!-- widget modal selector -->
-      <div class="modal" id="widget-edit-modal" style="display: none">
+      <div class="modal" id="widget-show-modal" style="display: none">
         <div
           class="modal-overlay"
           id="widget-edit-overlay"
@@ -769,7 +602,7 @@
         ></div>
         <div class="widget-edit-panel">
           <span class="widget-modal-title">Widgets</span>
-          <div class="widget-select-grid">
+          <div class="widget-show-grid">
             <!-- hydration -->
             <div class="widget-card water">
               <div class="widget-header">
@@ -960,6 +793,274 @@
               ></textarea>
             </div>
             <button onclick="saveEnabledWidgets()">Done</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- settings modal -->
+      <div class="modal" id="settings-modal" style="display: none">
+        <div
+          class="modal-overlay"
+          id="settings-modal-overlay"
+          onclick="closeSettings()"
+        ></div>
+        <div class="modal-box settings">
+          <div class="modal-header settings">
+            <span>Settings</span>
+
+            <button class="modal-close-btn" onclick="closeSettings()">
+              <svg
+                class="modal-close-svg"
+                fill="currentColor"
+                viewBox="0 0 640 640"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM231 231C240.4 221.6 255.6 221.6 264.9 231L319.9 286L374.9 231C384.3 221.6 399.5 221.6 408.8 231C418.1 240.4 418.2 255.6 408.8 264.9L353.8 319.9L408.8 374.9C418.2 384.3 418.2 399.5 408.8 408.8C399.4 418.1 384.2 418.2 374.9 408.8L319.9 353.8L264.9 408.8C255.5 418.2 240.3 418.2 231 408.8C221.7 399.4 221.6 384.2 231 374.9L286 319.9L231 264.9C221.6 255.5 221.6 240.3 231 231z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div class="modal-body settings">
+            <!-- goals -->
+            <div class="settings-section">
+              <span class="settings-header">Goals</span>
+              <div class="settings-option-wrap">
+                <span class="settings-option-title">Calories</span>
+
+                <input
+                  class="settings-edit-input"
+                  onfocus="this.select()"
+                  inputmode="decimal"
+                  id="goal-cal"
+                  type="text"
+                />
+              </div>
+              <div class="settings-option-wrap">
+                <span class="settings-option-title">Protein</span>
+
+                <input
+                  class="settings-edit-input"
+                  onfocus="this.select()"
+                  inputmode="decimal"
+                  id="goal-pro"
+                  type="text"
+                />
+              </div>
+              <div class="settings-option-wrap">
+                <span class="settings-option-title">Carbs</span>
+
+                <input
+                  class="settings-edit-input"
+                  onfocus="this.select()"
+                  inputmode="decimal"
+                  id="goal-carb"
+                  type="text"
+                />
+              </div>
+              <div class="settings-option-wrap">
+                <span class="settings-option-title">Fat</span>
+
+                <input
+                  class="settings-edit-input"
+                  onfocus="this.select()"
+                  inputmode="decimal"
+                  id="goal-fat"
+                  type="text"
+                />
+              </div>
+            </div>
+            <!-- food log -->
+            <div class="settings-section">
+              <span class="settings-header">Food Log</span>
+              <div class="settings-option-wrap">
+                <span class="settings-option-title"
+                  >Show protein total next to meal header</span
+                >
+                <button class="settings-checkbox">
+                  <svg
+                    class="settings-checkbox-svg"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="settings-option-wrap">
+                <span class="settings-option-title">Dim checked entries</span>
+                <button class="settings-checkbox">
+                  <svg
+                    class="settings-checkbox-svg"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <!-- widgets -->
+            <div class="settings-section">
+              <span class="settings-header">Widgets</span>
+              <div class="settings-option-wrap">
+                <div class="settings-svg-title-wrap">
+                  <svg
+                    class="settings-title-svg hydration"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M272 32L368 32C385.7 32 400 46.3 400 64C400 81.7 385.7 96 368 96L272 96C254.3 96 240 81.7 240 64C240 46.3 254.3 32 272 32zM176 208C176 172.7 204.7 144 240 144L400 144C435.3 144 464 172.7 464 208C464 232.1 450.7 253.1 431 264C450.7 274.9 464 295.9 464 320C464 344.1 450.7 365.1 431 376C450.7 386.9 464 407.9 464 432C464 456.1 450.7 477.1 431 488C450.7 498.9 464 519.9 464 544C464 579.3 435.3 608 400 608L240 608C204.7 608 176 579.3 176 544C176 519.9 189.3 498.9 209 488C189.3 477.1 176 456.1 176 432C176 407.9 189.3 386.9 209 376C189.3 365.1 176 344.1 176 320C176 295.9 189.3 274.9 209 264C189.3 253.1 176 232.1 176 208z"
+                    />
+                  </svg>
+                  <span class="settings-option-title">Hydration</span>
+                </div>
+                <button class="settings-checkbox">
+                  <svg
+                    class="settings-checkbox-svg"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="settings-option-wrap">
+                <div class="settings-svg-title-wrap">
+                  <svg
+                    class="settings-title-svg supplements"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M128 176C128 149.5 149.5 128 176 128C202.5 128 224 149.5 224 176L224 288L128 288L128 176zM240 432C240 383.3 258.1 338.8 288 305L288 176C288 114.1 237.9 64 176 64C114.1 64 64 114.1 64 176L64 464C64 525.9 114.1 576 176 576C213.3 576 246.3 557.8 266.7 529.7C249.7 501.1 240 467.7 240 432zM304.7 499.4C309.3 508.1 321 509.1 328 502.1L502.1 328C509.1 321 508.1 309.3 499.4 304.7C479.3 294 456.4 288 432 288C352.5 288 288 352.5 288 432C288 456.3 294 479.3 304.7 499.4zM361.9 536C354.9 543 355.9 554.7 364.6 559.3C384.7 570 407.6 576 432 576C511.5 576 576 511.5 576 432C576 407.7 570 384.7 559.3 364.6C554.7 355.9 543 354.9 536 361.9L361.9 536z"
+                    />
+                  </svg>
+                  <span class="settings-option-title">Supplements</span>
+                </div>
+                <button class="settings-checkbox">
+                  <svg
+                    class="settings-checkbox-svg"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="settings-option-wrap">
+                <div class="settings-svg-title-wrap">
+                  <svg
+                    class="settings-title-svg weight"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M376 88C376 57.1 350.9 32 320 32C289.1 32 264 57.1 264 88C264 118.9 289.1 144 320 144C350.9 144 376 118.9 376 88zM400 300.7L446.3 363.1C456.8 377.3 476.9 380.3 491.1 369.7C505.3 359.1 508.3 339.1 497.7 324.9L427.2 229.9C402 196 362.3 176 320 176C277.7 176 238 196 212.8 229.9L142.3 324.9C131.8 339.1 134.7 359.1 148.9 369.7C163.1 380.3 183.1 377.3 193.7 363.1L240 300.7L240 576C240 593.7 254.3 608 272 608C289.7 608 304 593.7 304 576L304 416C304 407.2 311.2 400 320 400C328.8 400 336 407.2 336 416L336 576C336 593.7 350.3 608 368 608C385.7 608 400 593.7 400 576L400 300.7z"
+                    />
+                  </svg>
+                  <span class="settings-option-title">Weight</span>
+                </div>
+                <button class="settings-checkbox">
+                  <svg
+                    class="settings-checkbox-svg"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="settings-option-wrap">
+                <div class="settings-svg-title-wrap">
+                  <svg
+                    class="settings-title-svg notes"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M160 544C124.7 544 96 515.3 96 480L96 160C96 124.7 124.7 96 160 96L480 96C515.3 96 544 124.7 544 160L544 373.5C544 390.5 537.3 406.8 525.3 418.8L418.7 525.3C406.7 537.3 390.4 544 373.4 544L160 544zM485.5 368L392 368C378.7 368 368 378.7 368 392L368 485.5L485.5 368z"
+                    />
+                  </svg>
+                  <span class="settings-option-title">Notes</span>
+                </div>
+                <button class="settings-checkbox">
+                  <svg
+                    class="settings-checkbox-svg"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="settings-option-wrap">
+                <span class="settings-option-title">Hide widget secion</span>
+                <button class="settings-checkbox">
+                  <svg
+                    class="settings-checkbox-svg"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"
+                  >
+                    <!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path
+                      d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 434.9 205.1 528 320 528C434.9 528 528 434.9 528 320zM64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576C178.6 576 64 461.4 64 320z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- sign out -->
+          <div class="sign-out-wrap">
+            <div class="sign-out" onclick="signOut()">
+              <svg
+                class="sign-out-svg"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <path
+                  d="M384 128L448 128L448 544C448 561.7 462.3 576 480 576L512 576C529.7 576 544 561.7 544 544C544 526.3 529.7 512 512 512L512 128C512 92.7 483.3 64 448 64L352 64L352 64L192 64C156.7 64 128 92.7 128 128L128 512C110.3 512 96 526.3 96 544C96 561.7 110.3 576 128 576L352 576C369.7 576 384 561.7 384 544L384 128zM256 320C256 302.3 270.3 288 288 288C305.7 288 320 302.3 320 320C320 337.7 305.7 352 288 352C270.3 352 256 337.7 256 320z"
+                />
+              </svg>
+              <span class="sign-out-text">Sign Out</span>
+            </div>
           </div>
         </div>
       </div>

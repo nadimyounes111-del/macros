@@ -54,13 +54,13 @@
   position: relative;
 }
 
-.modal-body input {
+/* .modal-body input {
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
   font-family: "Cal Sans";
   font-size: clamp(14px, 12.86px + 0.357vw, 18px);
   width: 100%;
   box-sizing: border-box;
-}
+} */
 
 .modal-body input {
   transition: border 0.2s ease;
@@ -124,6 +124,14 @@
 /* #endregion */
 
 /* #region ADD FOOD | Search & Servings */
+
+.modal-body.add-food input {
+  border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
+  font-family: "Cal Sans";
+  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  width: 100%;
+  box-sizing: border-box;
+}
 
 ul {
   padding: 0;
@@ -396,28 +404,6 @@ ul {
 .edit-text {
   font-size: var(--text);
   color: white;
-}
-
-.edit-input:focus {
-  border: 2px solid var(--orange);
-  outline: none;
-}
-
-#goals-modal .edit-input {
-  width: clamp(70px, 61.43px + 2.679vw, 100px);
-}
-
-.edit-input {
-  display: block;
-  padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
-  color: var(--white);
-  background: var(--dark-blue);
-  border: 2px solid transparent;
-  text-align: center;
-}
-
-#goals-modal .modal-body {
-  gap: clamp(6px, 4.29px + 0.536vw, 12px);
 }
 
 /* #endregion */

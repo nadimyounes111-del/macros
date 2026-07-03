@@ -77,3 +77,14 @@ document.querySelectorAll(".meal-btn").forEach(function (btn) {
 document.addEventListener("keydown", function (e) {
   if (e.code === "Space" && e.target === document.body) openFoodModal();
 });
+
+// settings
+function openSettings() {
+  document.getElementById("settings-modal").style.display = "flex";
+  document.body.classList.add("modal-open");
+}
+
+function closeSettings() {
+  document.getElementById("settings-modal").style.display = "none";
+  document.body.classList.remove("modal-open");
+}
