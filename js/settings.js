@@ -66,8 +66,14 @@ function toggleWidget(widget, btn) {
 
 function applyWidgetState(widget, isEnabled, btn) {
   btn.classList.toggle("is-checked", isEnabled);
+
   const thumb = document.querySelector(".widget-thumbnail." + widget);
   if (thumb) thumb.style.display = isEnabled ? "" : "none";
+
+  const card = document.querySelector(
+    '.widget-card[data-widget="' + widget + '"]',
+  );
+  if (card) card.style.display = isEnabled ? "" : "none";
 }
 
 function populateWidgetToggles() {

@@ -1,40 +1,3 @@
-/* #region ===== Carousel (Template from macros-sum.css) ===== */
-
-/* .carousel-section {
-  margin: 10px 0 20px 0;
-}
-.carousel-track-wrap {
-  position: relative;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.carousel-track-wrap::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel-track {
-  display: flex;
-  gap: clamp(8px, 5.71px + 0.714vw, 16px);
-  -webkit-overflow-scrolling: touch;
-  width: fit-content;
-  margin: 0 auto;
-}
-
-.carousel-btn-wrap {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.table-button-wrap {
-  margin: clamp(5px, 3.57px + 0.446vw, 10px) 0 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-} */
-
-/* #endregion */
-
 /* #region ==== Card Template */
 
 .widget-header {
@@ -112,9 +75,9 @@
   justify-content: space-between;
 }
 
-/* .widget-card.water {
+.widget-card.water {
   background-color: rgb(11, 55, 65);
-} */
+}
 
 .widget-icon.water {
   color: rgb(37, 198, 251);
@@ -183,9 +146,9 @@
 
 /* #region ===== Supplements ===== */
 
-/* .widget-card.supp {
+.widget-card.supp {
   background-color: rgb(35, 43, 90);
-} */
+}
 
 .supp-body {
   display: flex;
@@ -298,9 +261,9 @@
   align-items: center;
 }
 
-/* .widget-card.weight {
+.widget-card.weight {
   background-color: rgb(67, 36, 0);
-} */
+}
 
 .widget-icon.weight {
   color: rgb(255, 128, 0);
@@ -386,9 +349,9 @@
 
 /* #region ===== Notes ===== */
 
-/* .widget-card.notes {
-  background-color: rgb(70, 70, 73);
-} */
+.widget-card.notes {
+  background-color: rgb(83, 80, 80);
+}
 
 .widget-icon.notes {
   color: rgb(155, 155, 155);
@@ -398,7 +361,7 @@
   box-sizing: border-box;
   color: white;
   font-size: var(--text);
-  background-color: var(--dark-blue);
+  background-color: rgb(61, 61, 61);
   font-family: "Cal Sans";
   border: none;
   border-radius: 10px;
@@ -422,63 +385,31 @@
 
 /* #region Overlay */
 
-.widget-modal-title {
-  font-size: 24px;
-}
-
-.widget-show-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
 .widget-edit-panel {
   position: relative;
   z-index: 1;
 }
 
-.widget-select-card {
-  position: relative;
-  border: 3px transparent;
-  border-radius: 12px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.widget-select-card.selected {
-  border: 3px solid #ff8000;
-  border-style: solid;
-}
-
-.check-badge {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  border-radius: 50%;
-  display: none;
-  background: white;
-  align-items: center;
-  justify-content: center;
-}
-
-.check-badge-svg {
-  color: #ff8000;
-  width: 24px;
-  height: 24px;
-}
-
-.widget-select-card.selected .check-badge {
+.widget-modal-title {
   display: flex;
+  margin-bottom: 20px;
+  font-size: clamp(16px, 14.29px + 0.536vw, 22px);
 }
 
-.widget-preview-img-wrap {
+.widget-show-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 13.71px + 0.714vw, 24px);
 }
 
-.widget-preview-img {
-  width: 140px;
-  border-radius: 8px;
-  pointer-events: none;
+.widget-show-subtitle {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  font-style: italic;
+  font-size: var(--text);
+  color: var(--light-gray);
 }
 
 /* #endregion */

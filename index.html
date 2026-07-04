@@ -608,7 +608,7 @@
           <span class="widget-modal-title">Widgets</span>
           <div class="widget-show-grid">
             <!-- hydration -->
-            <div class="widget-card water">
+            <div class="widget-card water" data-widget="hydration">
               <div class="widget-header">
                 <svg
                   class="widget-icon water"
@@ -690,7 +690,7 @@
               </div>
             </div>
             <!-- supplements -->
-            <div class="widget-card supp">
+            <div class="widget-card supp" data-widget="supplements">
               <div class="widget-header">
                 <svg
                   class="widget-icon supp"
@@ -730,7 +730,7 @@
             </div>
 
             <!-- weight -->
-            <div class="widget-card weight">
+            <div class="widget-card weight" data-widget="weight">
               <div class="widget-header weight">
                 <div class="weight-icon-title">
                   <svg
@@ -776,7 +776,7 @@
               </div>
             </div>
             <!-- notes -->
-            <div class="widget-card notes">
+            <div class="widget-card notes" data-widget="notes">
               <div class="widget-header">
                 <svg
                   class="widget-icon notes"
@@ -790,14 +790,12 @@
                 </svg>
                 <div class="widget-label">Notes</div>
               </div>
-              <textarea
-                class="notes-text"
-                id="notes"
-                placeholder="Text"
-              ></textarea>
+              <textarea class="notes-text" id="notes"></textarea>
             </div>
-            <button onclick="saveEnabledWidgets()">Done</button>
           </div>
+          <span class="widget-show-subtitle"
+            >Customize your widgets in Settings</span
+          >
         </div>
       </div>
 

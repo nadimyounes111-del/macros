@@ -2,10 +2,12 @@
 
 function openWidgetEdit() {
   document.getElementById("widget-show-modal").style.display = "flex";
+  document.body.classList.add("modal-open");
 }
 
 function closeWidgetEdit() {
   document.getElementById("widget-show-modal").style.display = "none";
+  document.body.classList.remove("modal-open");
 }
 
 // #endregion
