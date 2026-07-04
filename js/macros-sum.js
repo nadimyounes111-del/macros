@@ -1,21 +1,7 @@
-/* =========================
-    Macro Summary
-========================= */
+// #region Goals
+
 window.foodLog = [];
 let GOALS = { calories: 0, protein: 0, carbs: 0, fat: 0 };
-
-function saveGoals() {
-  GOALS.calories =
-    parseInt(document.getElementById("goal-cal").value) || GOALS.calories;
-  GOALS.protein =
-    parseInt(document.getElementById("goal-pro").value) || GOALS.protein;
-  GOALS.carbs =
-    parseInt(document.getElementById("goal-carb").value) || GOALS.carbs;
-  GOALS.fat = parseInt(document.getElementById("goal-fat").value) || GOALS.fat;
-  if (window.saveToFirestore) window.saveToFirestore({ goals: GOALS });
-  updateSummary();
-  closeGoalsModal();
-}
 
 function checkOverage(id, total, goal) {
   const warn = document.getElementById("warn-" + id);
@@ -63,25 +49,4 @@ function updateSummary() {
   checkOverage("fat", totals.fat, GOALS.fat);
 }
 
-/* =========================
-    Macro Edit Modal
-========================= */
-function openGoalsModal() {
-  document.getElementById("goal-cal").value = GOALS.calories;
-  document.getElementById("goal-pro").value = GOALS.protein;
-  document.getElementById("goal-carb").value = GOALS.carbs;
-  document.getElementById("goal-fat").value = GOALS.fat;
-  document.getElementById("goals-modal").style.display = "flex";
-  document.body.classList.add("modal-open");
-  document.addEventListener("keydown", goalsModalEnter);
-}
-
-function closeGoalsModal() {
-  document.getElementById("goals-modal").style.display = "none";
-  document.body.classList.remove("modal-open");
-  document.removeEventListener("keydown", goalsModalEnter);
-}
-
-document
-  .getElementById("goals-modal-overlay")
-  .addEventListener("click", closeGoalsModal);
+// #endregion

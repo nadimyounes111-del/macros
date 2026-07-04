@@ -4,19 +4,6 @@ const uncheckedSVG = `<svg class="uncheck-svg" fill="currentColor" xmlns="http:/
 window.foodLog = JSON.parse(localStorage.getItem("foodLog")) || [];
 window.renderLog = renderLog;
 
-function initApp() {
-  renderLog();
-  updateSummary();
-
-  document.getElementById("notes").addEventListener("input", function () {
-    if (window.saveToFirestore) window.saveToFirestore({ notes: this.value });
-  });
-  setTimeout(() => {
-    document.getElementById("page").classList.add("visible");
-    document.getElementById("pin-screen").style.display = "none";
-  }, 50);
-}
-
 function saveFood() {
   const activeMealBtn = document.querySelector(".meal-btn.active");
   const meal = activeMealBtn ? activeMealBtn.dataset.meal : "Breakfast";

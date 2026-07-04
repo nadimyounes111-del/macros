@@ -1,6 +1,5 @@
-/* =========================
-    Parser
-========================= */
+// #region Parser
+
 let foods = [];
 let selectedFood = null;
 
@@ -18,9 +17,28 @@ const foodsReady = new Promise((resolve) => {
   });
 });
 
-/* =========================
-    Header Date
-========================= */
+// #endregion
+
+// #region initApp
+
+function initApp() {
+  renderLog();
+  updateSummary();
+  initGoalInputs();
+  initNotes();
+  initWidgetToggles();
+  populateWidgetToggles();
+
+  setTimeout(() => {
+    document.getElementById("page").classList.add("visible");
+    document.getElementById("pin-screen").style.display = "none";
+  }, 50);
+}
+
+// #endregion
+
+// #region Header Date
+
 const now = new Date();
 document.getElementById("day-title").textContent = now.toLocaleDateString(
   "en-US",
@@ -36,36 +54,9 @@ function showPinLoading() {
   document.getElementById("pin-loading").style.display = "flex";
 }
 
-/* =========================
-    Streak Counter
-========================= */
-let streak = 0;
-let lastStreakDate = null;
-// function updateStreakDisplay() {
-//   document.querySelector(".streak-num").textContent = streak;
-// }
+// #endregion
 
-// function tapStreak() {
-//   const today = new Date().toDateString();
-//   if (lastStreakDate === today) return;
-
-//   const yesterday = new Date();
-//   yesterday.setDate(yesterday.getDate() - 1);
-//   if (lastStreakDate !== yesterday.toDateString()) streak = 0;
-
-//   streak++;
-//   lastStreakDate = today;
-//   updateStreakDisplay();
-//   if (window.saveToFirestore)
-//     window.saveToFirestore({ streak, lastStreakDate });
-// }
-
-// updateStreakDisplay();
-
-/* =========================
-    Firebase Pins
-========================= */
-// config.js (or wherever your init lives)
+// #region Firebase Config
 
 const USERS = {
   3641: "Nad",
@@ -75,16 +66,12 @@ const USERS = {
 
 let currentUser = null;
 
-// 1. load foods
-
-// 2. wait for firebase.js to define initFirestore
 const firebaseReady = new Promise((resolve) => {
   const check = () =>
     window.initFirestore ? resolve() : setTimeout(check, 20);
   check();
 });
 
-// 3. once both are ready, decide what to do
 Promise.all([foodsReady, firebaseReady]).then(() => {
   const savedUser = localStorage.getItem("user");
 
@@ -133,3 +120,5 @@ function updateUserName() {
 document.getElementById("pin-input").addEventListener("keydown", function (e) {
   if (e.key === "Enter") submitPin();
 });
+
+// #endregion

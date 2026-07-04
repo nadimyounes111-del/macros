@@ -1,6 +1,5 @@
-/* =========================
-    Delete & Clear All
-========================= */
+// #region Delete & Clear
+
 let undoStack = [];
 
 function deleteEntry(index) {
@@ -18,9 +17,10 @@ function clearAll() {
   renderLog();
 }
 
-/* =========================
-    Undo
-========================= */
+// #endregion
+
+// #region Undo
+
 function undoDelete() {
   if (undoStack.length === 0) return;
   const last = undoStack.pop();
@@ -37,11 +37,9 @@ function undoDelete() {
   renderLog();
 }
 
-document.getElementById("clear-all-btn").onclick = clearAll;
+// #endregion
 
-/* =========================
-    Add Food Modal
-========================= */
+// #region Add Food
 
 function addModalEnter(e) {
   if (e.key === "Enter") saveFood();
@@ -78,13 +76,4 @@ document.addEventListener("keydown", function (e) {
   if (e.code === "Space" && e.target === document.body) openFoodModal();
 });
 
-// settings
-function openSettings() {
-  document.getElementById("settings-modal").style.display = "flex";
-  document.body.classList.add("modal-open");
-}
-
-function closeSettings() {
-  document.getElementById("settings-modal").style.display = "none";
-  document.body.classList.remove("modal-open");
-}
+// #endregion

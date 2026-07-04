@@ -1,6 +1,17 @@
-/* =========================
-    Water
-========================= */
+// #region Widget Overlay
+
+function openWidgetEdit() {
+  document.getElementById("widget-show-modal").style.display = "flex";
+}
+
+function closeWidgetEdit() {
+  document.getElementById("widget-show-modal").style.display = "none";
+}
+
+// #endregion
+
+// #region Water
+
 let water = 0;
 const WATER_GOAL = 3;
 
@@ -20,7 +31,9 @@ function updateWaterUI() {
   document.getElementById("water-val").textContent = water.toFixed(1) + " L";
 }
 
-// supplements
+// #endregion
+
+// #region Supplements
 
 let supplements = [];
 
@@ -70,7 +83,10 @@ function saveSupplements() {
   if (window.saveToFirestore) window.saveToFirestore({ supplements });
 }
 
-// weight
+// #endregion
+
+// #region Weight
+
 let currentWeight = null;
 let previousWeight = null;
 let unit = "kg";
@@ -125,12 +141,14 @@ function updateWeightUI() {
   diffEl.classList.add(diff < 0 ? "weight-down" : "weight-up");
 }
 
-// widget selector
+// #endregion
 
-function openWidgetEdit() {
-  document.getElementById("widget-show-modal").style.display = "flex";
+// #region Notes
+
+function initNotes() {
+  document.getElementById("notes").addEventListener("input", function () {
+    if (window.saveToFirestore) window.saveToFirestore({ notes: this.value });
+  });
 }
 
-function closeWidgetEdit() {
-  document.getElementById("widget-show-modal").style.display = "none";
-}
+// #endregion

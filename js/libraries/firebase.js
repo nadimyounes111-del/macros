@@ -1,3 +1,5 @@
+// #region Imports & Const
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
   getFirestore,
@@ -18,6 +20,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 let docRef = null;
+
+// #endregion
+
+// #region Save Functions
 
 window.initFirestore = function (user, onFirstLoad) {
   docRef = doc(db, "users", user);
@@ -55,7 +61,6 @@ window.initFirestore = function (user, onFirstLoad) {
       GOALS = data.goals;
       updateSummary();
     }
-
     if (data.notes !== undefined) {
       document.getElementById("notes").value = data.notes;
     }
@@ -71,10 +76,10 @@ window.initFirestore = function (user, onFirstLoad) {
       previousWeight = data.previousWeight || null;
       if (document.getElementById("weight-val")) updateWeightUI();
     }
-    // if (data.streak !== undefined) {
-    //   streak = data.streak;
-    //   lastStreakDate = data.lastStreakDate || null;
-    // }
+    if (data.enabledWidgets !== undefined) {
+      enabledWidgets = data.enabledWidgets;
+      populateWidgetToggles();
+    }
 
     if (isFirst) {
       isFirst = false;
@@ -82,3 +87,5 @@ window.initFirestore = function (user, onFirstLoad) {
     }
   });
 };
+
+// #endregion
