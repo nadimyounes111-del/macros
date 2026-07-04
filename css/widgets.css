@@ -319,14 +319,15 @@
   color: #22c55e;
 }
 .weight-up {
-  color: #ff5c5c;
+  color: var(--red);
 }
 
-#unit-toggle {
+.unit-toggle {
   all: unset;
   display: flex;
   flex: 1;
-  width: 45px;
+  min-width: 20px;
+  justify-content: center;
   font-size: clamp(14px, 12.86px + 0.357vw, 18px);
   background: var(--light-gray);
   padding: 2px 5px;
@@ -334,11 +335,11 @@
   cursor: pointer;
 }
 
-.widget-header.weight {
+.widget-header.special {
   justify-content: space-between;
 }
 
-.weight-icon-title {
+.special-icon-title {
   display: flex;
   gap: 3px;
   width: 100%;
@@ -376,6 +377,19 @@
 
 /* #region ===== Workout Day ===== */
 
+/* .widget-show-wrapper {
+  max-width: 800px;
+  margin: clamp(15px, 12.14px + 0.893vw, 25px) auto;
+}
+
+.widget-card-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+} */
+
 .workout-label {
   font-size: clamp(14px, 12.86px + 0.357vw, 18px);
   color: white;
@@ -397,9 +411,9 @@
 }
 
 .widget-show-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(16px, 13.71px + 0.714vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .widget-show-subtitle {

@@ -25,7 +25,7 @@
 /* #region ===== Header ===== */
 
 .log-header {
-  margin: 0;
+  margin-bottom: 5px;
   background-color: var(--dark-blue);
   border-radius: 8px 8px 0 0;
   padding: 3px 0;
@@ -185,6 +185,10 @@
   opacity: 0.4;
 }
 
+body.dim-disabled .row-checked {
+  opacity: 1;
+}
+
 /* #endregion */
 
 /* #region ===== Meal Header ===== */
@@ -193,14 +197,15 @@
   display: flex;
   flex-direction: row;
   gap: 5px;
+  align-items: center;
 }
 
 .meal-header {
   display: flex;
   align-items: center;
-  padding-top: 5px;
+
   justify-content: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .meal-label {
@@ -213,7 +218,7 @@
   font-size: var(--text);
   white-space: nowrap;
   color: var(--light-gray);
-  text-transform: none;
+  /* text-transform: none; */
 }
 
 .pro-svg-table {
@@ -221,6 +226,16 @@
   height: var(--svg);
   color: var(--light-gray);
   flex-shrink: 0;
+}
+
+.protein-count-wrap {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+body.hide-meal-protein .protein-count-wrap {
+  display: none;
 }
 
 /* #endregion */

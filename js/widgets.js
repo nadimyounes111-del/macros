@@ -1,24 +1,64 @@
 // #region Widget Overlay
 
-function openWidgetEdit() {
-  document.getElementById("widget-show-modal").style.display = "flex";
+let openWidgetName = null;
+
+function toggleWidgetEdit(widget) {
+  const modal = document.getElementById("widget-show-modal");
+  const isOpen = modal.style.display === "flex";
+
+  showOnlyWidgetCard(widget);
+  modal.style.display = "flex";
   document.body.classList.add("modal-open");
+  openWidgetName = widget;
 }
 
 function closeWidgetEdit() {
   document.getElementById("widget-show-modal").style.display = "none";
   document.body.classList.remove("modal-open");
+  openWidgetName = null;
+}
+
+function showOnlyWidgetCard(widget) {
+  document.querySelectorAll(".widget-card").forEach((card) => {
+    card.style.display = card.dataset.widget === widget ? "" : "none";
+  });
+}
+
+function populateWidgetToggles() {
+  document.querySelectorAll(".settings-checkbox").forEach((btn) => {
+    const widget = btn.dataset.widget;
+    applyWidgetState(widget, isCurrentlyEnabled(widget), btn);
+  });
+
+  // if the widget overlay is open showing one specific card, re-apply that filter
+  if (openWidgetName) {
+    showOnlyWidgetCard(openWidgetName);
+  }
 }
 
 // #endregion
 
 // #region Water
 
+let waterUnit = "L";
+
+function waterToDisplay(liters) {
+  return waterUnit === "L" ? liters.toFixed(1) : (liters * 33.814).toFixed(1);
+}
+
+function toggleWaterUnit() {
+  waterUnit = waterUnit === "L" ? "oz" : "L";
+  if (window.saveToFirestore) window.saveToFirestore({ waterUnit });
+  updateWaterUI();
+}
+
 let water = 0;
 const WATER_GOAL = 3;
 
-function adjustWater(amount) {
-  water = Math.max(0, parseFloat((water + amount).toFixed(1)));
+function adjustWater(direction) {
+  // direction is +1 or -1, not a fixed liter amount anymore
+  const stepLiters = waterUnit === "L" ? 0.5 : 16 / 33.814; // 16oz worth, converted to liters
+  water = Math.max(0, parseFloat((water + direction * stepLiters).toFixed(3)));
   updateWaterUI();
   if (window.saveToFirestore) window.saveToFirestore({ water });
 }
@@ -30,7 +70,9 @@ function updateWaterUI() {
 
   document.getElementById("water-fill-rect").setAttribute("y", fillY);
   document.getElementById("water-fill-rect").setAttribute("height", fillHeight);
-  document.getElementById("water-val").textContent = water.toFixed(1) + " L";
+  document.getElementById("water-val").textContent =
+    waterToDisplay(water) + " " + waterUnit;
+  document.getElementById("water-unit-toggle").textContent = waterUnit;
 }
 
 // #endregion

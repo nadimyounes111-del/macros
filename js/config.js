@@ -28,6 +28,8 @@ function initApp() {
   initNotes();
   initWidgetToggles();
   populateWidgetToggles();
+  initSettingsToggles();
+  populateSettingsToggles();
 
   setTimeout(() => {
     document.getElementById("page").classList.add("visible");

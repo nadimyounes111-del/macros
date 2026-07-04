@@ -84,3 +84,52 @@ function populateWidgetToggles() {
 }
 
 // #endregion
+
+// #region Toggle protein count
+
+let showMealProtein = true;
+let dimCheckedEntries = true; // default ON
+
+function initSettingsToggles() {
+  wireSettingToggle(
+    "showMealProtein",
+    (val) => {
+      showMealProtein = val;
+      document.body.classList.toggle("hide-meal-protein", !val);
+    },
+    () => showMealProtein,
+  );
+
+  wireSettingToggle(
+    "dimCheckedEntries",
+    (val) => {
+      dimCheckedEntries = val;
+      document.body.classList.toggle("dim-disabled", !val);
+    },
+    () => dimCheckedEntries,
+  );
+}
+
+function wireSettingToggle(settingKey, onChange, getValue) {
+  const btn = document.querySelector(`[data-setting="${settingKey}"]`);
+  btn.addEventListener("click", () => {
+    const newVal = !getValue();
+    onChange(newVal);
+    btn.classList.toggle("is-checked", newVal);
+    if (window.saveToFirestore)
+      window.saveToFirestore({ [settingKey]: newVal });
+  });
+}
+
+function populateSettingsToggles() {
+  document
+    .querySelector('[data-setting="showMealProtein"]')
+    .classList.toggle("is-checked", showMealProtein);
+  document
+    .querySelector('[data-setting="dimCheckedEntries"]')
+    .classList.toggle("is-checked", dimCheckedEntries);
+  document.body.classList.toggle("hide-meal-protein", !showMealProtein);
+  document.body.classList.toggle("dim-disabled", !dimCheckedEntries);
+}
+
+// #endregion

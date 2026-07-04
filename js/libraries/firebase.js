@@ -80,6 +80,16 @@ window.initFirestore = function (user, onFirstLoad) {
       enabledWidgets = data.enabledWidgets;
       populateWidgetToggles();
     }
+    if (data.showMealProtein !== undefined) {
+      showMealProtein = data.showMealProtein;
+    }
+    if (data.dimCheckedEntries !== undefined) {
+      dimCheckedEntries = data.dimCheckedEntries;
+    }
+    if (data.waterUnit !== undefined) {
+      waterUnit = data.waterUnit;
+    }
+    populateSettingsToggles();
 
     if (isFirst) {
       isFirst = false;
