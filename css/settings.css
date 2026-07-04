@@ -1,7 +1,7 @@
 /* settings */
 
-/* .modal-box.settings {
-} */
+.modal-box.settings {
+}
 
 .options-wrapper {
   display: flex;
@@ -9,7 +9,7 @@
   background-color: rgb(33, 33, 33);
   padding: 10px;
   border-radius: 10px;
-  gap: 20px;
+  gap: 10px;
 }
 
 .settings-section {
@@ -23,24 +23,24 @@
 }
 
 .settings-header {
-  font-size: clamp(20px, 19.43px + 0.179vw, 22px);
+  font-size: clamp(16px, 14.86px + 0.357vw, 20px);
   color: var(--orange);
 }
 
 .settings-subheader {
-  font-size: clamp(15px, 14.71px + 0.089vw, 16px);
+  font-size: var(--text);
   color: var(--light-gray);
   margin-bottom: 3px;
 }
 
 .settings-option-title {
-  font-size: clamp(15px, 14.71px + 0.089vw, 16px);
+  font-size: var(--text);
   color: var(--white);
   margin-right: 10px;
 }
 
 .modal-body.settings {
-  height: 600px;
+  height: 450px;
   overflow-y: auto;
   gap: 12px;
 }
@@ -133,9 +133,9 @@
 
 .settings-edit-input {
   display: block;
-  border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
+  border-radius: clamp(4px, 2.86px + 0.357vw, 8px);
   font-family: "Cal Sans";
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  font-size: var(--text);
   box-sizing: border-box;
   color: var(--white);
   background: var(--light-gray);
