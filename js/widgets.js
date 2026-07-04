@@ -3,17 +3,14 @@
 let openWidgetName = null;
 
 function toggleWidgetEdit(widget) {
-  const modal = document.getElementById("widget-show-modal");
-  const isOpen = modal.style.display === "flex";
-
   showOnlyWidgetCard(widget);
-  modal.style.display = "flex";
+  document.getElementById("widget-show-modal").classList.add("active");
   document.body.classList.add("modal-open");
   openWidgetName = widget;
 }
 
 function closeWidgetEdit() {
-  document.getElementById("widget-show-modal").style.display = "none";
+  document.getElementById("widget-show-modal").classList.remove("active");
   document.body.classList.remove("modal-open");
   openWidgetName = null;
 }

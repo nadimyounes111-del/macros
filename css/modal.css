@@ -7,6 +7,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-overlay {
@@ -25,7 +36,14 @@
   margin: 20px;
   z-index: 1;
   overflow: hidden;
+
+  /* transform: translateY(-100px);
+  transition: transform 0.2s ease; */
 }
+/* 
+.modal.active .modal-box {
+  transform: translateY(0);
+} */
 
 .modal-header {
   display: flex;

@@ -21,6 +21,45 @@
   <body>
     <!-- pin -->
     <div id="pin-screen">
+      <!-- <div class="logo-inputs">
+        <div class="logo-titles">
+          <div class="title-logo">
+            <span class="title-white">nor</span>
+            <span class="title-orange">m</span>
+          </div>
+          <span class="subtitle-logo">ONE DAY AT A TIME</span>
+        </div>
+        <div class="input-box">
+          <input
+            class="pin-input"
+            type="text"
+            placeholder="Username"
+            required
+          />
+          <input
+            class="pin-input"
+            type="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button class="pin-signin">Sign In</button>
+        <div class="guest-wrap">
+          <span class="pin-caption">View as guest</span>
+
+          <svg
+            class="guest-svg"
+            fill="currentColor"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 640"
+          >
+            <path
+              d="M384 128L448 128L448 544C448 561.7 462.3 576 480 576L512 576C529.7 576 544 561.7 544 544C544 526.3 529.7 512 512 512L512 128C512 92.7 483.3 64 448 64L352 64L352 64L192 64C156.7 64 128 92.7 128 128L128 512C110.3 512 96 526.3 96 544C96 561.7 110.3 576 128 576L352 576C369.7 576 384 561.7 384 544L384 128zM256 320C256 302.3 270.3 288 288 288C305.7 288 320 302.3 320 320C320 337.7 305.7 352 288 352C270.3 352 256 337.7 256 320z"
+            />
+          </svg>
+        </div>
+      </div> -->
+
       <div class="pin-box">
         <div id="pin-loading" style="display: none">
           <div class="loading-spinner"></div>
@@ -192,7 +231,7 @@
         </div>
       </div>
 
-      <div class="modal" id="widget-show-modal" style="display: none">
+      <div class="modal" id="widget-show-modal">
         <div
           class="modal-overlay"
           id="widget-edit-overlay"
@@ -678,7 +717,7 @@
       </div>
 
       <!-- Add Food Modal -->
-      <div class="modal" id="add-modal" style="display: none">
+      <div class="modal" id="add-modal">
         <div class="modal-overlay" id="add-modal-overlay"></div>
 
         <!-- BOX HOLDS EVERYTHING -->
@@ -822,10 +861,8 @@
         </div>
       </div>
 
-      <!-- widget modal selector -->
-
       <!-- settings modal -->
-      <div class="modal" id="settings-modal" style="display: none">
+      <div class="modal" id="settings-modal">
         <div
           class="modal-overlay"
           id="settings-modal-overlay"

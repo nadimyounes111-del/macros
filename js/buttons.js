@@ -46,14 +46,14 @@ function addModalEnter(e) {
 }
 
 function openFoodModal() {
-  document.getElementById("add-modal").style.display = "flex";
+  document.getElementById("add-modal").classList.add("active");
   document.getElementById("food-search").focus();
   document.body.classList.add("modal-open");
   document.addEventListener("keydown", addModalEnter);
 }
 
 function closeFoodModal() {
-  document.getElementById("add-modal").style.display = "none";
+  document.getElementById("add-modal").classList.remove("active");
   setupAddFood();
   document.body.classList.remove("modal-open");
   document.removeEventListener("keydown", addModalEnter);

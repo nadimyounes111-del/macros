@@ -2,12 +2,15 @@
 
 function openSettings() {
   populateGoalInputs();
-  document.getElementById("settings-modal").style.display = "flex";
+  document.getElementById("settings-modal").classList.add("active");
   document.body.classList.add("modal-open");
+  document
+    .getElementById("settings-modal")
+    .querySelector(".modal-body").scrollTop = 0;
 }
 
 function closeSettings() {
-  document.getElementById("settings-modal").style.display = "none";
+  document.getElementById("settings-modal").classList.remove("active");
   document.body.classList.remove("modal-open");
 }
 

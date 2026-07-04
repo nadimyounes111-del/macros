@@ -64,6 +64,7 @@ const USERS = {
   3641: "Nad",
   4040: "Visitor",
   7184: "Maria",
+  1234: "new",
 };
 
 let currentUser = null;
