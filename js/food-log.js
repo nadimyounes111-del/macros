@@ -16,7 +16,6 @@ function saveFood() {
     const entry = {
       food: name,
       meal: meal,
-      shorthand: name,
       servings: 1,
       calories: parseInt(document.getElementById("cal-preview").value) || 0,
       protein: parseInt(document.getElementById("pro-preview").value) || 0,
@@ -42,7 +41,6 @@ function saveFood() {
 
   const entry = {
     food: selectedFood.Food,
-    shorthand: selectedFood.Food.split(" - ")[0],
     meal: meal,
     servings: servings,
     calories: parseInt(
@@ -82,40 +80,55 @@ function renderLog() {
     );
     if (entries.length === 0) return;
 
+    const mealClass = "meal-" + meal.toLowerCase();
     const mealProtein = entries.reduce((sum, e) => sum + e.protein, 0);
+    const mealCalories = entries.reduce((sum, e) => sum + e.calories, 0);
 
     const header = document.createElement("div");
-    header.className = "meal-header";
+    header.className = "meal-header " + mealClass;
     header.innerHTML = `
-    <div class="meal-header-wrap">
-    <span class="meal-label">${meal}</span>
-    
+  <div class="meal-header-wrap">
+  <span class="meal-label">${meal}</span>
+  
+
+  <div class="count-wrap">
     <div class="protein-count-wrap">
-    <span class="meal-protein">• ${Math.round(mealProtein)}g</span>
-    <svg
-        class="pro-svg-table"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 640 640"
-      >
-        <path
-          d="M224 329.2C224 337.7 220.6 345.8 214.6 351.8L187.8 378.6C175.5 390.9 155.3 390 138.4 385.8C133.8 384.7 128.9 384 123.9 384C90.8 384 63.9 410.9 63.9 444C63.9 477.1 90.8 504 123.9 504C130.2 504 135.9 509.7 135.9 516C135.9 549.1 162.8 576 195.9 576C229 576 255.9 549.1 255.9 516C255.9 511 255.3 506.2 254.1 501.5C249.9 484.6 248.9 464.4 261.3 452.1L288.1 425.3C294.1 419.3 302.2 415.9 310.7 415.9L399.9 415.9C406.2 415.9 412.3 415.6 418.4 414.9C430.3 413.7 434.8 399.4 429.2 388.9C420.7 373.1 415.9 355.1 415.9 335.9C415.9 274 466 223.9 527.9 223.9C535.9 223.9 543.6 224.7 551.1 226.3C562.8 228.8 575.2 220.4 573.1 208.7C558.4 126.4 486.4 63.9 399.9 63.9C302.7 63.9 223.9 142.7 223.9 239.9L223.9 329.1z"
-        />
-      </svg>
-      </div>
+      <span class="meal-protein">${Math.round(mealProtein)}</span>
+      <svg
+          class="pro-svg-table"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"
+        >
+          <path
+            d="M224 329.2C224 337.7 220.6 345.8 214.6 351.8L187.8 378.6C175.5 390.9 155.3 390 138.4 385.8C133.8 384.7 128.9 384 123.9 384C90.8 384 63.9 410.9 63.9 444C63.9 477.1 90.8 504 123.9 504C130.2 504 135.9 509.7 135.9 516C135.9 549.1 162.8 576 195.9 576C229 576 255.9 549.1 255.9 516C255.9 511 255.3 506.2 254.1 501.5C249.9 484.6 248.9 464.4 261.3 452.1L288.1 425.3C294.1 419.3 302.2 415.9 310.7 415.9L399.9 415.9C406.2 415.9 412.3 415.6 418.4 414.9C430.3 413.7 434.8 399.4 429.2 388.9C420.7 373.1 415.9 355.1 415.9 335.9C415.9 274 466 223.9 527.9 223.9C535.9 223.9 543.6 224.7 551.1 226.3C562.8 228.8 575.2 220.4 573.1 208.7C558.4 126.4 486.4 63.9 399.9 63.9C302.7 63.9 223.9 142.7 223.9 239.9L223.9 329.1z"
+          />
+        </svg>
     </div>
-    `;
+
+    <div class="cal-count-wrap">
+      <span class="meal-cal">${Math.round(mealCalories)}</span>
+      <svg
+          class="cal-svg-table"
+          fill="currentColor"
+       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M256.5 37.6C265.8 29.8 279.5 30.1 288.4 38.5C300.7 50.1 311.7 62.9 322.3 75.9C335.8 92.4 352 114.2 367.6 140.1C372.8 133.3 377.6 127.3 381.8 122.2C382.9 120.9 384 119.5 385.1 118.1C393 108.3 402.8 96 415.9 96C429.3 96 438.7 107.9 446.7 118.1C448 119.8 449.3 121.4 450.6 122.9C460.9 135.3 474.6 153.2 488.3 175.3C515.5 219.2 543.9 281.7 543.9 351.9C543.9 475.6 443.6 575.9 319.9 575.9C196.2 575.9 96 475.7 96 352C96 260.9 137.1 182 176.5 127C196.4 99.3 216.2 77.1 231.1 61.9C239.3 53.5 247.6 45.2 256.6 37.7zM321.7 480C347 480 369.4 473 390.5 459C432.6 429.6 443.9 370.8 418.6 324.6C414.1 315.6 402.6 315 396.1 322.6L370.9 351.9C364.3 359.5 352.4 359.3 346.2 351.4C328.9 329.3 297.1 289 280.9 268.4C275.5 261.5 265.7 260.4 259.4 266.5C241.1 284.3 207.9 323.3 207.9 370.8C207.9 439.4 258.5 480 321.6 480z"/></svg>
+    </div>
+    </div>
+  </div>
+
+  `;
     logBody.appendChild(header);
+
+    // wrapper div for this meal's rows
+    const mealGroup = document.createElement("div");
+    mealGroup.className = "meal-group " + mealClass;
 
     entries.forEach(function (entry, i) {
       const index = window.foodLog.indexOf(entry);
       const unit = entry.servingSize || "";
 
       const row = document.createElement("div");
-      row.className =
-        "log-row" +
-        (i % 2 === 0 ? " row-alt" : "") +
-        (entry.checked ? " row-checked" : "");
+      row.className = "log-row" + (entry.checked ? " row-checked" : "");
       row.dataset.index = index;
       row.innerHTML = `
         <div class="col-check">
@@ -123,7 +136,7 @@ function renderLog() {
             ${entry.checked ? checkedSVG : uncheckedSVG}
           </button>
         </div>
-        <div class="col-food" data-food="${entry.food}">${entry.shorthand}</div>
+        <div class="col-food" data-food="${entry.food}">${entry.food}</div>
         <div class="col-servings">
           <input inputmode="decimal" class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)" onfocus="this.select()"/>
           <span class="serving-unit">${unit}</span>
@@ -138,8 +151,10 @@ function renderLog() {
           </button>
         </div>
       `;
-      logBody.appendChild(row);
+      mealGroup.appendChild(row);
     });
+
+    logBody.appendChild(mealGroup);
   });
 
   document.getElementById("empty-state").style.display =

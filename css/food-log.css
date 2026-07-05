@@ -1,9 +1,9 @@
 /* #region ===== Layout & Title  ===== */
 
 #log-body {
-  gap: 5px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 5px;
 }
 
 .log-wrapper {
@@ -25,7 +25,6 @@
 /* #region ===== Header ===== */
 
 .log-header {
-  margin-bottom: 5px;
   background-color: var(--dark-blue);
   border-radius: 8px 8px 0 0;
   padding: 3px 0;
@@ -182,7 +181,7 @@
 }
 
 .row-checked {
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 body.dim-disabled .row-checked {
@@ -193,6 +192,14 @@ body.dim-disabled .row-checked {
 
 /* #region ===== Meal Header ===== */
 
+.meal-header {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
 .meal-header-wrap {
   display: flex;
   flex-direction: row;
@@ -200,12 +207,11 @@ body.dim-disabled .row-checked {
   align-items: center;
 }
 
-.meal-header {
+.count-wrap {
   display: flex;
-  align-items: center;
-
-  justify-content: center;
-  /* text-transform: uppercase; */
+  border-left: 2px solid var(--light-gray);
+  padding-left: 5px;
+  gap: 5px;
 }
 
 .meal-label {
@@ -214,27 +220,35 @@ body.dim-disabled .row-checked {
   color: var(--light-gray);
 }
 
-.meal-protein {
+.meal-protein,
+.meal-cal {
   font-size: var(--text);
   white-space: nowrap;
   color: var(--light-gray);
-  /* text-transform: none; */
+
+  text-transform: none;
 }
 
-.pro-svg-table {
-  width: var(--svg);
-  height: var(--svg);
+.pro-svg-table,
+.cal-svg-table {
+  width: clamp(15px, 13.57px + 0.446vw, 20px);
+  height: clamp(15px, 13.57px + 0.446vw, 20px);
   color: var(--light-gray);
   flex-shrink: 0;
 }
 
-.protein-count-wrap {
+.protein-count-wrap,
+.cal-count-wrap {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
 }
 
 body.hide-meal-protein .protein-count-wrap {
+  display: none;
+}
+
+body.hide-meal-cal .cal-count-wrap {
   display: none;
 }
 
@@ -292,3 +306,25 @@ button:has(.delete-svg) {
   font-size: 24px;
   color: var(--orange);
 }
+
+.meal-group {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin: 0 5px;
+  gap: 5px;
+  background-color: rgb(33, 33, 33);
+}
+
+/* .meal-group.meal-breakfast {
+  background: rgba(255, 180, 80, 0.06);
+}
+.meal-group.meal-lunch {
+  background: rgba(80, 200, 255, 0.06);
+}
+.meal-group.meal-snack {
+  background: rgba(180, 120, 255, 0.06);
+}
+.meal-group.meal-dinner {
+  background: rgba(255, 100, 130, 0.06);
+} */

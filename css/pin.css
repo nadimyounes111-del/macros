@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-#pin-input {
+/* #pin-input {
   text-align: center;
   font-size: clamp(14px, 12.29px + 0.536vw, 20px);
   width: clamp(60px, 54.29px + 1.786vw, 80px);
@@ -33,7 +33,7 @@
   outline: none;
   letter-spacing: 5px;
   margin-top: 10px;
-}
+} */
 
 #pin-label {
   color: var(--light-gray);
@@ -66,15 +66,17 @@
 
 #pin-loading {
   display: flex;
-  width: 72px;
-  height: 72px;
+  width: 205px;
+  height: 84px;
   align-items: center;
   justify-content: center;
+  margin-top: 15px;
 }
+
 .loading-spinner {
-  width: 32px;
-  height: 32px;
-  border: 5px solid var(--dark-blue);
+  width: 42px;
+  height: 42px;
+  border: 8px solid var(--dark-blue);
   border-top-color: var(--orange);
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
@@ -94,6 +96,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 25px;
 }
 
 .title-logo {
@@ -138,14 +141,19 @@
 }
 
 .pin-input {
-  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  font-size: 16px;
   padding: 5px 10px;
   background: var(--dark-blue);
-  border: 2px solid rgba(255, 255, 255, 0.08);
+  border: 3px solid transparent;
   border-radius: 8px;
   color: var(--white);
   font-family: "Cal Sans";
   outline: none;
+  transition: all 0.2s ease;
+}
+
+.pin-input:focus {
+  border: 3px solid var(--orange);
 }
 
 .pin-signin {

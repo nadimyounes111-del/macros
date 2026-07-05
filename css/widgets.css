@@ -230,7 +230,7 @@
   width: var(--svg);
   height: var(--svg);
   flex-shrink: 0;
-  color: var(--green);
+  color: var(--orange);
 }
 
 .uncheck-svg {

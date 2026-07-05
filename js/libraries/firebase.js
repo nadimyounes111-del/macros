@@ -83,6 +83,9 @@ window.initFirestore = function (user, onFirstLoad) {
     if (data.showMealProtein !== undefined) {
       showMealProtein = data.showMealProtein;
     }
+    if (data.showMealCal !== undefined) {
+      showMealCal = data.showMealCal;
+    }
     if (data.dimCheckedEntries !== undefined) {
       dimCheckedEntries = data.dimCheckedEntries;
     }

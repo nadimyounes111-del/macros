@@ -91,6 +91,7 @@ function populateWidgetToggles() {
 // #region Toggle protein count
 
 let showMealProtein = true;
+let showMealCal = true;
 let dimCheckedEntries = true; // default ON
 
 function initSettingsToggles() {
@@ -101,6 +102,15 @@ function initSettingsToggles() {
       document.body.classList.toggle("hide-meal-protein", !val);
     },
     () => showMealProtein,
+  );
+
+  wireSettingToggle(
+    "showMealCal",
+    (val) => {
+      showMealCal = val;
+      document.body.classList.toggle("hide-meal-cal", !val);
+    },
+    () => showMealCal,
   );
 
   wireSettingToggle(
@@ -129,9 +139,13 @@ function populateSettingsToggles() {
     .querySelector('[data-setting="showMealProtein"]')
     .classList.toggle("is-checked", showMealProtein);
   document
+    .querySelector('[data-setting="showMealCal"]')
+    .classList.toggle("is-checked", showMealCal);
+  document
     .querySelector('[data-setting="dimCheckedEntries"]')
     .classList.toggle("is-checked", dimCheckedEntries);
   document.body.classList.toggle("hide-meal-protein", !showMealProtein);
+  document.body.classList.toggle("hide-meal-cal", !showMealCal);
   document.body.classList.toggle("dim-disabled", !dimCheckedEntries);
 }
 

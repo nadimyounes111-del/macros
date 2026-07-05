@@ -52,7 +52,8 @@ document.getElementById("day-title").textContent = now.toLocaleDateString(
 );
 
 function showPinLoading() {
-  document.querySelector(".pin-svg").style.display = "none";
+  const box = document.querySelector(".input-box");
+  if (box) box.style.display = "none";
   document.getElementById("pin-loading").style.display = "flex";
 }
 
@@ -96,9 +97,9 @@ function submitPin() {
   const user = USERS[pin];
 
   if (!user) {
-    document.getElementById("pin-label").textContent =
-      "This PIN does not exist";
-    document.getElementById("pin-label").classList.add("incorrect");
+    // document.getElementById("pin-label").textContent =
+    //   "This PIN does not exist";
+    // document.getElementById("pin-label").classList.add("incorrect");
     document.getElementById("pin-input").value = "";
     document.getElementById("pin-input").focus();
     return;

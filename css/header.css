@@ -35,13 +35,13 @@
 
 .user-name {
   font-size: clamp(14px, 12.29px + 0.536vw, 20px);
-  color: var(--light-blue);
+  color: var(--orange);
 }
 
 .user-svg {
   width: var(--svg);
   height: var(--svg);
-  color: var(--light-blue);
+  color: var(--orange);
 }
 
 /* #endregion */
