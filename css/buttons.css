@@ -16,15 +16,13 @@
 
 .add-food-label,
 .clear-all-label,
-.undo-label,
-.edit-btn-label {
+.undo-label {
   font-size: var(--text);
 }
 
 .add-food-btn,
 .clear-all-btn,
-.undo-btn,
-.edit-btn {
+.undo-btn {
   all: unset;
   display: flex;
   cursor: pointer;
@@ -36,8 +34,7 @@
 
 .add-food-svg,
 .clear-all-svg,
-.undo-svg,
-.edit-btn-svg {
+.undo-svg {
   width: clamp(14px, 12.29px + 0.536vw, 20px);
   height: clamp(14px, 12.29px + 0.536vw, 20px);
 }
@@ -78,19 +75,6 @@
 
 .undo-svg,
 .undo-label {
-  color: black;
-}
-
-/* #endregion */
-
-/* #region ===== Edit BUTTON ===== */
-
-.edit-btn {
-  background: rgb(161, 161, 161);
-}
-
-.edit-btn-svg,
-.edit-btn-label {
   color: black;
 }
 

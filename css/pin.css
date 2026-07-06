@@ -1,7 +1,3 @@
-/* #region ===== Layout ===== */
-
-/* #endregion */
-
 /* #region ===== Pin ===== */
 
 #pin-screen {
@@ -14,27 +10,6 @@
   justify-content: center;
 }
 
-.pin-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* #pin-input {
-  text-align: center;
-  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
-  width: clamp(60px, 54.29px + 1.786vw, 80px);
-  padding: 5px 10px;
-  background: var(--dark-blue);
-  border: 2px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  color: var(--light-blue);
-  font-family: "Cal Sans";
-  outline: none;
-  letter-spacing: 5px;
-  margin-top: 10px;
-} */
-
 #pin-label {
   color: var(--light-gray);
   font-size: clamp(14px, 12.29px + 0.536vw, 20px);
@@ -42,26 +17,6 @@
 
 #pin-label.incorrect {
   color: var(--red);
-}
-
-.pin-svg {
-  width: 72px;
-  height: 72px;
-  color: var(--light-gray);
-}
-
-.pin-enter {
-  all: unset;
-  cursor: pointer;
-  background: var(--orange);
-  color: black;
-  width: clamp(120px, 114.29px + 1.786vw, 140px);
-  box-sizing: border-box;
-  text-align: center;
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
-  margin-top: clamp(20px, 17.14px + 0.893vw, 30px);
 }
 
 #pin-loading {
@@ -87,10 +42,6 @@
     transform: rotate(360deg);
   }
 }
-
-/* #endregion */
-
-/* #region trying new page */
 
 .logo-titles {
   display: flex;
@@ -192,6 +143,11 @@
   width: var(--svg);
   height: var(--svg);
   color: var(--light-gray);
+}
+
+.atnorm {
+  width: 72px;
+  height: 72px;
 }
 
 /* #endregion */

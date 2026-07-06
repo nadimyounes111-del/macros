@@ -6,8 +6,11 @@
   border: 2px solid rgba(255, 255, 255, 0.08);
   padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
   box-sizing: border-box;
-  width: clamp(140px, 125.71px + 4.464vw, 190px);
-  flex-shrink: 0;
+  width: clamp(120px, 108.57px + 3.571vw, 160px);
+}
+
+.macro-card.over-goal {
+  background-color: rgba(255, 0, 0, 0.462);
 }
 
 .macro-header {
@@ -63,11 +66,6 @@
   gap: clamp(8px, 5.71px + 0.714vw, 16px);
   -webkit-overflow-scrolling: touch;
   width: fit-content;
-  margin: 0 auto;
-}
-
-.carousel-btn-wrap {
-  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -139,13 +137,6 @@
   height: var(--svg);
   color: var(--green);
   flex-shrink: 0;
-}
-
-.warn-svg {
-  width: var(--svg);
-  height: var(--svg);
-  color: #ffdd00;
-  vertical-align: middle;
 }
 
 /* #endregion */

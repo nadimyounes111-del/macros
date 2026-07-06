@@ -4,8 +4,8 @@ window.foodLog = [];
 let GOALS = { calories: 0, protein: 0, carbs: 0, fat: 0 };
 
 function checkOverage(id, total, goal) {
-  const warn = document.getElementById("warn-" + id);
-  warn.style.display = total > goal ? "inline" : "none";
+  const card = document.getElementById("sum-" + id).closest(".macro-card");
+  card.classList.toggle("over-goal", total > goal);
 }
 
 function updateSummary() {
