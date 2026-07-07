@@ -215,12 +215,12 @@ async function submitAuth() {
 function friendlyAuthError(code) {
   const map = {
     "auth/email-already-in-use":
-      "That email is already registered. Try signing in.",
-    "auth/invalid-email": "That email doesn't look right.",
-    "auth/weak-password": "Password should be at least 6 characters.",
-    "auth/user-not-found": "No account found with that email.",
-    "auth/wrong-password": "Incorrect password.",
-    "auth/invalid-credential": "Incorrect email or password.",
+      "You're already signed up! Try logging in instead",
+    "auth/invalid-email": "Hmm, that email doesn't look right",
+    "auth/weak-password": "Password should be at least 6 characters",
+    "auth/user-not-found": "No account found with that email",
+    "auth/wrong-password": "That password didn't match, try again",
+    "auth/invalid-credential": "Incorrect email or password",
   };
   return map[code] || "Something went wrong. Try again.";
 }
