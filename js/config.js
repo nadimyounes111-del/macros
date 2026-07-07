@@ -144,14 +144,7 @@ function showPinLoading() {
 
 // #region Firebase Config
 
-const USERS = {
-  3641: "Nad",
-  4040: "Visitor",
-  7184: "Maria",
-  5678: "new2",
-};
-
-let currentUser = null;
+let currentUser = null; // will hold the Firebase user object now, not a name string
 
 const firebaseReady = new Promise((resolve) => {
   const check = () =>
@@ -160,52 +153,91 @@ const firebaseReady = new Promise((resolve) => {
 });
 
 Promise.all([foodsReady, firebaseReady]).then(() => {
-  const savedUser = localStorage.getItem("user");
-
-  if (savedUser) {
-    // auto-login
-    currentUser = savedUser;
-    updateUserName();
-    document.getElementById("pin-screen").style.display = "none";
-    window.initFirestore(currentUser, () => initApp());
-  } else {
-    // show PIN screen, wait for user
-    document.getElementById("pin-screen").style.display = "flex";
-    document.getElementById("pin-input").focus();
-  }
+  window.onAuthReady((user) => {
+    if (user) {
+      currentUser = user;
+      updateUserName();
+      document.getElementById("auth-screen").style.display = "none";
+      window.initFirestore(currentUser.uid, () => initApp());
+    } else {
+      document.getElementById("auth-screen").style.display = "flex";
+      document.getElementById("auth-email").focus();
+    }
+  });
 });
 
-function submitPin() {
-  const pin = document.getElementById("pin-input").value;
-  const user = USERS[pin];
+let authMode = "signin"; // or "signup"
 
-  if (!user) {
-    // document.getElementById("pin-label").textContent =
-    //   "This PIN does not exist";
-    // document.getElementById("pin-label").classList.add("incorrect");
-    document.getElementById("pin-input").value = "";
-    document.getElementById("pin-input").focus();
+function toggleAuthMode() {
+  authMode = authMode === "signin" ? "signup" : "signin";
+
+  document.getElementById("auth-name").style.display =
+    authMode === "signup" ? "block" : "none";
+  document.getElementById("auth-submit-btn").textContent =
+    authMode === "signup" ? "Sign Up" : "Sign In";
+  document.getElementById("auth-toggle-text").innerHTML =
+    authMode === "signup"
+      ? `Already have an account? <a href="#" onclick="toggleAuthMode(); return false;">Sign in</a>`
+      : `Don't have an account? <a href="#" onclick="toggleAuthMode(); return false;">Sign up</a>`;
+
+  document.getElementById("auth-error").textContent = "";
+}
+
+async function submitAuth() {
+  const email = document.getElementById("auth-email").value.trim();
+  const password = document.getElementById("auth-password").value;
+  const name = document.getElementById("auth-name").value.trim();
+  const errorEl = document.getElementById("auth-error");
+
+  errorEl.textContent = "";
+
+  if (!email || !password) {
+    errorEl.textContent = "Email and password are required.";
     return;
   }
 
-  currentUser = user;
-  localStorage.setItem("user", user);
-  updateUserName();
-  showPinLoading();
-  window.initFirestore(currentUser, () => initApp());
+  try {
+    if (authMode === "signup") {
+      currentUser = await window.signUp(
+        email,
+        password,
+        name || email.split("@")[0],
+      );
+    } else {
+      currentUser = await window.signIn(email, password);
+    }
+    updateUserName(); // force it now that displayName is guaranteed set
+  } catch (e) {
+    errorEl.textContent = friendlyAuthError(e.code);
+  }
 }
 
+function friendlyAuthError(code) {
+  const map = {
+    "auth/email-already-in-use":
+      "That email is already registered. Try signing in.",
+    "auth/invalid-email": "That email doesn't look right.",
+    "auth/weak-password": "Password should be at least 6 characters.",
+    "auth/user-not-found": "No account found with that email.",
+    "auth/wrong-password": "Incorrect password.",
+    "auth/invalid-credential": "Incorrect email or password.",
+  };
+  return map[code] || "Something went wrong. Try again.";
+}
+
+document
+  .getElementById("auth-password")
+  .addEventListener("keydown", function (e) {
+    if (e.key === "Enter") submitAuth();
+  });
+
 function signOut() {
-  localStorage.removeItem("user");
-  location.reload();
+  window.signOutUser().then(() => location.reload());
 }
 
 function updateUserName() {
-  document.querySelector(".user-name").textContent = currentUser;
+  document.querySelector(".user-name").textContent =
+    currentUser.displayName || currentUser.email;
 }
-
-document.getElementById("pin-input").addEventListener("keydown", function (e) {
-  if (e.key === "Enter") submitPin();
-});
 
 // #endregion

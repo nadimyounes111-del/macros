@@ -8,6 +8,15 @@ import {
   onSnapshot,
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore.js";
 
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut as firebaseSignOut,
+  onAuthStateChanged,
+  updateProfile,
+} from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBxya9XqbeIwDJnrCRHQjzJRMZi8JNoLbI",
   authDomain: "macro-tracker-3cc53.firebaseapp.com",
@@ -19,11 +28,33 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 let docRef = null;
 
 // #endregion
 
 // #region Save Functions
+
+window.signUp = async function (email, password, displayName) {
+  const cred = await createUserWithEmailAndPassword(auth, email, password);
+  if (displayName) {
+    await updateProfile(cred.user, { displayName });
+  }
+  return cred.user;
+};
+
+window.signIn = async function (email, password) {
+  const cred = await signInWithEmailAndPassword(auth, email, password);
+  return cred.user;
+};
+
+window.signOutUser = function () {
+  return firebaseSignOut(auth);
+};
+
+window.onAuthReady = function (callback) {
+  onAuthStateChanged(auth, callback);
+};
 
 window.initFirestore = function (user, onFirstLoad) {
   docRef = doc(db, "users", user);

@@ -26,7 +26,7 @@
   <body>
     <!-- pin -->
     <div id="pin-screen">
-      <div class="logo-inputs">
+      <div class="logo-inputs" id="auth-screen">
         <div class="logo-titles">
           <div class="title-logo">
             <span class="title-white">nor</span>
@@ -34,22 +34,54 @@
           </div>
           <span class="subtitle-logo">ONE DAY AT A TIME</span>
         </div>
+
         <div class="input-box" style="display: flex">
-          <input class="pin-input" type="text" placeholder="Username" />
           <input
-            id="pin-input"
+            id="auth-email"
             class="pin-input"
+            type="email"
+            placeholder="Email"
+            autocomplete="email"
+          />
+          <input
+            id="auth-password"
+            class="pin-input"
+            type="password"
             placeholder="Password"
+            autocomplete="current-password"
             required
           />
+          <input
+            id="auth-name"
+            class="pin-input"
+            type="text"
+            placeholder="Display name"
+            style="display: none"
+          />
         </div>
+
+        <div id="auth-error" class="pin-caption" style="color: #ff6b6b"></div>
+
         <div id="pin-loading" style="display: none">
           <div class="loading-spinner"></div>
         </div>
 
-        <button class="pin-signin" onclick="submitPin()">Sign In</button>
+        <button id="auth-submit-btn" class="pin-signin" onclick="submitAuth()">
+          Sign In
+        </button>
 
-        <!-- <span id="pin-label">Enter your PIN</span> -->
+        <p id="auth-toggle-text" class="pin-caption">
+          Don't have an account?
+          <a
+            href="#"
+            onclick="
+              toggleAuthMode();
+              return false;
+            "
+            >Sign up</a
+          >
+        </p>
+
         <div class="guest-wrap">
           <span class="pin-caption">View as guest</span>
           <span data-icon="doorOpen" class="guest-svg"></span>
