@@ -56,6 +56,18 @@ window.onAuthReady = function (callback) {
   onAuthStateChanged(auth, callback);
 };
 
+window.updateDisplayName = async function (newName) {
+  await updateProfile(auth.currentUser, { displayName: newName });
+
+  await setDoc(
+    docRef,
+    {
+      profile: { displayName: newName },
+    },
+    { merge: true },
+  );
+};
+
 window.initFirestore = function (user, onFirstLoad) {
   docRef = doc(db, "users", user);
 

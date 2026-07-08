@@ -8,16 +8,6 @@ bellpepper-red
 bellpepper-yellow
 peanutbutter
 nutella
-jam-apricot
-jam-strawberry
-jam-blackberry
-jam-raspberry
-jam-blueberry
-jam-cherry
-jam-peach
-jam-orangemarmalade
-honey
-almond
 bagel
 banana
 pear
@@ -35,7 +25,7 @@ oil-olive
 chicken-breast
 chicken-thigh
 chicken-wing
-chicken-ground 
+chicken-ground
 turkey-breast
 turkey-sausage
 beef-steaksirloin
@@ -43,13 +33,13 @@ beef-steakribeye
 beef-filemignon
 pork-chop
 pork-tenderloin
-pork-ground 
+pork-ground
 pork-bacon
 pork-ham
 pork-sausage
 salmon
 tilapia
-shrimp 
+shrimp
 tuna-can
 corn
 oil-vegetable
@@ -82,14 +72,6 @@ rice-basmati
 rice-jasmine
 rice-cauliflower
 rice-wild
-pasta-spaghetti
-pasta-penne
-pasta-fusilli
-pasta-macaroni
-pasta-rigatoni
-pasta-fettuccine
-pasta-wholewheat
-pasta-glutenfree
 milk-whole
 milk-2pc
 milk-1pc
@@ -119,11 +101,11 @@ tomato
 eggplant
 mushroom
 beef-steak
-proteinpowder-gold
-proteinpowder-iso100
-proteinpowder-isoflex
-proteinpowder-impact
-proteinpowder-ghost
+proteinpowder-gold,Optimum Nutrition Gold Standard Whey
+proteinpowder-iso100,Dymatize ISO100
+proteinpowder-isoflex,Allmax Isoflex
+proteinpowder-impact,MyProtein Impact Whey
+proteinpowder-ghost,Ghost Whey
 proteinbar-clifog
 proteinbar-clifbuilders
 proteinbar-clifluna
@@ -134,4 +116,11 @@ proteinbar-rx
 proteinbar-one
 proteinbar-built
 proteinbar-builtpuff
-
+tortilla-flour6
+tortilla-flour8
+tortilla-flour10
+tortilla-wheat8
+tortilla-corn6
+tortilla-lowcarb8
+trout-raw
+cod-raw

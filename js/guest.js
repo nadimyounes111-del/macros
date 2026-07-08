@@ -52,7 +52,7 @@ const GUEST_DATA = {
     },
   ],
   water: 1.5,
-  goals: { calories: 2200, protein: 185, carbs: 240, fat: 55 },
+  goals: { calories: 2400, protein: 180, carbs: 250, fat: 70 },
   notes: "This is a guest account, sign up to save your own data!",
   supplements: [
     { name: "Creatine", checked: false },
@@ -109,5 +109,10 @@ function initGuestMode(onFirstLoad) {
 
 function enterGuestMode() {
   document.getElementById("auth-screen").style.display = "none";
+  document.getElementById("guest-banner").style.display = "block";
   initGuestMode(() => initApp());
+}
+
+function exitGuestMode() {
+  location.reload(); // clean slate — drops guest state, back to auth-screen
 }

@@ -1,23 +1,23 @@
 // #region Widget Overlay
 
-let openWidgetName = null;
+let widgetModalOpen = false;
 
-function toggleWidgetEdit(widget) {
-  showOnlyWidgetCard(widget);
+function openAllWidgets() {
+  showAllActiveWidgetCards();
   document.getElementById("widget-show-modal").classList.add("active");
   document.body.classList.add("modal-open");
-  openWidgetName = widget;
+  widgetModalOpen = true;
 }
 
 function closeWidgetEdit() {
   document.getElementById("widget-show-modal").classList.remove("active");
   document.body.classList.remove("modal-open");
-  openWidgetName = null;
+  widgetModalOpen = false;
 }
 
-function showOnlyWidgetCard(widget) {
+function showAllActiveWidgetCards() {
   document.querySelectorAll(".widget-card").forEach((card) => {
-    card.style.display = card.dataset.widget === widget ? "" : "none";
+    card.style.display = isCurrentlyEnabled(card.dataset.widget) ? "" : "none";
   });
 }
 
@@ -27,9 +27,8 @@ function populateWidgetToggles() {
     applyWidgetState(widget, isCurrentlyEnabled(widget), btn);
   });
 
-  // if the widget overlay is open showing one specific card, re-apply that filter
-  if (openWidgetName) {
-    showOnlyWidgetCard(openWidgetName);
+  if (widgetModalOpen) {
+    showAllActiveWidgetCards();
   }
 }
 

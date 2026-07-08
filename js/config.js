@@ -93,6 +93,7 @@ const ICONS = {
   doorOpen: `<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M384 128L448 128L448 544C448 561.7 462.3 576 480 576L512 576C529.7 576 544 561.7 544 544C544 526.3 529.7 512 512 512L512 128C512 92.7 483.3 64 448 64L352 64L352 64L192 64C156.7 64 128 92.7 128 128L128 512C110.3 512 96 526.3 96 544C96 561.7 110.3 576 128 576L352 576C369.7 576 384 561.7 384 544L384 128zM256 320C256 302.3 270.3 288 288 288C305.7 288 320 302.3 320 320C320 337.7 305.7 352 288 352C270.3 352 256 337.7 256 320z"/></svg>`,
   swap: `<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M566.6 214.6L470.6 310.6C458.1 323.1 437.8 323.1 425.3 310.6C412.8 298.1 412.8 277.8 425.3 265.3L466.7 224L96 224C78.3 224 64 209.7 64 192C64 174.3 78.3 160 96 160L466.7 160L425.3 118.6C412.8 106.1 412.8 85.8 425.3 73.3C437.8 60.8 458.1 60.8 470.6 73.3L566.6 169.3C579.1 181.8 579.1 202.1 566.6 214.6zM169.3 566.6L73.3 470.6C60.8 458.1 60.8 437.8 73.3 425.3L169.3 329.3C181.8 316.8 202.1 316.8 214.6 329.3C227.1 341.8 227.1 362.1 214.6 374.6L173.3 416L544 416C561.7 416 576 430.3 576 448C576 465.7 561.7 480 544 480L173.3 480L214.7 521.4C227.2 533.9 227.2 554.2 214.7 566.7C202.2 579.2 181.9 579.2 169.4 566.7z"/></svg>`,
   waterDrop: `<svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="drop-clip"><path d="M320 576C214 576 128 490 128 384C128 292.8 258.2 109.9 294.6 60.5C300.5 52.5 309.8 48 319.8 48L320.2 48C330.2 48 339.5 52.5 345.4 60.5C381.8 109.9 512 292.8 512 384C512 490 426 576 320 576zM240 376C240 362.7 229.3 352 216 352C202.7 352 192 362.7 192 376C192 451.1 252.9 512 328 512C341.3 512 352 501.3 352 488C352 474.7 341.3 464 328 464C279.4 464 240 424.6 240 376z"/></clipPath></defs><path d="M320 576C214 576 128 490 128 384C128 292.8 258.2 109.9 294.6 60.5C300.5 52.5 309.8 48 319.8 48L320.2 48C330.2 48 339.5 52.5 345.4 60.5C381.8 109.9 512 292.8 512 384C512 490 426 576 320 576zM240 376C240 362.7 229.3 352 216 352C202.7 352 192 362.7 192 376C192 451.1 252.9 512 328 512C341.3 512 352 501.3 352 488C352 474.7 341.3 464 328 464C279.4 464 240 424.6 240 376z" fill="#5c5b5b"/><rect id="water-fill-rect" x="128" y="576" width="384" height="0" fill="#3b82f6" clip-path="url(#drop-clip)"/></svg>`,
+  eyeOpen: `<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 96C239.2 96 174.5 132.8 127.4 176.6C80.6 220.1 49.3 272 34.4 307.7C31.1 315.6 31.1 324.4 34.4 332.3C49.3 368 80.6 420 127.4 463.4C174.5 507.1 239.2 544 320 544C400.8 544 465.5 507.2 512.6 463.4C559.4 419.9 590.7 368 605.6 332.3C608.9 324.4 608.9 315.6 605.6 307.7C590.7 272 559.4 220 512.6 176.6C465.5 132.9 400.8 96 320 96zM176 320C176 240.5 240.5 176 320 176C399.5 176 464 240.5 464 320C464 399.5 399.5 464 320 464C240.5 464 176 399.5 176 320zM320 256C320 291.3 291.3 320 256 320C244.5 320 233.7 317 224.3 311.6C223.3 322.5 224.2 333.7 227.2 344.8C240.9 396 293.6 426.4 344.8 412.7C396 399 426.4 346.3 412.7 295.1C400.5 249.4 357.2 220.3 311.6 224.3C316.9 233.6 320 244.4 320 256z"/></svg>`,
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -111,6 +112,7 @@ function initApp() {
   initNotes();
   initWidgetToggles();
   populateWidgetToggles();
+  populateUsernameField();
   initSettingsToggles();
   populateSettingsToggles();
 
@@ -168,6 +170,12 @@ Promise.all([foodsReady, firebaseReady]).then(() => {
 
 let authMode = "signin"; // or "signup"
 
+function handleAuthSubmit(e) {
+  e.preventDefault(); // stops actual page reload/navigation
+  submitAuth();
+  return false;
+}
+
 function toggleAuthMode() {
   authMode = authMode === "signin" ? "signup" : "signin";
 
@@ -196,6 +204,9 @@ async function submitAuth() {
     return;
   }
 
+  document.getElementById("auth-form").style.display = "none";
+  document.getElementById("pin-loading").style.display = "flex";
+
   try {
     if (authMode === "signup") {
       currentUser = await window.signUp(
@@ -206,9 +217,12 @@ async function submitAuth() {
     } else {
       currentUser = await window.signIn(email, password);
     }
-    updateUserName(); // force it now that displayName is guaranteed set
+    updateUserName();
+    // spinner stays visible — onAuthReady swaps the whole #auth-screen away next
   } catch (e) {
     errorEl.textContent = friendlyAuthError(e.code);
+    document.getElementById("pin-loading").style.display = "none";
+    document.getElementById("auth-form").style.display = "flex"; // bring inputs back
   }
 }
 
@@ -238,6 +252,56 @@ function signOut() {
 function updateUserName() {
   document.querySelector(".user-name").textContent =
     currentUser.displayName || currentUser.email;
+}
+
+async function submitNameChange() {
+  const newName = document.getElementById("new-username").value.trim();
+  if (!newName) return;
+
+  const btn = document.querySelector(".user-btn");
+  const originalText = btn.textContent;
+
+  btn.disabled = true;
+  btn.textContent = "Saving";
+
+  try {
+    await window.updateDisplayName(newName);
+    currentUser.displayName = newName;
+    updateUserName();
+    document.getElementById("new-username").value = newName; // show the saved name, not blank
+
+    btn.textContent = "Done!";
+    btn.classList.add("saved");
+
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.classList.remove("saved");
+      btn.disabled = false;
+    }, 2400);
+  } catch (e) {
+    console.warn("Failed to update display name:", e);
+    btn.textContent = "Failed";
+    btn.classList.add("failed");
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.classList.remove("failed");
+      btn.disabled = false;
+    }, 2400);
+  }
+}
+
+let passwordVisible = false;
+
+const EYE_OPEN_SVG = `<svg class="eye-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 96C239.2 96 174.5 132.8 127.4 176.6C80.6 220.1 49.3 272 34.4 307.7C31.1 315.6 31.1 324.4 34.4 332.3C49.3 368 80.6 420 127.4 463.4C174.5 507.1 239.2 544 320 544C400.8 544 465.5 507.2 512.6 463.4C559.4 419.9 590.7 368 605.6 332.3C608.9 324.4 608.9 315.6 605.6 307.7C590.7 272 559.4 220 512.6 176.6C465.5 132.9 400.8 96 320 96zM176 320C176 240.5 240.5 176 320 176C399.5 176 464 240.5 464 320C464 399.5 399.5 464 320 464C240.5 464 176 399.5 176 320zM320 256C320 291.3 291.3 320 256 320C244.5 320 233.7 317 224.3 311.6C223.3 322.5 224.2 333.7 227.2 344.8C240.9 396 293.6 426.4 344.8 412.7C396 399 426.4 346.3 412.7 295.1C400.5 249.4 357.2 220.3 311.6 224.3C316.9 233.6 320 244.4 320 256z"/></svg>`;
+const EYE_CLOSED_SVG = `<svg class="eye-svg" fill="currentColor"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M73 39.1C63.6 29.7 48.4 29.7 39.1 39.1C29.8 48.5 29.7 63.7 39 73.1L567 601.1C576.4 610.5 591.6 610.5 600.9 601.1C610.2 591.7 610.3 576.5 600.9 567.2L504.5 470.8C507.2 468.4 509.9 466 512.5 463.6C559.3 420.1 590.6 368.2 605.5 332.5C608.8 324.6 608.8 315.8 605.5 307.9C590.6 272.2 559.3 220.2 512.5 176.8C465.4 133.1 400.7 96.2 319.9 96.2C263.1 96.2 214.3 114.4 173.9 140.4L73 39.1zM236.5 202.7C260 185.9 288.9 176 320 176C399.5 176 464 240.5 464 320C464 351.1 454.1 379.9 437.3 403.5L402.6 368.8C415.3 347.4 419.6 321.1 412.7 295.1C399 243.9 346.3 213.5 295.1 227.2C286.5 229.5 278.4 232.9 271.1 237.2L236.4 202.5zM357.3 459.1C345.4 462.3 332.9 464 320 464C240.5 464 176 399.5 176 320C176 307.1 177.7 294.6 180.9 282.7L101.4 203.2C68.8 240 46.4 279 34.5 307.7C31.2 315.6 31.2 324.4 34.5 332.3C49.4 368 80.7 420 127.5 463.4C174.6 507.1 239.3 544 320.1 544C357.4 544 391.3 536.1 421.6 523.4L357.4 459.2z"/></svg>`;
+
+function togglePasswordVisibility() {
+  const input = document.getElementById("auth-password");
+  const icon = document.getElementById("password-toggle-icon");
+
+  passwordVisible = !passwordVisible;
+  input.type = passwordVisible ? "text" : "password";
+  icon.innerHTML = passwordVisible ? EYE_OPEN_SVG : EYE_CLOSED_SVG;
 }
 
 // #endregion

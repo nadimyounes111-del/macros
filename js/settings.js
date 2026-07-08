@@ -150,3 +150,14 @@ function populateSettingsToggles() {
 }
 
 // #endregion
+
+// #region Display Name
+
+function populateUsernameField() {
+  const input = document.getElementById("new-username");
+  if (input && currentUser) {
+    input.value = currentUser.displayName || currentUser.email || "";
+  }
+}
+
+// #endregion

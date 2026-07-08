@@ -35,7 +35,12 @@
           <span class="subtitle-logo">ONE DAY AT A TIME</span>
         </div>
 
-        <div class="input-box" style="display: flex">
+        <form
+          class="input-box"
+          style="display: flex"
+          id="auth-form"
+          onsubmit="return handleAuthSubmit(event);"
+        >
           <input
             id="auth-email"
             class="pin-input"
@@ -43,14 +48,34 @@
             placeholder="Email"
             autocomplete="email"
           />
-          <input
-            id="auth-password"
-            class="pin-input"
-            type="password"
-            placeholder="Password"
-            autocomplete="current-password"
-            required
-          />
+          <div class="password-wrap">
+            <input
+              id="auth-password"
+              class="pin-input"
+              type="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              required
+            />
+
+            <span
+              id="password-toggle-icon"
+              class="eye-toggle"
+              onclick="togglePasswordVisibility()"
+            >
+              <!-- keep this svg as is, not const -->
+              <svg
+                class="eye-svg"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+              >
+                <path
+                  d="M73 39.1C63.6 29.7 48.4 29.7 39.1 39.1C29.8 48.5 29.7 63.7 39 73.1L567 601.1C576.4 610.5 591.6 610.5 600.9 601.1C610.2 591.7 610.3 576.5 600.9 567.2L504.5 470.8C507.2 468.4 509.9 466 512.5 463.6C559.3 420.1 590.6 368.2 605.5 332.5C608.8 324.6 608.8 315.8 605.5 307.9C590.6 272.2 559.3 220.2 512.5 176.8C465.4 133.1 400.7 96.2 319.9 96.2C263.1 96.2 214.3 114.4 173.9 140.4L73 39.1zM236.5 202.7C260 185.9 288.9 176 320 176C399.5 176 464 240.5 464 320C464 351.1 454.1 379.9 437.3 403.5L402.6 368.8C415.3 347.4 419.6 321.1 412.7 295.1C399 243.9 346.3 213.5 295.1 227.2C286.5 229.5 278.4 232.9 271.1 237.2L236.4 202.5zM357.3 459.1C345.4 462.3 332.9 464 320 464C240.5 464 176 399.5 176 320C176 307.1 177.7 294.6 180.9 282.7L101.4 203.2C68.8 240 46.4 279 34.5 307.7C31.2 315.6 31.2 324.4 34.5 332.3C49.4 368 80.7 420 127.5 463.4C174.6 507.1 239.3 544 320.1 544C357.4 544 391.3 536.1 421.6 523.4L357.4 459.2z"
+                />
+              </svg>
+            </span>
+          </div>
           <input
             id="auth-name"
             class="pin-input"
@@ -58,7 +83,7 @@
             placeholder="Display name"
             style="display: none"
           />
-        </div>
+        </form>
 
         <div id="auth-error" class="pin-caption" style="color: #ff6b6b"></div>
 
@@ -107,33 +132,19 @@
         <span class="main-title-text" id="day-title"></span>
       </div>
 
-      <!-- <div class="section-divider">Widgets</div> -->
-
       <div class="widget-container-top">
-        <div class="widget-thumbnail-wrap">
-          <div
-            class="widget-thumbnail hydration"
-            onclick="toggleWidgetEdit('hydration')"
-          >
+        <div class="widget-thumbnail-wrap" onclick="openAllWidgets()">
+          <div class="widget-thumbnail hydration">
             <span data-icon="bottle" class="widget-svg hydration"></span>
           </div>
-          <div
-            class="widget-thumbnail supplements"
-            onclick="toggleWidgetEdit('supplements')"
-          >
+          <div class="widget-thumbnail supplements">
             <span data-icon="supplements" class="widget-svg supplements"></span>
           </div>
 
-          <div
-            class="widget-thumbnail weight"
-            onclick="toggleWidgetEdit('weight')"
-          >
+          <div class="widget-thumbnail weight">
             <span data-icon="person" class="widget-svg weight"></span>
           </div>
-          <div
-            class="widget-thumbnail notes"
-            onclick="toggleWidgetEdit('notes')"
-          >
+          <div class="widget-thumbnail notes">
             <span data-icon="notes" class="widget-svg notes"></span>
           </div>
         </div>
@@ -366,6 +377,18 @@
         </div>
       </div>
 
+      <!-- Guest banner -->
+      <div id="guest-banner" style="display: none">
+        <span class="guest-banner-text">
+          This is a pre-filled guest page. To edit your own plan, please sign in
+          or create an account.
+        </span>
+        <div class="guest-wrap back" onclick="exitGuestMode()">
+          <span class="pin-caption">Back to home page</span>
+          <span data-icon="doorOpen" class="guest-svg"></span>
+        </div>
+      </div>
+
       <!-- Add Food Modal -->
       <div class="modal" id="add-modal">
         <div class="modal-overlay" id="add-modal-overlay"></div>
@@ -482,6 +505,24 @@
           </div>
 
           <div class="modal-body settings">
+            <!-- user -->
+            <div class="settings-section">
+              <span class="settings-header">Profile</span>
+              <span class="settings-subheader">Manage your account</span>
+              <div class="options-wrapper">
+                <div class="settings-option-wrap">
+                  <input
+                    id="new-username"
+                    class="username-input"
+                    type="text"
+                    placeholder="Display Name"
+                  />
+                  <button class="user-btn" onclick="submitNameChange()">
+                    Change
+                  </button>
+                </div>
+              </div>
+            </div>
             <!-- macros -->
             <div class="settings-section">
               <span class="settings-header">Macros</span>

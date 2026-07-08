@@ -121,7 +121,7 @@
   font-size: var(--text);
   box-sizing: border-box;
   color: var(--white);
-  background: var(--light-gray);
+  background: var(--dark-blue);
   border: 2px solid transparent;
   text-align: center;
   width: clamp(45px, 37.86px + 2.232vw, 70px);
@@ -176,6 +176,56 @@
 .sign-out-text {
   font-size: var(--text);
   color: var(--red);
+}
+
+/* #endregion */
+
+/* #region Profile */
+
+.username-input {
+  display: flex;
+  padding: 5px 10px;
+  border-radius: clamp(4px, 3.43px + 0.179vw, 6px);
+  font-family: "Cal Sans";
+  font-size: var(--text);
+  box-sizing: border-box;
+  color: var(--white);
+  background: var(--dark-blue);
+  border: 2px solid transparent;
+  text-align: center;
+  width: 100%;
+  text-align: left;
+  margin-right: 5px;
+}
+
+.user-btn {
+  all: unset;
+  display: flex;
+  cursor: pointer;
+  width: fit-content;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  background-color: var(--orange);
+  transition: all 0.2s ease;
+  width: 80px;
+  font-size: var(--text);
+}
+
+.user-btn:active {
+  transform: scale(0.95);
+}
+
+.user-btn.saved {
+  background-color: green;
+}
+
+.user-btn:disabled {
+  pointer-events: none;
+}
+
+.user-btn.failed {
+  background-color: #ef4444;
 }
 
 /* #endregion */

@@ -102,6 +102,8 @@
   font-family: "Cal Sans";
   outline: none;
   transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .pin-input:focus {
@@ -127,6 +129,31 @@
   transform: scale(0.95);
 }
 
+.password-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.eye-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.eye-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-gray);
+}
+
+/* #endregion */
+
+/* #region Guest */
+
 .pin-caption {
   display: flex;
   font-size: 16px;
@@ -137,6 +164,7 @@
   display: flex;
   gap: 2px;
   align-items: center;
+  justify-content: center;
   margin-top: 15px;
   cursor: pointer;
 }
@@ -147,9 +175,20 @@
   color: var(--light-gray);
 }
 
-.atnorm {
-  width: 72px;
-  height: 72px;
+#guest-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px 16px;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--light-gray);
+}
+
+.guest-wrap.back {
+  margin-top: 5px;
+  font-style: normal;
 }
 
 /* #endregion */
