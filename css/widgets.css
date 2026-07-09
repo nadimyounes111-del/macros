@@ -15,7 +15,7 @@
 }
 
 .widget-label {
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  font-size: var(--text-l);
   color: var(--white);
 }
 
@@ -106,7 +106,7 @@
 }
 
 #water-val {
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  font-size: var(--text-l);
   text-align: center;
   width: fit-content;
 }
@@ -142,7 +142,7 @@
 }
 
 .supp-name {
-  font-size: var(--text);
+  font-size: var(--text-base);
 }
 
 .supp-check-name {
@@ -171,7 +171,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   padding: 2px 5px;
-  font-size: var(--text);
+  font-size: var(--text-base);
 }
 
 .add-supp-btn {
@@ -273,15 +273,15 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   padding: 2px 5px;
-  font-size: var(--text);
+  font-size: var(--text-base);
 }
 
 #weight-val {
-  font-size: clamp(22px, 18.57px + 1.071vw, 34px);
+  font-size: var(--text-2xl);
 }
 
 #weight-diff {
-  font-size: clamp(14px, 11.71px + 0.714vw, 22px);
+  font-size: var(--text-l);
   display: flex;
 }
 
@@ -298,7 +298,7 @@
   flex: 1;
   min-width: 20px;
   justify-content: center;
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  font-size: var(--text-base);
   background: var(--light-gray);
   padding: 2px 5px;
   border-radius: 6px;
@@ -331,7 +331,7 @@
 .notes-text {
   box-sizing: border-box;
   color: white;
-  font-size: var(--text);
+  font-size: var(--text-base);
   background-color: rgb(61, 61, 61);
   font-family: "Cal Sans";
   border: none;

@@ -34,7 +34,7 @@
 /* #region ===== User ===== */
 
 .user-name {
-  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  font-size: var(--text-l);
   color: var(--orange);
 }
 
@@ -46,41 +46,36 @@
 
 /* #endregion */
 
-/* #region ===== Streak ===== */
+/* #region Settings */
 
-.streak-wrap {
-  cursor: pointer;
-  min-width: 42px;
-}
-
-.streak-svg {
-  width: var(--svg);
-  height: var(--svg);
-  color: #aa6ae5;
-}
-
-.streak-num {
-  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
-  color: #aa6ae5;
-}
-
-/* #endregion */
-
-/* #region ===== Sign Out ===== */
-
-.sign-out-wrap {
-  cursor: pointer;
-}
-
-.sign-out-svg {
-  width: var(--svg);
-  height: var(--svg);
+.settings-svg {
+  width: clamp(24px, 22.29px + 0.536vw, 30px);
+  height: clamp(24px, 22.29px + 0.536vw, 30px);
   color: var(--light-gray);
 }
 
-.sign-out-text {
-  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
-  color: var(--light-gray);
+.settings-btn {
+  all: unset;
+  display: flex;
+  cursor: pointer;
+  display: flex;
+  transition: transform 0.2s ease;
+}
+
+.settings-btn:active {
+  transform: scale(0.95);
+}
+
+.settings-option-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-svg-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* #endregion */

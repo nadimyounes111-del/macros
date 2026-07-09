@@ -17,7 +17,7 @@
 .add-food-label,
 .clear-all-label,
 .undo-label {
-  font-size: var(--text);
+  font-size: var(--text-s);
 }
 
 .add-food-btn,

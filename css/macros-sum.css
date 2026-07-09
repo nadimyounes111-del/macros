@@ -20,32 +20,13 @@
 }
 
 .macro-val {
-  font-size: var(--text);
+  font-size: var(--text-base);
   color: white;
 }
 
 /* #endregion */
 
 /* #region ===== Carousel ===== */
-
-.section-divider {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: clamp(16px, 14.28px + 0.536vw, 22px);
-  width: clamp(200px, 142.86px + 17.857vw, 400px);
-  margin: 10px auto clamp(0px, -2.857px + 0.893vw, 8px);
-}
-
-.section-divider::before,
-.section-divider::after {
-  content: "";
-  flex: 1;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-}
 
 .carousel-section {
   margin: 10px 0 20px 0;

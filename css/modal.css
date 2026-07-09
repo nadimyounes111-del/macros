@@ -32,24 +32,17 @@
   background: var(--table-bg);
   border: 2px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  width: clamp(260px, 205.71px + 16.964vw, 450px);
+  width: 350px;
   margin: 20px;
   z-index: 1;
   overflow: hidden;
-
-  /* transform: translateY(-100px);
-  transition: transform 0.2s ease; */
 }
-/* 
-.modal.active .modal-box {
-  transform: translateY(0);
-} */
 
 .modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: clamp(16px, 14.29px + 0.536vw, 22px);
+  font-size: var(--text-2xl);
   margin-bottom: clamp(10px, 7.14px + 0.893vw, 20px);
 }
 
@@ -103,7 +96,7 @@
   text-align: center;
   padding: clamp(8px, 6.86px + 0.357vw, 12px);
   border-radius: clamp(8px, 7.43px + 0.179vw, 10px);
-  font-size: clamp(16px, 14.29px + 0.536vw, 22px);
+  font-size: var(--text-l);
   transition: transform 0.2s ease;
 }
 
@@ -131,8 +124,8 @@
 }
 
 .custom-svg {
-  width: clamp(18px, 12.86px + 1.607vw, 36px);
-  height: clamp(18px, 12.86px + 1.607vw, 36px);
+  width: clamp(18px, 14px + 1.25vw, 32px);
+  height: clamp(18px, 14px + 1.25vw, 32px);
   color: var(--light-blue);
 }
 
@@ -143,7 +136,7 @@
 .modal-body.add-food input {
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
   font-family: "Cal Sans";
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  font-size: var(--text-base);
   width: 100%;
   box-sizing: border-box;
 }
@@ -175,7 +168,7 @@ ul {
   padding: 6px 8px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: var(--text);
+  font-size: var(--text-s);
 }
 
 .add-food-servings {
@@ -235,7 +228,7 @@ ul {
 }
 
 #serving-size-label {
-  font-size: clamp(12px, 10.29px + 0.536vw, 18px);
+  font-size: var(--text-base);
   color: white;
 }
 
@@ -278,7 +271,7 @@ ul {
 }
 
 .macro-label {
-  font-size: var(--text);
+  font-size: var(--text-base);
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -305,7 +298,7 @@ ul {
   cursor: pointer;
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   border-radius: clamp(6px, 4.86px + 0.357vw, 10px);
-  font-size: clamp(14px, 12.86px + 0.357vw, 18px);
+  font-size: var(--text-base);
   color: var(--light-blue);
   background-color: var(--dark-blue);
   transition: background-color 0.2s ease;

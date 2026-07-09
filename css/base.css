@@ -52,8 +52,16 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 :root {
-  --text: clamp(10px, 10px + 0.4vw, 16px);
   --svg: clamp(20px, 18.29px + 0.536vw, 26px);
+}
+
+:root {
+  --text-xs: calc(var(--text-base) * 0.75); /* 10.5 - 12 */
+  --text-s: calc(var(--text-base) * 0.875); /* 12.3 - 14 */
+  --text-base: clamp(14px, 13.43px + 0.179vw, 16px); /* 14 - 16 */
+  --text-l: calc(var(--text-base) * 1.125); /* 15.8 - 18 */
+  --text-xl: calc(var(--text-base) * 1.375); /* 19.3 - 22 */
+  --text-2xl: calc(var(--text-base) * 1.75); /* 24.5 - 28 */
 }
 
 /* #endregion */

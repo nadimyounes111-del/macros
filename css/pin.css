@@ -10,15 +10,6 @@
   justify-content: center;
 }
 
-#pin-label {
-  color: var(--light-gray);
-  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
-}
-
-#pin-label.incorrect {
-  color: var(--red);
-}
-
 #pin-loading {
   display: flex;
   width: 205px;
@@ -57,19 +48,19 @@
 }
 
 .title-white {
-  font-size: 72px;
+  font-size: clamp(60px, 56.57px + 1.071vw, 72px);
   color: white;
   font-weight: bold;
 }
 
 .title-orange {
-  font-size: 72px;
+  font-size: clamp(60px, 56.57px + 1.071vw, 72px);
   color: var(--orange);
   font-weight: bold;
 }
 
 .subtitle-logo {
-  font-size: 18px;
+  font-size: var(--text-xl);
   color: var(--light-gray);
   width: 100%;
   text-align: center;
@@ -80,7 +71,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 220px;
+  width: clamp(190px, 181.43px + 2.679vw, 220px);
 }
 
 .input-box {
@@ -93,7 +84,7 @@
 }
 
 .pin-input {
-  font-size: 16px;
+  font-size: var(--text-base);
   padding: 5px 10px;
   background: var(--dark-blue);
   border: 3px solid transparent;
@@ -120,7 +111,7 @@
   text-align: center;
   padding: 5px 10px;
   border-radius: 8px;
-  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
+  font-size: var(--text-base);
   margin-top: clamp(20px, 17.14px + 0.893vw, 30px);
   transition: transform 0.2s ease;
 }
@@ -156,7 +147,7 @@
 
 .pin-caption {
   display: flex;
-  font-size: 16px;
+  font-size: var(--text-base);
   color: var(--light-gray);
 }
 
@@ -182,7 +173,7 @@
   text-align: center;
   padding: 8px 16px;
   font-style: italic;
-  font-size: 16px;
+  font-size: var(--text-base);
   color: var(--light-gray);
 }
 
