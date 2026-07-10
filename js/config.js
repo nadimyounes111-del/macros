@@ -17,6 +17,29 @@ const foodsReady = new Promise((resolve) => {
   });
 });
 
+// let foods = [];
+// let selectedFood = null;
+
+// const YOUR_UID = "4zWkXoUNWxaBOOngN1jghHYOXiC3";
+
+// const csvFile = currentUser?.uid === YOUR_UID
+//   ? "foods.csv"
+//   : "build-database.csv";
+
+// const foodsReady = new Promise((resolve) => {
+//   Papa.parse(csvFile, {
+//     download: true,
+//     header: true,
+//     skipEmptyLines: true,
+//     step: (row) => {
+//       const firstCell = row.data[Object.keys(row.data)[0]];
+//       if (!firstCell || firstCell.startsWith("#")) return;
+//       foods.push(row.data);
+//     },
+//     complete: resolve,
+//   });
+// });
+
 // #endregion
 
 // #region SVGs
@@ -181,12 +204,17 @@ function toggleAuthMode() {
 
   document.getElementById("auth-name").style.display =
     authMode === "signup" ? "block" : "none";
+
   document.getElementById("auth-submit-btn").textContent =
     authMode === "signup" ? "Sign Up" : "Sign In";
-  document.getElementById("auth-toggle-text").innerHTML =
+
+  document.getElementById("auth-toggle-text").textContent =
     authMode === "signup"
-      ? `Already have an account? <a href="#" onclick="toggleAuthMode(); return false;">Sign in</a>`
-      : `Don't have an account? <a href="#" onclick="toggleAuthMode(); return false;">Sign up</a>`;
+      ? "Already have an account?"
+      : "Don't have an account?";
+
+  document.getElementById("auth-toggle-link").textContent =
+    authMode === "signup" ? "Sign in" : "Sign up";
 
   document.getElementById("auth-error").textContent = "";
 }

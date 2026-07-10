@@ -31,6 +31,12 @@
   margin-right: 10px;
 }
 
+.settings-option-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .modal-body.settings {
   height: 450px;
   overflow-y: auto;
@@ -183,3 +189,18 @@
 }
 
 /* #endregion */
+
+/* #region Contact */
+
+.contact-text {
+  font-size: var(--text-base);
+  margin-right: 10px;
+  color: var(--light-gray);
+}
+
+.contact-wrap {
+  display: flex;
+  margin-top: clamp(5px, 3.57px + 0.446vw, 10px);
+  flex-direction: column;
+  align-items: center;
+}

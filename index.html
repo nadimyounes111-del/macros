@@ -12,6 +12,9 @@
     <link rel="shortcut icon" href="favicon.png" type="image/png" /> -->
 
     <title>norm</title>
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
     <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/buttons.css" />
@@ -28,12 +31,29 @@
     <div id="pin-screen">
       <div class="logo-inputs" id="auth-screen">
         <div class="logo-titles">
-          <div class="title-logo">
+          <!-- <div class="title-logo">
             <span class="title-white">nor</span>
             <span class="title-orange">m</span>
+          </div> -->
+          <div class="title-sublogo">
+            <span class="title-sublogo-white">Make healthy the&nbsp;</span>
+            <span class="title-sublogo-orange">norm</span>
           </div>
-          <span class="subtitle-logo">ONE DAY AT A TIME</span>
+
+          <span class="subtitle-logo"
+            >Track your macros with a curated database at no cost. Customize
+            your widgets to monitor supplements, weight, and more.
+          </span>
         </div>
+
+        <div class="guest-wrap">
+          <button class="guest" onclick="enterGuestMode()">
+            <span>Try it as guest</span>
+            <span data-icon="doorOpen" class="guest-svg"></span>
+          </button>
+        </div>
+
+        <div class="section-divider">or</div>
 
         <form
           class="input-box"
@@ -85,7 +105,7 @@
           />
         </form>
 
-        <div id="auth-error" class="pin-caption" style="color: #ff6b6b"></div>
+        <div id="auth-error" class="pin-caption"></div>
 
         <div id="pin-loading" style="display: none">
           <div class="loading-spinner"></div>
@@ -95,21 +115,20 @@
           Sign In
         </button>
 
-        <p id="auth-toggle-text" class="pin-caption">
-          Don't have an account?
-          <a
-            href="#"
+        <div class="auth-wrap">
+          <span class="auth-link-text" id="auth-toggle-text">
+            Don't have an account?
+          </span>
+          <span
+            class="auth-link"
+            id="auth-toggle-link"
             onclick="
               toggleAuthMode();
               return false;
             "
-            >Sign up</a
           >
-        </p>
-
-        <div class="guest-wrap" onclick="enterGuestMode()">
-          <span class="pin-caption">View as guest</span>
-          <span data-icon="doorOpen" class="guest-svg"></span>
+            Sign in
+          </span>
         </div>
       </div>
     </div>
@@ -384,7 +403,7 @@
           or create an account.
         </span>
         <div class="guest-wrap back" onclick="exitGuestMode()">
-          <span class="pin-caption">Back to home page</span>
+          <span class="guest-caption">Back to home page</span>
           <span data-icon="doorOpen" class="guest-svg"></span>
         </div>
       </div>
@@ -521,6 +540,7 @@
                     Change
                   </button>
                 </div>
+
                 <div class="settings-option-wrap">
                   <span class="settings-option-title signout">Sign Out</span>
                   <span
@@ -638,24 +658,6 @@
                     ></span>
                   </button>
                 </div>
-                <div class="settings-option-wrap">
-                  <span class="settings-option-title"
-                    >Hide macros (compact view)</span
-                  >
-                  <button
-                    class="settings-checkbox"
-                    data-setting="showMealProtein"
-                  >
-                    <span
-                      data-icon="circleUncheck"
-                      class="settings-checkbox-svg unchecked"
-                    ></span>
-                    <span
-                      data-icon="circleCheck"
-                      class="settings-checkbox-svg checked"
-                    ></span>
-                  </button>
-                </div>
               </div>
             </div>
             <!-- widgets -->
@@ -742,6 +744,10 @@
                   </button>
                 </div>
               </div>
+            </div>
+            <div class="contact-wrap">
+              <span class="settings-option-title">Contact Us</span>
+              <span class="contact-text">support@gmail.com</span>
             </div>
           </div>
         </div>

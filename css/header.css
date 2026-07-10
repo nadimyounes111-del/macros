@@ -66,12 +66,6 @@
   transform: scale(0.95);
 }
 
-.settings-option-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .settings-svg-title-wrap {
   display: flex;
   align-items: center;
