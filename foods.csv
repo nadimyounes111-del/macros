@@ -17,9 +17,9 @@ Butter - Original - Country Crock,tbsp,50,0,0,5
 Cheddar Cheese - 2% Milk Reduced Fat - HEB,oz,90,8,1,6
 Cheddar Cheese Shredded - Fat Free - HEB,cup,180,36,12,0
 Chicken Breast - Hill County Fare,oz,30,5.75,0,0.75
-Chipotle - Bowl White R + Black B + Chk + Tomato + Veggies,bowl,535,45,71,13
-Chipotle - Bowl White R + Black B + Chk + Tomato + Sour C + Veggies,bowl,645,47,73,22
-Chipotle - Bowl White R + Black B + Chk + Tomato + Sour C + Guac + Veggies,bowl,885,49,81,44
+Chipotle - Bowl WR BB Ch T + Veg,bowl,535,45,71,13
+Chipotle - Bowl WR BB Ch T + SC + Veg,bowl,645,47,73,22
+Chipotle - Bowl WR BB Ch T + SC + Guac + Veg,bowl,885,49,81,44
 Chips - Lightly Salted - Pringles,x,10,0.1,1,0.6
 Chop Shop - Teriyaki Chk + Brown R + Roasted Veg,x,797,44.5,113,21
 Cliff Bar - Chocolate - Builders Protein,x,280,20,31,9
@@ -35,7 +35,7 @@ Egg - Brown Large Cage Free - HEB,x,70,6,0,5
 Fries - Regular Cut - Hill County Fare,oz,43.3,0.7,7,1.3
 Fries - Crinkle Cut - Hill County Fare,oz,33.3,0.7,5.3,1
 Frozen Fruits - Berries & Cherries Blend - HEB,100 g,50,0.7,12,0.35
-Frozen Fruits - Dragon Fruit Tropical Medley - HEB,100 g,64,0.7,15.7,0
+Frozen Fruits - Dragon Fruit Tropical Med - HEB,100 g,64,0.7,15.7,0
 Granola - Classic - Red Mill,cup,440,12,84,6
 Granola - Nut Crunch - HEB,cup,435,9,52.5,21
 Greek Yogurt 2% - Fage Total,cup,120,12,13,2.5
@@ -44,10 +44,10 @@ Ground Turkey - 85% - HEB,oz,60,5,0,4
 Ground Turkey - 93% - HEB,oz,40,6,0,2
 Hamburger Seeded Buns - HEB,bun,180,6,33,2.5
 Honey - Wildflower - Goodflow Honey,tbsp,70,0,17,0
-Ice Cream - Chocolate Caramel Brownie - Halo Top,x,360,19,72,8
-Ice Cream - Chocolate Ice Cream Cake - Halo Top,x,360,18,69,11
-Ice Cream - Cookies & Cream - Halo Top,x,310,16,69,6
-Ice Cream - Sea Salt Caramel - Halo Top,x,300,16,68,5
+Ice Cream - Chocolate Caramel Br - HT,x,360,19,72,8
+Ice Cream - Chocolate Ice Cream Cake - HT,x,360,18,69,11
+Ice Cream - Cookies & Cream - HT,x,310,16,69,6
+Ice Cream - Sea Salt Caramel - HT,x,300,16,68,5
 Jam - Apricot - Smucker's,tbsp,50,0,13,0
 Jam - Blackberry - HEB,tbsp,30,0,7,0
 Jam - Blackberry - Smucker's,tbsp,50,0,13,0
@@ -55,9 +55,9 @@ Jam - Strawberry - Smucker's,tbsp,50,0,13,0
 Ketchup - Heinz,tbsp,20,0,5,0
 Korean BBQ Sauce - Primal Kitchen,tbsp,10,0,3,0.5
 Milk - 2% Reduced Fat - Shamrock,cup,140,9,14,5
-Milk - Almond Unsweetened - Highest Harvest HEB,cup,30,1,1,3
+Milk - Almond Unsweetened - HH HEB,cup,30,1,1,3
 Milk - Whole - HEB,cup,150,8,12,8
-Mozzarella - Shredded Low Moist Part Skim - Hill Country Fare,cup,320,24,8,24
+Mozzarella - Shredded Low Moist Part Skim - HFC,cup,320,24,8,24
 Mustard - French's,tbsp,0,0,0,0
 Oats - Old Fashioned - HEB,cup,300,10,54,5
 Oil - Vegetable - Hill Country Fare,tbsp,120,0,0,14
@@ -72,8 +72,8 @@ Pasta - Penne Rigate Whole Wheat - HEB,100 g,375,12.5,75,2
 Pasta - Rigatoni - HEB,100 g,357,12.5,75,1.8
 Peanut Butter - Creamy - Jif,tbsp,95,3.5,4,8
 Piada - Avocado Wrap,x,1070,41,67,70
-Piada - Regular Carbonara + Penne + Grilled Chk,x,1640,73,167,80
-Piada - Small Carbonara + Penne + Grilled Chk,x,960,51,83,48
+Piada - Regular Carbonara + Penne + Grill Chk,x,1640,73,167,80
+Piada - Small Carbonara + Penne + Grill Chk,x,960,51,83,48
 Popcorn - Salted - HEB,x,400,2,40,26
 Potbelly - Dream Bar,x,430,4,54,23
 Potbelly - Southwest Avo Chk Wrap,x,710,60,48,36
@@ -81,7 +81,7 @@ Pretzels - Milk Chocolate - Flipz,x,17.5,0.25,2.6,0.6
 Protein Powder - Chocolate - Isoflex,scoop,120,27,2,0.5
 Protein Powder - Birthday Cake - Isoflex,scoop,120,27,3,0
 Protein Powder - Chocolate - Whey Protein,scoop,120,24,4,1.5
-Protein Powder - Vanilla Ice Cream - Whey Protein,scoop,120,24,4,1.5
+Protein Powder - Vanilla IC - Whey Protein,scoop,120,24,4,1.5
 Protein Powder - Peanut Butter - Isoflex,scoop,120,27,2,1
 Quinoa - Tri-color - HEB,cup,640,24,120,12
 Ramen - Beef - Top Ramen,packet,380,9,54,14
@@ -136,5 +136,5 @@ Dates,pc,41,0.24,9.8,0.14
 Chips - Sour Cream - Baked HEB,100g,393,7.14,78.54,7.14
 Chips - BBQ - Baked HEB,100g,393,7.14,78.54,7.14
 Sourdough - The Rustik Oven,slice,170,7,32,1.5
-Caramelized Onion & Gruyere Bread - Fresh & Simple,pack,840,30,126,27
+Caramelized Onion - Fresh & Simple,pack,840,30,126,27
 Vanilla Protein Shake 42g - Core Power,pc,230,42,8,3.5

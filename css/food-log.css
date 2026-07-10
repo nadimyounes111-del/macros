@@ -95,7 +95,7 @@
   background-color: #1e2c59;
   color: #19a8cc;
   transform: translateY(-5px) translateX(-5px);
-  font-size: var(--text-base);
+  font-size: var(--text-s);
   border-radius: 10px;
   padding: clamp(3px, 2.43px + 0.179vw, 5px) clamp(6px, 4.86px + 0.357vw, 10px);
   white-space: nowrap;
