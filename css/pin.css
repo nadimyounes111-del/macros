@@ -81,7 +81,7 @@
 }
 
 .subtitle-logo {
-  font-size: clamp(12px, 9.71px + 0.714vw, 20px);
+  font-size: clamp(14px, 12.29px + 0.536vw, 20px);
   color: var(--light-gray);
   width: clamp(250px, 80vw, 600px);
   text-align: left;
@@ -187,6 +187,7 @@
   font-size: var(--text-base);
   justify-content: end;
   cursor: pointer;
+  width: clamp(260px, 248.57px + 3.571vw, 300px);
 }
 
 /* .guest-wrap {

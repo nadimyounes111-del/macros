@@ -32,7 +32,7 @@
   background: var(--table-bg);
   border: 2px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  width: 350px;
+  width: clamp(10px, 60vw, 350px);
   margin: 20px;
   z-index: 1;
   overflow: hidden;
