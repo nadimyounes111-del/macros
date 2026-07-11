@@ -793,6 +793,50 @@
           </div>
         </div>
       </div>
+
+      <div class="modal active" id="onboarding-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-box">
+          <div class="modal-header onboarding">
+            <span>Getting Started</span>
+            <span class="onboarding-subtitle">
+              Thank you for signing up. Norm is free and does not offer any paid
+              plans</span
+            >
+          </div>
+
+          <div class="modal-body onboarding">
+            <div class="onboarding-wrap">
+              <span data-icon="fire" class="onboarding-svg"></span>
+              <div class="onboarding-info">
+                <span class="onboarding-subinfo">1. Set goals</span>
+                <span class="onboarding-text">
+                  Your macro goals start at 0. Head to Settings to set your
+                  targets
+                </span>
+              </div>
+            </div>
+
+            <div class="onboarding-wrap">
+              <span data-icon="cells" class="onboarding-svg"></span>
+              <div class="onboarding-info">
+                <span class="onboarding-subinfo">2. Add widgets</span>
+                <span class="onboarding-text">
+                  You can also turn on widgets in Settings to track supplements,
+                  weight, and more
+                </span>
+              </div>
+            </div>
+          </div>
+          <button
+            class="onboarding-btn"
+            id="onboarding-next"
+            onclick="closeOnboarding()"
+          >
+            Got it
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Creatine Tracker -->

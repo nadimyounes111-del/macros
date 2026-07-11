@@ -137,6 +137,11 @@ window.initFirestore = function (user, onFirstLoad) {
     if (data.dimCheckedEntries !== undefined) {
       dimCheckedEntries = data.dimCheckedEntries;
     }
+    if (data.onboardingSeen !== undefined) {
+      window.onboardingSeen = data.onboardingSeen;
+    } else {
+      window.onboardingSeen = false; // brand new user, field doesn't exist yet
+    }
     if (data.waterUnit !== undefined) {
       waterUnit = data.waterUnit;
     }

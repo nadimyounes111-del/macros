@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   opacity: 0;
   visibility: hidden;
   transition:
@@ -32,7 +31,7 @@
   background: var(--table-bg);
   border: 2px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  width: clamp(10px, 60vw, 350px);
+  width: clamp(10px, 70vw, 350px);
   margin: 20px;
   z-index: 1;
   overflow: hidden;
@@ -310,3 +309,73 @@ ul {
 }
 
 /* #endregion */
+
+.modal-header.onboarding {
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 0;
+}
+.onboarding-subtitle {
+  font-size: var(--text-l);
+  color: var(--light-gray);
+}
+
+.onboarding-subinfo {
+  font-size: var(--text-l);
+  color: var(--orange);
+}
+
+.onboarding-text {
+  font-size: var(--text-base);
+  color: var(--white);
+}
+
+.onboarding-wrap {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(33, 33, 33);
+  padding: 10px;
+  border-radius: 10px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.onboarding-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.onboarding-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(26px, 24.29px + 0.536vw, 32px);
+  height: clamp(26px, 24.29px + 0.536vw, 32px);
+  flex-shrink: 0;
+  color: var(--light-blue);
+}
+
+.onboarding-btn {
+  all: unset;
+  cursor: pointer;
+  background-color: var(--orange);
+  border-radius: 8px;
+  font-size: var(--text-base);
+  color: var(--white);
+  text-align: center;
+  transition: all 0.2s ease;
+  padding: 5px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.onboarding-btn:active {
+  transform: scale(0.95);
+}
+
+.modal-body.onboarding {
+  gap: 15px;
+  justify-content: space-between;
+  margin: 15px 0;
+}

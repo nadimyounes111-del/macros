@@ -77,6 +77,8 @@ function initGuestMode(onFirstLoad) {
   currentUser = { displayName: "Guest", email: null, uid: "guest" };
   updateUserName();
 
+  window.onboardingSeen = true;
+
   window.saveToFirestore = async function () {
     // no-op — guest changes aren't persisted
     console.log("Guest mode: changes are not saved.");
