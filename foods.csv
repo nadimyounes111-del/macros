@@ -1,6 +1,5 @@
 Food,Serving Size,Calories,Protein,Carbs,Fat
 #
-Ground Beef 85/15 Raw,oz,100,5,5,5
 Almond Butter - Creamy - HEB,tbsp,95,3,3,8
 Almonds - Raw - HEB,100 g,571,21.5,21.5,50
 Apple,100 g,52,0.4,12,0
@@ -90,6 +89,7 @@ Ramen - Chicken - Top Ramen,packet,380,9,52,14
 Rice - Brown Long Grain - HEB,cup,680,12,136,8
 Rice - White Long Grain - HEB,cup,640,12,144,0
 Rice Cake - Caramel - Quaker,x,50,0,11,0
+Rice Cake - saled,x,35,1,7,0
 Rice Krispies - Mini Squares,x,45,0,8,1
 Salmon - Atlantic Fillet - HEB,oz,60,5.75,0,3.75
 Sardines - in Water - Chicken of the Sea,can,120,11,0,8
@@ -139,3 +139,4 @@ Chips - BBQ - Baked HEB,100g,393,7.14,78.54,7.14
 Sourdough - The Rustik Oven,slice,170,7,32,1.5
 Caramelized Onion - Fresh & Simple,pack,840,30,126,27
 Vanilla Protein Shake 42g - Core Power,pc,230,42,8,3.5
+Pasta Barilla tri-color rotini,100g,357,12.5,75,1.8

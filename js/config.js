@@ -219,6 +219,25 @@ function toggleAuthMode() {
   document.getElementById("auth-error").textContent = "";
 }
 
+async function handleForgotPassword() {
+  const email = document.getElementById("auth-email").value.trim();
+  const errorEl = document.getElementById("auth-error");
+
+  if (!email) {
+    errorEl.textContent = "Please enter your email first";
+    return;
+  }
+
+  try {
+    await window.resetPassword(email);
+    errorEl.style.color = "var(--green)"; // or whatever success color you use
+    errorEl.textContent = "Check your inbox or spam/junk folder";
+  } catch (e) {
+    errorEl.style.color = "var(--red)";
+    errorEl.textContent = friendlyAuthError(e.code);
+  }
+}
+
 async function submitAuth() {
   const email = document.getElementById("auth-email").value.trim();
   const password = document.getElementById("auth-password").value;

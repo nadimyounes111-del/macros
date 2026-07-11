@@ -72,8 +72,22 @@ document.querySelectorAll(".meal-btn").forEach(function (btn) {
   });
 });
 
+// shortcuts
 document.addEventListener("keydown", function (e) {
   if (e.code === "Space" && e.target === document.body) openFoodModal();
+
+  if ((e.metaKey || e.ctrlKey) && e.key === "z") {
+    e.preventDefault();
+    undoDelete();
+  }
+
+  if (
+    (e.metaKey || e.ctrlKey) &&
+    (e.key === "Backspace" || e.key === "Delete")
+  ) {
+    e.preventDefault();
+    if (confirm("Clear food log?")) clearAll();
+  }
 });
 
 // #endregion

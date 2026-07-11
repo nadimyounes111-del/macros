@@ -8,6 +8,7 @@
   top: 0px;
   background: var(--bg);
   box-sizing: border-box;
+  z-index: 99;
 }
 
 .header {

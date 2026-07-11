@@ -15,6 +15,7 @@ import {
   signOut as firebaseSignOut,
   onAuthStateChanged,
   updateProfile,
+  sendPasswordResetEmail,
 } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -34,6 +35,10 @@ let docRef = null;
 // #endregion
 
 // #region Save Functions
+
+window.resetPassword = function (email) {
+  return sendPasswordResetEmail(auth, email);
+};
 
 window.signUp = async function (email, password, displayName) {
   const cred = await createUserWithEmailAndPassword(auth, email, password);

@@ -297,7 +297,7 @@ body.hide-meal-cal .cal-count-wrap {
 }
 
 .empty-text {
-  font-size: var(--text-l);
+  font-size: var(--text-base);
   color: var(--light-gray);
 }
 

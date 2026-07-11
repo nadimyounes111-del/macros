@@ -7,11 +7,37 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"
     />
 
-    <!-- <link rel="icon" href="favicon.png" type="image/png" />
+    <!-- === PAGE SETTINGS === -->
+    <title>Norm</title>
+    <link rel="icon" href="favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="favicon.png" />
-    <link rel="shortcut icon" href="favicon.png" type="image/png" /> -->
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+    <meta
+      name="description"
+      content="Track calories and macros with Norm's curated database and personalize your dashboard with widgets to monitor supplements, weight, and more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Norm" />
+    <meta
+      property="og:description"
+      content="Track calories and macros with Norm's curated database and personalize your dashboard with widgets to monitor supplements, weight, and more."
+    />
+    <!-- <meta
+      property="og:image"
+      content="https://mcoccalendar.com/social-preview.png"
+    /> -->
+    <meta property="og:url" content="https://tracknorm.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Norm" />
+    <meta
+      name="twitter:description"
+      content="Track calories and macros with Norm's curated database and personalize your dashboard with widgets to monitor supplements, weight, and more."
+    />
+    <!-- <meta
+      name="twitter:image"
+      content="https://mcoccalendar.com/social-preview.png"
+    /> -->
 
-    <title>norm</title>
     <link rel="icon" href="favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="favicon.png" />
     <link rel="shortcut icon" href="favicon.png" type="image/png" />
@@ -31,104 +57,119 @@
     <div id="pin-screen">
       <div class="logo-inputs" id="auth-screen">
         <div class="logo-titles">
-          <!-- <div class="title-logo">
-            <span class="title-white">nor</span>
-            <span class="title-orange">m</span>
-          </div> -->
-          <div class="title-sublogo">
-            <span class="title-sublogo-white">Make healthy the&nbsp;</span>
-            <span class="title-sublogo-orange">norm</span>
+          <div class="title-sublogo-vert">
+            <span class="title-sublogo-white">Make healthy</span>
+            <div class="title-sublogo-hor">
+              <span class="title-sublogo-white">the&nbsp;</span>
+              <span class="title-sublogo-orange">norm</span>
+            </div>
           </div>
 
           <span class="subtitle-logo"
-            >Track your macros with a curated database at no cost. Customize
+            >Track your macros with a curated database at no cost and customize
             your widgets to monitor supplements, weight, and more.
           </span>
-        </div>
-
-        <div class="guest-wrap">
-          <button class="guest" onclick="enterGuestMode()">
-            <span>Try it as guest</span>
-            <span data-icon="doorOpen" class="guest-svg"></span>
-          </button>
-        </div>
-
-        <div class="section-divider">or</div>
-
-        <form
-          class="input-box"
-          style="display: flex"
-          id="auth-form"
-          onsubmit="return handleAuthSubmit(event);"
-        >
-          <input
-            id="auth-email"
-            class="pin-input"
-            type="email"
-            placeholder="Email"
-            autocomplete="email"
-          />
-          <div class="password-wrap">
-            <input
-              id="auth-password"
-              class="pin-input"
-              type="password"
-              placeholder="Password"
-              autocomplete="current-password"
-              required
-            />
-
-            <span
-              id="password-toggle-icon"
-              class="eye-toggle"
-              onclick="togglePasswordVisibility()"
-            >
-              <!-- keep this svg as is, not const -->
-              <svg
-                class="eye-svg"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 640 640"
+          <div class="big-wrap">
+            <div class="form-wrap">
+              <form
+                class="input-box"
+                style="display: flex"
+                id="auth-form"
+                onsubmit="return handleAuthSubmit(event);"
               >
-                <path
-                  d="M73 39.1C63.6 29.7 48.4 29.7 39.1 39.1C29.8 48.5 29.7 63.7 39 73.1L567 601.1C576.4 610.5 591.6 610.5 600.9 601.1C610.2 591.7 610.3 576.5 600.9 567.2L504.5 470.8C507.2 468.4 509.9 466 512.5 463.6C559.3 420.1 590.6 368.2 605.5 332.5C608.8 324.6 608.8 315.8 605.5 307.9C590.6 272.2 559.3 220.2 512.5 176.8C465.4 133.1 400.7 96.2 319.9 96.2C263.1 96.2 214.3 114.4 173.9 140.4L73 39.1zM236.5 202.7C260 185.9 288.9 176 320 176C399.5 176 464 240.5 464 320C464 351.1 454.1 379.9 437.3 403.5L402.6 368.8C415.3 347.4 419.6 321.1 412.7 295.1C399 243.9 346.3 213.5 295.1 227.2C286.5 229.5 278.4 232.9 271.1 237.2L236.4 202.5zM357.3 459.1C345.4 462.3 332.9 464 320 464C240.5 464 176 399.5 176 320C176 307.1 177.7 294.6 180.9 282.7L101.4 203.2C68.8 240 46.4 279 34.5 307.7C31.2 315.6 31.2 324.4 34.5 332.3C49.4 368 80.7 420 127.5 463.4C174.6 507.1 239.3 544 320.1 544C357.4 544 391.3 536.1 421.6 523.4L357.4 459.2z"
+                <input
+                  id="auth-email"
+                  class="pin-input"
+                  type="email"
+                  placeholder="Email"
+                  autocomplete="email"
                 />
-              </svg>
-            </span>
+                <div class="password-wrap">
+                  <input
+                    id="auth-password"
+                    class="pin-input"
+                    type="password"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                    required
+                  />
+
+                  <span
+                    id="password-toggle-icon"
+                    class="eye-toggle"
+                    onclick="togglePasswordVisibility()"
+                  >
+                    <!-- keep this svg as is, not const -->
+                    <svg
+                      class="eye-svg"
+                      fill="currentColor"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 640 640"
+                    >
+                      <path
+                        d="M73 39.1C63.6 29.7 48.4 29.7 39.1 39.1C29.8 48.5 29.7 63.7 39 73.1L567 601.1C576.4 610.5 591.6 610.5 600.9 601.1C610.2 591.7 610.3 576.5 600.9 567.2L504.5 470.8C507.2 468.4 509.9 466 512.5 463.6C559.3 420.1 590.6 368.2 605.5 332.5C608.8 324.6 608.8 315.8 605.5 307.9C590.6 272.2 559.3 220.2 512.5 176.8C465.4 133.1 400.7 96.2 319.9 96.2C263.1 96.2 214.3 114.4 173.9 140.4L73 39.1zM236.5 202.7C260 185.9 288.9 176 320 176C399.5 176 464 240.5 464 320C464 351.1 454.1 379.9 437.3 403.5L402.6 368.8C415.3 347.4 419.6 321.1 412.7 295.1C399 243.9 346.3 213.5 295.1 227.2C286.5 229.5 278.4 232.9 271.1 237.2L236.4 202.5zM357.3 459.1C345.4 462.3 332.9 464 320 464C240.5 464 176 399.5 176 320C176 307.1 177.7 294.6 180.9 282.7L101.4 203.2C68.8 240 46.4 279 34.5 307.7C31.2 315.6 31.2 324.4 34.5 332.3C49.4 368 80.7 420 127.5 463.4C174.6 507.1 239.3 544 320.1 544C357.4 544 391.3 536.1 421.6 523.4L357.4 459.2z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <input
+                  id="auth-name"
+                  class="pin-input"
+                  type="text"
+                  placeholder="Display name"
+                  style="display: none"
+                />
+              </form>
+              <div class="forgot-pass">
+                <span
+                  class="toggle-text"
+                  href="#"
+                  onclick="
+                    handleForgotPassword();
+                    return false;
+                  "
+                  >Forgot password?</span
+                >
+              </div>
+
+              <div id="auth-error" class="pin-caption"></div>
+
+              <div id="pin-loading" style="display: none">
+                <div class="loading-spinner"></div>
+              </div>
+
+              <button
+                id="auth-submit-btn"
+                class="pin-signin"
+                onclick="submitAuth()"
+              >
+                Sign in
+              </button>
+
+              <div class="auth-wrap">
+                <span class="auth-link-text" id="auth-toggle-text">
+                  Don't have an account?
+                </span>
+                <span
+                  class="auth-link"
+                  id="auth-toggle-link"
+                  onclick="
+                    toggleAuthMode();
+                    return false;
+                  "
+                >
+                  Sign up
+                </span>
+              </div>
+            </div>
+            <div class="guest-wrap">
+              <!-- <div class="section-divider">or</div> -->
+              <button class="guest" onclick="enterGuestMode()">
+                <span>Try it as guest</span>
+                <span data-icon="doorOpen" class="guest-svg"></span>
+              </button>
+            </div>
           </div>
-          <input
-            id="auth-name"
-            class="pin-input"
-            type="text"
-            placeholder="Display name"
-            style="display: none"
-          />
-        </form>
-
-        <div id="auth-error" class="pin-caption"></div>
-
-        <div id="pin-loading" style="display: none">
-          <div class="loading-spinner"></div>
-        </div>
-
-        <button id="auth-submit-btn" class="pin-signin" onclick="submitAuth()">
-          Sign In
-        </button>
-
-        <div class="auth-wrap">
-          <span class="auth-link-text" id="auth-toggle-text">
-            Don't have an account?
-          </span>
-          <span
-            class="auth-link"
-            id="auth-toggle-link"
-            onclick="
-              toggleAuthMode();
-              return false;
-            "
-          >
-            Sign in
-          </span>
         </div>
       </div>
     </div>
