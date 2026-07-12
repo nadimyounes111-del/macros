@@ -380,8 +380,6 @@
       <!-- Food Log -->
       <div class="log-wrapper">
         <div id="food-log">
-        
-
           <!-- Empty State -->
           <div id="empty-state">
             <div class="empty-icon-wrap">
@@ -532,10 +530,11 @@
             </div>
           </div>
 
-          <div class="modal-footer">
-            <button class="modal-complete-btn" onclick="saveFood()">
-              Save
+          <div class="done-btn-wrap">
+            <button class="add-more-btn" onclick="saveFood(false)">
+              Add more
             </button>
+            <button class="add-done-btn" onclick="saveFood(true)">Done</button>
           </div>
         </div>
       </div>

@@ -300,12 +300,16 @@ ul {
   font-size: var(--text-base);
   color: var(--light-blue);
   background-color: var(--dark-blue);
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .meal-btn.active {
   background-color: var(--orange);
   color: var(--white);
+}
+
+.meal-btn:active {
+  transform: scale(0.95);
 }
 
 /* #endregion */
@@ -378,4 +382,36 @@ ul {
   gap: 15px;
   justify-content: space-between;
   margin: 15px 0;
+}
+
+.add-more-btn,
+.add-done-btn {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
+  border-radius: clamp(6px, 4.86px + 0.357vw, 10px);
+  font-size: var(--text-base);
+  color: var(--white);
+  background-color: var(--orange);
+  transition: all 0.2s ease;
+}
+
+.add-more-btn:active,
+.add-done-btn:active {
+  transform: scale(0.95);
+}
+
+.add-done-btn {
+  width: 60px;
+}
+
+.done-btn-wrap {
+  margin-top: 20px;
+  display: flex;
+  justify-content: end;
+  gap: clamp(4px, 2.86px + 0.357vw, 8px);
 }

@@ -153,7 +153,7 @@
 }
 
 .row-checked {
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 body.dim-disabled .row-checked {
@@ -166,7 +166,7 @@ body.dim-disabled .row-checked {
   transition: grid-template-rows 0.3s ease;
   flex-direction: column;
   border-radius: 10px;
-  gap: 8px;
+  gap: clamp(4px, 2.86px + 0.357vw, 8px);
 }
 
 .meal-group-body {
@@ -269,8 +269,11 @@ body.dim-disabled .row-checked {
 .meal-header {
   display: flex;
   align-items: center;
-  margin: clamp(12px, 9.14px + 0.893vw, 22px) 0 8px 0;
+  margin-top: clamp(12px, 9.14px + 0.893vw, 22px);
   justify-content: space-between;
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.2s ease;
 }
 
 .meal-header.meal-breakfast {
