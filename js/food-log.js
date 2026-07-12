@@ -4,6 +4,28 @@ const uncheckedSVG = `<svg class="uncheck-svg" fill="currentColor" xmlns="http:/
 window.foodLog = JSON.parse(localStorage.getItem("foodLog")) || [];
 window.renderLog = renderLog;
 
+let collapsedMeals = {};
+
+function focusServingInput(wrap) {
+  wrap.querySelector(".serving-edit").focus();
+}
+
+function toggleRowExpand(topEl) {
+  topEl.closest(".log-row").classList.toggle("expanded");
+}
+
+let mealSaveTimeout;
+
+function toggleMealGroup(headerEl, mealName) {
+  const isCollapsed = headerEl.classList.toggle("collapsed");
+  collapsedMeals[mealName] = isCollapsed;
+
+  clearTimeout(mealSaveTimeout);
+  mealSaveTimeout = setTimeout(() => {
+    if (window.saveToFirestore) window.saveToFirestore({ collapsedMeals });
+  }, 400);
+}
+
 function saveFood() {
   const activeMealBtn = document.querySelector(".meal-btn.active");
   const meal = activeMealBtn ? activeMealBtn.dataset.meal : "Breakfast";
@@ -86,12 +108,26 @@ function renderLog() {
 
     const header = document.createElement("div");
     header.className = "meal-header " + mealClass;
+    if (collapsedMeals[meal]) {
+      header.classList.add("collapsed");
+    }
+
     header.innerHTML = `
   <div class="meal-header-wrap">
   <span class="meal-label">${meal}</span>
   
 
   <div class="count-wrap">
+    
+
+    <div class="cal-count-wrap">
+      <span class="meal-cal">${Math.round(mealCalories)}</span>
+      <svg
+          class="cal-svg-table"
+          fill="currentColor"
+       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M256.5 37.6C265.8 29.8 279.5 30.1 288.4 38.5C300.7 50.1 311.7 62.9 322.3 75.9C335.8 92.4 352 114.2 367.6 140.1C372.8 133.3 377.6 127.3 381.8 122.2C382.9 120.9 384 119.5 385.1 118.1C393 108.3 402.8 96 415.9 96C429.3 96 438.7 107.9 446.7 118.1C448 119.8 449.3 121.4 450.6 122.9C460.9 135.3 474.6 153.2 488.3 175.3C515.5 219.2 543.9 281.7 543.9 351.9C543.9 475.6 443.6 575.9 319.9 575.9C196.2 575.9 96 475.7 96 352C96 260.9 137.1 182 176.5 127C196.4 99.3 216.2 77.1 231.1 61.9C239.3 53.5 247.6 45.2 256.6 37.7zM321.7 480C347 480 369.4 473 390.5 459C432.6 429.6 443.9 370.8 418.6 324.6C414.1 315.6 402.6 315 396.1 322.6L370.9 351.9C364.3 359.5 352.4 359.3 346.2 351.4C328.9 329.3 297.1 289 280.9 268.4C275.5 261.5 265.7 260.4 259.4 266.5C241.1 284.3 207.9 323.3 207.9 370.8C207.9 439.4 258.5 480 321.6 480z"/></svg>
+    </div>
+
     <div class="protein-count-wrap">
       <span class="meal-protein">${Math.round(mealProtein)}</span>
       <svg
@@ -105,15 +141,14 @@ function renderLog() {
           />
         </svg>
     </div>
+    </div>
+  </div>
 
-    <div class="cal-count-wrap">
-      <span class="meal-cal">${Math.round(mealCalories)}</span>
-      <svg
-          class="cal-svg-table"
-          fill="currentColor"
-       xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M256.5 37.6C265.8 29.8 279.5 30.1 288.4 38.5C300.7 50.1 311.7 62.9 322.3 75.9C335.8 92.4 352 114.2 367.6 140.1C372.8 133.3 377.6 127.3 381.8 122.2C382.9 120.9 384 119.5 385.1 118.1C393 108.3 402.8 96 415.9 96C429.3 96 438.7 107.9 446.7 118.1C448 119.8 449.3 121.4 450.6 122.9C460.9 135.3 474.6 153.2 488.3 175.3C515.5 219.2 543.9 281.7 543.9 351.9C543.9 475.6 443.6 575.9 319.9 575.9C196.2 575.9 96 475.7 96 352C96 260.9 137.1 182 176.5 127C196.4 99.3 216.2 77.1 231.1 61.9C239.3 53.5 247.6 45.2 256.6 37.7zM321.7 480C347 480 369.4 473 390.5 459C432.6 429.6 443.9 370.8 418.6 324.6C414.1 315.6 402.6 315 396.1 322.6L370.9 351.9C364.3 359.5 352.4 359.3 346.2 351.4C328.9 329.3 297.1 289 280.9 268.4C275.5 261.5 265.7 260.4 259.4 266.5C241.1 284.3 207.9 323.3 207.9 370.8C207.9 439.4 258.5 480 321.6 480z"/></svg>
-    </div>
-    </div>
+
+  <div class="expand-svg-wrap" onclick="toggleMealGroup(this.closest('.meal-header'), '${meal}')">
+
+  <svg class="expand-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M297.4 470.6C309.9 483.1 330.2 483.1 342.7 470.6L534.7 278.6C547.2 266.1 547.2 245.8 534.7 233.3C522.2 220.8 501.9 220.8 489.4 233.3L320 402.7L150.6 233.4C138.1 220.9 117.8 220.9 105.3 233.4C92.8 245.9 92.8 266.2 105.3 278.7L297.3 470.7z"/></svg>
+
   </div>
 
   `;
@@ -123,6 +158,9 @@ function renderLog() {
     const mealGroup = document.createElement("div");
     mealGroup.className = "meal-group " + mealClass;
 
+    const mealGroupBody = document.createElement("div");
+    mealGroupBody.className = "meal-group-body";
+
     entries.forEach(function (entry, i) {
       const index = window.foodLog.indexOf(entry);
       const unit = entry.servingSize || "";
@@ -130,30 +168,52 @@ function renderLog() {
       const row = document.createElement("div");
       row.className = "log-row" + (entry.checked ? " row-checked" : "");
       row.dataset.index = index;
+      row.onclick = () => toggleRowExpand(row);
       row.innerHTML = `
-        <div class="col-check">
-          <button class="check-btn" onclick="toggleCheck(this, ${index})" data-checked="${entry.checked || false}">
-            ${entry.checked ? checkedSVG : uncheckedSVG}
-          </button>
-        </div>
-        <div class="col-food" data-food="${entry.food}">${entry.food}</div>
-        <div class="col-servings">
-          <input inputmode="decimal" class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)" onfocus="this.select()"/>
-          <span class="serving-unit">${unit}</span>
-        </div>
-        <div class="col-cal">${Math.round(entry.calories)}</div>
-        <div class="col-pro">${Math.round(entry.protein)}</div>
-        <div class="col-carb">${Math.round(entry.carbs)}</div>
-        <div class="col-fat">${Math.round(entry.fat)}</div>
-        <div class="col-del">
-          <button onclick="deleteEntry(${index})">
-            <svg class="delete-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM232 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296z"/></svg>
-          </button>
-        </div>
-      `;
-      mealGroup.appendChild(row);
+  <div class="row-top">
+    <div class="row-top-left">
+      <div class="col-check">
+        <button class="check-btn" onclick="toggleCheck(this, ${index})" data-checked="${entry.checked || false}">
+          ${entry.checked ? checkedSVG : uncheckedSVG}
+        </button>
+      </div>
+      <div class="col-food" data-food="${entry.food}">${entry.food}</div>
+    </div>
+
+    <div class="row-top-right">
+     <div class="col-servings" onclick="focusServingInput(this)">
+  <input inputmode="decimal" class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)" onfocus="this.select()" onclick="event.stopPropagation()"/>
+  <span class="serving-unit">${unit}</span>
+</div>
+      <div class="col-del">
+        <button onclick="deleteEntry(${index})">
+          <svg class="delete-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM232 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+ <div class="row-bottom-wrap">
+  <div class="row-bottom">
+  <div class="col-cal">
+     <span class="macro-icon calories" data-icon="fire"></span>${Math.round(entry.calories)}
+  </div>
+  <div class="col-pro">
+    <span class="macro-icon protein" data-icon="chicken"></span>${Math.round(entry.protein)}
+  </div>
+  <div class="col-carb">
+    <span class="macro-icon carbs" data-icon="wheat"></span>${Math.round(entry.carbs)}
+  </div>
+  <div class="col-fat">
+    <span class="macro-icon fat" data-icon="avocado"></span>${Math.round(entry.fat)}
+  </div>
+</div>
+</div>
+`;
+      mealGroupBody.appendChild(row);
     });
 
+    mealGroup.appendChild(mealGroupBody);
     logBody.appendChild(mealGroup);
   });
 
@@ -162,6 +222,7 @@ function renderLog() {
 
   setupAddFood();
   updateSummary();
+  injectIcons(document.getElementById("log-body"));
 }
 
 function toggleCustomMode() {

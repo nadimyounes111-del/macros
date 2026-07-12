@@ -42,13 +42,14 @@ input[type="number"]::-webkit-outer-spin-button {
   --orange: #ff8000;
   --bg: #090709;
   --dark-blue: #1e2c59;
-  --table-bg: #1a1a1a;
+  --table-bg: rgb(33, 33, 33); /* #1a1a1a */
   --light-gray: #696868;
   --light-grayP: #aca9a9;
   --white: #ffffff;
   --green: #37e760;
   --light-blue: #19a8cc;
   --red: #ff5c5c;
+  --carb: #facc15;
 }
 
 :root {

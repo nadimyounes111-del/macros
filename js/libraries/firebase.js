@@ -101,6 +101,10 @@ window.initFirestore = function (user, onFirstLoad) {
       window.foodLog = data.foodLog;
       window.renderLog?.();
     }
+    if (data.collapsedMeals !== undefined) {
+      collapsedMeals = data.collapsedMeals;
+    }
+
     if (data.water !== undefined) {
       water = data.water;
       if (document.getElementById("water-fill-rect")) updateWaterUI();
@@ -142,6 +146,7 @@ window.initFirestore = function (user, onFirstLoad) {
     } else {
       window.onboardingSeen = false; // brand new user, field doesn't exist yet
     }
+
     if (data.waterUnit !== undefined) {
       waterUnit = data.waterUnit;
     }

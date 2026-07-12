@@ -3,7 +3,7 @@
 .macro-card {
   background-color: var(--table-bg);
   border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.08);
+  /* border: 2px solid rgba(255, 255, 255, 0.08); */
   padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
   box-sizing: border-box;
   width: clamp(130px, 118.57px + 3.571vw, 170px);
