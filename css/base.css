@@ -12,7 +12,7 @@ body {
   font-family: "Cal Sans";
   background: var(--bg);
   user-select: none;
-  color: white;
+  color: var(--white);
   overflow-x: hidden;
 }
 
@@ -45,7 +45,7 @@ input[type="number"]::-webkit-outer-spin-button {
   --table-bg: rgb(33, 33, 33); /* #1a1a1a */
   --light-gray: #696868;
   --light-grayP: #aca9a9;
-  --white: #ffffff;
+  --white: #e1e1e1;
   --green: #37e760;
   --light-blue: #19a8cc;
   --red: #ff5c5c;

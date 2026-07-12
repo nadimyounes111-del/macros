@@ -90,7 +90,7 @@ function populateWidgetToggles() {
 
 // #region Toggle protein count
 
-let showMealProtein = true;
+let showMealProtein = false;
 let showMealCal = true;
 let dimCheckedEntries = true;
 

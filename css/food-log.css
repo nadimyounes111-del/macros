@@ -57,6 +57,7 @@
   white-space: nowrap;
   min-width: 0;
   flex: 1;
+  color: var(--white);
 }
 
 /* .col-food::before {
@@ -295,31 +296,23 @@ body.dim-disabled .row-checked {
 .meal-label {
   font-size: var(--text-l);
   white-space: nowrap;
-  color: var(--light-gray);
+  color: var(--orange);
 }
 
 .meal-protein,
 .meal-cal {
   font-size: var(--text-base);
   white-space: nowrap;
-  color: var(--orange);
+  color: var(--light-gray);
   text-transform: none;
-}
-
-.meal-cal {
-  color: var(--light-blue);
 }
 
 .pro-svg-table,
 .cal-svg-table {
   width: clamp(15px, 13.57px + 0.446vw, 20px);
   height: clamp(15px, 13.57px + 0.446vw, 20px);
-  color: var(--orange);
+  color: var(--light-gray);
   flex-shrink: 0;
-}
-
-.cal-svg-table {
-  color: var(--light-blue);
 }
 
 .protein-count-wrap,
@@ -345,7 +338,7 @@ body.hide-meal-cal .cal-count-wrap {
 .expand-svg {
   width: var(--svg);
   height: var(--svg);
-  color: var(--light-gray);
+  color: var(--orange);
   flex-shrink: 0;
 }
 

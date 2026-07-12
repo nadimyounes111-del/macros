@@ -1,5 +1,3 @@
-// #region Imports & Const
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
 import {
   getFirestore,
@@ -32,9 +30,7 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 let docRef = null;
 
-// #endregion
-
-// #region Save Functions
+window.currentUser = null;
 
 window.resetPassword = function (email) {
   return sendPasswordResetEmail(auth, email);
@@ -63,14 +59,14 @@ window.onAuthReady = function (callback) {
 
 window.updateDisplayName = async function (newName) {
   await updateProfile(auth.currentUser, { displayName: newName });
+  await setDoc(docRef, { profile: { displayName: newName } }, { merge: true });
+};
 
-  await setDoc(
-    docRef,
-    {
-      profile: { displayName: newName },
-    },
-    { merge: true },
-  );
+window.updateUserName = function () {
+  const el = document.querySelector(".user-name");
+  if (el && window.currentUser) {
+    el.textContent = window.currentUser.displayName || window.currentUser.email;
+  }
 };
 
 window.initFirestore = function (user, onFirstLoad) {
@@ -104,7 +100,6 @@ window.initFirestore = function (user, onFirstLoad) {
     if (data.collapsedMeals !== undefined) {
       collapsedMeals = data.collapsedMeals;
     }
-
     if (data.water !== undefined) {
       water = data.water;
       if (document.getElementById("water-fill-rect")) updateWaterUI();
@@ -144,9 +139,8 @@ window.initFirestore = function (user, onFirstLoad) {
     if (data.onboardingSeen !== undefined) {
       window.onboardingSeen = data.onboardingSeen;
     } else {
-      window.onboardingSeen = false; // brand new user, field doesn't exist yet
+      window.onboardingSeen = false;
     }
-
     if (data.waterUnit !== undefined) {
       waterUnit = data.waterUnit;
     }
@@ -158,5 +152,3 @@ window.initFirestore = function (user, onFirstLoad) {
     }
   });
 };
-
-// #endregion
