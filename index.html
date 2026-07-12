@@ -22,10 +22,10 @@
       property="og:description"
       content="Track calories and macros with Norm's curated database and personalize your dashboard with widgets to monitor supplements, weight, and more."
     />
-    <!-- <meta
+    <meta
       property="og:image"
-      content="https://mcoccalendar.com/social-preview.png"
-    /> -->
+      content="https://tracknorm.com/social-preview.png"
+    />
     <meta property="og:url" content="https://tracknorm.com" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Norm" />
@@ -33,10 +33,10 @@
       name="twitter:description"
       content="Track calories and macros with Norm's curated database and personalize your dashboard with widgets to monitor supplements, weight, and more."
     />
-    <!-- <meta
+    <meta
       name="twitter:image"
-      content="https://mcoccalendar.com/social-preview.png"
-    /> -->
+      content="https://tracknorm.com/social-preview.png"
+    />
 
     <link rel="icon" href="favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="favicon.png" />
@@ -163,7 +163,6 @@
               </div>
             </div>
             <div class="guest-wrap">
-              <!-- <div class="section-divider">or</div> -->
               <button class="guest" onclick="enterGuestMode()">
                 <span>Try it as guest</span>
                 <span data-icon="doorOpen" class="guest-svg"></span>
@@ -438,14 +437,16 @@
       </div>
 
       <!-- Guest banner -->
-      <div id="guest-banner" style="display: none">
-        <span class="guest-banner-text">
-          This is a pre-filled guest page. To edit your own plan, please sign in
-          or create an account.
-        </span>
-        <div class="guest-wrap back" onclick="exitGuestMode()">
-          <span class="guest-caption">Back to home page</span>
-          <span data-icon="doorOpen" class="guest-svg"></span>
+      <div class="guest-banner" id="guest-banner" style="display: none">
+        <div class="guest-banner">
+          <span class="guest-banner-text">
+            This is a pre-filled guest page. To edit your own plan, please sign
+            in or create an account.
+          </span>
+          <div class="guest-wrap-page" onclick="exitGuestMode()">
+            <span class="guest-caption">Back to home page</span>
+            <span data-icon="doorOpen" class="guest-svg"></span>
+          </div>
         </div>
       </div>
 
@@ -788,13 +789,13 @@
             </div>
             <div class="contact-wrap">
               <span class="settings-option-title">Contact Us</span>
-              <span class="contact-text">support@gmail.com</span>
+              <span class="contact-text">tracknormhelp@gmail.com</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="modal active" id="onboarding-modal">
+      <div class="modal" id="onboarding-modal">
         <div class="modal-overlay"></div>
         <div class="modal-box">
           <div class="modal-header onboarding">

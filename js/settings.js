@@ -92,7 +92,7 @@ function populateWidgetToggles() {
 
 let showMealProtein = true;
 let showMealCal = true;
-let dimCheckedEntries = true; // default ON
+let dimCheckedEntries = true;
 
 function initSettingsToggles() {
   wireSettingToggle(

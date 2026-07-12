@@ -31,6 +31,7 @@
   all: unset;
   display: flex;
   cursor: pointer;
+  position: relative;
   padding: clamp(2px, 1.71px + 0.089vw, 3px) clamp(4px, 3.43px + 0.179vw, 6px);
   border-radius: clamp(4px, 3.43px + 0.179vw, 6px);
   align-items: center;
@@ -43,6 +44,39 @@
   width: clamp(14px, 12.29px + 0.536vw, 20px);
   height: clamp(14px, 12.29px + 0.536vw, 20px);
 }
+
+/* .add-food-btn::after,
+.clear-all-btn::after,
+.undo-btn::after {
+  content: "";
+  text-transform: capitalize;
+  position: absolute;
+  text-transform: none;
+  background-color: var(--table-bg);
+  color: var(--light-blue);
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  font-size: var(--text-s);
+  border-radius: 10px;
+  padding: clamp(3px, 2.43px + 0.179vw, 5px) clamp(6px, 4.86px + 0.357vw, 10px);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: monospace;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+@media (hover: hover) {
+  .add-food-btn:hover::after,
+  .clear-all-btn:hover::after,
+  .undo-btn:hover::after {
+    transform: translateX(-50%) translateY(-35px);
+    opacity: 1;
+  }
+} */
 
 /* #endregion */
 
