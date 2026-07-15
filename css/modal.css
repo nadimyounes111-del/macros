@@ -353,7 +353,7 @@ ul {
 .onboarding-wrap {
   display: flex;
   flex-direction: row;
-  background-color: rgb(33, 33, 33);
+  background-color: rgb(43, 43, 43);
   padding: 10px;
   border-radius: 10px;
   gap: 10px;
@@ -370,8 +370,8 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(26px, 24.29px + 0.536vw, 32px);
-  height: clamp(26px, 24.29px + 0.536vw, 32px);
+  width: clamp(30px, 29.43px + 0.179vw, 32px);
+  height: clamp(30px, 29.43px + 0.179vw, 32px);
   flex-shrink: 0;
   color: var(--light-blue);
 }
