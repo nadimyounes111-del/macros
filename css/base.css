@@ -2,13 +2,13 @@
 
 @font-face {
   font-family: "Cal Sans";
-  src: url("../calsans-regular.ttf") format("truetype");
+  src: url("../font/calsans-regular.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 body {
-  margin: 0 10px 20px 10px;
+  margin: 0 10px 10px 10px;
   font-family: "Cal Sans";
   background: var(--bg);
   user-select: none;
@@ -28,6 +28,9 @@ input[type="number"]::-webkit-outer-spin-button {
 #page {
   opacity: 0;
   transition: opacity 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 98vh;
 }
 
 #page.visible {
@@ -41,6 +44,7 @@ input[type="number"]::-webkit-outer-spin-button {
 :root {
   --orange: #ff8000;
   --bg: #090709;
+  --black: black;
   --dark-blue: #1e2c59;
   --table-bg: rgb(33, 33, 33); /* #1a1a1a */
   --light-gray: #696868;
@@ -79,6 +83,28 @@ input[type="number"]::-webkit-outer-spin-button {
 .main-title-text {
   color: var(--white);
   font-size: clamp(46px, 35.14px + 3.393vw, 84px);
+}
+
+/* #endregion */
+
+/* #region ===== Footer ===== */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: auto;
+  padding-top: 30px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer-text {
+  font-size: var(--text-xs);
+  color: var(--light-gray);
+  text-align: center;
+  max-width: 600px;
 }
 
 /* #endregion */

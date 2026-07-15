@@ -147,16 +147,29 @@ ul {
 }
 
 #autocomplete-list {
-  position: fixed;
   background-color: var(--dark-blue);
-  color: white;
-  max-height: 200px;
+  box-sizing: border-box;
+  max-height: clamp(220px, 211.43px + 2.679vw, 250px);
   border-radius: 10px;
   padding: 5px;
-  width: max-content;
+  width: clamp(10px, 70vw, 350px);
+  position: absolute;
+  top: clamp(40px, 36.57px + 1.071vw, 52px);
+  left: 0;
+  right: 0;
+  z-index: 999;
   overflow-y: auto;
-  z-index: 9999;
   border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.food-title {
+  font-size: var(--text-base);
+  color: white;
+}
+
+.food-subtitle {
+  font-size: var(--text-base);
+  color: var(--light-blue);
 }
 
 #autocomplete-list:empty {
@@ -168,6 +181,8 @@ ul {
   border-radius: 5px;
   cursor: pointer;
   font-size: var(--text-s);
+  display: flex;
+  flex-direction: column;
 }
 
 .add-food-servings {
@@ -177,6 +192,7 @@ ul {
 }
 
 .food-search-wrap {
+  position: relative;
   display: flex;
   margin-bottom: 10px;
   gap: 5px;
@@ -395,8 +411,8 @@ ul {
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   border-radius: clamp(6px, 4.86px + 0.357vw, 10px);
   font-size: var(--text-base);
-  color: var(--white);
-  background-color: var(--orange);
+  color: var(--black);
+  background-color: var(--light-blue);
   transition: all 0.2s ease;
 }
 

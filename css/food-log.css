@@ -9,6 +9,7 @@
 .log-wrapper {
   max-width: 740px;
   margin: clamp(15px, 12.14px + 0.893vw, 25px) auto;
+  width: 100%;
 }
 
 #food-log {
@@ -131,10 +132,6 @@
   padding: 10px;
 }
 
-.log-row.row-alt {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
 @keyframes flash {
   0% {
     background-color: transparent;
@@ -145,7 +142,7 @@
   }
 
   100% {
-    background-color: transparent;
+    background-color: var(--table-bg);
   }
 }
 
@@ -220,13 +217,16 @@ body.dim-disabled .row-checked {
   gap: 10px;
 }
 
-.row-bottom {
+.macros-bottom {
   display: flex;
   width: fit-content;
   gap: 15px;
   align-items: center;
+}
 
-  margin-left: clamp(25px, 23.57px + 0.446vw, 30px);
+.subtitle-bottom {
+  font-size: var(--text-base);
+  color: var(--light-blue);
 }
 
 .macro-icon {
@@ -252,15 +252,18 @@ body.dim-disabled .row-checked {
 }
 
 .row-bottom-wrap {
+  display: flex;
+  flex-direction: column;
   max-height: 0;
   margin-top: 0;
   overflow: hidden;
   transition: all 0.3s ease;
+  margin-left: clamp(32px, 30.86px + 0.357vw, 36px);
+  gap: 5px;
 }
 
 .log-row.expanded .row-bottom-wrap {
-  max-height: 30px;
-  margin-top: 10px;
+  max-height: 55px;
 }
 
 /* #endregion */

@@ -11,11 +11,10 @@
 
 #pin-loading {
   display: flex;
-  width: 205px;
-  height: 84px;
+  width: clamp(260px, 248.57px + 3.571vw, 300px);
+  height: clamp(203px, 195.86px + 2.232vw, 228px);
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
 }
 
 .loading-spinner {
@@ -48,7 +47,7 @@
   margin-bottom: 45px;
 }
 
-.title-sublogo-vert {
+.for .title-sublogo-vert {
   display: flex;
   justify-content: start;
   flex-direction: column;
@@ -93,6 +92,10 @@
   margin-top: 100px;
   align-items: center;
   width: 100%;
+}
+
+#auth-screen {
+  display: none;
 }
 
 .input-box {
@@ -282,6 +285,11 @@
   display: flex;
   flex-direction: row;
   gap: 15px;
+}
+
+.form-wrap {
+  display: flex;
+  flex-direction: column;
 }
 
 .auth-wrap {

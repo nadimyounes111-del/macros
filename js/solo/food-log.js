@@ -4,14 +4,32 @@ const uncheckedSVG = `<svg class="uncheck-svg" fill="currentColor" xmlns="http:/
 window.foodLog = JSON.parse(localStorage.getItem("foodLog")) || [];
 window.renderLog = renderLog;
 
+window.expandedRows = window.expandedRows || new Set();
+
 let collapsedMeals = {};
 
-function focusServingInput(wrap) {
+function formatFoodName(rawName) {
+  const [first, ...rest] = rawName.split(",");
+  const capitalize = (s) => s.trim().replace(/\b\w/g, (c) => c.toUpperCase());
+  const title = capitalize(first);
+  const subtitle = rest.length ? capitalize(rest.join(",")) : "";
+  return { title, subtitle };
+}
+
+function focusServingInput(event, wrap) {
+  event.stopPropagation();
   wrap.querySelector(".serving-edit").focus();
 }
 
-function toggleRowExpand(topEl) {
-  topEl.closest(".log-row").classList.toggle("expanded");
+function toggleRowExpand(row) {
+  const index = row.dataset.index;
+  if (window.expandedRows.has(index)) {
+    window.expandedRows.delete(index);
+    row.classList.remove("expanded");
+  } else {
+    window.expandedRows.add(index);
+    row.classList.add("expanded");
+  }
 }
 
 let mealSaveTimeout;
@@ -49,11 +67,7 @@ function saveFood(closeAfter = true) {
     const newIndex = window.foodLog.length - 1;
     saveLog();
     renderLog();
-    if (closeAfter) {
-      closeFoodModal();
-    } else {
-      resetFoodModalForNextEntry();
-    }
+    closeAfter ? closeFoodModal() : resetFoodModalForNextEntry();
     setTimeout(() => {
       const row = document.querySelector(`[data-index="${newIndex}"]`);
       if (row) row.classList.add("row-flash");
@@ -62,31 +76,32 @@ function saveFood(closeAfter = true) {
   }
 
   if (!selectedFood) return;
-  const servings = parseFloat(servingsInput.value) || 0;
-  if (servings <= 0) return;
+  const rawAmount = parseFloat(servingsInput.value) || 0;
+  if (rawAmount <= 0) return;
+  const unit = selectedUnit || selectedFood.unit;
+  const servings = convertToBaseServings(selectedFood, rawAmount, unit);
+  if (servings === null) return;
 
   const entry = {
-    food: selectedFood.Food,
+    food: selectedFood.name,
     meal: meal,
-    servings: servings,
+    servings: servings, // base-serving multiplier, used for macro math only
+    unitAmount: rawAmount, // what the user actually typed, e.g. 6
+    unit: unit, // e.g. "oz"
     calories: parseInt(
-      (parseFloat(selectedFood.Calories) * servings).toFixed(0),
+      (parseFloat(selectedFood.calories) * servings).toFixed(0),
     ),
-    protein: parseInt((parseFloat(selectedFood.Protein) * servings).toFixed(0)),
-    carbs: parseInt((parseFloat(selectedFood.Carbs) * servings).toFixed(0)),
-    fat: parseInt((parseFloat(selectedFood.Fat) * servings).toFixed(0)),
-    servingSize: selectedFood["Serving Size"],
+    protein: parseInt((parseFloat(selectedFood.protein) * servings).toFixed(0)),
+    carbs: parseInt((parseFloat(selectedFood.carbs) * servings).toFixed(0)),
+    fat: parseInt((parseFloat(selectedFood.fat) * servings).toFixed(0)),
+    servingSize: `${rawAmount}${unit}`, // kept for backward compat / display fallback
   };
 
   window.foodLog.push(entry);
   const newIndex = window.foodLog.length - 1;
   saveLog();
   renderLog();
-  if (closeAfter) {
-    closeFoodModal();
-  } else {
-    resetFoodModalForNextEntry();
-  }
+  closeAfter ? closeFoodModal() : resetFoodModalForNextEntry();
   setTimeout(() => {
     const row = document.querySelector(`[data-index="${newIndex}"]`);
     if (row) row.classList.add("row-flash");
@@ -95,6 +110,7 @@ function saveFood(closeAfter = true) {
 
 function resetFoodModalForNextEntry() {
   selectedFood = null;
+  selectedUnit = null;
   document.getElementById("food-search").value = "";
   document.getElementById("servings").value = "";
   // reset any other fields you'd want cleared — custom macro preview inputs, etc.
@@ -180,7 +196,8 @@ function renderLog() {
 
     entries.forEach(function (entry, i) {
       const index = window.foodLog.indexOf(entry);
-      const unit = entry.servingSize || "";
+      const displayAmount = entry.unitAmount ?? entry.servings;
+      const unit = entry.unit || entry.servingSize || "";
 
       const row = document.createElement("div");
       row.className = "log-row" + (entry.checked ? " row-checked" : "");
@@ -190,43 +207,48 @@ function renderLog() {
   <div class="row-top">
     <div class="row-top-left">
       <div class="col-check">
-        <button class="check-btn" onclick="toggleCheck(this, ${index})" data-checked="${entry.checked || false}">
+       <button class="check-btn" onclick="toggleCheck(event, this, ${index})" data-checked="${entry.checked || false}">
           ${entry.checked ? checkedSVG : uncheckedSVG}
         </button>
       </div>
-      <div class="col-food" data-food="${entry.food}">${entry.food}</div>
+    <div class="col-food">${formatFoodName(entry.food).title}</div>
     </div>
 
     <div class="row-top-right">
-     <div class="col-servings" onclick="focusServingInput(this)">
-  <input inputmode="decimal" class="serving-edit" type="number" value="${entry.servings}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)" onfocus="this.select()" onclick="event.stopPropagation()"/>
-  <span class="serving-unit">${unit}</span>
+    <div class="col-servings" onclick="focusServingInput(event, this)">
+<input inputmode="decimal" class="serving-edit" type="number" value="${displayAmount}" min="0.1" step="0.1" onchange="editServing(${index}, this.value)" onfocus="this.select()" onclick="event.stopPropagation()"/>
+<span class="serving-unit">${unit}</span>
 </div>
       <div class="col-del">
-        <button onclick="deleteEntry(${index})">
+       <button onclick="deleteEntry(event, ${index})">
           <svg class="delete-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM232 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296z"/></svg>
         </button>
       </div>
     </div>
   </div>
 
- <div class="row-bottom-wrap">
-  <div class="row-bottom">
-  <div class="col-cal">
-     <span class="macro-icon calories" data-icon="fire"></span>${Math.round(entry.calories)}
-  </div>
-  <div class="col-pro">
-    <span class="macro-icon protein" data-icon="chicken"></span>${Math.round(entry.protein)}
-  </div>
-  <div class="col-carb">
-    <span class="macro-icon carbs" data-icon="wheat"></span>${Math.round(entry.carbs)}
-  </div>
-  <div class="col-fat">
-    <span class="macro-icon fat" data-icon="avocado"></span>${Math.round(entry.fat)}
+  <div class="row-bottom-wrap">
+  <div class="subtitle-bottom">${formatFoodName(entry.food).subtitle}</div>
+  <div class="macros-bottom">
+    <div class="col-cal">
+      <span class="macro-icon calories" data-icon="fire"></span>${Math.round(entry.calories)}
+    </div>
+    <div class="col-pro">
+      <span class="macro-icon protein" data-icon="chicken"></span>${Math.round(entry.protein)}
+    </div>
+    <div class="col-carb">
+      <span class="macro-icon carbs" data-icon="wheat"></span>${Math.round(entry.carbs)}
+    </div>
+    <div class="col-fat">
+      <span class="macro-icon fat" data-icon="avocado"></span>${Math.round(entry.fat)}
+    </div>
   </div>
 </div>
 </div>
 `;
+      if (window.expandedRows.has(String(index))) {
+        row.classList.add("expanded");
+      }
       mealGroupBody.appendChild(row);
     });
 
@@ -268,37 +290,39 @@ function setupAddFood() {
   updatePreview();
   setCustomMode(false);
 
-  // const toggleBtn = document.getElementById("custom-toggle");
-  // if (toggleBtn) toggleBtn.classList.remove("active");
-
-  searchInput.onfocus = function () {
-    if (selectedFood === "custom") return;
-    autocompleteList.scrollTop = 0;
-    this.dispatchEvent(new Event("input"));
-  };
-
   searchInput.oninput = function () {
     if (selectedFood === "custom") return;
 
     const query = this.value.toLowerCase().trim();
     autocompleteList.innerHTML = "";
 
-    const rect = searchInput.getBoundingClientRect();
-    autocompleteList.style.top = rect.bottom + window.scrollY + 4 + "px";
-    autocompleteList.style.left = rect.left + "px";
-
-    const matches = query
-      ? foods.filter((f) => f.Food.toLowerCase().includes(query))
-      : foods;
+    const matches = (
+      query
+        ? foods.filter((f) => f.name && f.name.toLowerCase().includes(query))
+        : foods
+    )
+      .slice()
+      .sort((a, b) =>
+        formatFoodName(a.name).title.localeCompare(
+          formatFoodName(b.name).title,
+        ),
+      )
+      .slice();
 
     matches.forEach(function (food) {
+      const { title, subtitle } = formatFoodName(food.name);
       const li = document.createElement("li");
-      li.textContent = food.Food;
+      li.dataset.id = food.id;
+      li.innerHTML = subtitle
+        ? `<span class="food-title">${title}</span><span class="food-subtitle">${subtitle}</span>`
+        : `<span class="food-title">${title}</span>`;
       li.addEventListener("click", function () {
         autocompleteList.innerHTML = "";
         selectedFood = food;
         setCustomMode(false);
-        searchInput.value = food.Food;
+
+        searchInput.value = subtitle ? `${title}, ${subtitle}` : title;
+        renderUnitSelector(food);
         updatePreview();
         document.getElementById("servings").focus();
       });
@@ -363,7 +387,7 @@ function setCustomMode(on) {
     servingsInput.style.display = "";
     servingLabel.style.display = "";
     searchInput.value = "";
-    searchInput.placeholder = "Choose from list";
+    searchInput.placeholder = "Choose from 220+ items";
     searchInput.focus();
     ids.forEach(function (id) {
       const input = document.getElementById(id);
@@ -393,25 +417,26 @@ function updatePreview() {
     }
     return;
   }
-  const servings = parseFloat(document.getElementById("servings").value) || 0;
-  const unit = selectedFood["Serving Size"];
+  const rawAmount = parseFloat(document.getElementById("servings").value) || 0;
+  const unit = selectedUnit || selectedFood.unit;
+  const servings = convertToBaseServings(selectedFood, rawAmount, unit) || 0;
 
-  document.getElementById("serving-size-label").textContent = unit;
   document.getElementById("cal-preview").value = (
-    parseFloat(selectedFood.Calories) * servings
+    parseFloat(selectedFood.calories) * servings
   ).toFixed(0);
   document.getElementById("pro-preview").value = (
-    parseFloat(selectedFood.Protein) * servings
+    parseFloat(selectedFood.protein) * servings
   ).toFixed(0);
   document.getElementById("carb-preview").value = (
-    parseFloat(selectedFood.Carbs) * servings
+    parseFloat(selectedFood.carbs) * servings
   ).toFixed(0);
   document.getElementById("fat-preview").value = (
-    parseFloat(selectedFood.Fat) * servings
+    parseFloat(selectedFood.fat) * servings
   ).toFixed(0);
 }
 
-function toggleCheck(btn, index) {
+function toggleCheck(event, btn, index) {
+  event.stopPropagation();
   window.foodLog[index].checked = !window.foodLog[index].checked;
   btn.dataset.checked = window.foodLog[index].checked;
   btn.innerHTML = window.foodLog[index].checked ? checkedSVG : uncheckedSVG;
@@ -420,14 +445,16 @@ function toggleCheck(btn, index) {
   saveLog();
 }
 
-function editServing(index, newServings) {
-  newServings = parseFloat(newServings);
-  if (!newServings || newServings <= 0) return;
+function editServing(index, newValue) {
+  newValue = parseFloat(newValue);
+  if (!newValue || newValue <= 0) return;
 
   const original = window.foodLog[index];
-  const ratio = newServings / original.servings;
+  const oldAmount = original.unitAmount ?? original.servings; // fallback for legacy entries
+  const ratio = newValue / oldAmount;
 
-  original.servings = newServings;
+  original.servings = original.servings * ratio;
+  original.unitAmount = newValue;
   original.calories = parseFloat((original.calories * ratio).toFixed(0));
   original.protein = parseFloat((original.protein * ratio).toFixed(0));
   original.carbs = parseFloat((original.carbs * ratio).toFixed(0));
@@ -435,4 +462,98 @@ function editServing(index, newServings) {
 
   saveLog();
   renderLog();
+}
+
+const WEIGHT_UNITS = { g: 1, kg: 1000, oz: 28.3495, lb: 453.592 };
+const VOLUME_UNITS = {
+  ml: 1,
+  l: 1000,
+  tsp: 4.92892,
+  tbsp: 14.7868,
+  floz: 29.5735,
+  cup: 236.588,
+};
+
+function unitClass(unit) {
+  if (WEIGHT_UNITS[unit]) return "weight";
+  if (VOLUME_UNITS[unit]) return "volume";
+  return "count";
+}
+
+function getUnitOptions(food) {
+  const base = unitClass(food.unit);
+  const options = [food.unit];
+  if (base === "count") return options; // slice, scoop, egg, etc — no toggle
+
+  const alt = (food.altUnits || "")
+    .split(",")
+    .map((u) => u.trim())
+    .filter(Boolean);
+
+  alt.forEach((u) => {
+    if (u === food.unit) return;
+    const uClass = unitClass(u);
+    if (uClass === base) {
+      options.push(u); // same-class, always convertible
+    } else if (food.gramsPerBaseUnit) {
+      options.push(u); // cross-class, only if density is provided
+    }
+    // else: silently skip — CSV requested a unit we can't actually convert to
+  });
+
+  return options;
+}
+
+function convertToBaseServings(food, amount, toUnit) {
+  const baseClass = unitClass(food.unit);
+
+  if (baseClass === "count") {
+    // no unit math possible — amount is just a multiplier of the base serving
+    return amount;
+  }
+
+  const targetClass = unitClass(toUnit);
+
+  if (baseClass === targetClass) {
+    const table = baseClass === "weight" ? WEIGHT_UNITS : VOLUME_UNITS;
+    const baseAmountInUnits = table[food.unit] * food.serving;
+    const targetAmountInUnits = table[toUnit] * amount;
+    return targetAmountInUnits / baseAmountInUnits;
+  }
+
+  if (!food.gramsPerBaseUnit) return null;
+  const baseGrams = food.gramsPerBaseUnit * food.serving;
+  const targetGrams = WEIGHT_UNITS[toUnit] * amount;
+  return targetGrams / baseGrams;
+}
+
+let selectedUnit = null;
+
+function renderUnitSelector(food) {
+  const label = document.getElementById("serving-size-label");
+  const options = getUnitOptions(food);
+  selectedUnit = food.unit;
+  label.innerHTML = "";
+
+  if (options.length <= 1) {
+    const span = document.createElement("span");
+    span.textContent = `${food.serving}${food.unit}`;
+    label.appendChild(span);
+    return;
+  }
+
+  const select = document.createElement("select");
+  select.id = "unit-select";
+  options.forEach((u) => {
+    const opt = document.createElement("option");
+    opt.value = u;
+    opt.textContent = u;
+    select.appendChild(opt);
+  });
+  select.value = food.unit;
+  select.addEventListener("change", function () {
+    selectedUnit = this.value;
+    updatePreview();
+  });
+  label.appendChild(select);
 }

@@ -2,9 +2,11 @@
 
 let undoStack = [];
 
-function deleteEntry(index) {
+function deleteEntry(event, index) {
+  event.stopPropagation();
   undoStack.push({ entry: window.foodLog[index], index: index });
   window.foodLog.splice(index, 1);
+  window.expandedRows.clear();
   saveLog();
   renderLog();
 }

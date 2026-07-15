@@ -9,6 +9,7 @@
   background: var(--bg);
   box-sizing: border-box;
   z-index: 99;
+  width: 100%;
 }
 
 .header {
@@ -50,8 +51,8 @@
 /* #region Settings */
 
 .settings-svg {
-  width: clamp(24px, 22.29px + 0.536vw, 30px);
-  height: clamp(24px, 22.29px + 0.536vw, 30px);
+  width: 28px;
+  height: 28px;
   color: var(--light-gray);
 }
 

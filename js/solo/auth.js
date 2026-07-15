@@ -54,7 +54,7 @@ async function submitAuth() {
     return;
   }
 
-  document.getElementById("auth-form").style.display = "none";
+  document.getElementById("form-wrap").style.display = "none";
   document.getElementById("pin-loading").style.display = "flex";
 
   try {
@@ -72,7 +72,7 @@ async function submitAuth() {
   } catch (e) {
     errorEl.textContent = friendlyAuthError(e.code);
     document.getElementById("pin-loading").style.display = "none";
-    document.getElementById("auth-form").style.display = "flex";
+    document.getElementById("form-wrap").style.display = "flex";
   }
 }
 

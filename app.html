@@ -10,9 +10,9 @@
 
     <!-- === PAGE SETTINGS === -->
     <title>Norm</title>
-    <link rel="icon" href="favicon.png" type="image/png" />
-    <link rel="apple-touch-icon" href="favicon.png" />
-    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+    <link rel="icon" href="/assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/favicon.png" />
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/png" />
     <meta
       name="description"
       content="Track calories and macros with Norm's curated database and personalize your dashboard with widgets to monitor supplements, weight, and more."
@@ -25,7 +25,7 @@
     />
     <meta
       property="og:image"
-      content="https://tracknorm.com/social-preview.png"
+      content="https://tracknorm.com/assets/social-preview.png"
     />
     <meta property="og:url" content="https://tracknorm.com" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -36,12 +36,12 @@
     />
     <meta
       name="twitter:image"
-      content="https://tracknorm.com/social-preview.png"
+      content="https://tracknorm.com/assets/social-preview.png"
     />
 
-    <link rel="icon" href="favicon.png" type="image/png" />
-    <link rel="apple-touch-icon" href="favicon.png" />
-    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+    <link rel="icon" href="/assets/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/assets/favicon.png" />
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/png" />
     <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/buttons.css" />
@@ -412,10 +412,7 @@
           </div>
 
           <div class="done-btn-wrap">
-            <button class="add-more-btn" onclick="saveFood(false)">
-              Add more
-            </button>
-            <button class="add-done-btn" onclick="saveFood(true)">Done</button>
+            <button class="add-more-btn" onclick="saveFood(false)">Save</button>
           </div>
         </div>
       </div>
@@ -678,6 +675,7 @@
           <div class="modal-body onboarding">
             <div class="onboarding-wrap">
               <span data-icon="fire" class="onboarding-svg"></span>
+
               <div class="onboarding-info">
                 <span class="onboarding-subinfo">1. Set goals</span>
                 <span class="onboarding-text">
@@ -706,6 +704,14 @@
             Got it
           </button>
         </div>
+      </div>
+
+      <div class="footer" style="display: flex">
+        <span class="footer-text">&copy; 2026 Norm • v1.0.0</span>
+        <span class="footer-text"
+          >Data sourced from USDA FoodData Central & NCCDB. For informational
+          purposes only. Not medical advice</span
+        >
       </div>
     </div>
 
