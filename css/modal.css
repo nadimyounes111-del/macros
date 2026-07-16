@@ -22,19 +22,22 @@
 .modal-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--bg);
 }
 
 .modal-box {
   position: relative;
-  padding: 20px;
-  background: var(--table-bg);
-  border: 2px solid rgba(255, 255, 255, 0.08);
+  /* padding: 20px; */
+  /* background: var(--table-bg); */
+  /* border: 2px solid rgba(255, 255, 255, 0.08); */
   border-radius: 14px;
-  width: clamp(10px, 70vw, 350px);
-  margin: 20px;
+  /* width: clamp(10px, 70vw, 350px); */
+  width: 100%;
+  max-width: 600px;
+  margin: 25px;
+  /* margin: 20px; */
   z-index: 1;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .modal-header {

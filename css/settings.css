@@ -38,8 +38,8 @@
 }
 
 .modal-body.settings {
-  height: 450px;
-  overflow-y: auto;
+  /* height: 450px; */
+  /* overflow-y: auto; */
   gap: 12px;
 }
 
