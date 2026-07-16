@@ -184,9 +184,10 @@
 }
 
 #autocomplete-list li {
-  padding: 6px 8px;
-  border-radius: 5px;
-
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 6px;
+  min-height: clamp(48px, 46.57px + 0.446vw, 53px);
   background-color: rgb(30, 30, 30);
   cursor: pointer;
   font-size: var(--text-s);
