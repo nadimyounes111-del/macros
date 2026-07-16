@@ -4,7 +4,7 @@ If a user cant see it: + 0.0.1
 If a user can see it: + 0.1.0
 Fundamental shifts: + 1.0.0
 
-## v1.0.0 • Initial Release
+## v1.0.0 • Initial Release • 7/15/26
 
 ### Tracking
 
@@ -35,4 +35,8 @@ Fundamental shifts: + 1.0.0
 - Responsive layout for mobile and desktop
 - Card-based macro summary with progress bars
 
-## v1.0.1 • First Patch
+## v1.1.0 • Minor 7/15/26
+
+### Layout
+
+- Changed modals from pop ups to full page (settings, add food, onboarding)
