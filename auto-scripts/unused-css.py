@@ -7,28 +7,32 @@ import os
 from pathlib import Path
 from collections import defaultdict
 
-PROJECT_ROOT = "/Users/nadimyounes/Desktop/Macro Site/Macros" 
+PROJECT_ROOT = "/Users/nadimyounes/Desktop/Macro Site/tracknorm" 
 
 CSS_FILES = [
-    "css/widgets.css",
-    "css/modal.css",
     "css/base.css",
     "css/buttons.css",
     "css/food-log.css",
     "css/header.css",
     "css/macros-sum.css",
+    "css/modal.css",
     "css/pin.css",
     "css/settings.css",
+    "css/widgets.css",
 ]
 
 HTML_JS_FILES = [
     "index.html",
-    "js/libraries/firebase.js",
-    "js/settings.js",
-    "js/config.js",
-    "js/food-log.js",
-    "js/macros-sum.js",
-    "js/widgets.js",
+    "app.html",
+    "js/shared/firebase.js",
+    "js/shared/icons.js",
+    "js/solo/app-init.js",
+    "js/solo/auth.js",
+    "js/solo/buttons.js",
+    "js/solo/food-log.js",
+    "js/solo/macros-sum.js",
+    "js/solo/settings.js",
+    "js/solo/widgets.js",
 ]
 
 PSEUDO = {

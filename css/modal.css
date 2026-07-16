@@ -14,6 +14,10 @@
     visibility 0.2s ease;
 }
 
+.modal.settings {
+  align-items: flex-start;
+}
+
 .modal.active {
   opacity: 1;
   visibility: visible;
@@ -23,6 +27,10 @@
   position: absolute;
   inset: 0;
   background: var(--bg);
+}
+
+.modal-overlay.widgets {
+  background: rgba(0, 0, 0, 0.85);
 }
 
 .modal-box {
