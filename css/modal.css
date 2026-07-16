@@ -18,6 +18,10 @@
   align-items: flex-start;
 }
 
+.modal.add {
+  align-items: flex-start;
+}
+
 .modal.active {
   opacity: 1;
   visibility: visible;
@@ -58,7 +62,7 @@
 }
 
 .modal-box.add {
-  max-width: 400px;
+  max-width: 600px;
 }
 
 .modal-box.onboarding {
@@ -168,26 +172,26 @@
   box-sizing: border-box;
 }
 
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
 #autocomplete-list {
-  background-color: var(--dark-blue);
+  display: flex;
+  flex-direction: column;
+  max-height: 60vh;
+  overflow-y: auto;
   box-sizing: border-box;
-  max-height: clamp(220px, 211.43px + 2.679vw, 250px);
   border-radius: 10px;
   padding: 5px;
-  width: clamp(10px, 70vw, 350px);
-  position: absolute;
-  top: clamp(40px, 36.57px + 1.071vw, 52px);
-  left: 0;
-  right: 0;
-  z-index: 999;
-  overflow-y: auto;
-  border: 2px solid rgba(255, 255, 255, 0.08);
+  gap: 10px;
+}
+
+#autocomplete-list li {
+  padding: 6px 8px;
+  border-radius: 5px;
+
+  background-color: rgb(30, 30, 30);
+  cursor: pointer;
+  font-size: var(--text-s);
+  display: flex;
+  flex-direction: column;
 }
 
 .food-title {
@@ -202,15 +206,6 @@ ul {
 
 #autocomplete-list:empty {
   display: none;
-}
-
-#autocomplete-list li {
-  padding: 6px 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: var(--text-s);
-  display: flex;
-  flex-direction: column;
 }
 
 .add-food-servings {
