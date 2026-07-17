@@ -43,6 +43,7 @@
 
 .settings-page {
   position: fixed;
+  overflow-y: auto;
   background-color: var(--bg);
   justify-content: center;
   inset: 0;
