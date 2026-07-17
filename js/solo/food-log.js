@@ -409,7 +409,7 @@ function setCustomMode(on) {
     servingsInput.style.display = "";
     servingLabel.style.display = "";
     searchInput.value = "";
-    searchInput.placeholder = "Choose from 220+ items";
+    searchInput.placeholder = "Search 220+ foods...";
     searchInput.focus();
     ids.forEach(function (id) {
       const input = document.getElementById(id);

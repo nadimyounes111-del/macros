@@ -61,8 +61,9 @@ function closeFoodModal() {
   document.removeEventListener("keydown", addModalEnter);
 }
 
-document.getElementById("add-modal-overlay");
-// .addEventListener("click", closeFoodModal);
+document
+  .getElementById("add-modal-overlay")
+  .addEventListener("click", closeFoodModal);
 
 document.querySelectorAll(".meal-btn").forEach(function (btn) {
   btn.addEventListener("click", function () {
