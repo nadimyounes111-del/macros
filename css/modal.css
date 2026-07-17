@@ -222,6 +222,14 @@
   box-sizing: border-box;
 }
 
+.macro-edit {
+  border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
+  font-family: "Cal Sans";
+  font-size: var(--text-base);
+  width: 100%;
+  box-sizing: border-box;
+}
+
 #autocomplete-list {
   display: flex;
   flex-direction: column;
@@ -368,11 +376,13 @@
 }
 
 #servings {
+  font-family: "Cal Sans";
   width: clamp(80px, 74.29px + 1.786vw, 100px) !important;
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   color: var(--white);
   background: var(--dark-blue);
   border: 2px solid var(--dark-blue);
+  border-radius: 6px;
 }
 
 #servings:focus {
