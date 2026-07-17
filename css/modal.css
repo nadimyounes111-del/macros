@@ -22,7 +22,7 @@
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  padding: 10px;
+  padding: 25px;
   transition:
     opacity 0.2s ease,
     visibility 0.2s ease;
@@ -48,7 +48,7 @@
   justify-content: center;
   inset: 0;
   z-index: 9999;
-  padding: 10px;
+  padding: 25px;
   opacity: 0;
   visibility: hidden;
   transition:
@@ -215,13 +215,13 @@
 
 /* #region ADD FOOD | Search & Servings */
 
-.modal-body.add-food input {
+/* .modal-body.add-food input {
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
   font-family: "Cal Sans";
   font-size: var(--text-base);
   width: 100%;
   box-sizing: border-box;
-}
+} */
 
 .macro-edit {
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
@@ -243,6 +243,14 @@
   -ms-overflow-style: none;
 }
 
+#autocomplete-list li.active .food-subtitle {
+  color: black;
+}
+
+#autocomplete-list li.active {
+  background-color: var(--orange);
+}
+
 #autocomplete-list li {
   box-sizing: border-box;
   padding: 8px 12px;
@@ -253,6 +261,7 @@
   font-size: var(--text-s);
   display: flex;
   flex-direction: column;
+  transition: all 0.2s ease;
 }
 
 #autocomplete-list::-webkit-scrollbar {
@@ -266,7 +275,7 @@
   width: 100%;
   caret-color: var(--white);
   align-items: center;
-  padding-left: 5px;
+  padding-left: 15px;
 }
 
 .filters-wrapper {
@@ -343,6 +352,7 @@
 
 .add-food-servings {
   display: flex;
+  margin-top: 25px;
   align-items: center;
   gap: clamp(6px, 4.86px + 0.357vw, 10px);
 }
@@ -363,11 +373,13 @@
 
 #food-search {
   font-size: var(--text-base);
+  border-radius: 8px;
   font-family: "Cal Sans";
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   color: var(--white);
   background: var(--dark-blue);
   border: 2px solid var(--dark-blue);
+  width: 100%;
 }
 
 #food-search:focus {
@@ -386,7 +398,7 @@
   color: var(--white);
   background: var(--dark-blue);
   border: 2px solid var(--dark-blue);
-  border-radius: 6px;
+  border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
 }
 
 #servings:focus {
@@ -433,6 +445,11 @@
   border: 2px solid var(--dark-blue);
   background-color: var(--dark-blue);
   color: var(--white);
+}
+
+.macro-edit.custom:focus {
+  border: 2px solid var(--orange);
+  outline: none;
 }
 
 .macro-edit.custom::placeholder {

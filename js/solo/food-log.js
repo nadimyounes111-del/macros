@@ -318,8 +318,14 @@ function setupAddFood() {
     const query = this.value.toLowerCase().trim();
     autocompleteList.innerHTML = "";
 
+    const queryWords = query.split(/\s+/).filter(Boolean); // splits on any whitespace, drops empty strings
+
     let matches = query
-      ? foods.filter((f) => f.name && f.name.toLowerCase().includes(query))
+      ? foods.filter((f) => {
+          if (!f.name) return false;
+          const name = f.name.toLowerCase();
+          return queryWords.every((word) => name.includes(word));
+        })
       : foods;
 
     if (activeFilter) {
@@ -346,13 +352,17 @@ function setupAddFood() {
         ? `<span class="food-title">${title}</span><span class="food-subtitle">${subtitle}</span>`
         : `<span class="food-title">${title}</span>`;
       li.addEventListener("click", function () {
-        autocompleteList.innerHTML = "";
         selectedFood = food;
         setCustomMode(false);
-
-        searchInput.value = subtitle ? `${title}, ${subtitle}` : title;
+        // removed: searchInput.value = subtitle ? `${title}, ${subtitle}` : title;
         renderUnitSelector(food);
         updatePreview();
+
+        autocompleteList
+          .querySelectorAll("li")
+          .forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+
         document.getElementById("servings").focus();
       });
       autocompleteList.appendChild(li);
