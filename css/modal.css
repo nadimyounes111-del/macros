@@ -14,12 +14,66 @@
     visibility 0.2s ease;
 }
 
+.add-food-page {
+  position: fixed;
+  background-color: var(--bg);
+  justify-content: center;
+  inset: 0;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  padding: 10px;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.add-food-page.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.add-food-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.settings-page {
+  position: fixed;
+  background-color: var(--bg);
+  justify-content: center;
+  inset: 0;
+  z-index: 9999;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.settings-page.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.settings-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .modal.settings {
   align-items: flex-start;
 }
 
 .modal.add {
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .modal.active {
@@ -59,10 +113,6 @@
 
 .modal-box::-webkit-scrollbar {
   display: none; /* Chrome, Safari, newer Edge */
-}
-
-.modal-box.add {
-  max-width: 600px;
 }
 
 .modal-box.onboarding {
