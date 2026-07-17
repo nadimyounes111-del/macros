@@ -1,226 +1,226 @@
-id,name,serving,unit,calories,protein,carbs,fat,source,brand,altUnits,gramsPerBaseUnit
-beef-ground70raw,"ground beef 70% lean, raw",100,g,332,14.4,0,30,USDA,,"oz",
-beef-ground70cooked,"ground beef 70% lean, cooked",100,g,270,25.6,0,17.9,USDA,,"oz",
-beef-ground75raw,"ground beef 75% lean, raw",100,g,293,15.8,0,25,USDA,,"oz",
-beef-ground75cooked,"ground beef 75% lean, cooked",100,g,277,26.3,0,18.2,USDA,,"oz",
-beef-ground80raw,"ground beef 80% lean, raw",100,g,254,17.2,0,20,USDA,,"oz",
-beef-ground80cooked,"ground beef 80% lean, cooked",100,g,272,27,0,17.4,USDA,,"oz",
-beef-ground85raw,"ground beef 85% lean, raw",100,g,215,18.6,0,15,USDA,,"oz",
-beef-ground85cooked,"ground beef 85% lean, cooked",100,g,256,27.7,0,15.3,USDA,,"oz",
-beef-ground90raw,"ground beef 90% lean, raw",100,g,176,20,0,10,USDA,,"oz",
-beef-ground90cooked,"ground beef 90% lean, cooked",100,g,230,28.5,0,12,USDA,,"oz",
-beef-ground93raw,"ground beef 93% lean, raw",100,g,152,20.9,0,7,USDA,,"oz",
-beef-ground93cooked,"ground beef 93% lean, cooked",100,g,209,28.9,0,9.5,USDA,,"oz",
-beef-ground95raw,"ground beef 95% lean, raw",100,g,137,21.4,0,5,USDA,,"oz",
-beef-ground95cooked,"ground beef 95% lean, cooked",100,g,193,29.2,0,7.6,USDA,,"oz",
-turkey-ground85raw,"ground turkey 85% lean, raw",100,g,180,16.9,0,12.5,USDA,,"oz",
-turkey-ground85cooked,"ground turkey 85% lean, cooked",100,g,258,25.1,0,17.5,USDA,,"oz",
-turkey-ground93raw,"ground turkey 93% lean, raw",100,g,150,18.7,0,8.3,USDA,,"oz",
-turkey-ground93cooked,"ground turkey 93% lean, cooked",100,g,213,27.1,0,11.6,USDA,,"oz",
-milk-almond,almond milk unsweetened,1,cup,37,1.3,0.8,3,NCCDB,,"floz,l,ml",
-apple,apple,100,g,52,0.3,10.6,0.2,NCCDB,,"oz",
-asparagus,asparagus,100,g,20,2.2,1.7,0.1,NCCDB,,"oz",
-avocado,avocado,100,g,160,2,1.8,14.7,USDA,,"oz",
-bellpepper-green,green bell pepper,100,g,20,0.7,3.8,0.1,NCCDB,,"oz",
-bellpepper-red,red bell pepper,100,g,27,0.8,5.5,0.1,NCCDB,,"oz",
-bellpepper-yellow,yellow bell pepper,100,g,27,0.8,5.5,0.1,NCCDB,,"oz",
-butter-peanut,peanut butter,1,tbsp,95,3.9,2.6,8,NCCDB,,g,16
-honey,honey,1,tbsp,64,0.1,17.3,0,NCCDB,,g,21
-almond,almonds,100,g,584,21.5,9,51.1,NCCDB,,"oz",
-butter-almond,almond butter,1,tbsp,94,3.2,1.8,8.3,NCCDB,,g,16
-salmon-raw,"salmon, raw",100,g,208,20.4,0,13.4,USDA,,"oz",
-salmon-cooked,"salmon, cooked",100,g,206,22.1,0,12.4,USDA,,"oz",
-jam-apricot,apricot jam,1,tbsp,48,0.1,12.8,0,USDA,,g,20
-jam-strawberry,strawberry jam,1,tbsp,59,0,14.1,0,USDA,,g,20
-jam-blackberry,blackberry jam,1,tbsp,50,0,12.5,0,USDA,,g,20
-jam-raspberry,"raspberry jam, smucker's",1,tbsp,50,0.1,12,0,BRAND,smucker's,g,20
-jam-blueberry,"blueberry jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20
-jam-cherry,"cherry jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20
-jam-peach,"peach jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20
-pasta,"pasta, dry",100,g,371,13,71.5,1.5,USDA,,"oz",
-pasta-wholewheat,"whole wheat pasta, dry",100,g,352,13.9,64.2,2.9,USDA,,"oz",
-pasta-glutenfree,"gluten-free pasta, dry",100,g,357,7.5,68.3,2.1,USDA,,"oz",
-egg-large,large egg,1,x,78,6.3,0.6,5.3,NCCDB,,,
-egg-small,small egg,1,x,59,4.8,0.4,4,NCCDB,,,
-tofu-firm,firm tofu,100,g,78,9,1.8,4.2,NCCDB,,"oz",
-tofu-extrafirm,extra firm tofu,100,g,83,10,0.7,5.3,NCCDB,,"oz",
-rice-white,"white rice, dry",1,cup,675,13.2,145.4,1.2,NCCDB,,"g,oz",185
-rice-brown,"brown rice, dry",1,cup,681,13.4,136.6,6.1,NCCDB,,"g,oz",185
-tuna-water,"canned tuna, in water",100,g,116,25.5,0,0.8,NCCDB,,"oz",
-tuna-oil,"canned tuna, in oil",100,g,198,29.1,0,8.2,NCCDB,,"oz",
-tuna-raw,"tuna, raw",100,g,144,23.3,0,4.9,NCCDB,,"oz",
-tuna-cooked,"tuna, cooked",100,g,130,29.2,0,0.6,NCCDB,,"oz",
-sauce-marinara,marinara sauce,1,cup,126,3.6,16.2,4.3,NCCDB,,,
-sauce-pesto,pesto sauce,1,tbsp,63,0.9,0.5,6.5,NCCDB,,,
-sauce-bbq,barbecue sauce,1,tbsp,29,0.1,6.8,0.1,USDA,,,
-sauce-alfredoclass,"classic alfredo sauce, carbone",1,cup,400,12,8,36,BRAND,carbone,,
-sauce-alfredotruff,"black truffle alfredo sauce, carbone",1,cup,440,12,8,40,BRAND,carbone,,
-sauce-alfredogarlic,"garlic alfredo sauce, carbone",1,cup,400,3,2,9,BRAND,carbone,,
-milk-whole,whole milk,1,cup,146,8,11.3,7.8,NCCDB,,"floz,l,ml",
-milk-1pc,1% milk,1,cup,105,8.2,12.6,2.3,NCCDB,,"floz,l,ml",
-milk-2pc,2% milk,1,cup,122,8.2,11.9,4.6,NCCDB,,"floz,l,ml",
-milk-skim,skim milk,1,cup,83,8.4,12,0.2,NCCDB,,"floz,l,ml",
-milk-goat,goat milk,1,cup,168,8.7,10.8,10.1,NCCDB,,"floz,l,ml",
-milk-oat,oat milk,1,cup,117,2,10.6,6.7,NCCDB,,"floz,l,ml",
-milk-soy,unsweetened soy milk,1,cup,91,9,3,5,NCCDB,,"floz,l,ml",
-milk-coconut,unsweetened coconut milk,1,cup,44,0.5,1,4,NCCDB,,"floz,l,ml",
-oil-veg,vegetable oil,1,tsp,120,0,0,13.6,NCCDB,,"floz,ml",
-oil-olive,olive oil,1,tbsp,119,0,0,13.5,NCCDB,,"floz,ml",
-potato,potato,100,g,58,2.6,9.9,0.1,USDA,,"oz",
-potato-sweet,sweet potato,100,g,77,1.6,14.3,0.4,NCCDB,,"oz",
-nutella,nutella,1,tbsp,100,1,11,5.5,BRAND,nutella,,
-banana,banana,100,g,88,0.7,21.3,0.3,NCCDB,,"oz",
-pear,pear,100,g,57,0.4,9.8,0.1,NCCDB,,"oz",
-blackberry,blackberry,100,g,43,1.4,4.2,0.5,NCCDB,,"oz",
-strawberry,strawberry,100,g,33,0.6,5.8,0.2,NCCDB,,"oz",
-blueberry,blueberry,100,g,57,0.7,12.2,0.3,NCCDB,,"oz",
-kiwi,kiwi,100,g,61,1.1,11.5,0.5,NCCDB,,"oz",
-mango,mango,100,g,60,0.8,13.2,0.4,NCCDB,,"oz",
-orange,orange,100,g,47,0.9,9.1,0.1,NCCDB,,"oz",
-pineapple,pineapple,100,g,54,0.5,13.1,0.2,NCCDB,,"oz",
-broccoli,broccoli,100,g,34,2.8,4,0.4,NCCDB,,"oz",
-butter-salted,salted butter,1,tbsp,103,0.1,0.1,11.7,NCCDB,,g,14
-butter,butter,1,tbsp,102,0.1,0,11.6,NCCDB,,g,14
-mayonnaise,mayonnaise,1,tbsp,93,0.1,0.1,10.3,NCCDB,,,
-mayonnaise-lowfat,low-fat mayonnaise,1,tbsp,36,0.1,1.4,3.3,NCCDB,,,
-mustard,mustard,1,tbsp,10,0.6,0.3,0.6,USDA,,,
-carrot,carrot,100,g,45,0.9,6.9,0.4,NCCDB,,"oz",
-onion,onion,100,g,40,1.1,7.7,0.1,NCCDB,,"oz",
-ketchup,ketchup,1,tbsp,15,0.2,4.1,0,NCCDB,,,
-corn,"corn, canned",100,g,67,2.3,12.3,1.2,NCCDB,,"oz",
-spinach,spinach,1,cup,7,0.9,0.3,0.2,NCCDB,,"oz",
-tomato,tomato,100,g,18,0.9,2.7,0.2,NCCDB,,"oz",
-eggplant,eggplant,100,g,25,1,2.8,0.2,NCCDB,,"oz",
-mushroom-canned,"mushroom, canned",100,g,25,1.9,2.3,0.3,NCCDB,,"oz",
-mushroom-white,white mushroom,100,g,25,2.9,1.5,0.4,NCCDB,,"oz",
-zucchini,zucchini,100,g,17,1.2,2.1,0.3,NCCDB,,"oz",
-protein-onw,"protein powder, optimum nutrition whey",1,scoop,120,24,4,1.5,BRAND,optimum nutrition whey,,
-protein-diso,"protein powder, dymatize iso100",1,scoop,110,25,1,0,BRAND,dymatize ISO100,,
-protein-aiso,"protein powder, allmax isoflex",1,scoop,120,27,2,0,BRAND,allmax isoflex,,
-protein-gw,"protein powder, ghost whey",1,scoop,150,25,6,2.5,BRAND,ghost whey,,
-tortilla-corn6,"corn tortilla 6""",1,x,52,1.4,9.4,0.7,NCCDB,,,
-tortilla-wheat6,"whole wheat tortilla 6""",1,x,81,3,13,1.5,NCCDB,,,
-tortilla-wheat8,"whole wheat tortilla 8""",1,x,120,4.4,19.3,2.2,NCCDB,,,
-tortilla-wheat10,"whole wheat tortilla 10""",1,x,176,6.5,28.3,3.2,NCCDB,,,
-tortilla-flour6,"flour tortilla 6""",1,x,100,2,15,3.5,USDA,,,
-tortilla-flour8,"flour tortilla 8""",1,x,150,3,20,5,USDA,,,
-tortilla-flour10,"flour tortilla 10""",1,x,220,5,32,7,USDA,,,
-trout-rainbowraw,"rainbow trout, raw",100,g,119,20.5,0,3.5,USDA,,"oz",
-trout-rainbowcooked,"rainbow trout, cooked",100,g,150,22.9,0,5.8,NCCDB,,"oz",
-cod-raw,"cod, raw",100,g,82,17.8,0,0.7,USDA,,"oz",
-cod-cooked,"cod, cooked",100,g,105,22.8,0,0.9,NCCDB,,"oz",
-turkey-breastsliced,"turkey breast, sliced",1,x,30,4.2,0.6,1.1,NCCDB,,,
-bean-black,black beans,100,g,140,8.2,15.5,0.6,NCCDB,,"oz",
-bean-pinto,pinto beans,100,g,114,7,14.7,0.9,NCCDB,,"oz",
-bean-green,green beans,100,g,34,2,4.3,0.3,NCCDB,,"oz",
-chickpea,chickpeas,100,g,139,7.1,16,2.8,NCCDB,,"oz",
-granola-classic,"classic granola, HEB",1,cup,360,7.5,54,12,BRAND,HEB,"g,oz",120
-granola-nut,"granola with nuts, HEB",1,cup,390,7.5,46.5,19.5,BRAND,HEB,"g,oz",130
-granola-berries,"granola with berries, HEB",1,cup,320,6.7,52,9.3,BRAND,HEB,"g,oz",120
-granola-pecan,"granola with pecan, HEB",1,cup,435,9,58.5,19.5,BRAND,HEB,"g,oz",125
-oats,"oats, dry",1,cup,297,11,47,5.5,USDA,,"g,oz",80
-tilapia-raw,"tilapia, raw",100,g,96,20.1,0,1.7,USDA,,"oz",
-tilapia-cooked,"tilapia, cooked",100,g,128,26.2,0,2.7,NCCDB,,"oz",
-quinoa,"quinoa, dry",1,cup,626,24,97.2,10.3,NCCDB,,"g,oz",170
-chicken-drumraw,"chicken drumstick, raw",1,x,124,16.4,0,6,NCCDB,,,
-chicken-drumskinlessraw,"chicken drumstick, skinless raw",1,x,78,12.1,0,2.9,NCCDB,,,
-chicken-breastskinlessraw,"chicken breast, skinless raw",100,g,120,22.5,0,2.6,USDA,,"oz",
-chicken-breastskinlesscooked,"chicken breast, skinless cooked",100,g,173,30.9,0,4.5,NCCDB,,"oz",
-chicken-groundraw,"ground chicken, raw",100,g,143,17.4,0,8.1,USDA,,"oz",
-chicken-groundcooked,"ground chicken, cooked",100,g,189,23.3,0,10.9,USDA,,"oz",
-chicken-breastsliced,"chicken breast, sliced",1,x,29,4.9,0.8,0.5,NCCDB,,,
-turkey-sausage,"turkey sausage, medium",1,x,36,4.1,0.5,1.8,NCCDB,,,
-pork-sausage,"pork sausage, medium",1,x,88,3,0.1,8.3,NCCDB,,,
-pork-ground,ground pork,100,g,301,27.1,0,21.4,NCCDB,,"oz",
-pork-baconraw,"pork bacon, sliced raw",1,x,37,2.7,0.1,2.8,NCCDB,,,
-salami-2,"salami 2""",1,slice,19,1.1,0,1.6,NCCDB,,,
-salami-3,"salami 3""",1,slice,38,2.1,0.1,3.2,NCCDB,,,
-bread-wholewheat,whole wheat bread,1,slice,91,4.5,13.2,1.3,NCCDB,,,
-bread-white,white bread,1,slice,74,2.5,13.1,0.9,NCCDB,,,
-bread-rye,rye bread,1,slice,83,2.7,14,1.1,NCCDB,,,
-bread-multigrain,multigrain bread,1,slice,69,3.5,9.3,1.1,USDA,,,
-bread-hotdog,"hot dog bun, HEB",1,x,130,4,23,2,BRAND,HEB,,
-bread-burger,"burger bun, HEB",1,x,180,6,33,2,BRAND,HEB,,
-bread-burgerseeded,"seeded burger bun, HEB",1,x,180,6,33,2,BRAND,HEB,,
-bread-glutenfree,gluten-free bread,1,slice,80,1.9,12,2.4,NCCDB,,,
-beef-steaksirloin,sirloin steak,100,g,260,26.7,0,15.1,NCCDB,,"oz",
-beef-steaksirloinlean,lean sirloin steak,100,g,160,29.9,0,4.5,NCCDB,,"oz",
-beef-steakribeye,ribeye steak,100,g,250,26.7,0,15.1,NCCDB,,"oz",
-beef-steakribeyelean,lean ribeye steak,100,g,204,30.7,0,9,NCCDB,,"oz",
-sauce-soy,soy sauce,1,tbsp,8,1.3,0.6,0.1,NCCDB,,,
-bagel-plain,plain bagel,1,x,277,11.1,53.3,1.4,NCCDB,,,
-bagel-wholewheat,whole wheat bagel,1,x,257,11.7,45.6,1.8,NCCDB,,,
-bagel-multigrain,multigrain bagel,1,x,257,11.7,45.6,1.8,NCCDB,,,
-sriracha,hot chili sriracha,1,tbsp,18,0.4,3.3,0.2,NCCDB,,,
-sardines-water,"canned sardines, in water",1,can,164,21.3,0,8.7,NCCDB,,,
-sardines-oil,"canned sardines, in oil",1,can,191,22.7,0,10.5,NCCDB,,,
-ranch,ranch dressing,1,tbsp,53,0.1,1,5.5,NCCDB,,,
-creamcheese,cream cheese spread,1,tbsp,44,1.1,0.5,4.3,NCCDB,,,
-chicken-wingraw,"chicken wing, raw",1,x,89,8.3,0,5.9,NCCDB,,,
-chicken-wingskinlessraw,"chicken wing, skinless raw",1,x,39,5.8,0,1.6,NCCDB,,,
-pork-tenderloinraw,"pork tenderloin, raw",100,g,120,20.7,2,3.5,USDA,,"oz",
-pork-tenderloincooked,"pork tenderloin, cooked",100,g,147,26,0,4,USDA,,"oz",
-lambchop-loincooked,"lamb loin chop, cooked",100,g,276,22.5,0,20,NCCDB,,"oz",
-lambchop-loinleancooked,"lean lamb loin chop, cooked",100,g,204,28.4,0,9.2,NCCDB,,"oz",
-lambchop-ribcooked,"lamb rib chop, cooked",100,g,359,21.1,0,29.8,NCCDB,,"oz",
-lambchop-ribleancooked,"lean lamb rib chop, cooked",100,g,232,26.2,0,13.3,NCCDB,,"oz",
-lamb-groundcooked,"ground lamb, cooked",100,g,282,16.6,0,23.4,USDA,,"oz",
-porkchop-loincooked,"pork loin chop, cooked",100,g,252,27,0,15.2,NCCDB,,"oz",
-porkchop-loinleancooked,"lean pork loin chop, cooked",100,g,214,28.8,0,10.1,NCCDB,,"oz",
-porkchop-sirloincooked,"pork sirloin chop, cooked",100,g,214,28.8,0,10.1,NCCDB,,"oz",
-porkchop-sirloinleancooked,"lean pork sirloin chop, cooked",100,g,170,28.2,0,5.5,NCCDB,,"oz",
-shrimp-cooked,"shrimp, cooked",100,g,99,24,0.2,0.3,NCCDB,,"oz",
-shrimp-raw,"shrimp, raw",100,g,85,20.1,0,0.5,USDA,,"oz",
-yogurt-greek0,nonfat greek yogurt,1,cup,149,25.2,8.9,0.9,NCCDB,,"g,oz",245
-yogurt-greek2,2% greek yogurt,1,cup,186,25.7,9.6,4.6,NCCDB,,"g,oz",245
-yogurt-greek5,5% greek yogurt,1,cup,234,10.4,14.8,14.8,NCCDB,,"g,oz",245
-yogurt-greekwhole,whole milk greek yogurt,1,cup,233,21.5,11.6,10.8,NCCDB,,"g,oz",245
-cottagecheese0,nonfat cottage cheese,1,cup,151,21.7,14,0.6,NCCDB,,"g,oz",226
-cottagecheese2,low-fat cottage cheese,1,cup,188,23.6,10.8,5.1,NCCDB,,"g,oz",226
-cottagecheese4,4% cottage cheese,1,cup,220,24.4,9.7,8.9,NCCDB,,"g,oz",225
-rice-whitecooked,"white rice, cooked",1,cup,242,4.4,53.2,0.4,USDA,,"g,oz",186
-rice-browncooked,"brown rice, cooked",1,cup,218,4.5,42.3,1.6,USDA,,"g,oz",195
-watermelon,watermelon,100,g,30,0.6,7.2,0.2,USDA,,oz,
-grape,grapes,100,g,69,0.7,17.1,0.2,NCCDB,,oz,
-cucumber,cucumber,100,g,14,0.6,1.7,0.2,NCCDB,,oz,
-lettucer,lettuce,100,g,14,0.7,2.1,0.1,NCCDB,,oz,
-cauliflowerr,cauliflower,100,g,25,1.9,2.9,0.3,NCCDB,,oz,
-cabbager,cabbage,100,g,28,1,4.1,0.2,NCCDB,,oz,
-cheese-cheddar,cheddar cheese,100,g,403,22.9,3.4,33.3,NCCDB,,oz,
-cheese-cheddar25,25% reduced-fat cheddar cheese,100,g,316,27.4,2.7,20.4,NCCDB,,oz,
-cheese-cheddar50,50% reduced-fat cheddar cheese,100,g,268,26.5,4.8,15.8,NCCDB,,oz,
-cheese-cheddar75,75% reduced-fat cheddar cheese,100,g,173,24.4,1.9,7,NCCDB,,oz,
-cheese-cheddar100,fat-free cheddar cheese,100,g,148,22.7,11.5,1,NCCDB,,oz,
-cheese-parmesangrated,"parmesan cheese, grated",100,g,420,28.4,13.9,27.8,USDA,,oz,
-cheese-parmesanshredded,"parmesan cheese, shredded",100,g,415,37.9,3.4,27.3,USDA,,oz,
-cheese-mozzarellawhole,whole milk mozzarella cheese,100,g,318,21.6,2.5,24.6,NCCDB,,oz,
-cheese-mozzarellaskim,part-skim mozzarella cheese,100,g,295,23.8,5.6,19.8,NCCDB,,oz,
-cheese-mozzarellafree,fat-free mozzarella cheese,100,g,152,32.2,3.3,0.2,NCCDB,,oz,
-chicken-thighraw,"chicken thigh, boneless raw",100,g,239,28.2,0,13.2,NCCDB,,oz,
-chicken-thighskinlessraw,"chicken thigh, boneless skinless raw",100,g,173,27.7,0,6,NCCDB,,oz,
-chicken-thighcooked,"chicken thigh, boneless cooked",100,g,232,23.3,0,14.7,NCCDB,,oz,
-chicken-thighskinlesscooked,"chicken thigh, boneless skinless cooked",100,g,179,24.8,0,8.2,NCCDB,,oz,
-cashew,cashews,100,g,533,17.4,32.1,38.9,NCCDB,,oz,
-pistachio,pistachios,100,g,561,20.5,20.7,45,NCCDB,,oz,
-walnut,walnuts,100,g,679,14.6,5.5,69.7,NCCDB,,oz,
-roastbeef,"roast beef, sliced",1,slice,33,5.3,0.2,1,NCCDB,,,
-ham,"ham, sliced",1,slice,23,3.5,0.2,0.8,NCCDB,,,
-turkeyham,"turkey ham, sliced",1,slice,38,5.6,0.3,1.6,NCCDB,,,
-seeds-chia,chia seeds,100,g,486,16.5,7.7,30.7,NCCDB,,oz,
-seeds-flax,flax seeds,100,g,514,18,11.2,37.3,NCCDB,,oz,
-ricecake-caramel,"caramel rice cake, quaker",1,x,50,1,11,0,BRAND,quaker,,
-ricecake-cheddar,"white cheddar rice cake, quaker",1,x,60,1,9,2,BRAND,quaker,,
-ricecake-salted,"lightly salted rice cake, quaker",1,x,35,1,7,0,BRAND,quaker,,
-garlic,garlic,100,g,130,6.6,25.5,0.4,NCCDB,,oz,
-sugar,sugar,100,g,387,0,100,0,NCCDB,,oz,
-flour,white flour,100,g,375,10.9,74.3,1.5,NCCDB,,oz,
-cheese-american,american cheese,1,slice,78,3.9,1,6.5,NCCDB,,,
-cheese-americanfatfree,fat-free american cheese,1,slice,31,4.8,2.8,0.2,NCCDB,,,
-cheese-americanlowfat,reduced-fat american cheese,1,slice,51,3.7,2.3,3,NCCDB,,,
-yogurt-0,nonfat yogurt,1,cup,123,10.4,19.8,0.2,NCCDB,,"g,oz",245
-yogurt-2,2% yogurt,1,cup,154,12.9,17.2,3.8,NCCDB,,"g,oz",245
-yogurt-5,5% yogurt,1,cup,226,8.7,12.3,16,NCCDB,,"g,oz",245
-yogurt-whole,whole milk yogurt,1,cup,189,9.4,13.6,11,NCCDB,,"g,oz",245
-beef-hotdog,beef hot dog,1,x,134,4.6,2.2,11.8,NCCDB,,,
-chicken-hotdog,chicken hot dog,1,x,100,7,1.2,7.3,NCCDB,,,
-turkey-hotdog,turkey hot dog,1,x,100,5.5,1.7,7.8,NCCDB,,,
+id,name,serving,unit,calories,protein,carbs,fats,source,brand,altUnits,gPerBaseU,tag
+beef-ground70raw,"ground beef 70% lean, raw",100,g,332,14.4,0,30,USDA,,oz,,protein
+beef-ground70cooked,"ground beef 70% lean, cooked",100,g,270,25.6,0,17.9,USDA,,oz,,protein
+beef-ground75raw,"ground beef 75% lean, raw",100,g,293,15.8,0,25,USDA,,oz,,protein
+beef-ground75cooked,"ground beef 75% lean, cooked",100,g,277,26.3,0,18.2,USDA,,oz,,protein
+beef-ground80raw,"ground beef 80% lean, raw",100,g,254,17.2,0,20,USDA,,oz,,protein
+beef-ground80cooked,"ground beef 80% lean, cooked",100,g,272,27,0,17.4,USDA,,oz,,protein
+beef-ground85raw,"ground beef 85% lean, raw",100,g,215,18.6,0,15,USDA,,oz,,protein
+beef-ground85cooked,"ground beef 85% lean, cooked",100,g,256,27.7,0,15.3,USDA,,oz,,protein
+beef-ground90raw,"ground beef 90% lean, raw",100,g,176,20,0,10,USDA,,oz,,protein
+beef-ground90cooked,"ground beef 90% lean, cooked",100,g,230,28.5,0,12,USDA,,oz,,protein
+beef-ground93raw,"ground beef 93% lean, raw",100,g,152,20.9,0,7,USDA,,oz,,protein
+beef-ground93cooked,"ground beef 93% lean, cooked",100,g,209,28.9,0,9.5,USDA,,oz,,protein
+beef-ground95raw,"ground beef 95% lean, raw",100,g,137,21.4,0,5,USDA,,oz,,protein
+beef-ground95cooked,"ground beef 95% lean, cooked",100,g,193,29.2,0,7.6,USDA,,oz,,protein
+turkey-ground85raw,"ground turkey 85% lean, raw",100,g,180,16.9,0,12.5,USDA,,oz,,protein
+turkey-ground85cooked,"ground turkey 85% lean, cooked",100,g,258,25.1,0,17.5,USDA,,oz,,protein
+turkey-ground93raw,"ground turkey 93% lean, raw",100,g,150,18.7,0,8.3,USDA,,oz,,protein
+turkey-ground93cooked,"ground turkey 93% lean, cooked",100,g,213,27.1,0,11.6,USDA,,oz,,protein
+milk-almond,almond milk unsweetened,1,cup,37,1.3,0.8,3,NCCDB,,"floz,l,ml",,dairy
+apple,apple,100,g,52,0.3,10.6,0.2,NCCDB,,oz,,fruits
+asparagus,asparagus,100,g,20,2.2,1.7,0.1,NCCDB,,oz,,vegetables
+avocado,avocado,100,g,160,2,1.8,14.7,USDA,,oz,,fats
+bellpepper-green,green bell pepper,100,g,20,0.7,3.8,0.1,NCCDB,,oz,,vegetables
+bellpepper-red,red bell pepper,100,g,27,0.8,5.5,0.1,NCCDB,,oz,,vegetables
+bellpepper-yellow,yellow bell pepper,100,g,27,0.8,5.5,0.1,NCCDB,,oz,,vegetables
+butter-peanut,peanut butter,1,tbsp,95,3.9,2.6,8,NCCDB,,g,16,fats
+honey,honey,1,tbsp,64,0.1,17.3,0,NCCDB,,g,21,carbs
+almond,almonds,100,g,584,21.5,9,51.1,NCCDB,,oz,,fats
+butter-almond,almond butter,1,tbsp,94,3.2,1.8,8.3,NCCDB,,g,16,fats
+salmon-raw,"salmon, raw",100,g,208,20.4,0,13.4,USDA,,oz,,protein
+salmon-cooked,"salmon, cooked",100,g,206,22.1,0,12.4,USDA,,oz,,protein
+jam-apricot,apricot jam,1,tbsp,48,0.1,12.8,0,USDA,,g,20,carbs
+jam-strawberry,strawberry jam,1,tbsp,59,0,14.1,0,USDA,,g,20,fruits
+jam-blackberry,blackberry jam,1,tbsp,50,0,12.5,0,USDA,,g,20,fruits
+jam-raspberry,"raspberry jam, smucker's",1,tbsp,50,0.1,12,0,BRAND,smucker's,g,20,carbs
+jam-blueberry,"blueberry jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20,fruits
+jam-cherry,"cherry jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20,carbs
+jam-peach,"peach jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20,carbs
+pasta,"pasta, dry",100,g,371,13,71.5,1.5,USDA,,oz,,carbs
+pasta-wholewheat,"whole wheat pasta, dry",100,g,352,13.9,64.2,2.9,USDA,,oz,,carbs
+pasta-glutenfree,"gluten-free pasta, dry",100,g,357,7.5,68.3,2.1,USDA,,oz,,carbs
+egg-large,large egg,1,x,78,6.3,0.6,5.3,NCCDB,,,,protein
+egg-small,small egg,1,x,59,4.8,0.4,4,NCCDB,,,,protein
+tofu-firm,firm tofu,100,g,78,9,1.8,4.2,NCCDB,,oz,,protein
+tofu-extrafirm,extra firm tofu,100,g,83,10,0.7,5.3,NCCDB,,oz,,protein
+rice-white,"white rice, dry",1,cup,675,13.2,145.4,1.2,NCCDB,,"g,oz",185,carbs
+rice-brown,"brown rice, dry",1,cup,681,13.4,136.6,6.1,NCCDB,,"g,oz",185,carbs
+tuna-water,"canned tuna, in water",100,g,116,25.5,0,0.8,NCCDB,,oz,,protein
+tuna-oil,"canned tuna, in oil",100,g,198,29.1,0,8.2,NCCDB,,oz,,protein
+tuna-raw,"tuna, raw",100,g,144,23.3,0,4.9,NCCDB,,oz,,protein
+tuna-cooked,"tuna, cooked",100,g,130,29.2,0,0.6,NCCDB,,oz,,protein
+sauce-marinara,marinara sauce,1,cup,126,3.6,16.2,4.3,NCCDB,,,,
+sauce-pesto,pesto sauce,1,tbsp,63,0.9,0.5,6.5,NCCDB,,,,fats
+sauce-bbq,barbecue sauce,1,tbsp,29,0.1,6.8,0.1,USDA,,,,
+sauce-alfredoclass,"classic alfredo sauce, carbone",1,cup,400,12,8,36,BRAND,carbone,,,
+sauce-alfredotruff,"black truffle alfredo sauce, carbone",1,cup,440,12,8,40,BRAND,carbone,,,
+sauce-alfredogarlic,"garlic alfredo sauce, carbone",1,cup,400,3,2,9,BRAND,carbone,,,
+milk-whole,whole milk,1,cup,146,8,11.3,7.8,NCCDB,,"floz,l,ml",,dairy
+milk-1pc,1% milk,1,cup,105,8.2,12.6,2.3,NCCDB,,"floz,l,ml",,dairy
+milk-2pc,2% milk,1,cup,122,8.2,11.9,4.6,NCCDB,,"floz,l,ml",,dairy
+milk-skim,skim milk,1,cup,83,8.4,12,0.2,NCCDB,,"floz,l,ml",,dairy
+milk-goat,goat milk,1,cup,168,8.7,10.8,10.1,NCCDB,,"floz,l,ml",,dairy
+milk-oat,oat milk,1,cup,117,2,10.6,6.7,NCCDB,,"floz,l,ml",,dairy
+milk-soy,unsweetened soy milk,1,cup,91,9,3,5,NCCDB,,"floz,l,ml",,dairy
+milk-coconut,unsweetened coconut milk,1,cup,44,0.5,1,4,NCCDB,,"floz,l,ml",,dairy
+oil-veg,vegetable oil,1,tsp,120,0,0,13.6,NCCDB,,"floz,ml",,fats
+oil-olive,olive oil,1,tbsp,119,0,0,13.5,NCCDB,,"floz,ml",,fats
+potato,potato,100,g,58,2.6,9.9,0.1,USDA,,oz,,carbs
+potato-sweet,sweet potato,100,g,77,1.6,14.3,0.4,NCCDB,,oz,,carbs
+nutella,nutella,1,tbsp,100,1,11,5.5,BRAND,nutella,,,fats
+banana,banana,100,g,88,0.7,21.3,0.3,NCCDB,,oz,,fruits
+pear,pear,100,g,57,0.4,9.8,0.1,NCCDB,,oz,,fruits
+blackberry,blackberry,100,g,43,1.4,4.2,0.5,NCCDB,,oz,,fruits
+strawberry,strawberry,100,g,33,0.6,5.8,0.2,NCCDB,,oz,,fruits
+blueberry,blueberry,100,g,57,0.7,12.2,0.3,NCCDB,,oz,,fruits
+kiwi,kiwi,100,g,61,1.1,11.5,0.5,NCCDB,,oz,,fruits
+mango,mango,100,g,60,0.8,13.2,0.4,NCCDB,,oz,,fruits
+orange,orange,100,g,47,0.9,9.1,0.1,NCCDB,,oz,,fruits
+pineapple,pineapple,100,g,54,0.5,13.1,0.2,NCCDB,,oz,,fruits
+broccoli,broccoli,100,g,34,2.8,4,0.4,NCCDB,,oz,,vegetables
+butter-salted,salted butter,1,tbsp,103,0.1,0.1,11.7,NCCDB,,g,14,fats
+butter,butter,1,tbsp,102,0.1,0,11.6,NCCDB,,g,14,fats
+mayonnaise,mayonnaise,1,tbsp,93,0.1,0.1,10.3,NCCDB,,,,fats
+mayonnaise-lowfats,low-fat mayonnaise,1,tbsp,36,0.1,1.4,3.3,NCCDB,,,,fats
+mustard,mustard,1,tbsp,10,0.6,0.3,0.6,USDA,,,,
+carrot,carrot,100,g,45,0.9,6.9,0.4,NCCDB,,oz,,vegetables
+onion,onion,100,g,40,1.1,7.7,0.1,NCCDB,,oz,,vegetables
+ketchup,ketchup,1,tbsp,15,0.2,4.1,0,NCCDB,,,,
+corn,"corn, canned",100,g,67,2.3,12.3,1.2,NCCDB,,oz,,carbs
+spinach,spinach,1,cup,7,0.9,0.3,0.2,NCCDB,,oz,,vegetables
+tomato,tomato,100,g,18,0.9,2.7,0.2,NCCDB,,oz,,vegetables
+eggplant,eggplant,100,g,25,1,2.8,0.2,NCCDB,,oz,,protein
+mushroom-canned,"mushroom, canned",100,g,25,1.9,2.3,0.3,NCCDB,,oz,,vegetables
+mushroom-white,white mushroom,100,g,25,2.9,1.5,0.4,NCCDB,,oz,,vegetables
+zucchini,zucchini,100,g,17,1.2,2.1,0.3,NCCDB,,oz,,vegetables
+protein-onw,"protein powder, optimum nutrition whey",1,scoop,120,24,4,1.5,BRAND,optimum nutrition whey,,,protein
+protein-diso,"protein powder, dymatize iso100",1,scoop,110,25,1,0,BRAND,dymatize ISO100,,,protein
+protein-aiso,"protein powder, allmax isoflex",1,scoop,120,27,2,0,BRAND,allmax isoflex,,,protein
+protein-gw,"protein powder, ghost whey",1,scoop,150,25,6,2.5,BRAND,ghost whey,,,protein
+tortilla-corn6,"corn tortilla 6""",1,x,52,1.4,9.4,0.7,NCCDB,,,,carbs
+tortilla-wheat6,"whole wheat tortilla 6""",1,x,81,3,13,1.5,NCCDB,,,,carbs
+tortilla-wheat8,"whole wheat tortilla 8""",1,x,120,4.4,19.3,2.2,NCCDB,,,,carbs
+tortilla-wheat10,"whole wheat tortilla 10""",1,x,176,6.5,28.3,3.2,NCCDB,,,,carbs
+tortilla-flour6,"flour tortilla 6""",1,x,100,2,15,3.5,USDA,,,,carbs
+tortilla-flour8,"flour tortilla 8""",1,x,150,3,20,5,USDA,,,,carbs
+tortilla-flour10,"flour tortilla 10""",1,x,220,5,32,7,USDA,,,,carbs
+trout-rainbowraw,"rainbow trout, raw",100,g,119,20.5,0,3.5,USDA,,oz,,protein
+trout-rainbowcooked,"rainbow trout, cooked",100,g,150,22.9,0,5.8,NCCDB,,oz,,protein
+cod-raw,"cod, raw",100,g,82,17.8,0,0.7,USDA,,oz,,protein
+cod-cooked,"cod, cooked",100,g,105,22.8,0,0.9,NCCDB,,oz,,protein
+turkey-breastsliced,"turkey breast, sliced",1,x,30,4.2,0.6,1.1,NCCDB,,,,protein
+bean-black,black beans,100,g,140,8.2,15.5,0.6,NCCDB,,oz,,carbs
+bean-pinto,pinto beans,100,g,114,7,14.7,0.9,NCCDB,,oz,,carbs
+bean-green,green beans,100,g,34,2,4.3,0.3,NCCDB,,oz,,vegetables
+chickpea,chickpeas,100,g,139,7.1,16,2.8,NCCDB,,oz,,carbs
+granola-classic,"classic granola, HEB",1,cup,360,7.5,54,12,BRAND,HEB,"g,oz",120,carbs
+granola-nut,"granola with nuts, HEB",1,cup,390,7.5,46.5,19.5,BRAND,HEB,"g,oz",130,carbs
+granola-berries,"granola with berries, HEB",1,cup,320,6.7,52,9.3,BRAND,HEB,"g,oz",120,carbs
+granola-pecan,"granola with pecan, HEB",1,cup,435,9,58.5,19.5,BRAND,HEB,"g,oz",125,carbs
+oats,"oats, dry",1,cup,297,11,47,5.5,USDA,,"g,oz",80,carbs
+tilapia-raw,"tilapia, raw",100,g,96,20.1,0,1.7,USDA,,oz,,protein
+tilapia-cooked,"tilapia, cooked",100,g,128,26.2,0,2.7,NCCDB,,oz,,protein
+quinoa,"quinoa, dry",1,cup,626,24,97.2,10.3,NCCDB,,"g,oz",170,carbs
+chicken-drumraw,"chicken drumstick, raw",1,x,124,16.4,0,6,NCCDB,,,,protein
+chicken-drumskinlessraw,"chicken drumstick, skinless raw",1,x,78,12.1,0,2.9,NCCDB,,,,protein
+chicken-breastskinlessraw,"chicken breast, skinless raw",100,g,120,22.5,0,2.6,USDA,,oz,,protein
+chicken-breastskinlesscooked,"chicken breast, skinless cooked",100,g,173,30.9,0,4.5,NCCDB,,oz,,protein
+chicken-groundraw,"ground chicken, raw",100,g,143,17.4,0,8.1,USDA,,oz,,protein
+chicken-groundcooked,"ground chicken, cooked",100,g,189,23.3,0,10.9,USDA,,oz,,protein
+chicken-breastsliced,"chicken breast, sliced",1,x,29,4.9,0.8,0.5,NCCDB,,,,protein
+turkey-sausage,"turkey sausage, medium",1,x,36,4.1,0.5,1.8,NCCDB,,,,protein
+pork-sausage,"pork sausage, medium",1,x,88,3,0.1,8.3,NCCDB,,,,protein
+pork-ground,ground pork,100,g,301,27.1,0,21.4,NCCDB,,oz,,protein
+pork-baconraw,"pork bacon, sliced raw",1,x,37,2.7,0.1,2.8,NCCDB,,,,protein
+salami-2,"salami 2""",1,slice,19,1.1,0,1.6,NCCDB,,,,
+salami-3,"salami 3""",1,slice,38,2.1,0.1,3.2,NCCDB,,,,
+bread-wholewheat,whole wheat bread,1,slice,91,4.5,13.2,1.3,NCCDB,,,,carbs
+bread-white,white bread,1,slice,74,2.5,13.1,0.9,NCCDB,,,,carbs
+bread-rye,rye bread,1,slice,83,2.7,14,1.1,NCCDB,,,,carbs
+bread-multigrain,multigrain bread,1,slice,69,3.5,9.3,1.1,USDA,,,,carbs
+bread-hotdog,"hot dog bun, HEB",1,x,130,4,23,2,BRAND,HEB,,,carbs
+bread-burger,"burger bun, HEB",1,x,180,6,33,2,BRAND,HEB,,,carbs
+bread-burgerseeded,"seeded burger bun, HEB",1,x,180,6,33,2,BRAND,HEB,,,carbs
+bread-glutenfree,gluten-free bread,1,slice,80,1.9,12,2.4,NCCDB,,,,carbs
+beef-steaksirloin,sirloin steak,100,g,260,26.7,0,15.1,NCCDB,,oz,,protein
+beef-steaksirloinlean,lean sirloin steak,100,g,160,29.9,0,4.5,NCCDB,,oz,,protein
+beef-steakribeye,ribeye steak,100,g,250,26.7,0,15.1,NCCDB,,oz,,protein
+beef-steakribeyelean,lean ribeye steak,100,g,204,30.7,0,9,NCCDB,,oz,,protein
+sauce-soy,soy sauce,1,tbsp,8,1.3,0.6,0.1,NCCDB,,,,
+bagel-plain,plain bagel,1,x,277,11.1,53.3,1.4,NCCDB,,,,carbs
+bagel-wholewheat,whole wheat bagel,1,x,257,11.7,45.6,1.8,NCCDB,,,,carbs
+bagel-multigrain,multigrain bagel,1,x,257,11.7,45.6,1.8,NCCDB,,,,carbs
+sriracha,hot chili sriracha,1,tbsp,18,0.4,3.3,0.2,NCCDB,,,,
+sardines-water,"canned sardines, in water",1,can,164,21.3,0,8.7,NCCDB,,,,protein
+sardines-oil,"canned sardines, in oil",1,can,191,22.7,0,10.5,NCCDB,,,,protein
+ranch,ranch dressing,1,tbsp,53,0.1,1,5.5,NCCDB,,,,
+creamcheese,cream cheese spread,1,tbsp,44,1.1,0.5,4.3,NCCDB,,,,dairy
+chicken-wingraw,"chicken wing, raw",1,x,89,8.3,0,5.9,NCCDB,,,,protein
+chicken-wingskinlessraw,"chicken wing, skinless raw",1,x,39,5.8,0,1.6,NCCDB,,,,protein
+pork-tenderloinraw,"pork tenderloin, raw",100,g,120,20.7,2,3.5,USDA,,oz,,protein
+pork-tenderloincooked,"pork tenderloin, cooked",100,g,147,26,0,4,USDA,,oz,,protein
+lambchop-loincooked,"lamb loin chop, cooked",100,g,276,22.5,0,20,NCCDB,,oz,,protein
+lambchop-loinleancooked,"lean lamb loin chop, cooked",100,g,204,28.4,0,9.2,NCCDB,,oz,,protein
+lambchop-ribcooked,"lamb rib chop, cooked",100,g,359,21.1,0,29.8,NCCDB,,oz,,protein
+lambchop-ribleancooked,"lean lamb rib chop, cooked",100,g,232,26.2,0,13.3,NCCDB,,oz,,protein
+lamb-groundcooked,"ground lamb, cooked",100,g,282,16.6,0,23.4,USDA,,oz,,protein
+porkchop-loincooked,"pork loin chop, cooked",100,g,252,27,0,15.2,NCCDB,,oz,,protein
+porkchop-loinleancooked,"lean pork loin chop, cooked",100,g,214,28.8,0,10.1,NCCDB,,oz,,protein
+porkchop-sirloincooked,"pork sirloin chop, cooked",100,g,214,28.8,0,10.1,NCCDB,,oz,,protein
+porkchop-sirloinleancooked,"lean pork sirloin chop, cooked",100,g,170,28.2,0,5.5,NCCDB,,oz,,protein
+shrimp-cooked,"shrimp, cooked",100,g,99,24,0.2,0.3,NCCDB,,oz,,protein
+shrimp-raw,"shrimp, raw",100,g,85,20.1,0,0.5,USDA,,oz,,protein
+yogurt-greek0,nonfat greek yogurt,1,cup,149,25.2,8.9,0.9,NCCDB,,"g,oz",245,dairy
+yogurt-greek2,2% greek yogurt,1,cup,186,25.7,9.6,4.6,NCCDB,,"g,oz",245,dairy
+yogurt-greek5,5% greek yogurt,1,cup,234,10.4,14.8,14.8,NCCDB,,"g,oz",245,dairy
+yogurt-greekwhole,whole milk greek yogurt,1,cup,233,21.5,11.6,10.8,NCCDB,,"g,oz",245,dairy
+cottagecheese0,non-fat cottage cheese,1,cup,151,21.7,14,0.6,NCCDB,,"g,oz",226,dairy
+cottagecheese2,low-fat cottage cheese,1,cup,188,23.6,10.8,5.1,NCCDB,,"g,oz",226,dairy
+cottagecheese4,4% cottage cheese,1,cup,220,24.4,9.7,8.9,NCCDB,,"g,oz",225,dairy
+rice-whitecooked,"white rice, cooked",1,cup,242,4.4,53.2,0.4,USDA,,"g,oz",186,carbs
+rice-browncooked,"brown rice, cooked",1,cup,218,4.5,42.3,1.6,USDA,,"g,oz",195,carbs
+watermelon,watermelon,100,g,30,0.6,7.2,0.2,USDA,,oz,,fruits
+grape,grapes,100,g,69,0.7,17.1,0.2,NCCDB,,oz,,fruits
+cucumber,cucumber,100,g,14,0.6,1.7,0.2,NCCDB,,oz,,vegetables
+lettucer,lettuce,100,g,14,0.7,2.1,0.1,NCCDB,,oz,,vegetables
+cauliflowerr,cauliflower,100,g,25,1.9,2.9,0.3,NCCDB,,oz,,vegetables
+cabbager,cabbage,100,g,28,1,4.1,0.2,NCCDB,,oz,,vegetables
+cheese-cheddar,cheddar cheese,100,g,403,22.9,3.4,33.3,NCCDB,,oz,,dairy
+cheese-cheddar25,25% reduced-fat cheddar cheese,100,g,316,27.4,2.7,20.4,NCCDB,,oz,,dairy
+cheese-cheddar50,50% reduced-fat cheddar cheese,100,g,268,26.5,4.8,15.8,NCCDB,,oz,,dairy
+cheese-cheddar75,75% reduced-fat cheddar cheese,100,g,173,24.4,1.9,7,NCCDB,,oz,,dairy
+cheese-cheddar100,fat-free cheddar cheese,100,g,148,22.7,11.5,1,NCCDB,,oz,,dairy
+cheese-parmesangrated,"parmesan cheese, grated",100,g,420,28.4,13.9,27.8,USDA,,oz,,dairy
+cheese-parmesanshredded,"parmesan cheese, shredded",100,g,415,37.9,3.4,27.3,USDA,,oz,,dairy
+cheese-mozzarellawhole,whole milk mozzarella cheese,100,g,318,21.6,2.5,24.6,NCCDB,,oz,,dairy
+cheese-mozzarellaskim,part-skim mozzarella cheese,100,g,295,23.8,5.6,19.8,NCCDB,,oz,,dairy
+cheese-mozzarellafree,fat-free mozzarella cheese,100,g,152,32.2,3.3,0.2,NCCDB,,oz,,dairy
+chicken-thighraw,"chicken thigh, boneless raw",100,g,239,28.2,0,13.2,NCCDB,,oz,,protein
+chicken-thighskinlessraw,"chicken thigh, boneless skinless raw",100,g,173,27.7,0,6,NCCDB,,oz,,protein
+chicken-thighcooked,"chicken thigh, boneless cooked",100,g,232,23.3,0,14.7,NCCDB,,oz,,protein
+chicken-thighskinlesscooked,"chicken thigh, boneless skinless cooked",100,g,179,24.8,0,8.2,NCCDB,,oz,,protein
+cashew,cashews,100,g,533,17.4,32.1,38.9,NCCDB,,oz,,fats
+pistachio,pistachios,100,g,561,20.5,20.7,45,NCCDB,,oz,,fats
+walnut,walnuts,100,g,679,14.6,5.5,69.7,NCCDB,,oz,,fats
+roastbeef,"roast beef, sliced",1,slice,33,5.3,0.2,1,NCCDB,,,,protein
+ham,"ham, sliced",1,slice,23,3.5,0.2,0.8,NCCDB,,,,protein
+turkeyham,"turkey ham, sliced",1,slice,38,5.6,0.3,1.6,NCCDB,,,,protein
+seeds-chia,chia seeds,100,g,486,16.5,7.7,30.7,NCCDB,,oz,,fats
+seeds-flax,flax seeds,100,g,514,18,11.2,37.3,NCCDB,,oz,,fats
+ricecake-caramel,"caramel rice cake, quaker",1,x,50,1,11,0,BRAND,quaker,,,carbs
+ricecake-cheddar,"white cheddar rice cake, quaker",1,x,60,1,9,2,BRAND,quaker,,,carbs
+ricecake-salted,"lightly salted rice cake, quaker",1,x,35,1,7,0,BRAND,quaker,,,carbs
+garlic,garlic,100,g,130,6.6,25.5,0.4,NCCDB,,oz,,vegetables
+sugar,sugar,100,g,387,0,100,0,NCCDB,,oz,,carbs
+flour,white flour,100,g,375,10.9,74.3,1.5,NCCDB,,oz,,carbs
+cheese-american,american cheese,1,slice,78,3.9,1,6.5,NCCDB,,,,dairy
+cheese-americanfatsfree,fat-free american cheese,1,slice,31,4.8,2.8,0.2,NCCDB,,,,dairy
+cheese-americanlowfats,reduced-fat american cheese,1,slice,51,3.7,2.3,3,NCCDB,,,,dairy
+yogurt-0,nonfat yogurt,1,cup,123,10.4,19.8,0.2,NCCDB,,"g,oz",245,dairy
+yogurt-2,2% yogurt,1,cup,154,12.9,17.2,3.8,NCCDB,,"g,oz",245,dairy
+yogurt-5,5% yogurt,1,cup,226,8.7,12.3,16,NCCDB,,"g,oz",245,dairy
+yogurt-whole,whole milk yogurt,1,cup,189,9.4,13.6,11,NCCDB,,"g,oz",245,dairy
+beef-hotdog,beef hot dog,1,x,134,4.6,2.2,11.8,NCCDB,,,,protein
+chicken-hotdog,chicken hot dog,1,x,100,7,1.2,7.3,NCCDB,,,,protein
+turkey-hotdog,turkey hot dog,1,x,100,5.5,1.7,7.8,NCCDB,,,,protein

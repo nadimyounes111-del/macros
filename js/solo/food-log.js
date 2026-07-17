@@ -6,6 +6,28 @@ window.renderLog = renderLog;
 
 window.expandedRows = window.expandedRows || new Set();
 
+let activeFilter = null; // null = no filter, show everything matching search
+
+document.querySelectorAll(".filters button").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const tag = this.dataset.tag;
+    if (tag === "recents") return;
+
+    if (activeFilter === tag) {
+      activeFilter = null;
+      this.classList.remove("active");
+    } else {
+      document
+        .querySelectorAll(".filters button")
+        .forEach((b) => b.classList.remove("active"));
+      activeFilter = tag;
+      this.classList.add("active");
+    }
+
+    document.getElementById("food-search").dispatchEvent(new Event("input"));
+  });
+});
+
 let collapsedMeals = {};
 
 function formatFoodName(rawName) {
@@ -296,11 +318,18 @@ function setupAddFood() {
     const query = this.value.toLowerCase().trim();
     autocompleteList.innerHTML = "";
 
-    const matches = (
-      query
-        ? foods.filter((f) => f.name && f.name.toLowerCase().includes(query))
-        : foods
-    )
+    let matches = query
+      ? foods.filter((f) => f.name && f.name.toLowerCase().includes(query))
+      : foods;
+
+    if (activeFilter) {
+      matches = matches.filter((f) => {
+        const tags = (f.tag || "").split(",").map((t) => t.trim());
+        return tags.includes(activeFilter);
+      });
+    }
+
+    matches = matches
       .slice()
       .sort((a, b) =>
         formatFoodName(a.name).title.localeCompare(
@@ -330,14 +359,7 @@ function setupAddFood() {
     });
   };
 
-  document.onclick = function (e) {
-    if (
-      !searchInput.contains(e.target) &&
-      !autocompleteList.contains(e.target)
-    ) {
-      autocompleteList.innerHTML = "";
-    }
-  };
+  searchInput.dispatchEvent(new Event("input"));
 
   servingsInput.oninput = updatePreview;
 
@@ -495,7 +517,7 @@ function getUnitOptions(food) {
     const uClass = unitClass(u);
     if (uClass === base) {
       options.push(u); // same-class, always convertible
-    } else if (food.gramsPerBaseUnit) {
+    } else if (food.gPerBaseU) {
       options.push(u); // cross-class, only if density is provided
     }
     // else: silently skip — CSV requested a unit we can't actually convert to
@@ -521,8 +543,8 @@ function convertToBaseServings(food, amount, toUnit) {
     return targetAmountInUnits / baseAmountInUnits;
   }
 
-  if (!food.gramsPerBaseUnit) return null;
-  const baseGrams = food.gramsPerBaseUnit * food.serving;
+  if (!food.gPerBaseU) return null;
+  const baseGrams = food.gPerBaseU * food.serving;
   const targetGrams = WEIGHT_UNITS[toUnit] * amount;
   return targetGrams / baseGrams;
 }

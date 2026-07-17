@@ -175,12 +175,14 @@
 #autocomplete-list {
   display: flex;
   flex-direction: column;
-  max-height: 60vh;
+  height: 30vh;
   overflow-y: auto;
   box-sizing: border-box;
   border-radius: 10px;
   padding: 5px;
   gap: 10px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
 }
 
 #autocomplete-list li {
@@ -195,6 +197,78 @@
   flex-direction: column;
 }
 
+#autocomplete-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, newer Edge */
+}
+
+.search-bar {
+  display: flex;
+  background-color: var(--dark-blue);
+  border-radius: 10px;
+  width: 100%;
+  caret-color: var(--white);
+  align-items: center;
+  padding-left: 5px;
+}
+
+.filters-wrapper {
+  display: flex;
+  padding: 10px 0;
+  z-index: 10;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filters-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.filters button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-blue);
+  font-size: var(--text-base);
+  color: var(--light-blue);
+  gap: 3px;
+  border-radius: 10px;
+  padding: 5px 5px 5px 3px;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.filters button.active {
+  background-color: var(--orange);
+  color: white;
+}
+
+.filters button:active {
+  transform: scale(0.95);
+}
+
+.filters button.active .filter-svg {
+  color: white;
+}
+
+.filter-svg {
+  display: flex;
+  align-items: center;
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-blue);
+}
+
 .food-title {
   font-size: var(--text-base);
   color: white;
@@ -205,14 +279,20 @@
   color: var(--light-blue);
 }
 
-#autocomplete-list:empty {
+/* #autocomplete-list:empty {
   display: none;
-}
+} */
 
 .add-food-servings {
   display: flex;
   align-items: center;
   gap: clamp(6px, 4.86px + 0.357vw, 10px);
+}
+
+.search-icon {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-blue);
 }
 
 .food-search-wrap {
@@ -231,7 +311,6 @@
 }
 
 #food-search:focus {
-  border: 2px solid var(--orange);
   outline: none;
 }
 
