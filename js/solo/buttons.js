@@ -49,6 +49,8 @@ function addModalEnter(e) {
 
 function openFoodModal() {
   document.getElementById("add-modal").classList.add("active");
+  injectIcons(document.getElementById("add-modal"));
+  document.getElementById("add-modal").classList.add("active");
   document.getElementById("food-search").focus();
   document.body.classList.add("modal-open");
   document.addEventListener("keydown", addModalEnter);
@@ -61,10 +63,6 @@ function closeFoodModal() {
   document.removeEventListener("keydown", addModalEnter);
 }
 
-document
-  .getElementById("add-modal-overlay")
-  .addEventListener("click", closeFoodModal);
-
 document.querySelectorAll(".meal-btn").forEach(function (btn) {
   btn.addEventListener("click", function () {
     document
@@ -73,7 +71,6 @@ document.querySelectorAll(".meal-btn").forEach(function (btn) {
     this.classList.add("active");
   });
 });
-
 // shortcuts
 document.addEventListener("keydown", function (e) {
   if (e.code === "Space" && e.target === document.body) openFoodModal();

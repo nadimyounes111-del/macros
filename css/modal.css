@@ -362,6 +362,8 @@
 }
 
 #food-search {
+  font-size: var(--text-base);
+  font-family: "Cal Sans";
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   color: var(--white);
   background: var(--dark-blue);
@@ -378,6 +380,7 @@
 
 #servings {
   font-family: "Cal Sans";
+  font-size: var(--text-base);
   width: clamp(80px, 74.29px + 1.786vw, 100px) !important;
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   color: var(--white);

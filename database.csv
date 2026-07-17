@@ -1,4 +1,4 @@
-id,name,serving,unit,calories,protein,carbs,fats,source,brand,altUnits,gPerBaseU,tag
+id,name,serving,unit,calories,protein,carbs,fat,source,brand,altUnits,gPerBaseU,tag
 beef-ground70raw,"ground beef 70% lean, raw",100,g,332,14.4,0,30,USDA,,oz,,protein
 beef-ground70cooked,"ground beef 70% lean, cooked",100,g,270,25.6,0,17.9,USDA,,oz,,protein
 beef-ground75raw,"ground beef 75% lean, raw",100,g,293,15.8,0,25,USDA,,oz,,protein
