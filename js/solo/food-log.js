@@ -8,6 +8,20 @@ window.expandedRows = window.expandedRows || new Set();
 
 let activeFilter = null; // null = no filter, show everything matching search
 
+let toastTimeout;
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  clearTimeout(toastTimeout);
+  toast.className = "toast-base toast-info visible";
+  toast.textContent = message;
+  toast.onclick = null;
+
+  toastTimeout = setTimeout(() => {
+    toast.classList.remove("visible");
+  }, 2500);
+}
+
 const stagingName = document.querySelector(".staging-food-name");
 
 function changeEntryMeal(index, newMeal) {
@@ -117,12 +131,9 @@ function saveFood(closeAfter = true) {
   saveLog();
   renderLog();
   resetFoodSelection();
+  showToast(`Item added`);
   setStagingFood(null);
   closeAfter ? closeFoodModal() : resetFoodModalForNextEntry();
-  setTimeout(() => {
-    const row = document.querySelector(`[data-index="${newIndex}"]`);
-    if (row) row.classList.add("row-flash");
-  }, 200);
 }
 
 function resetFoodModalForNextEntry() {

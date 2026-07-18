@@ -23,7 +23,7 @@
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  padding: 25px;
+  padding: 25px 10px 10px 10px;
   transition:
     opacity 0.2s ease,
     visibility 0.2s ease;
@@ -50,7 +50,7 @@
   justify-content: center;
   inset: 0;
   z-index: 9999;
-  padding: 25px;
+  padding: 25px 10px 10px 10px;
   opacity: 0;
   visibility: hidden;
   transition:
@@ -289,7 +289,6 @@
 
 .staging-food-name[data-empty="true"] {
   color: var(--light-grayP);
-  font-style: italic;
 }
 
 .staging-food-name[data-empty="false"] {
@@ -657,4 +656,41 @@
   gap: 15px;
   justify-content: space-between;
   margin: 15px 0;
+}
+
+.toast-base {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background-color: var(--green);
+  color: var(--bg);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: var(--text-base);
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  z-index: 10000;
+}
+
+.toast-base.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.toast-info {
+}
+
+.toast-undo {
+  background-color: var(--light-blue);
+  cursor: pointer;
+}
+
+.toast-confirm {
+  background-color: #c0392b;
+  color: white;
+  cursor: pointer;
 }
