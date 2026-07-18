@@ -260,8 +260,13 @@ function renderLog() {
 
   <div class="row-bottom-wrap">
 
-  <div class="row-bottom-left">
-  <div class="subtitle-bottom">${formatFoodName(entry.food).subtitle}</div>
+    <select class="row-meal-select" onchange="changeEntryMeal(${index}, this.value)" onclick="event.stopPropagation()">
+      <option value="Breakfast" ${entry.meal === "Breakfast" ? "selected" : ""}>Breakfast</option>
+      <option value="Lunch" ${entry.meal === "Lunch" ? "selected" : ""}>Lunch</option>
+      <option value="Snack" ${entry.meal === "Snack" ? "selected" : ""}>Snack</option>
+      <option value="Dinner" ${entry.meal === "Dinner" ? "selected" : ""}>Dinner</option>
+    </select>
+
   <div class="macros-bottom">
     <div class="col-cal">
       <span class="macro-icon calories" data-icon="fire"></span>${Math.round(entry.calories)}
@@ -275,15 +280,12 @@ function renderLog() {
     <div class="col-fat">
       <span class="macro-icon fat" data-icon="avocado"></span>${Math.round(entry.fat)}
     </div>
-  </div>
+
+   
+  
   </div>
 
-    <select class="row-meal-select" onchange="changeEntryMeal(${index}, this.value)" onclick="event.stopPropagation()">
-      <option value="Breakfast" ${entry.meal === "Breakfast" ? "selected" : ""}>Breakfast</option>
-      <option value="Lunch" ${entry.meal === "Lunch" ? "selected" : ""}>Lunch</option>
-      <option value="Snack" ${entry.meal === "Snack" ? "selected" : ""}>Snack</option>
-      <option value="Dinner" ${entry.meal === "Dinner" ? "selected" : ""}>Dinner</option>
-    </select>
+   
 
 </div>
 </div>

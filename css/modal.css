@@ -258,7 +258,7 @@
   box-sizing: border-box;
   padding: 8px 12px;
   border-radius: 6px;
-  min-height: clamp(48px, 46.57px + 0.446vw, 53px);
+  min-height: clamp(52px, 50.29px + 0.536vw, 58px);
   background-color: rgb(30, 30, 30);
   cursor: pointer;
   font-size: var(--text-s);
@@ -417,7 +417,7 @@
 
 .food-title {
   font-size: var(--text-base);
-  color: var(--light-gray);
+  color: var(--white);
 }
 
 .food-subtitle {
