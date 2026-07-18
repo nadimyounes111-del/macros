@@ -8,6 +8,18 @@ window.expandedRows = window.expandedRows || new Set();
 
 let activeFilter = null; // null = no filter, show everything matching search
 
+const stagingName = document.querySelector(".staging-food-name");
+
+function setStagingFood(food) {
+  if (!food) {
+    stagingName.textContent = "Choose item to edit";
+    stagingName.dataset.empty = "true";
+    return;
+  }
+  stagingName.textContent = formatFoodName(food.name).title;
+  stagingName.dataset.empty = "false";
+}
+
 document.querySelectorAll(".filters button").forEach((btn) => {
   btn.addEventListener("click", function () {
     const tag = this.dataset.tag;
@@ -67,8 +79,7 @@ function toggleMealGroup(headerEl, mealName) {
 }
 
 function saveFood(closeAfter = true) {
-  const activeMealBtn = document.querySelector(".meal-btn.active");
-  const meal = activeMealBtn ? activeMealBtn.dataset.meal : "Breakfast";
+  const meal = document.getElementById("meal-select").value || "Breakfast";
   const servingsInput = document.getElementById("servings");
   const searchInput = document.getElementById("food-search");
 
@@ -79,10 +90,12 @@ function saveFood(closeAfter = true) {
       food: name,
       meal: meal,
       servings: 1,
-      calories: parseInt(document.getElementById("cal-preview").value) || 0,
-      protein: parseInt(document.getElementById("pro-preview").value) || 0,
-      carbs: parseInt(document.getElementById("carb-preview").value) || 0,
-      fat: parseInt(document.getElementById("fat-preview").value) || 0,
+      calories:
+        parseInt(document.getElementById("cal-preview").textContent) || 0,
+      protein:
+        parseInt(document.getElementById("pro-preview").textContent) || 0,
+      carbs: parseInt(document.getElementById("carb-preview").textContent) || 0,
+      fat: parseInt(document.getElementById("fat-preview").textContent) || 0,
       servingSize: "",
     };
     window.foodLog.push(entry);
@@ -347,23 +360,33 @@ function setupAddFood() {
     matches.forEach(function (food) {
       const { title, subtitle } = formatFoodName(food.name);
       const li = document.createElement("li");
+      li.className = "food-item";
       li.dataset.id = food.id;
       li.innerHTML = subtitle
         ? `<span class="food-title">${title}</span><span class="food-subtitle">${subtitle}</span>`
         : `<span class="food-title">${title}</span>`;
       li.addEventListener("click", function () {
-        selectedFood = food;
-        setCustomMode(false);
-        // removed: searchInput.value = subtitle ? `${title}, ${subtitle}` : title;
-        renderUnitSelector(food);
-        updatePreview();
+        const alreadySelected = this.classList.contains("active");
 
         autocompleteList
           .querySelectorAll("li")
           .forEach((item) => item.classList.remove("active"));
-        this.classList.add("active");
 
-        document.getElementById("servings").focus();
+        if (alreadySelected) {
+          selectedFood = null;
+          setStagingFood(null);
+          renderUnitSelector(null);
+          document.getElementById("servings").value = "";
+          updatePreview();
+          return;
+        }
+
+        selectedFood = food;
+        setStagingFood(food);
+        setCustomMode(false);
+        renderUnitSelector(food);
+        updatePreview();
+        this.classList.add("active");
       });
       autocompleteList.appendChild(li);
     });
@@ -405,7 +428,7 @@ function setCustomMode(on) {
       document.getElementById(id).onkeydown = function (e) {
         if (e.key !== "Enter") return;
         const allFilled = inputs.every(function (i) {
-          return document.getElementById(i).value !== "";
+          return document.getElementById(i).textContent !== "";
         });
         if (allFilled) saveFood();
       };
@@ -424,13 +447,13 @@ function setCustomMode(on) {
     ids.forEach(function (id) {
       const input = document.getElementById(id);
       input.disabled = true;
-      input.value = "";
+      input.textContent = "";
     });
   }
   ids.forEach(function (id) {
     const input = document.getElementById(id);
     input.disabled = !on;
-    input.value = "";
+    input.textContent = "";
     input.classList.toggle("custom", on);
   });
   document
@@ -442,10 +465,10 @@ function updatePreview() {
   if (!selectedFood || selectedFood === "custom") {
     if (selectedFood !== "custom") {
       document.getElementById("serving-size-label").textContent = "";
-      document.getElementById("cal-preview").value = "";
-      document.getElementById("pro-preview").value = "";
-      document.getElementById("carb-preview").value = "";
-      document.getElementById("fat-preview").value = "";
+      document.getElementById("cal-preview").textContent = "0";
+      document.getElementById("pro-preview").textContent = "0";
+      document.getElementById("carb-preview").textContent = "0";
+      document.getElementById("fat-preview").textContent = "0";
     }
     return;
   }
@@ -453,16 +476,16 @@ function updatePreview() {
   const unit = selectedUnit || selectedFood.unit;
   const servings = convertToBaseServings(selectedFood, rawAmount, unit) || 0;
 
-  document.getElementById("cal-preview").value = (
+  document.getElementById("cal-preview").textContent = (
     parseFloat(selectedFood.calories) * servings
   ).toFixed(0);
-  document.getElementById("pro-preview").value = (
+  document.getElementById("pro-preview").textContent = (
     parseFloat(selectedFood.protein) * servings
   ).toFixed(0);
-  document.getElementById("carb-preview").value = (
+  document.getElementById("carb-preview").textContent = (
     parseFloat(selectedFood.carbs) * servings
   ).toFixed(0);
-  document.getElementById("fat-preview").value = (
+  document.getElementById("fat-preview").textContent = (
     parseFloat(selectedFood.fat) * servings
   ).toFixed(0);
 }
@@ -563,6 +586,10 @@ let selectedUnit = null;
 
 function renderUnitSelector(food) {
   const label = document.getElementById("serving-size-label");
+  if (!food) {
+    label.innerHTML = "";
+    return;
+  }
   const options = getUnitOptions(food);
   selectedUnit = food.unit;
   label.innerHTML = "";

@@ -67,13 +67,21 @@
     <div id="page">
       <div class="header-wrap">
         <div class="header">
-          <div class="user-wrap">
+          <!-- <div class="user-wrap">
             <span data-icon="user" class="user-svg"></span>
             <span class="user-name"></span>
-          </div>
+          </div> -->
 
           <button class="settings-btn" onclick="openSettings()">
             <span data-icon="settings" class="settings-svg"></span>
+          </button>
+
+          <button
+            class="add-food-btn"
+            id="open-modal-btn"
+            onclick="openFoodModal()"
+          >
+            <span data-icon="plus" class="add-food-svg"></span>
           </button>
         </div>
       </div>
@@ -285,14 +293,14 @@
         <div class="table-button-wrap">
           <div class="table-btn-wrapper">
             <div class="table-btn">
-              <button
+              <!-- <button
                 class="add-food-btn"
                 id="open-modal-btn"
                 onclick="openFoodModal()"
               >
                 <span data-icon="plus" class="add-food-svg"></span>
                 <span class="add-food-label">Add</span>
-              </button>
+              </button> -->
             </div>
 
             <div class="table-btn">
@@ -348,6 +356,54 @@
                 />
               </svg>
             </button>
+          </div>
+
+          <div class="add-food-bottom">
+            <div class="staging-save-wrap">
+              <span class="staging-food-name" data-empty="true"
+                >Choose item to edit</span
+              >
+              <button class="save-food-btn" onclick="saveFood(false)">
+                <span data-icon="circleCheck" class="save-food-svg"></span>
+              </button>
+            </div>
+            <div class="add-food-servings">
+              <input
+                class="servings-edit"
+                id="servings"
+                type="number"
+                inputmode="decimal"
+                min="0"
+              />
+              <span id="serving-size-label"></span>
+            </div>
+
+            <!-- Macros Preview -->
+            <div id="macros-preview">
+              <div class="macro-item">
+                <span data-icon="fire" class="macro-edit-svg cal"></span>
+                <span class="macro-edit" id="cal-preview"></span>
+              </div>
+              <div class="macro-item">
+                <span data-icon="chicken" class="macro-edit-svg pro"></span>
+                <span class="macro-edit" id="pro-preview"></span>
+              </div>
+              <div class="macro-item">
+                <span data-icon="wheat" class="macro-edit-svg carb"></span>
+                <span class="macro-edit" id="carb-preview"></span>
+              </div>
+              <div class="macro-item">
+                <span data-icon="avocado" class="macro-edit-svg fat"></span>
+                <span class="macro-edit" id="fat-preview"></span>
+              </div>
+            </div>
+
+            <select class="modal-meal-select" id="meal-select">
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Snack">Snack</option>
+              <option value="Dinner">Dinner</option>
+            </select>
           </div>
 
           <div class="food-search-wrap">
@@ -498,78 +554,6 @@
             </div>
           </div>
           <div id="autocomplete-list"></div>
-
-          <div class="add-food-servings">
-            <input
-              class="servings-edit"
-              id="servings"
-              type="number"
-              inputmode="decimal"
-              min="0"
-            />
-            <span id="serving-size-label"></span>
-          </div>
-
-          <!-- Macros Preview -->
-          <div id="macros-preview">
-            <div class="macro-item">
-              <span class="macro-label">Calories</span>
-              <input
-                class="macro-edit"
-                id="cal-preview"
-                inputmode="decimal"
-                type="number"
-                placeholder="0"
-                disabled
-              />
-            </div>
-            <div class="macro-item">
-              <span class="macro-label">Protein</span>
-              <input
-                class="macro-edit"
-                inputmode="decimal"
-                id="pro-preview"
-                type="number"
-                placeholder="0"
-                disabled
-              />
-            </div>
-            <div class="macro-item">
-              <span class="macro-label">Carbs</span>
-              <input
-                class="macro-edit"
-                inputmode="decimal"
-                id="carb-preview"
-                type="number"
-                placeholder="0"
-                disabled
-              />
-            </div>
-            <div class="macro-item">
-              <span class="macro-label">Fat</span>
-              <input
-                class="macro-edit"
-                id="fat-preview"
-                inputmode="decimal"
-                type="number"
-                placeholder="0"
-                disabled
-              />
-            </div>
-          </div>
-
-          <div class="modal-meal-types">
-            <button class="meal-btn active" data-meal="Breakfast">
-              Breakfast
-            </button>
-            <button class="meal-btn" data-meal="Lunch">Lunch</button>
-            <button class="meal-btn" data-meal="Snack">Snack</button>
-            <button class="meal-btn" data-meal="Dinner">Dinner</button>
-          </div>
-
-          <div class="done-btn-wrap">
-            <button class="add-more-btn" onclick="saveFood(false)">Save</button>
-          </div>
         </div>
       </div>
 

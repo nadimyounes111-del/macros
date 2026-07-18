@@ -63,14 +63,14 @@ function closeFoodModal() {
   document.removeEventListener("keydown", addModalEnter);
 }
 
-document.querySelectorAll(".meal-btn").forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    document
-      .querySelectorAll(".meal-btn")
-      .forEach((b) => b.classList.remove("active"));
-    this.classList.add("active");
-  });
-});
+// document.querySelectorAll(".meal-btn").forEach(function (btn) {
+//   btn.addEventListener("click", function () {
+//     document
+//       .querySelectorAll(".meal-btn")
+//       .forEach((b) => b.classList.remove("active"));
+//     this.classList.add("active");
+//   });
+// });
 // shortcuts
 document.addEventListener("keydown", function (e) {
   if (e.code === "Space" && e.target === document.body) openFoodModal();

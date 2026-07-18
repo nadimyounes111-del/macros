@@ -401,7 +401,8 @@ button:has(.delete-svg) {
 
 /* #endregion */
 
-#unit-select {
+#unit-select,
+#meal-select {
   background-color: var(--table-bg);
   font-family: "Cal Sans";
   color: white;
@@ -422,5 +423,4 @@ button:has(.delete-svg) {
 
 #unit-select:focus {
   outline: none;
-  border: 2px solid var(--orange);
 }
