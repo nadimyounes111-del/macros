@@ -30,7 +30,6 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: opacity 0.2s ease;
   display: flex;
   flex-direction: column;
-  min-height: 98vh;
 }
 
 #page.visible {
@@ -101,6 +100,10 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .footer-text {
+  display: flex;
+  margin-top: 10px;
+  text-align: center;
+  justify-content: center;
   font-size: var(--text-xs);
   color: var(--light-gray);
   text-align: center;

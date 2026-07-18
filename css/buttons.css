@@ -25,7 +25,6 @@
   font-size: var(--text-s);
 }
 
-.add-food-btn,
 .clear-all-btn,
 .undo-btn {
   all: unset;
@@ -38,7 +37,6 @@
   gap: 3px;
 }
 
-.add-food-svg,
 .clear-all-svg,
 .undo-svg {
   width: clamp(14px, 12.29px + 0.536vw, 20px);
@@ -82,11 +80,6 @@
 
 /* #region ===== Add Food ===== */
 
-.add-food-btn {
-  background: var(--green);
-}
-
-.add-food-svg,
 .add-food-label {
   color: black;
 }

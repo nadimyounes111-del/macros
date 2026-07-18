@@ -95,7 +95,7 @@ mushroom-canned,"mushroom, canned",100,g,25,1.9,2.3,0.3,NCCDB,,oz,,vegetables
 mushroom-white,white mushroom,100,g,25,2.9,1.5,0.4,NCCDB,,oz,,vegetables
 zucchini,zucchini,100,g,17,1.2,2.1,0.3,NCCDB,,oz,,vegetables
 protein-onw,"protein powder, optimum nutrition whey",1,scoop,120,24,4,1.5,BRAND,optimum nutrition whey,,,protein
-protein-diso,"protein powder, dymatize iso100",1,scoop,110,25,1,0,BRAND,dymatize ISO100,,,protein
+protein-diso,"protein powder, dymatize ISO100",1,scoop,110,25,1,0,BRAND,dymatize ISO100,,,protein
 protein-aiso,"protein powder, allmax isoflex",1,scoop,120,27,2,0,BRAND,allmax isoflex,,,protein
 protein-gw,"protein powder, ghost whey",1,scoop,150,25,6,2.5,BRAND,ghost whey,,,protein
 tortilla-corn6,"corn tortilla 6""",1,x,52,1.4,9.4,0.7,NCCDB,,,,carbs
@@ -224,3 +224,41 @@ yogurt-whole,whole milk yogurt,1,cup,189,9.4,13.6,11,NCCDB,,"g,oz",245,dairy
 beef-hotdog,beef hot dog,1,x,134,4.6,2.2,11.8,NCCDB,,,,protein
 chicken-hotdog,chicken hot dog,1,x,100,7,1.2,7.3,NCCDB,,,,protein
 turkey-hotdog,turkey hot dog,1,x,100,5.5,1.7,7.8,NCCDB,,,,protein
+beetroot,beetroot,100,g,43,1.6,6.8,0.2,USDA,,oz,,vegetables
+hummus,hummus,1,cup,583,19.1,23.4,43.8,USDA,,"g,oz,tbsp",246,
+guacamole,guacamole,100,g,92,1.5,3.9,7.1,NCCDB,,"oz,tbsp",,fats
+dates,"dates, medjool",1,date,66,0.4,16.4,0,USDA,,"g,oz",24,fruits
+edamame,edamame,100,g,121,11.9,3.6,5.2,NCCDB,,oz,,protein
+salmon-smoked,smoked salmon,100,g,117,18.3,0,4.3,NCCDB,,oz,,protein
+cheese-feta,feta cheese,1,cup,395,21.3,6.1,31.9,USDA,,"g,oz",150,dairy
+provolone,provolone,1,slice,98,7.2,0.6,7.5,USDA,,"g,oz",28,dairy
+cheese-swiss,swiss cheese,1,slice,110,7.5,0.4,8.7,USDA,,"g,oz",28,dairy
+gouda,gouda,100,g,356,24.9,2.2,27.4,NCCDB,,oz,,dairy
+cheese-colbyjack,colby jack cheese,1,slice,82,4.9,0.5,6.8,NCCDB,,"g,oz",21,dairy
+cheese-ricotta-whole,"ricotta cheese, whole milk",1,cup,369,18.5,17.9,26,NCCDB,,"g,oz,tbsp",246,dairy
+cheese-ricotta-partskim,"ricotta cheese, part skim milk",1,cup,339,28,12.6,19.5,NCCDB,,"g,oz,tbsp",246,dairy
+cheese-ricotta-nonfot,"ricotta cheese, non-fat",1,cup,265,23.7,14.6,0.5,NCCDB,,"g,oz,tbsp",248,dairy
+sourcream,sour cream,1,cup,444,7.1,12.6,41.4,NCCDB,,"g,oz,tbsp",230,dairy
+brusselsprouts,brussel sprouts,100,g,43,3.4,5.2,0.3,USDA,,oz,,vegetables
+kale,kale,100,g,35,2.9,0.2,1.5,NCCDB,,oz,,vegetables
+radish,radish,100,g,16,0.7,1.8,0.1,USDA,,oz,,vegetables
+squash,squash,100,g,17,1.2,2.1,0.3,NCCDB,,,,vegetables
+raspberries,raspberries,100,g,51,1,6.4,0.2,NCCDB,,oz,,fruits
+cherries,cherries,100,g,63,1,11.9,0.2,NCCDB,,oz,,fruits
+plum,plum,100,g,46,0.7,9.3,0.3,NCCDB,,oz,,fruits
+pomegranate,pomegranate,100,g,83,1.7,14.4,1.2,NCCDB,,oz,,fruits
+honeydew,honeydew,100,g,36,0.5,8.2,0.1,NCCDB,,oz,,fruits
+potato-red,red potato,100,g,70,1.9,14.2,0.1,USDA,,oz,,carbs
+bread-sourdough,sourdough bread,1,slice,84,3.3,15.4,0.8,NCCDB,,"g,oz",31,carbs
+lentils,"lentils, raw",1,cup,687,45.9,100.4,4.2,USDA,,"g,oz",192,carbs
+pecans,pecans,100,g,700,10,6.9,73.3,NCCDB,,oz,,fat
+hazlenuts,hazlenuts,100,g,602,13.5,18.1,53.5,NCCDB,,oz,,fat
+seeds-pumpkin,pumpkin seeds,100,g,574,29.8,8.2,49.1,NCCDB,,oz,,fat
+seeds-sunflower,sunflower seeds,100,g,571,18.9,17.3,48.4,NCCDB,,oz,,fat
+sauce-buffalo,buffalo sauce,1,tbsp,18,0.1,0.4,1.7,NCCDB,,"g,oz",12,
+sauce-terkiyaki,teriyaki sauce,1,tbsp,16,1.1,2.8,0,NCCDB,,"g,oz",18,
+mustard-honey,honey mustard,1,tbsp,62,0.2,2.9,5.6,NCCDB,,"g,oz",15,
+juice-orange,"orange juice, fresh",1,cup,112,2,24,0.9,NCCDB,,"floz,l,ml",248,fruits
+juice-apple,"apple juice, fresh",1,cup,114,0.2,26.6,0.3,NCCDB,,"floz,l,ml",248,fruits
+water-coconut,"coconut water, unsweetened",1,cup,47,1.8,6.4,0.5,NCCDB,,"floz,l,ml",245,
+water-coconutsweet,"coconut water, sweetened",1,cup,85,1.5,17.2,0.4,NCCDB,,"floz,l,ml",245,
