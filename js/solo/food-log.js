@@ -6,6 +6,25 @@ window.renderLog = renderLog;
 
 window.expandedRows = window.expandedRows || new Set();
 
+function toggleMealMenu(swapBtn, index) {
+  const menu = swapBtn.querySelector(".meal-menu");
+  const isOpen = menu.classList.contains("open");
+
+  document
+    .querySelectorAll(".meal-menu.open")
+    .forEach((m) => m.classList.remove("open"));
+
+  if (!isOpen) {
+    menu.classList.add("open");
+  }
+}
+
+document.addEventListener("click", function () {
+  document
+    .querySelectorAll(".meal-menu.open")
+    .forEach((m) => m.classList.remove("open"));
+});
+
 let activeFilter = null; // null = no filter, show everything matching search
 
 let toastTimeout;
@@ -260,12 +279,8 @@ function renderLog() {
 
   <div class="row-bottom-wrap">
 
-    <select class="row-meal-select" onchange="changeEntryMeal(${index}, this.value)" onclick="event.stopPropagation()">
-      <option value="Breakfast" ${entry.meal === "Breakfast" ? "selected" : ""}>Breakfast</option>
-      <option value="Lunch" ${entry.meal === "Lunch" ? "selected" : ""}>Lunch</option>
-      <option value="Snack" ${entry.meal === "Snack" ? "selected" : ""}>Snack</option>
-      <option value="Dinner" ${entry.meal === "Dinner" ? "selected" : ""}>Dinner</option>
-    </select>
+
+   
 
   <div class="macros-bottom">
     <div class="col-cal">
@@ -280,16 +295,31 @@ function renderLog() {
     <div class="col-fat">
       <span class="macro-icon fat" data-icon="avocado"></span>${Math.round(entry.fat)}
     </div>
-
-   
   
   </div>
-
+ 
+  <div class="swap-btn" onclick="event.stopPropagation(); toggleMealMenu(this, ${index})">
+  <span data-icon="swap" class="swap-svg"></span>
+  <div class="meal-menu">
+    <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Breakfast')">Breakfast</button>
+    <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Lunch')">Lunch</button>
+    <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Snack')">Snack</button>
+    <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Dinner')">Dinner</button>
+  </div>
+</div>
    
 
 </div>
 </div>
 `;
+
+      //  <select class="row-meal-select" onchange="changeEntryMeal(${index}, this.value)" onclick="event.stopPropagation()">
+      //       <option value="Breakfast" ${entry.meal === "Breakfast" ? "selected" : ""}>Breakfast</option>
+      //       <option value="Lunch" ${entry.meal === "Lunch" ? "selected" : ""}>Lunch</option>
+      //       <option value="Snack" ${entry.meal === "Snack" ? "selected" : ""}>Snack</option>
+      //       <option value="Dinner" ${entry.meal === "Dinner" ? "selected" : ""}>Dinner</option>
+      //     </select>
+
       if (window.expandedRows.has(String(index))) {
         row.classList.add("expanded");
       }

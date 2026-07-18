@@ -171,13 +171,14 @@ body.dim-disabled .row-checked {
 .meal-group-body {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   min-height: 0;
   gap: 8px;
+  overflow: visible;
 }
 
 .meal-header.collapsed + .meal-group {
   grid-template-rows: 0fr;
+  overflow: hidden;
 }
 
 .meal-header.collapsed {
@@ -273,8 +274,8 @@ body.dim-disabled .row-checked {
   max-height: 0;
   margin-top: 0;
   overflow: hidden;
+  padding-left: clamp(28px, 26.86px + 0.357vw, 32px);
   transition: all 0.3s ease;
-  padding-left: clamp(32px, 30.86px + 0.357vw, 36px);
 }
 
 .row-bottom-left {
@@ -285,8 +286,9 @@ body.dim-disabled .row-checked {
 }
 
 .log-row.expanded .row-bottom-wrap {
-  max-height: 35px;
-  margin-top: 15px;
+  max-height: 32px;
+  margin-top: 12px;
+  overflow: visible;
 }
 
 /* #endregion */
@@ -421,6 +423,60 @@ button:has(.delete-svg) {
   height: var(--svg);
   flex-shrink: 0;
   color: red;
+}
+
+.swap-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.swap-btn:active {
+  transform: scale(0.95);
+}
+
+.swap-svg {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+  color: var(--light-blue);
+}
+
+.meal-menu {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: clamp(22px, 20.86px + 0.357vw, 26px);
+  background-color: var(--dark-blue);
+  border-radius: 8px;
+  padding: 4px;
+  flex-direction: column;
+  min-width: 100px;
+  z-index: 10;
+}
+
+.meal-menu.open {
+  display: flex;
+}
+
+.meal-menu button {
+  font-family: "Cal Sans";
+  background: none;
+  border: none;
+  color: var(--light-blue);
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: var(--text-base);
+}
+
+.meal-menu button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* #endregion */
