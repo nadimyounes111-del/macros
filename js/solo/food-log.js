@@ -10,6 +10,13 @@ let activeFilter = null; // null = no filter, show everything matching search
 
 const stagingName = document.querySelector(".staging-food-name");
 
+function changeEntryMeal(index, newMeal) {
+  window.foodLog[index].meal = newMeal;
+  window.expandedRows.delete(String(index)); // same reasoning as delete — index will shift after re-render since entries regroup by meal
+  saveLog();
+  renderLog();
+}
+
 function setStagingFood(food) {
   if (!food) {
     stagingName.textContent = "Choose item to edit";
@@ -83,33 +90,6 @@ function saveFood(closeAfter = true) {
   const servingsInput = document.getElementById("servings");
   const searchInput = document.getElementById("food-search");
 
-  if (selectedFood === "custom") {
-    const name = searchInput.value.trim();
-    if (!name) return;
-    const entry = {
-      food: name,
-      meal: meal,
-      servings: 1,
-      calories:
-        parseInt(document.getElementById("cal-preview").textContent) || 0,
-      protein:
-        parseInt(document.getElementById("pro-preview").textContent) || 0,
-      carbs: parseInt(document.getElementById("carb-preview").textContent) || 0,
-      fat: parseInt(document.getElementById("fat-preview").textContent) || 0,
-      servingSize: "",
-    };
-    window.foodLog.push(entry);
-    const newIndex = window.foodLog.length - 1;
-    saveLog();
-    renderLog();
-    closeAfter ? closeFoodModal() : resetFoodModalForNextEntry();
-    setTimeout(() => {
-      const row = document.querySelector(`[data-index="${newIndex}"]`);
-      if (row) row.classList.add("row-flash");
-    }, 200);
-    return;
-  }
-
   if (!selectedFood) return;
   const rawAmount = parseFloat(servingsInput.value) || 0;
   if (rawAmount <= 0) return;
@@ -136,6 +116,8 @@ function saveFood(closeAfter = true) {
   const newIndex = window.foodLog.length - 1;
   saveLog();
   renderLog();
+  resetFoodSelection();
+  setStagingFood(null);
   closeAfter ? closeFoodModal() : resetFoodModalForNextEntry();
   setTimeout(() => {
     const row = document.querySelector(`[data-index="${newIndex}"]`);
@@ -146,10 +128,9 @@ function saveFood(closeAfter = true) {
 function resetFoodModalForNextEntry() {
   selectedFood = null;
   selectedUnit = null;
+
   document.getElementById("food-search").value = "";
   document.getElementById("servings").value = "";
-  // reset any other fields you'd want cleared — custom macro preview inputs, etc.
-  document.getElementById("food-search").focus(); // ready to type the next item immediately
 }
 
 function saveLog() {
@@ -172,6 +153,7 @@ function renderLog() {
     const mealClass = "meal-" + meal.toLowerCase();
     const mealProtein = entries.reduce((sum, e) => sum + e.protein, 0);
     const mealCalories = entries.reduce((sum, e) => sum + e.calories, 0);
+    const checkedCount = entries.filter((e) => e.checked).length;
 
     const header = document.createElement("div");
     header.className = "meal-header " + mealClass;
@@ -183,6 +165,7 @@ function renderLog() {
     header.innerHTML = `
   <div class="meal-header-wrap">
   <span class="meal-label">${meal}</span>
+ 
   
 
   <div class="count-wrap">
@@ -214,6 +197,8 @@ function renderLog() {
 
 
   <div class="expand-svg-wrap">
+   <span class="meal-progress">${checkedCount}/${entries.length}</span>
+
 
   <svg class="expand-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M297.4 470.6C309.9 483.1 330.2 483.1 342.7 470.6L534.7 278.6C547.2 266.1 547.2 245.8 534.7 233.3C522.2 220.8 501.9 220.8 489.4 233.3L320 402.7L150.6 233.4C138.1 220.9 117.8 220.9 105.3 233.4C92.8 245.9 92.8 266.2 105.3 278.7L297.3 470.7z"/></svg>
 
@@ -263,6 +248,8 @@ function renderLog() {
   </div>
 
   <div class="row-bottom-wrap">
+
+  <div class="row-bottom-left">
   <div class="subtitle-bottom">${formatFoodName(entry.food).subtitle}</div>
   <div class="macros-bottom">
     <div class="col-cal">
@@ -278,6 +265,15 @@ function renderLog() {
       <span class="macro-icon fat" data-icon="avocado"></span>${Math.round(entry.fat)}
     </div>
   </div>
+  </div>
+
+    <select class="row-meal-select" onchange="changeEntryMeal(${index}, this.value)" onclick="event.stopPropagation()">
+      <option value="Breakfast" ${entry.meal === "Breakfast" ? "selected" : ""}>Breakfast</option>
+      <option value="Lunch" ${entry.meal === "Lunch" ? "selected" : ""}>Lunch</option>
+      <option value="Snack" ${entry.meal === "Snack" ? "selected" : ""}>Snack</option>
+      <option value="Dinner" ${entry.meal === "Dinner" ? "selected" : ""}>Dinner</option>
+    </select>
+
 </div>
 </div>
 `;
@@ -299,39 +295,18 @@ function renderLog() {
   injectIcons(document.getElementById("log-body"));
 }
 
-function toggleCustomMode() {
-  // const btn = document.getElementById("custom-toggle");
-  const isCustom = selectedFood === "custom";
-
-  if (isCustom) {
-    selectedFood = null;
-    setCustomMode(false);
-    // btn.classList.remove("active");
-  } else {
-    selectedFood = "custom";
-    setCustomMode(true);
-    // btn.classList.add("active");
-  }
-}
-
 function setupAddFood() {
   const searchInput = document.getElementById("food-search");
   const autocompleteList = document.getElementById("autocomplete-list");
-  const servingsInput = document.getElementById("servings");
-  selectedFood = null;
 
+  resetFoodSelection();
   searchInput.value = "";
-  servingsInput.value = "";
-  updatePreview();
-  setCustomMode(false);
 
   searchInput.oninput = function () {
-    if (selectedFood === "custom") return;
-
     const query = this.value.toLowerCase().trim();
     autocompleteList.innerHTML = "";
 
-    const queryWords = query.split(/\s+/).filter(Boolean); // splits on any whitespace, drops empty strings
+    const queryWords = query.split(/\s+/).filter(Boolean);
 
     let matches = query
       ? foods.filter((f) => {
@@ -373,17 +348,12 @@ function setupAddFood() {
           .forEach((item) => item.classList.remove("active"));
 
         if (alreadySelected) {
-          selectedFood = null;
-          setStagingFood(null);
-          renderUnitSelector(null);
-          document.getElementById("servings").value = "";
-          updatePreview();
+          resetFoodSelection();
           return;
         }
 
         selectedFood = food;
         setStagingFood(food);
-        setCustomMode(false);
         renderUnitSelector(food);
         updatePreview();
         this.classList.add("active");
@@ -394,82 +364,40 @@ function setupAddFood() {
 
   searchInput.dispatchEvent(new Event("input"));
 
-  servingsInput.oninput = updatePreview;
+  document.getElementById("servings").oninput = updatePreview;
 
   document.getElementById("add-modal").onkeydown = function (e) {
     if (e.key === "Enter") saveFood();
   };
 }
 
-function setCustomMode(on) {
+function resetFoodSelection() {
+  selectedFood = null;
+  setStagingFood(null);
+  renderUnitSelector(null);
+
   const servingsInput = document.getElementById("servings");
-  const servingLabel = document.getElementById("serving-size-label");
-  const searchInput = document.getElementById("food-search");
-  const ids = ["cal-preview", "pro-preview", "carb-preview", "fat-preview"];
+  servingsInput.value = "";
+  servingsInput.placeholder = "Servings";
 
-  if (on) {
-    document.getElementById("servings").placeholder = "—";
-    document.getElementById("servings").value = "";
-    document.getElementById("servings").disabled = true;
-    document.getElementById("servings").classList.add("custom");
+  document.getElementById("serving-size-label").textContent = "";
 
-    document.getElementById("serving-size-label").textContent = "";
-    searchInput.value = "";
-    searchInput.placeholder = "Create custom";
-    searchInput.focus();
+  ["cal-preview", "pro-preview", "carb-preview", "fat-preview"].forEach(
+    (id) => {
+      document.getElementById(id).textContent = "0";
+    },
+  );
 
-    const inputs = [
-      "cal-preview",
-      "pro-preview",
-      "carb-preview",
-      "fat-preview",
-    ];
-    inputs.forEach(function (id) {
-      document.getElementById(id).onkeydown = function (e) {
-        if (e.key !== "Enter") return;
-        const allFilled = inputs.every(function (i) {
-          return document.getElementById(i).textContent !== "";
-        });
-        if (allFilled) saveFood();
-      };
-    });
-  } else {
-    document.getElementById("servings").disabled = false;
-    document.getElementById("servings").classList.remove("custom");
-    document.getElementById("servings").placeholder = "Servings";
-    document.getElementById("serving-size-label").textContent = "";
-    document.getElementById("serving-size-label").classList.remove("custom");
-    servingsInput.style.display = "";
-    servingLabel.style.display = "";
-    searchInput.value = "";
-    searchInput.placeholder = "Search 220+ foods...";
-    searchInput.focus();
-    ids.forEach(function (id) {
-      const input = document.getElementById(id);
-      input.disabled = true;
-      input.textContent = "";
-    });
-  }
-  ids.forEach(function (id) {
-    const input = document.getElementById(id);
-    input.disabled = !on;
-    input.textContent = "";
-    input.classList.toggle("custom", on);
-  });
-  document
-    .querySelectorAll(".macro-label")
-    .forEach((el) => el.classList.toggle("custom", on));
+  updatePreview();
 }
 
 function updatePreview() {
-  if (!selectedFood || selectedFood === "custom") {
-    if (selectedFood !== "custom") {
-      document.getElementById("serving-size-label").textContent = "";
-      document.getElementById("cal-preview").textContent = "0";
-      document.getElementById("pro-preview").textContent = "0";
-      document.getElementById("carb-preview").textContent = "0";
-      document.getElementById("fat-preview").textContent = "0";
-    }
+  if (!selectedFood) {
+    document.getElementById("serving-size-label").textContent = "";
+    document.getElementById("cal-preview").textContent = "0";
+    document.getElementById("pro-preview").textContent = "0";
+    document.getElementById("carb-preview").textContent = "0";
+    document.getElementById("fat-preview").textContent = "0";
     return;
   }
   const rawAmount = parseFloat(document.getElementById("servings").value) || 0;

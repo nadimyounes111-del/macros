@@ -185,6 +185,17 @@ body.dim-disabled .row-checked {
   padding: 10px;
 }
 
+.meal-progress {
+  display: none;
+}
+
+.meal-header.collapsed .meal-progress {
+  display: flex;
+  align-items: center;
+  font-size: var(--text-base);
+  color: var(--light-gray);
+}
+
 .expand-svg {
   transition: transform 0.25s ease;
 }
@@ -253,17 +264,28 @@ body.dim-disabled .row-checked {
 
 .row-bottom-wrap {
   display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
   max-height: 0;
   margin-top: 0;
   overflow: hidden;
   transition: all 0.3s ease;
-  margin-left: clamp(32px, 30.86px + 0.357vw, 36px);
+
+  gap: 5px;
+}
+
+.row-bottom-left {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
   gap: 5px;
 }
 
 .log-row.expanded .row-bottom-wrap {
-  max-height: 55px;
+  max-height: 65px;
+  margin-top: 10px;
 }
 
 /* #endregion */
@@ -336,6 +358,7 @@ body.hide-meal-cal .cal-count-wrap {
 .expand-svg-wrap {
   display: flex;
   cursor: pointer;
+  gap: 5px;
 }
 
 .expand-svg {
@@ -402,25 +425,36 @@ button:has(.delete-svg) {
 /* #endregion */
 
 #unit-select,
-#meal-select {
+#meal-select,
+.row-meal-select {
+  text-align: center;
   background-color: var(--table-bg);
   font-family: "Cal Sans";
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.15);
+  color: var(--light-grayP);
+  width: 90px;
+  border: transparent;
   border-radius: 6px;
   padding: 4px 8px;
-  font-size: var(--text-s);
+  font-size: var(--text-base);
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding-right: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 4px center;
-  background-size: 14px;
 }
 
-#unit-select:focus {
+.row-meal-select {
+  background-color: var(--dark-blue);
+  color: var(--light-blue);
+  height: fit-content;
+}
+
+#unit-select {
+  width: 50px;
+}
+
+#unit-select:focus,
+#meal-select:focus,
+.row-meal-select {
   outline: none;
+  border: none;
 }

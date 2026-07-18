@@ -225,14 +225,6 @@
   box-sizing: border-box;
 } */
 
-.macro-edit {
-  border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
-  font-family: "Cal Sans";
-  font-size: var(--text-base);
-  width: 100%;
-  box-sizing: border-box;
-}
-
 #autocomplete-list {
   display: flex;
   flex-direction: column;
@@ -259,7 +251,7 @@
 } */
 
 .food-item.active {
-  background-color: var(--orange);
+  background-color: #ff8000d7;
 }
 
 .food-item {
@@ -296,7 +288,7 @@
 }
 
 .staging-food-name[data-empty="true"] {
-  color: var(--light-gray);
+  color: var(--light-grayP);
   font-style: italic;
 }
 
@@ -313,10 +305,16 @@
   display: none;
 }
 
-.save-food-svg,
 .macro-edit-svg {
   width: var(--svg);
   height: var(--svg);
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.save-food-svg {
+  width: 28px;
+  height: 28px;
   color: var(--green);
   flex-shrink: 0;
 }
@@ -438,6 +436,17 @@
   gap: clamp(6px, 4.86px + 0.357vw, 10px);
 }
 
+.macros-save-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.servings-wrap {
+  display: flex;
+  align-items: center;
+}
+
 .search-icon {
   width: var(--svg);
   height: var(--svg);
@@ -474,23 +483,23 @@
 }
 
 #servings {
+  width: 80px;
   font-family: "Cal Sans";
   font-size: var(--text-base);
-  width: clamp(80px, 74.29px + 1.786vw, 100px) !important;
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   color: var(--white);
-  background: var(--dark-blue);
-  border: 2px solid var(--dark-blue);
+  background: var(--table-bg);
+  border: none;
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
 }
 
 #servings:focus {
-  border: 2px solid var(--orange);
+  border: none;
   outline: none;
 }
 
 #servings::placeholder {
-  color: var(--light-blue);
+  color: var(--light-grayP);
 }
 
 #servings.custom {
@@ -513,12 +522,19 @@
 /* #region ADD FOOD | Macro Preview & Edit */
 
 .macro-edit {
+  border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
+  font-family: "Cal Sans";
   font-size: var(--text-base);
-  color: white;
+  color: var(--light-grayP);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #macros-preview {
   display: flex;
+  background-color: var(--table-bg);
+  border-radius: 8px;
+  padding: 10px;
   gap: 8px;
 }
 

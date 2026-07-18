@@ -58,7 +58,7 @@ function openFoodModal() {
 
 function closeFoodModal() {
   document.getElementById("add-modal").classList.remove("active");
-  setupAddFood();
+  resetFoodSelection();
   document.body.classList.remove("modal-open");
   document.removeEventListener("keydown", addModalEnter);
 }

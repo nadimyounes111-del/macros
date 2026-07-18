@@ -363,9 +363,13 @@
               <span class="staging-food-name" data-empty="true"
                 >Choose item to edit</span
               >
-              <button class="save-food-btn" onclick="saveFood(false)">
-                <span data-icon="circleCheck" class="save-food-svg"></span>
-              </button>
+
+              <select class="modal-meal-select" id="meal-select">
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Snack">Snack</option>
+                <option value="Dinner">Dinner</option>
+              </select>
             </div>
             <div class="add-food-servings">
               <input
@@ -379,31 +383,29 @@
             </div>
 
             <!-- Macros Preview -->
-            <div id="macros-preview">
-              <div class="macro-item">
-                <span data-icon="fire" class="macro-edit-svg cal"></span>
-                <span class="macro-edit" id="cal-preview"></span>
+            <div class="macros-save-wrap">
+              <div id="macros-preview">
+                <div class="macro-item">
+                  <span data-icon="fire" class="macro-edit-svg cal"></span>
+                  <span class="macro-edit" id="cal-preview"></span>
+                </div>
+                <div class="macro-item">
+                  <span data-icon="chicken" class="macro-edit-svg pro"></span>
+                  <span class="macro-edit" id="pro-preview"></span>
+                </div>
+                <div class="macro-item">
+                  <span data-icon="wheat" class="macro-edit-svg carb"></span>
+                  <span class="macro-edit" id="carb-preview"></span>
+                </div>
+                <div class="macro-item">
+                  <span data-icon="avocado" class="macro-edit-svg fat"></span>
+                  <span class="macro-edit" id="fat-preview"></span>
+                </div>
               </div>
-              <div class="macro-item">
-                <span data-icon="chicken" class="macro-edit-svg pro"></span>
-                <span class="macro-edit" id="pro-preview"></span>
-              </div>
-              <div class="macro-item">
-                <span data-icon="wheat" class="macro-edit-svg carb"></span>
-                <span class="macro-edit" id="carb-preview"></span>
-              </div>
-              <div class="macro-item">
-                <span data-icon="avocado" class="macro-edit-svg fat"></span>
-                <span class="macro-edit" id="fat-preview"></span>
-              </div>
+              <button class="save-food-btn" onclick="saveFood(false)">
+                <span data-icon="circlePlus" class="save-food-svg"></span>
+              </button>
             </div>
-
-            <select class="modal-meal-select" id="meal-select">
-              <option value="Breakfast">Breakfast</option>
-              <option value="Lunch">Lunch</option>
-              <option value="Snack">Snack</option>
-              <option value="Dinner">Dinner</option>
-            </select>
           </div>
 
           <div class="food-search-wrap">
@@ -425,9 +427,6 @@
                 onfocus="this.select()"
               />
             </div>
-            <!-- <button class="custom-toggle" onclick="toggleCustomMode()">
-              <span data-icon="swap" class="custom-svg"></span>
-            </button> -->
           </div>
           <div class="filters-wrapper">
             <div class="filters">
@@ -554,6 +553,10 @@
             </div>
           </div>
           <div id="autocomplete-list"></div>
+          <span class="footer-text"
+            >Data sourced from USDA FoodData Central & NCCDB. For informational
+            purposes only. Not medical advice</span
+          >
         </div>
       </div>
 
@@ -584,7 +587,7 @@
               <span class="settings-header">Account</span>
               <span class="settings-subheader">Manage your info</span>
               <div class="options-wrapper">
-                <div class="settings-option-wrap">
+                <!-- <div class="settings-option-wrap">
                   <input
                     id="new-username"
                     class="username-input"
@@ -594,7 +597,7 @@
                   <button class="user-btn" onclick="submitNameChange()">
                     Change
                   </button>
-                </div>
+                </div> -->
 
                 <div class="settings-option-wrap">
                   <span class="settings-option-title signout">Sign Out</span>
@@ -870,13 +873,9 @@
         </div>
       </div>
 
-      <div class="footer" style="display: flex">
+      <!-- <div class="footer" style="display: flex">
         <span class="footer-text">&copy; 2026 Norm • v1.1.0</span>
-        <span class="footer-text"
-          >Data sourced from USDA FoodData Central & NCCDB. For informational
-          purposes only. Not medical advice</span
-        >
-      </div>
+      </div> -->
     </div>
 
     <script type="module" src="js/shared/firebase.js"></script>
