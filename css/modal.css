@@ -681,8 +681,8 @@
   pointer-events: auto;
 }
 
-.toast-info {
-}
+/* .toast-info {
+} */
 
 .toast-undo {
   background-color: var(--light-blue);
