@@ -123,11 +123,20 @@
 }
 
 .modal-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   font-size: var(--text-2xl);
   margin-bottom: clamp(10px, 7.14px + 0.893vw, 20px);
+}
+
+.modal-close-btn {
+  justify-self: start;
+}
+
+.modal-header span {
+  justify-self: center;
+  grid-column: 2;
 }
 
 .modal-close-btn {
@@ -135,6 +144,8 @@
   cursor: pointer;
   color: var(--light-gray);
   display: flex;
+  height: 100%;
+  align-items: center;
 }
 
 .modal-close-svg {
@@ -266,15 +277,29 @@
   flex-direction: column;
   transition: all 0.2s ease;
 }
-
 .add-food-bottom {
   display: flex;
+  position: absolute;
+  top: 25px;
+  box-sizing: border-box;
   flex-direction: column;
   gap: 10px;
   background-color: var(--dark-blue);
   border-radius: 15px;
   padding: 10px;
-  margin-bottom: 15px;
+  width: 100%;
+  max-width: 600px;
+  z-index: 999;
+  transform: translateY(-80px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.add-food-bottom.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .staging-food-name {
@@ -693,4 +718,25 @@
   background-color: #c0392b;
   color: white;
   cursor: pointer;
+}
+
+.empty-state-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.empty-state-list-svg {
+  width: clamp(24px, 20.57px + 1.071vw, 36px);
+  height: clamp(24px, 20.57px + 1.071vw, 36px);
+  flex-shrink: 0;
+  color: var(--light-gray);
+}
+
+.empty-state-list-text {
+  color: var(--light-gray);
+  font-size: var(--text-l);
 }
