@@ -52,7 +52,7 @@ function changeEntryMeal(index, newMeal) {
 
 function setStagingFood(food) {
   if (!food) {
-    stagingName.textContent = "Choose item to edit";
+    stagingName.textContent = "Food";
     stagingName.dataset.empty = "true";
     return;
   }
@@ -184,6 +184,7 @@ function renderLog() {
     const mealProtein = entries.reduce((sum, e) => sum + e.protein, 0);
     const mealCalories = entries.reduce((sum, e) => sum + e.calories, 0);
     const checkedCount = entries.filter((e) => e.checked).length;
+    const allChecked = checkedCount === entries.length && entries.length > 0;
 
     const header = document.createElement("div");
     header.className = "meal-header " + mealClass;
@@ -227,7 +228,7 @@ function renderLog() {
 
 
   <div class="expand-svg-wrap">
-   <span class="meal-progress">${checkedCount}/${entries.length}</span>
+  <span class="meal-progress${allChecked ? " all-checked" : ""}">${checkedCount}/${entries.length}</span>
 
 
   <svg class="expand-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M297.4 470.6C309.9 483.1 330.2 483.1 342.7 470.6L534.7 278.6C547.2 266.1 547.2 245.8 534.7 233.3C522.2 220.8 501.9 220.8 489.4 233.3L320 402.7L150.6 233.4C138.1 220.9 117.8 220.9 105.3 233.4C92.8 245.9 92.8 266.2 105.3 278.7L297.3 470.7z"/></svg>
@@ -279,9 +280,6 @@ function renderLog() {
 
   <div class="row-bottom-wrap">
 
-
-   
-
   <div class="macros-bottom">
     <div class="col-cal">
       <span class="macro-icon calories" data-icon="fire"></span>${Math.round(entry.calories)}
@@ -312,13 +310,6 @@ function renderLog() {
 </div>
 </div>
 `;
-
-      //  <select class="row-meal-select" onchange="changeEntryMeal(${index}, this.value)" onclick="event.stopPropagation()">
-      //       <option value="Breakfast" ${entry.meal === "Breakfast" ? "selected" : ""}>Breakfast</option>
-      //       <option value="Lunch" ${entry.meal === "Lunch" ? "selected" : ""}>Lunch</option>
-      //       <option value="Snack" ${entry.meal === "Snack" ? "selected" : ""}>Snack</option>
-      //       <option value="Dinner" ${entry.meal === "Dinner" ? "selected" : ""}>Dinner</option>
-      //     </select>
 
       if (window.expandedRows.has(String(index))) {
         row.classList.add("expanded");

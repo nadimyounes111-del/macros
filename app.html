@@ -339,7 +339,7 @@
       </div>
 
       <!-- Add Food Modal -->
-      <div class="add-food-page active" id="add-modal">
+      <div class="add-food-page" id="add-modal">
         <div class="add-food-wrapper">
           <div class="modal-header">
             <button class="modal-close-btn" onclick="closeFoodModal()">
@@ -355,34 +355,31 @@
                 />
               </svg>
             </button>
-            <span>Add Food</span>
+            <span>Log Food</span>
           </div>
 
           <div class="add-food-bottom">
-            <div class="staging-save-wrap">
-              <span class="staging-food-name" data-empty="true"
-                >Choose item to edit</span
-              >
-
+            <div class="add-food-left">
+              <span class="staging-food-name" data-empty="true"></span>
               <select class="modal-meal-select" id="meal-select">
                 <option value="Breakfast">Breakfast</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Snack">Snack</option>
                 <option value="Dinner">Dinner</option>
               </select>
-            </div>
-            <div class="add-food-servings">
-              <input
-                class="servings-edit"
-                id="servings"
-                type="number"
-                inputmode="decimal"
-                min="0"
-              />
-              <span id="serving-size-label"></span>
+              <div class="add-food-servings">
+                <input
+                  class="servings-edit"
+                  id="servings"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                />
+                <span id="serving-size-label"></span>
+              </div>
             </div>
 
-            <div class="macros-save-wrap">
+            <div class="add-food-right">
               <div id="macros-preview">
                 <div class="macro-item">
                   <span data-icon="fire" class="macro-edit-svg cal"></span>
@@ -402,7 +399,7 @@
                 </div>
               </div>
               <button class="save-food-btn" onclick="saveFood(false)">
-                <span data-icon="circlePlus" class="save-food-svg"></span>
+                <span class="save-food-svg">Add</span>
               </button>
             </div>
           </div>
