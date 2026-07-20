@@ -56,6 +56,7 @@ firebaseReady.then(() => {
 });
 
 function initApp() {
+  document.getElementById("loading-screen").classList.add("hidden");
   renderLog();
   updateSummary();
   updateWaterUI();
