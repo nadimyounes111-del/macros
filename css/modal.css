@@ -225,7 +225,7 @@
   right: 10px;
   box-sizing: border-box;
   height: 150px;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   background-color: var(--dark-blue);
   border-radius: 15px;
@@ -412,7 +412,10 @@
 .add-food-servings {
   display: flex;
   align-items: center;
+  width: fit-content;
   gap: clamp(6px, 4.86px + 0.357vw, 10px);
+  background-color: var(--table-bg);
+  border-radius: 8px;
 }
 
 .search-icon {
@@ -456,7 +459,7 @@
   font-size: var(--text-base);
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   color: var(--white);
-  background: var(--table-bg);
+  background: none;
   border: none;
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
 }
@@ -471,8 +474,20 @@
 }
 
 #serving-size-label {
+  display: flex;
+  padding: 4px 8px;
   font-size: var(--text-base);
-  color: white;
+  color: var(--light-grayP);
+}
+
+.macros-save {
+  display: flex;
+  justify-content: space-between;
+}
+
+.servings-meal {
+  display: flex;
+  gap: 10px;
 }
 
 /* #endregion */
@@ -489,8 +504,7 @@
 }
 
 #macros-preview {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: 8px;
 }
 

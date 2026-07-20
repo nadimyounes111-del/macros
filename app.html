@@ -71,6 +71,7 @@
   </head>
 
   <body>
+    <!-- #region loading Screen -->
     <div id="loading-screen">
       <svg
         class="loading-hourglass"
@@ -84,6 +85,8 @@
       </svg>
       <span class="loading-text">Building your log...</span>
     </div>
+
+    <!-- #endregion -->
 
     <div id="page">
       <!-- #region Header -->
@@ -346,7 +349,7 @@
 
       <!-- #region Add Food Page -->
 
-      <div class="add-food-page" id="add-modal">
+      <div class="add-food-page active" id="add-modal">
         <div class="add-food-wrapper">
           <div class="modal-header">
             <button class="modal-close-btn" onclick="closeFoodModal()">
@@ -365,14 +368,8 @@
           </div>
 
           <div class="add-food-bottom">
-            <div class="add-food-left">
-              <span class="staging-food-name" data-empty="true"></span>
-              <select class="modal-meal-select" id="meal-select">
-                <option value="Breakfast">Breakfast</option>
-                <option value="Lunch">Lunch</option>
-                <option value="Snack">Snack</option>
-                <option value="Dinner">Dinner</option>
-              </select>
+            <span class="staging-food-name" data-empty="true"></span>
+            <div class="servings-meal">
               <div class="add-food-servings">
                 <input
                   class="servings-edit"
@@ -383,9 +380,14 @@
                 />
                 <span id="serving-size-label"></span>
               </div>
+              <select class="modal-meal-select" id="meal-select">
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Snack">Snack</option>
+                <option value="Dinner">Dinner</option>
+              </select>
             </div>
-
-            <div class="add-food-right">
+            <div class="macros-save">
               <div id="macros-preview">
                 <div class="macro-item">
                   <span data-icon="fire" class="macro-edit-svg cal"></span>

@@ -58,3 +58,4 @@
 
 - Uses firebase to store all info (authorization, food log, widgets, etc.)
 - Authorization stored in local storage so refresh allows auto log-in
+- Loading screen while data is being written from firebase

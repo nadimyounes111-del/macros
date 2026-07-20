@@ -467,8 +467,17 @@ button:has(.delete-svg) {
   -moz-appearance: none;
 }
 
+#meal-select {
+  border-radius: 8px;
+  background-color: var(--light-blue);
+  color: black;
+}
+
 #unit-select {
   width: 50px;
+  background-color: none;
+  background-color: var(--light-blue);
+  color: black;
 }
 
 #unit-select:focus,
