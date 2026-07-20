@@ -8,7 +8,8 @@
     />
     <meta name="robots" content="noindex, nofollow" />
 
-    <!-- === VERCEL ANALYTICS SCRIPT === -->
+    <!-- #region Vercel Analytics -->
+
     <script>
       window.va =
         window.va ||
@@ -18,7 +19,10 @@
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
 
-    <!-- === PAGE SETTINGS === -->
+    <!-- #endregion -->
+
+    <!-- #region Page Settings -->
+
     <title>Norm</title>
     <link rel="icon" href="/assets/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/favicon.png" />
@@ -52,6 +56,9 @@
     <link rel="icon" href="/assets/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/favicon.png" />
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/png" />
+
+    <!-- #endregion -->
+
     <link rel="stylesheet" href="css/modal.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/buttons.css" />
@@ -65,13 +72,9 @@
 
   <body>
     <div id="page">
+      <!-- #region Header -->
       <div class="header-wrap">
         <div class="header">
-          <!-- <div class="user-wrap">
-            <span data-icon="user" class="user-svg"></span>
-            <span class="user-name"></span>
-          </div> -->
-
           <button class="settings-btn" onclick="openSettings()">
             <span data-icon="settings" class="settings-svg"></span>
           </button>
@@ -86,9 +89,13 @@
         </div>
       </div>
 
+      <!-- #endregion -->
+
       <div class="main-title">
         <span class="main-title-text" id="day-title"></span>
       </div>
+
+      <!-- #region Widgets Container & Modal -->
 
       <div class="widget-container-top">
         <div class="widget-thumbnail-wrap" onclick="openAllWidgets()">
@@ -116,7 +123,6 @@
         ></div>
         <div class="widget-edit-panel">
           <div class="widget-show-grid">
-            <!-- hydration -->
             <div class="widget-card water" data-widget="hydration">
               <div class="widget-header special">
                 <div class="special-icon-title">
@@ -150,7 +156,7 @@
                 </div>
               </div>
             </div>
-            <!-- supplements -->
+
             <div class="widget-card supp" data-widget="supplements">
               <div class="widget-header">
                 <span data-icon="supplements" class="widget-icon supp"></span>
@@ -172,7 +178,6 @@
               </div>
             </div>
 
-            <!-- weight -->
             <div class="widget-card weight" data-widget="weight">
               <div class="widget-header special">
                 <div class="special-icon-title">
@@ -206,7 +211,7 @@
                 </div>
               </div>
             </div>
-            <!-- notes -->
+
             <div class="widget-card notes" data-widget="notes">
               <div class="widget-header">
                 <span data-icon="notes" class="widget-icon notes"></span>
@@ -222,10 +227,13 @@
         </div>
       </div>
 
+      <!-- #endregion -->
+
+      <!-- #region Macro Goals Carousel -->
+
       <div class="carousel-section">
         <div class="carousel-track-wrap">
           <div class="carousel-track">
-            <!-- Calories -->
             <div class="macro-card">
               <div class="macro-header">
                 <span data-icon="fire" class="cal-svg"></span>
@@ -237,7 +245,6 @@
               </div>
             </div>
 
-            <!-- Protein -->
             <div class="macro-card">
               <div class="macro-header">
                 <span data-icon="chicken" class="pro-svg"></span>
@@ -249,7 +256,6 @@
               </div>
             </div>
 
-            <!-- Carbs -->
             <div class="macro-card">
               <div class="macro-header">
                 <span data-icon="wheat" class="carb-svg"></span>
@@ -261,7 +267,6 @@
               </div>
             </div>
 
-            <!-- Fat -->
             <div class="macro-card">
               <div class="macro-header">
                 <span data-icon="avocado" class="fat-svg"></span>
@@ -276,10 +281,11 @@
         </div>
       </div>
 
-      <!-- Food Log -->
+      <!-- #endregion -->
+
+      <!-- #region Food Log -->
       <div class="log-wrapper">
         <div id="food-log">
-          <!-- Empty State -->
           <div id="empty-state">
             <div class="empty-icon-wrap">
               <span data-icon="forkKnife" class="empty-icon"></span>
@@ -287,29 +293,10 @@
             <span class="empty-text">Add food to start tracking</span>
           </div>
 
-          <!-- Food Log Body -->
           <div id="log-body"></div>
         </div>
         <div class="table-button-wrap">
           <div class="table-btn-wrapper">
-            <div class="table-btn">
-              <!-- <button
-                class="add-food-btn"
-                id="open-modal-btn"
-                onclick="openFoodModal()"
-              >
-                <span data-icon="plus" class="add-food-svg"></span>
-                <span class="add-food-label">Add</span>
-              </button> -->
-            </div>
-
-            <div class="table-btn">
-              <!-- <button class="undo-btn" onclick="undoDelete()">
-                <span data-icon="undo" class="undo-svg"></span>
-                <span class="undo-label">Undo</span>
-              </button> -->
-            </div>
-
             <div class="table-btn">
               <button
                 class="clear-all-btn"
@@ -324,7 +311,10 @@
         </div>
       </div>
 
-      <!-- Guest banner -->
+      <!-- #endregion -->
+
+      <!-- #region Guest View Banner -->
+
       <div class="guest-banner" id="guest-banner" style="display: none">
         <div class="guest-banner">
           <span class="guest-banner-text">
@@ -338,7 +328,10 @@
         </div>
       </div>
 
-      <!-- Add Food Modal -->
+      <!-- #endregion -->
+
+      <!-- #region Add Food Page -->
+
       <div class="add-food-page" id="add-modal">
         <div class="add-food-wrapper">
           <div class="modal-header">
@@ -349,7 +342,6 @@
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 640 640"
               >
-                <!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
                 <path
                   d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"
                 />
@@ -427,9 +419,6 @@
           </div>
           <div class="filters-wrapper">
             <div class="filters">
-              <!-- <button type="button" data-tag="recents">
-                <span class="filter-svg" data-icon="timer"></span>Recents
-              </button> -->
               <button type="button" data-tag="protein">
                 <svg
                   class="filter-svg"
@@ -557,7 +546,10 @@
         </div>
       </div>
 
-      <!-- settings modal -->
+      <!-- #endregion -->
+
+      <!-- #region Settings Page -->
+
       <div class="settings-page" id="settings-modal">
         <div class="settings-page-wrapper">
           <div class="modal-header settings">
@@ -568,7 +560,6 @@
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 640 640"
               >
-                <!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
                 <path
                   d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"
                 />
@@ -578,23 +569,10 @@
           </div>
 
           <div class="modal-body settings">
-            <!-- user -->
             <div class="settings-section">
               <span class="settings-header">Account</span>
               <span class="settings-subheader">Manage your info</span>
               <div class="options-wrapper">
-                <!-- <div class="settings-option-wrap">
-                  <input
-                    id="new-username"
-                    class="username-input"
-                    type="text"
-                    placeholder="Display Name"
-                  />
-                  <button class="user-btn" onclick="submitNameChange()">
-                    Change
-                  </button>
-                </div> -->
-
                 <div class="settings-option-wrap">
                   <span class="settings-option-title signout">Sign Out</span>
                   <span
@@ -605,7 +583,7 @@
                 </div>
               </div>
             </div>
-            <!-- macros -->
+
             <div class="settings-section">
               <span class="settings-header">Macros</span>
               <span class="settings-subheader">Set your daily macro goals</span>
@@ -656,7 +634,7 @@
                 </div>
               </div>
             </div>
-            <!-- food log -->
+
             <div class="settings-section">
               <span class="settings-header">Food Log</span>
               <span class="settings-subheader">Customize your food log</span>
@@ -714,7 +692,7 @@
                 </div>
               </div>
             </div>
-            <!-- widgets -->
+
             <div class="settings-section">
               <span class="settings-header">Widgets</span>
               <span class="settings-subheader">Choose your widgets</span>
@@ -806,6 +784,9 @@
         </div>
       </div>
 
+      <!-- #endregion -->
+
+      <!-- #region Onboarding Modal -->
       <div class="modal" id="onboarding-modal">
         <div class="modal-overlay"></div>
         <div class="modal-box onboarding">
@@ -869,11 +850,9 @@
         </div>
       </div>
 
-      <div id="toast"></div>
+      <!-- #endregion -->
 
-      <!-- <div class="footer" style="display: flex">
-        <span class="footer-text">&copy; 2026 Norm • v1.1.0</span>
-      </div> -->
+      <div id="toast"></div>
     </div>
 
     <script type="module" src="js/shared/firebase.js"></script>

@@ -19,14 +19,11 @@
   transform: scale(0.95);
 }
 
-.add-food-label,
-.clear-all-label,
-.undo-label {
+.clear-all-label {
   font-size: var(--text-s);
 }
 
-.clear-all-btn,
-.undo-btn {
+.clear-all-btn {
   all: unset;
   display: flex;
   cursor: pointer;
@@ -37,56 +34,10 @@
   gap: 3px;
 }
 
-.clear-all-svg,
-.undo-svg {
+.clear-all-svg {
   width: clamp(14px, 12.29px + 0.536vw, 20px);
   height: clamp(14px, 12.29px + 0.536vw, 20px);
 }
-
-/* .add-food-btn::after,
-.clear-all-btn::after,
-.undo-btn::after {
-  content: "";
-  text-transform: capitalize;
-  position: absolute;
-  text-transform: none;
-  background-color: var(--table-bg);
-  color: var(--light-blue);
-  left: 50%;
-  transform: translateX(-50%) translateY(-20px);
-  font-size: var(--text-s);
-  border-radius: 10px;
-  padding: clamp(3px, 2.43px + 0.179vw, 5px) clamp(6px, 4.86px + 0.357vw, 10px);
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  font-family: monospace;
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-}
-
-@media (hover: hover) {
-  .add-food-btn:hover::after,
-  .clear-all-btn:hover::after,
-  .undo-btn:hover::after {
-    transform: translateX(-50%) translateY(-35px);
-    opacity: 1;
-  }
-} */
-
-/* #endregion */
-
-/* #region ===== Add Food ===== */
-
-.add-food-label {
-  color: black;
-}
-
-/* #endregion */
-
-/* #region ===== Clear All ===== */
 
 .clear-all-btn {
   background: red;
@@ -96,18 +47,3 @@
 .clear-all-label {
   color: white;
 }
-
-/* #endregion */
-
-/* #region ===== Undo ===== */
-
-.undo-btn {
-  background: var(--light-blue);
-}
-
-.undo-svg,
-.undo-label {
-  color: black;
-}
-
-/* #endregion */

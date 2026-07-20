@@ -1,14 +1,5 @@
 /* #region ===== Pin ===== */
 
-#pin-screen {
-  position: fixed;
-  top: 0;
-  inset: 0;
-  background: var(--bg);
-  z-index: 99999;
-  display: flex;
-}
-
 #pin-loading {
   display: flex;
   width: clamp(260px, 248.57px + 3.571vw, 300px);
@@ -39,20 +30,6 @@
   margin: 25px 0;
 }
 
-.title-logo {
-  display: flex;
-  position: fixed;
-  top: 0px;
-  justify-content: start;
-  margin-bottom: 45px;
-}
-
-.for .title-sublogo-vert {
-  display: flex;
-  justify-content: start;
-  flex-direction: column;
-}
-
 .title-sublogo-hor {
   display: flex;
   justify-content: start;
@@ -66,16 +43,6 @@
 
 .title-sublogo-orange {
   font-size: clamp(42px, 33.43px + 2.679vw, 72px);
-  color: var(--orange);
-}
-
-.title-white {
-  font-size: 42px;
-  color: white;
-}
-
-.title-orange {
-  font-size: 42px;
   color: var(--orange);
 }
 
@@ -251,42 +218,6 @@
 
 /* #endregion */
 
-.widget-thumbnail-hydration,
-.widget-thumbnail-weight,
-.widget-thumbnail-supplements,
-.widget-thumbnail-notes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  padding: 5px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  pointer-events: none;
-}
-
-.widget-thumbnail-hydration {
-  background-color: rgb(37, 198, 251, 0.2);
-}
-
-.widget-thumbnail-supplements {
-  background-color: rgba(139, 92, 246, 0.12);
-}
-
-.widget-thumbnail-notes {
-  background-color: rgb(155, 155, 155, 0.2);
-}
-
-.widget-thumbnail-weight {
-  background-color: rgb(255, 128, 0, 0.12);
-}
-
-.widget-thumbnail-wrap-sign {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-}
-
 .form-wrap {
   display: flex;
   flex-direction: column;
@@ -307,61 +238,6 @@
 .auth-link-text {
   font-size: var(--text-base);
   color: var(--light-gray);
-}
-
-.hero-phone {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  height: 180px;
-  margin: 0 auto;
-  overflow: hidden;
-  z-index: 0; /* creates a clean stacking context */
-}
-
-.hero-phone img {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1; /* image sits at the base */
-}
-
-.hero-phone::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2; /* gradient sits above the image */
-  background: linear-gradient(
-    to bottom,
-    transparent 45%,
-    rgba(9, 7, 9, 0.05) 60%,
-    rgba(9, 7, 9, 0.3) 75%,
-    rgba(9, 7, 9, 0.7) 90%,
-    #090709 100%
-  );
-  pointer-events: none;
-}
-
-.section-divider {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: rgba(255, 255, 255, 0.1);
-  font-size: var(--event-date);
-  width: clamp(260px, 248.57px + 3.571vw, 300px);
-  margin-top: 25px;
-}
-
-.section-divider::before,
-.section-divider::after {
-  content: "";
-  flex: 1;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
 }
 
 .big-wrap {

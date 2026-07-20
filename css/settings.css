@@ -142,22 +142,6 @@
 
 /* #region Profile */
 
-.username-input {
-  display: flex;
-  padding: 5px 10px;
-  border-radius: clamp(4px, 3.43px + 0.179vw, 6px);
-  font-family: "Cal Sans";
-  font-size: var(--text-base);
-  box-sizing: border-box;
-  color: var(--white);
-  background: var(--dark-blue);
-  border: 2px solid transparent;
-  text-align: center;
-  width: 100%;
-  text-align: left;
-  margin-right: 5px;
-}
-
 .user-btn {
   all: unset;
   display: flex;

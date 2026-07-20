@@ -21,30 +21,9 @@
   align-items: center;
 }
 
-.title-wrap,
-.user-wrap,
-.streak-wrap,
-.sign-out-wrap {
-  display: flex;
-  flex-direction: row;
-  gap: clamp(2px, 1.14px + 0.268vw, 5px);
-  align-items: center;
-}
-
 /* #endregion */
 
 /* #region ===== User ===== */
-
-.user-name {
-  font-size: var(--text-l);
-  color: var(--orange);
-}
-
-.user-svg {
-  width: var(--svg);
-  height: var(--svg);
-  color: var(--orange);
-}
 
 /* #endregion */
 

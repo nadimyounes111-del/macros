@@ -70,8 +70,8 @@ def extract_used_identifiers(filepath):
         text = Path(filepath).read_text(encoding="utf-8")
     except FileNotFoundError:
         return identifiers
-    for match in re.finditer(r'class=["\']([^"\']+)["\']', text):
-        for cls in match.group(1).split():
+    for match in re.finditer(r'class=["\']([^`]*?)["\']\s*(?=[`>])', text):
+        for cls in re.findall(r'[a-zA-Z][\w-]*', match.group(1)):
             identifiers.add(cls)
     for match in re.finditer(r'id=["\']([^"\']+)["\']', text):
         identifiers.add(match.group(1).strip())
