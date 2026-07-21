@@ -175,7 +175,7 @@ body.dim-disabled .row-checked {
 }
 
 .meal-header.collapsed .meal-progress.all-checked {
-  color: var(--green);
+  color: rgb(0, 189, 0);
 }
 
 .expand-svg {
@@ -453,7 +453,6 @@ button:has(.delete-svg) {
 #unit-select,
 #meal-select {
   text-align: center;
-  background-color: var(--table-bg);
   font-family: "Cal Sans";
   color: var(--light-grayP);
   width: 90px;
@@ -469,15 +468,14 @@ button:has(.delete-svg) {
 
 #meal-select {
   border-radius: 8px;
-  background-color: var(--light-blue);
-  color: black;
+  background-color: var(--dark-blue);
+  color: var(--light-blue);
 }
 
 #unit-select {
   width: 50px;
-  background-color: none;
-  background-color: var(--light-blue);
-  color: black;
+  background-color: transparent;
+  color: var(--light-blue);
 }
 
 #unit-select:focus,

@@ -2,6 +2,20 @@
 
 let lastDeleted = null;
 
+let toastTimeout;
+
+function showToast(html, extraClass = "") {
+  const toast = document.getElementById("toast");
+  clearTimeout(toastTimeout);
+  toast.className = `toast ${extraClass}`.trim();
+  toast.innerHTML = html;
+  toast.classList.add("visible");
+
+  toastTimeout = setTimeout(() => {
+    toast.classList.remove("visible");
+  }, 4000);
+}
+
 function deleteEntry(event, index) {
   event.stopPropagation();
   lastDeleted = { entry: window.foodLog[index], index: index };
@@ -9,24 +23,11 @@ function deleteEntry(event, index) {
   window.expandedRows.clear();
   saveLog();
   renderLog();
-  showUndoToast("Undo");
-}
-
-function showUndoToast(message) {
-  const toast = document.getElementById("toast");
-  clearTimeout(toastTimeout);
-  toast.className = "toast-base toast-undo visible";
-  toast.textContent = message;
-
-  toast.onclick = () => {
-    undoDelete();
-    toast.classList.remove("visible");
-  };
-
-  toastTimeout = setTimeout(() => {
-    toast.classList.remove("visible");
-    lastDeleted = null;
-  }, 4000);
+  showToast(
+    `<span class="toast-title">Item removed</span>
+    
+   <button class="toast-btn" onclick="undoDelete()">Undo</button>`,
+  );
 }
 
 function undoDelete() {
@@ -39,7 +40,10 @@ function undoDelete() {
 
 function clearAll() {
   if (window.foodLog.length === 0) return;
-  showConfirmToast("Tap to confirm clear", confirmClearAll);
+  showToast(
+    `<span class="toast-title">Confirm clear?</span>
+     <button class="toast-btn" onclick="confirmClearAll()">Yes</button>`,
+  );
 }
 
 function confirmClearAll() {
@@ -50,21 +54,6 @@ function confirmClearAll() {
   showToast("Log cleared");
 }
 
-function showConfirmToast(message, onConfirm) {
-  const toast = document.getElementById("toast");
-  clearTimeout(toastTimeout);
-  toast.className = "toast-base toast-confirm visible";
-  toast.textContent = `${message}`;
-
-  toast.onclick = () => {
-    onConfirm();
-    toast.classList.remove("visible");
-  };
-
-  toastTimeout = setTimeout(() => {
-    toast.classList.remove("visible");
-  }, 4000);
-}
 // #endregion
 
 // #region Undo

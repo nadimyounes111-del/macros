@@ -6,6 +6,12 @@ window.renderLog = renderLog;
 
 window.expandedRows = window.expandedRows || new Set();
 
+document.querySelector(".modal-header").addEventListener("click", function () {
+  document
+    .getElementById("autocomplete-list")
+    .scrollTo({ top: 0, behavior: "smooth" });
+});
+
 function toggleMealMenu(swapBtn, index) {
   const menu = swapBtn.querySelector(".meal-menu");
   const isOpen = menu.classList.contains("open");
@@ -26,20 +32,6 @@ document.addEventListener("click", function () {
 });
 
 let activeFilter = null; // null = no filter, show everything matching search
-
-let toastTimeout;
-
-function showToast(message) {
-  const toast = document.getElementById("toast");
-  clearTimeout(toastTimeout);
-  toast.className = "toast-base toast-info visible";
-  toast.textContent = message;
-  toast.onclick = null;
-
-  toastTimeout = setTimeout(() => {
-    toast.classList.remove("visible");
-  }, 2500);
-}
 
 const stagingName = document.querySelector(".staging-food-name");
 
@@ -133,16 +125,14 @@ function saveFood(closeAfter = true) {
   const entry = {
     food: selectedFood.name,
     meal: meal,
-    servings: servings, // base-serving multiplier, used for macro math only
-    unitAmount: rawAmount, // what the user actually typed, e.g. 6
-    unit: unit, // e.g. "oz"
-    calories: parseInt(
-      (parseFloat(selectedFood.calories) * servings).toFixed(0),
-    ),
-    protein: parseInt((parseFloat(selectedFood.protein) * servings).toFixed(0)),
-    carbs: parseInt((parseFloat(selectedFood.carbs) * servings).toFixed(0)),
-    fat: parseInt((parseFloat(selectedFood.fat) * servings).toFixed(0)),
-    servingSize: `${rawAmount}${unit}`, // kept for backward compat / display fallback
+    servings: servings,
+    unitAmount: rawAmount,
+    unit: unit,
+    calories: parseFloat(selectedFood.calories) * servings,
+    protein: parseFloat(selectedFood.protein) * servings,
+    carbs: parseFloat(selectedFood.carbs) * servings,
+    fat: parseFloat(selectedFood.fat) * servings,
+    servingSize: `${rawAmount}${unit}`,
   };
 
   window.foodLog.push(entry);
@@ -150,8 +140,8 @@ function saveFood(closeAfter = true) {
   saveLog();
   renderLog();
   resetFoodSelection();
-  showToast(`Item added`);
   setStagingFood(null);
+  showToast("Food added");
   closeAfter ? closeFoodModal() : resetFoodModalForNextEntry();
 }
 
@@ -486,15 +476,15 @@ function editServing(index, newValue) {
   if (!newValue || newValue <= 0) return;
 
   const original = window.foodLog[index];
-  const oldAmount = original.unitAmount ?? original.servings; // fallback for legacy entries
+  const oldAmount = original.unitAmount ?? original.servings;
   const ratio = newValue / oldAmount;
 
   original.servings = original.servings * ratio;
   original.unitAmount = newValue;
-  original.calories = parseFloat((original.calories * ratio).toFixed(0));
-  original.protein = parseFloat((original.protein * ratio).toFixed(0));
-  original.carbs = parseFloat((original.carbs * ratio).toFixed(0));
-  original.fat = parseFloat((original.fat * ratio).toFixed(0));
+  original.calories = original.calories * ratio;
+  original.protein = original.protein * ratio;
+  original.carbs = original.carbs * ratio;
+  original.fat = original.fat * ratio;
 
   saveLog();
   renderLog();
@@ -577,7 +567,9 @@ function renderUnitSelector(food) {
 
   if (options.length <= 1) {
     const span = document.createElement("span");
-    span.textContent = `${food.serving}${food.unit}`;
+    const servingNum = parseFloat(food.serving);
+    span.textContent =
+      servingNum === 1 ? food.unit : `${food.serving}${food.unit}`;
     label.appendChild(span);
     return;
   }

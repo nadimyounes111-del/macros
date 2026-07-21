@@ -352,7 +352,13 @@
       <div class="add-food-page" id="add-modal">
         <div class="add-food-wrapper">
           <div class="modal-header">
-            <button class="modal-close-btn" onclick="closeFoodModal()">
+            <button
+              class="modal-close-btn"
+              onclick="
+                event.stopPropagation();
+                closeFoodModal();
+              "
+            >
               <svg
                 class="modal-close-svg"
                 fill="currentColor"
@@ -868,7 +874,7 @@
 
       <!-- #endregion -->
 
-      <div id="toast"></div>
+      <div class="toast" id="toast"></div>
     </div>
 
     <script type="module" src="js/shared/firebase.js"></script>

@@ -209,7 +209,7 @@
   padding: 8px 12px;
   border-radius: 6px;
   min-height: clamp(52px, 50.29px + 0.536vw, 58px);
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(23, 22, 22);
   cursor: pointer;
   font-size: var(--text-s);
   display: flex;
@@ -227,7 +227,8 @@
   height: 150px;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--dark-blue);
+  background-color: var(--table-bg);
+  border: 3px solid var(--orange);
   border-radius: 15px;
   padding: 10px;
   margin: 0 auto;
@@ -412,9 +413,8 @@
 .add-food-servings {
   display: flex;
   align-items: center;
-  width: fit-content;
-  gap: clamp(6px, 4.86px + 0.357vw, 10px);
-  background-color: var(--table-bg);
+  width: 150px;
+  background-color: var(--dark-blue);
   border-radius: 8px;
 }
 
@@ -454,7 +454,7 @@
 }
 
 #servings {
-  width: 80px;
+  width: 60px;
   font-family: "Cal Sans";
   font-size: var(--text-base);
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
@@ -470,14 +470,14 @@
 }
 
 #servings::placeholder {
-  color: var(--light-grayP);
+  color: var(--light-blue);
 }
 
 #serving-size-label {
   display: flex;
   padding: 4px 8px;
   font-size: var(--text-base);
-  color: var(--light-grayP);
+  color: var(--light-blue);
 }
 
 .macros-save {
@@ -614,40 +614,42 @@
   margin: 15px 0;
 }
 
-.toast-base {
+.toast {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   position: fixed;
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
-  background-color: var(--green);
-  color: var(--bg);
+  background-color: var(--dark-blue);
+  color: var(--light-blue);
   padding: 8px 12px;
   border-radius: 8px;
   font-size: var(--text-base);
   opacity: 0;
+  gap: 10px;
   transition:
     opacity 0.25s ease,
     transform 0.25s ease;
   z-index: 10000;
 }
 
-.toast-base.visible {
+.toast.visible {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
   pointer-events: auto;
 }
 
-/* .toast-info {
-} */
-
-.toast-undo {
-  background-color: var(--light-blue);
-  cursor: pointer;
-}
-
-.toast-confirm {
-  background-color: #c0392b;
-  color: white;
+.toast-btn {
+  all: unset;
+  width: fit-content;
+  display: flex;
+  padding: 3px 6px;
+  border-radius: 6px;
+  color: var(--white);
+  background-color: var(--orange);
   cursor: pointer;
 }
 

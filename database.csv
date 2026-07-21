@@ -30,13 +30,13 @@ almond,almonds,100,g,584,21.5,9,51.1,NCCDB,,oz,,fats
 butter-almond,almond butter,1,tbsp,94,3.2,1.8,8.3,NCCDB,,g,16,fats
 salmon-raw,"salmon, raw",100,g,208,20.4,0,13.4,USDA,,oz,,protein
 salmon-cooked,"salmon, cooked",100,g,206,22.1,0,12.4,USDA,,oz,,protein
-jam-apricot,apricot jam,1,tbsp,48,0.1,12.8,0,USDA,,g,20,carbs
-jam-strawberry,strawberry jam,1,tbsp,59,0,14.1,0,USDA,,g,20,fruits
-jam-blackberry,blackberry jam,1,tbsp,50,0,12.5,0,USDA,,g,20,fruits
-jam-raspberry,"raspberry jam, smucker's",1,tbsp,50,0.1,12,0,BRAND,smucker's,g,20,carbs
-jam-blueberry,"blueberry jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20,fruits
-jam-cherry,"cherry jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20,carbs
-jam-peach,"peach jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20,carbs
+jam-apricot,apricot jam,1,tbsp,48,0.1,12.8,0,USDA,,g,20,"carbs,fruits"
+jam-strawberry,strawberry jam,1,tbsp,59,0,14.1,0,USDA,,g,20,"carbs,fruits"
+jam-blackberry,blackberry jam,1,tbsp,50,0,12.5,0,USDA,,g,20,"carbs,fruits"
+jam-raspberry,"raspberry jam, smucker's",1,tbsp,50,0.1,12,0,BRAND,smucker's,g,20,"carbs,fruits"
+jam-blueberry,"blueberry jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20,"carbs,fruits"
+jam-cherry,"cherry jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20,"carbs,fruits"
+jam-peach,"peach jam, smucker's",1,tbsp,50,0,13,0,BRAND,smucker's,g,20,"carbs,fruits"
 pasta,"pasta, dry",100,g,371,13,71.5,1.5,USDA,,oz,,carbs
 pasta-wholewheat,"whole wheat pasta, dry",100,g,352,13.9,64.2,2.9,USDA,,oz,,carbs
 pasta-glutenfree,"gluten-free pasta, dry",100,g,357,7.5,68.3,2.1,USDA,,oz,,carbs
