@@ -148,8 +148,12 @@ body.dim-disabled .row-checked {
   flex-direction: column;
   min-height: 0;
   gap: 8px;
-  overflow: visible;
+  overflow: hidden;
   /* this overflow fucks animation + truncation */
+}
+
+.meal-group-body.menu-open {
+  overflow: visible;
 }
 
 .meal-header.collapsed + .meal-group {

@@ -14,14 +14,19 @@ document.querySelector(".modal-header").addEventListener("click", function () {
 
 function toggleMealMenu(swapBtn, index) {
   const menu = swapBtn.querySelector(".meal-menu");
+  const mealGroupBody = swapBtn.closest(".meal-group-body");
   const isOpen = menu.classList.contains("open");
 
   document
     .querySelectorAll(".meal-menu.open")
     .forEach((m) => m.classList.remove("open"));
+  document
+    .querySelectorAll(".meal-group-body.menu-open")
+    .forEach((el) => el.classList.remove("menu-open"));
 
   if (!isOpen) {
     menu.classList.add("open");
+    mealGroupBody.classList.add("menu-open");
   }
 }
 
@@ -29,6 +34,9 @@ document.addEventListener("click", function () {
   document
     .querySelectorAll(".meal-menu.open")
     .forEach((m) => m.classList.remove("open"));
+  document
+    .querySelectorAll(".meal-group-body.menu-open")
+    .forEach((el) => el.classList.remove("menu-open"));
 });
 
 let activeFilter = null; // null = no filter, show everything matching search

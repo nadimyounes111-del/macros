@@ -228,7 +228,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--table-bg);
-  border: 3px solid var(--orange);
+  border: 3px solid var(--light-gray);
   border-radius: 15px;
   padding: 10px;
   margin: 0 auto;

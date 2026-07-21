@@ -46,12 +46,24 @@ function clearAll() {
   );
 }
 
+let lastClearedLog = null;
+
 function confirmClearAll() {
-  undoStack.push({ snapshot: [...window.foodLog] });
+  lastClearedLog = [...window.foodLog];
   window.foodLog = [];
   saveLog();
   renderLog();
-  showToast("Log cleared");
+  showToast(
+    `Log cleared <button class="toast-btn" onclick="undoClearAll()">Undo</button>`,
+  );
+}
+
+function undoClearAll() {
+  if (!lastClearedLog) return;
+  window.foodLog = lastClearedLog;
+  lastClearedLog = null;
+  saveLog();
+  renderLog();
 }
 
 // #endregion
