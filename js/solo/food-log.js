@@ -184,6 +184,9 @@ function renderLog() {
     const checkedCount = entries.filter((e) => e.checked).length;
     const allChecked = checkedCount === entries.length && entries.length > 0;
 
+    const mealSection = document.createElement("div");
+    mealSection.className = "meal-section " + mealClass;
+
     const header = document.createElement("div");
     header.className = "meal-header " + mealClass;
     if (collapsedMeals[meal]) {
@@ -234,7 +237,7 @@ function renderLog() {
   </div>
 
   `;
-    logBody.appendChild(header);
+    mealSection.appendChild(header);
 
     // wrapper div for this meal's rows
     const mealGroup = document.createElement("div");
@@ -316,7 +319,10 @@ function renderLog() {
     });
 
     mealGroup.appendChild(mealGroupBody);
-    logBody.appendChild(mealGroup);
+    // CHANGED: append to mealSection instead of logBody
+    mealSection.appendChild(mealGroup);
+    // NEW: append the whole bundle to logBody
+    logBody.appendChild(mealSection);
   });
 
   document.getElementById("empty-state").style.display =
@@ -366,17 +372,46 @@ function setupAddFood() {
 
     if (matches.length === 0) {
       autocompleteList.innerHTML = `
-      
-      <div class="empty-state-list">
+    <div class="empty-state-list">
+      <div class="empty-state-list-wrap">
+        <svg class="empty-state-list-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M197.1 96C214.4 96 231.3 99.4 247 105.7L301.8 190.9L226.4 266.3C224.9 267.8 224 269.9 224.1 272.1C224.2 274.3 225.1 276.3 226.7 277.8L338.7 381.8C341.6 384.5 346.1 384.7 349.2 382.1C352.3 379.5 353 375.1 350.9 371.7L290.5 273.6L381.2 198C383.8 195.9 384.7 192.3 383.6 189.2L360.4 124.6C383.6 106.3 412.6 96 442.9 96C516.4 96 576 155.6 576 229.1L576 231.7C576 343.9 436.1 474.2 363.1 529.9C350.7 539.3 335.5 544 320 544C304.5 544 289.2 539.4 276.9 529.9C203.9 474.2 64 343.9 64 231.7L64 229.1C64 155.6 123.6 96 197.1 96z"/></svg>
+        <span class="empty-state-list-text">Can't find what you're looking for?</span>
+      </div>
 
-      <svg class="empty-state-list-svg"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 640 640"><path d="M197.1 96C214.4 96 231.3 99.4 247 105.7L301.8 190.9L226.4 266.3C224.9 267.8 224 269.9 224.1 272.1C224.2 274.3 225.1 276.3 226.7 277.8L338.7 381.8C341.6 384.5 346.1 384.7 349.2 382.1C352.3 379.5 353 375.1 350.9 371.7L290.5 273.6L381.2 198C383.8 195.9 384.7 192.3 383.6 189.2L360.4 124.6C383.6 106.3 412.6 96 442.9 96C516.4 96 576 155.6 576 229.1L576 231.7C576 343.9 436.1 474.2 363.1 529.9C350.7 539.3 335.5 544 320 544C304.5 544 289.2 539.4 276.9 529.9C203.9 474.2 64 343.9 64 231.7L64 229.1C64 155.6 123.6 96 197.1 96z"/></svg>
-      <span class="empty-state-list-text">Sorry, no results found</span>
+      <form action="https://formspree.io/f/xrenldgw" method="POST" class="mail-form">
+        <textarea name="message" class="mail-input" placeholder="Request addition" required></textarea>
+        <button class="mail-submit" type="submit">Send</button>
+      </form>
+    </div>
+  `;
 
-      
-      </div>`;
+      const mailForm = autocompleteList.querySelector(".mail-form");
+      mailForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const button = mailForm.querySelector("button");
+        button.disabled = true;
+        button.textContent = "Sending...";
+
+        try {
+          const response = await fetch(mailForm.action, {
+            method: mailForm.method,
+            body: new FormData(mailForm),
+            headers: { Accept: "application/json" },
+          });
+
+          if (response.ok) {
+            button.textContent = "Thank you!";
+            button.classList.add("success");
+            mailForm.reset();
+          } else {
+            button.textContent = "Error";
+            button.disabled = false;
+          }
+        } catch (error) {
+          button.textContent = "Network error";
+          button.disabled = false;
+        }
+      });
     } else {
       matches.forEach(function (food) {
         const { title, subtitle } = formatFoodName(food.name);
@@ -406,6 +441,7 @@ function setupAddFood() {
           updatePreview();
           this.classList.add("active");
           bottomSection.classList.add("visible");
+          document.getElementById("servings").focus();
         });
         autocompleteList.appendChild(li);
       });

@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 5px;
+  gap: 10px;
 }
 
 .log-wrapper {
@@ -149,8 +150,13 @@ body.dim-disabled .row-checked {
   min-height: 0;
   gap: 8px;
   overflow: hidden;
-  /* this overflow fucks animation + truncation */
 }
+/* 
+.meal-section {
+  background-color: var(--dark-blue);
+  border-radius: 10px;
+  padding: 8px;
+} */
 
 .meal-group-body.menu-open {
   overflow: visible;
@@ -271,16 +277,16 @@ body.dim-disabled .row-checked {
 .meal-header {
   display: flex;
   align-items: center;
-  margin-top: clamp(12px, 9.14px + 0.893vw, 22px);
+  /* margin-top: clamp(12px, 9.14px + 0.893vw, 22px); */
   justify-content: space-between;
   cursor: pointer;
   padding: 10px;
   transition: background-color 0.2s ease;
 }
 
-.meal-header.meal-breakfast {
+/* .meal-header.meal-breakfast {
   margin-top: 0;
-}
+} */
 
 .meal-header-wrap {
   display: flex;

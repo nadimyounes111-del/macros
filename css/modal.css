@@ -658,7 +658,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 20px;
   margin-top: 40px;
 }
 
@@ -672,4 +672,48 @@
 .empty-state-list-text {
   color: var(--light-gray);
   font-size: var(--text-base);
+}
+
+.empty-state-list-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mail-form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: clamp(30px, 28.86px + 0.357vw, 34px);
+}
+
+.mail-input {
+  all: unset;
+  background-color: var(--dark-blue);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: var(--text-base);
+}
+
+.mail-submit {
+  all: unset;
+  background-color: var(--orange);
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 5px 10px;
+  border-radius: 8px;
+  width: fit-content;
+  font-size: var(--text-base);
+}
+
+.mail-submit:active {
+  transform: scale(0.95);
+}
+
+.mail-submit.success {
+  background-color: var(--green);
+  color: var(--bg);
 }
