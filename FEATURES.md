@@ -32,8 +32,9 @@
 - Opened by pressing green + button top right of thr screen
 - Search bar and filters, can be mixed (search within a filtered list)
 - List contains around 260 foods
-- Pressing a food item slides down an edit card to choose servings, unit, meal type, and view macros as you edit
+- Pressing a food item allows editting of bottom card to choose servings, unit, and view macros as you edit
 - Adding a food shows successful toast
+- Empty state shows input option to request addition of food
 - Footer shows small disclaimer surrounding data acquisition and advice
 - All foods sourced from USDA FoodCentral or NCCDB, unless a brand name is written
 
