@@ -433,9 +433,17 @@ function setupAddFood() {
         const li = document.createElement("li");
         li.className = "food-item";
         li.dataset.id = food.id;
-        li.innerHTML = subtitle
+
+        const nameHtml = subtitle
           ? `<span class="food-title">${title}</span><span class="food-subtitle">${subtitle}</span>`
           : `<span class="food-title">${title}</span>`;
+
+        const deleteBtnHtml = food.isCustom
+          ? `<button class="delete-custom-btn" onclick="event.stopPropagation(); deleteCustomFood('${food.id}')">×</button>`
+          : "";
+
+        li.innerHTML = nameHtml + deleteBtnHtml;
+
         li.addEventListener("click", function () {
           const alreadySelected = this.classList.contains("active");
 
@@ -445,7 +453,6 @@ function setupAddFood() {
 
           if (alreadySelected) {
             resetFoodSelection();
-
             return;
           }
 
@@ -615,6 +622,10 @@ function renderUnitSelector(food) {
     label.innerHTML = "";
     return;
   }
+  if (food.isCustom) {
+    label.innerHTML = `<span>x ${food.unit}</span>`;
+    return;
+  }
   const options = getUnitOptions(food);
   selectedUnit = food.unit;
   label.innerHTML = "";
@@ -642,4 +653,79 @@ function renderUnitSelector(food) {
     updatePreview();
   });
   label.appendChild(select);
+}
+
+// custom logic
+
+document
+  .querySelector(".custom-save-btn")
+  .addEventListener("click", function () {
+    const name = document.getElementById("custom-title").value.trim();
+    const serving =
+      parseFloat(document.getElementById("custom-serving").value) || 1;
+    const unit =
+      document.getElementById("custom-unit").value.trim() || "serving";
+    const calories =
+      parseFloat(document.getElementById("custom-cal").value) || 0;
+    const protein =
+      parseFloat(document.getElementById("custom-pro").value) || 0;
+    const carbs = parseFloat(document.getElementById("custom-carb").value) || 0;
+    const fat = parseFloat(document.getElementById("custom-fat").value) || 0;
+    const note = document.getElementById("custom-subtitle").value.trim();
+
+    if (!name) return;
+
+    const fullName = note ? `${name}, ${note}` : name;
+    const servingSize = document.getElementById("custom-serving").value.trim();
+    const servingUnit = document.getElementById("custom-unit").value.trim();
+    const combinedUnit = `${servingSize}${servingUnit}`;
+
+    const newFood = {
+      id: `custom-${Date.now()}`,
+      name: fullName,
+      serving: 1, // always 1 — this food IS one unit of itself, no internal scaling
+      unit: combinedUnit,
+      calories: calories,
+      protein: protein,
+      carbs: carbs,
+      fat: fat,
+      isCustom: true,
+    };
+
+    window.customFoods = window.customFoods || [];
+    window.customFoods.push(newFood);
+    foods.push(newFood);
+
+    saveCustomFoods(); // writes window.customFoods to Firestore — see below
+
+    document.querySelector(".custom-card").classList.remove("visible");
+    document.getElementById("autocomplete-list").style.display = "";
+    document.getElementById("custom-title").value = "";
+    document.getElementById("custom-serving").value = "";
+    document.getElementById("custom-unit").value = "";
+    document.getElementById("custom-cal").value = "";
+    document.getElementById("custom-pro").value = "";
+    document.getElementById("custom-carb").value = "";
+    document.getElementById("custom-fat").value = "";
+    document.getElementById("custom-subtitle").value = "";
+
+    closeCustomCard();
+  });
+
+function saveCustomFoods() {
+  if (window.saveToFirestore) {
+    window.saveToFirestore({ customFoods: window.customFoods });
+  }
+}
+
+function deleteCustomFood(id) {
+  window.customFoods = window.customFoods.filter((f) => f.id !== id);
+  foods = foods.filter((f) => f.id !== id);
+  saveCustomFoods();
+
+  if (selectedFood && selectedFood.id === id) {
+    resetFoodSelection();
+  }
+
+  document.getElementById("food-search").dispatchEvent(new Event("input")); // re-render list without the deleted item
 }

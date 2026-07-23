@@ -250,6 +250,10 @@
   gap: 10px;
 }
 
+.add-food-bottom.hidden {
+  display: none;
+}
+
 .add-food-subtitle {
   font-size: var(--text-l);
   color: var(--light-blue);
@@ -395,12 +399,49 @@
   color: var(--light-blue);
 }
 
+.custom-icon {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-blue);
+}
+
+.custom-icon-btn {
+  all: unset;
+  display: flex;
+  background-color: var(--dark-blue);
+  padding: 5px;
+  border-radius: 6px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-icon-btn:active {
+  transform: scale(0.95);
+}
+
+.custom-icon-btn.active {
+  background-color: var(--orange);
+}
+
+.custom-icon-btn.active svg {
+  color: white;
+}
+
+.search-custom-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .food-search-wrap {
   position: relative;
   display: flex;
-  margin-bottom: 10px;
+
   gap: 5px;
   align-items: center;
+  width: 100%;
 }
 
 #food-search {
@@ -752,4 +793,101 @@
 
 .meal-menu-add.open {
   display: flex;
+}
+
+/* custom */
+
+.custom-card {
+  display: none;
+  margin: 20px 0; /* remove after */
+  gap: 10px;
+}
+
+.custom-card.visible {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-input-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.custom-left-wrap,
+.custom-right-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.custom-input {
+  all: unset;
+  background-color: var(--table-bg);
+  font-size: var(--text-base);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.custom-input::placeholder {
+  color: var(--light-gray);
+}
+
+.custom-header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.custom-header-svg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--light-gray);
+}
+
+.custom-header-text {
+  color: var(--light-gray);
+  font-size: var(--text-base);
+}
+
+.custom-save-btn-wrap {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.custom-save-btn {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--orange);
+  border-radius: 6px;
+  padding: 5px 8px;
+}
+
+.custom-save-text {
+  font-size: var(--text-base);
+  color: var(--bg);
+}
+
+.custom-save-btn:active {
+  transform: scale(0.95);
+}
+
+.delete-custom-btn {
+  background: var(--white);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+  width: fit-content;
+  color: var(--red);
 }

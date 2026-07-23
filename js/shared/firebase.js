@@ -141,6 +141,10 @@ window.initFirestore = function (user, onFirstLoad) {
     } else {
       window.onboardingSeen = false;
     }
+    if (data.customFoods !== undefined) {
+      window.customFoods = data.customFoods;
+      foods = foods.filter((f) => !f.isCustom).concat(window.customFoods);
+    }
     if (data.waterUnit !== undefined) {
       waterUnit = data.waterUnit;
     }

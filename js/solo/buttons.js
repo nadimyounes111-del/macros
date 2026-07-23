@@ -121,3 +121,44 @@ document.addEventListener("keydown", function (e) {
 });
 
 // #endregion
+
+// custom
+document.querySelectorAll(".custom-icon-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+  });
+});
+
+function closeCustomCard() {
+  const card = document.querySelector(".custom-card");
+  const list = document.getElementById("autocomplete-list");
+  const bottom = document.querySelector(".add-food-bottom");
+  const footer = document.querySelector(".footer-text");
+
+  card.classList.remove("visible");
+  list.style.display = "";
+  bottom.classList.remove("hidden");
+  footer.classList.remove("hidden");
+
+  document.querySelector(".custom-icon-btn").classList.remove("active");
+}
+
+document
+  .querySelector(".custom-icon-btn")
+  .addEventListener("click", function () {
+    const card = document.querySelector(".custom-card");
+    const list = document.getElementById("autocomplete-list");
+    const isOpen = card.classList.contains("visible");
+    const bottom = document.querySelector(".add-food-bottom");
+    const footer = document.querySelector(".footer-text");
+
+    if (isOpen) {
+      closeCustomCard();
+    } else {
+      card.classList.add("visible");
+      list.style.display = "none";
+      bottom.classList.add("hidden");
+      footer.classList.add("hidden");
+      this.classList.add("active");
+    }
+  });
