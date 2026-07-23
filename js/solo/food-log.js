@@ -41,23 +41,11 @@ document.addEventListener("click", function () {
 
 let activeFilter = null; // null = no filter, show everything matching search
 
-const stagingName = document.querySelector(".staging-food-name");
-
 function changeEntryMeal(index, newMeal) {
   window.foodLog[index].meal = newMeal;
   window.expandedRows.delete(String(index)); // same reasoning as delete — index will shift after re-render since entries regroup by meal
   saveLog();
   renderLog();
-}
-
-function setStagingFood(food) {
-  if (!food) {
-    stagingName.textContent = "Food";
-    stagingName.dataset.empty = "true";
-    return;
-  }
-  stagingName.textContent = formatFoodName(food.name).title;
-  stagingName.dataset.empty = "false";
 }
 
 document.querySelectorAll(".filters button").forEach((btn) => {
@@ -148,7 +136,6 @@ function saveFood(closeAfter = true) {
   saveLog();
   renderLog();
   resetFoodSelection();
-  setStagingFood(null);
   showToast("Food added");
   closeAfter ? closeFoodModal() : resetFoodModalForNextEntry();
 }
@@ -379,7 +366,7 @@ function setupAddFood() {
       </div>
 
       <form action="https://formspree.io/f/xrenldgw" method="POST" class="mail-form">
-        <textarea name="message" class="mail-input" placeholder="Request addition" required></textarea>
+        <input type="text" name="message" class="mail-input" placeholder="Request addition" required></input>
         <button class="mail-submit" type="submit">Send</button>
       </form>
     </div>
@@ -423,7 +410,6 @@ function setupAddFood() {
           : `<span class="food-title">${title}</span>`;
         li.addEventListener("click", function () {
           const alreadySelected = this.classList.contains("active");
-          const bottomSection = document.querySelector(".add-food-bottom");
 
           autocompleteList
             .querySelectorAll("li")
@@ -431,16 +417,14 @@ function setupAddFood() {
 
           if (alreadySelected) {
             resetFoodSelection();
-            bottomSection.classList.remove("visible");
+
             return;
           }
 
           selectedFood = food;
-          setStagingFood(food);
           renderUnitSelector(food);
           updatePreview();
           this.classList.add("active");
-          bottomSection.classList.add("visible");
           document.getElementById("servings").focus();
         });
         autocompleteList.appendChild(li);
@@ -459,9 +443,7 @@ function setupAddFood() {
 
 function resetFoodSelection() {
   selectedFood = null;
-  setStagingFood(null);
   renderUnitSelector(null);
-  document.querySelector(".add-food-bottom").classList.remove("visible");
 
   const servingsInput = document.getElementById("servings");
   servingsInput.value = "";

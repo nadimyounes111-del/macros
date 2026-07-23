@@ -310,16 +310,24 @@ body.dim-disabled .row-checked {
 .meal-cal {
   font-size: var(--text-base);
   white-space: nowrap;
-  color: var(--light-gray);
+  color: var(--light-blue);
   text-transform: none;
+}
+
+.meal-protein {
+  color: var(--orange);
 }
 
 .pro-svg-table,
 .cal-svg-table {
   width: clamp(15px, 13.57px + 0.446vw, 20px);
   height: clamp(15px, 13.57px + 0.446vw, 20px);
-  color: var(--light-gray);
+  color: var(--light-blue);
   flex-shrink: 0;
+}
+
+.pro-svg-table {
+  color: var(--orange);
 }
 
 .protein-count-wrap,

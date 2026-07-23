@@ -349,7 +349,7 @@
 
       <!-- #region Add Food Page -->
 
-      <div class="add-food-page" id="add-modal">
+      <div class="add-food-page active" id="add-modal">
         <div class="add-food-wrapper">
           <div class="modal-header">
             <button
@@ -371,51 +371,6 @@
               </svg>
             </button>
             <span>Log Food</span>
-          </div>
-
-          <div class="add-food-bottom">
-            <span class="staging-food-name" data-empty="true"></span>
-            <div class="servings-meal">
-              <div class="add-food-servings">
-                <input
-                  class="servings-edit"
-                  id="servings"
-                  type="number"
-                  inputmode="decimal"
-                  min="0"
-                />
-                <span id="serving-size-label"></span>
-              </div>
-              <select class="modal-meal-select" id="meal-select">
-                <option value="Breakfast">Breakfast</option>
-                <option value="Lunch">Lunch</option>
-                <option value="Snack">Snack</option>
-                <option value="Dinner">Dinner</option>
-              </select>
-            </div>
-            <div class="macros-save">
-              <div id="macros-preview">
-                <div class="macro-item">
-                  <span data-icon="fire" class="macro-edit-svg cal"></span>
-                  <span class="macro-edit" id="cal-preview"></span>
-                </div>
-                <div class="macro-item">
-                  <span data-icon="chicken" class="macro-edit-svg pro"></span>
-                  <span class="macro-edit" id="pro-preview"></span>
-                </div>
-                <div class="macro-item">
-                  <span data-icon="wheat" class="macro-edit-svg carb"></span>
-                  <span class="macro-edit" id="carb-preview"></span>
-                </div>
-                <div class="macro-item">
-                  <span data-icon="avocado" class="macro-edit-svg fat"></span>
-                  <span class="macro-edit" id="fat-preview"></span>
-                </div>
-              </div>
-              <button class="save-food-btn" onclick="saveFood(false)">
-                <span class="save-food-svg">Add</span>
-              </button>
-            </div>
           </div>
 
           <div class="food-search-wrap">
@@ -561,6 +516,50 @@
             </div>
           </div>
           <div id="autocomplete-list"></div>
+          <div class="add-food-bottom">
+            <!-- <span class="add-food-subtitle">Choose item to edit</span> -->
+            <div class="servings-meal">
+              <div class="add-food-servings">
+                <input
+                  class="servings-edit"
+                  id="servings"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                />
+                <span id="serving-size-label"></span>
+              </div>
+              <select class="modal-meal-select" id="meal-select">
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Snack">Snack</option>
+                <option value="Dinner">Dinner</option>
+              </select>
+            </div>
+            <div class="macros-save">
+              <div id="macros-preview">
+                <div class="macro-item">
+                  <span data-icon="fire" class="macro-edit-svg cal"></span>
+                  <span class="macro-edit" id="cal-preview"></span>
+                </div>
+                <div class="macro-item">
+                  <span data-icon="chicken" class="macro-edit-svg pro"></span>
+                  <span class="macro-edit" id="pro-preview"></span>
+                </div>
+                <div class="macro-item">
+                  <span data-icon="wheat" class="macro-edit-svg carb"></span>
+                  <span class="macro-edit" id="carb-preview"></span>
+                </div>
+                <div class="macro-item">
+                  <span data-icon="avocado" class="macro-edit-svg fat"></span>
+                  <span class="macro-edit" id="fat-preview"></span>
+                </div>
+              </div>
+              <button class="save-food-btn" onclick="saveFood(false)">
+                <span class="save-food-svg">Add</span>
+              </button>
+            </div>
+          </div>
           <span class="footer-text"
             >Data sourced from USDA FoodData Central & NCCDB. For informational
             purposes only. Not medical advice</span
