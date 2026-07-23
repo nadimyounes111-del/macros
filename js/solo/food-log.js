@@ -12,6 +12,34 @@ document.querySelector(".modal-header").addEventListener("click", function () {
     .scrollTo({ top: 0, behavior: "smooth" });
 });
 
+// add food page
+function toggleMealSelectMenu(wrapper) {
+  const menu = wrapper.querySelector(".meal-menu-add");
+  const isOpen = menu.classList.contains("open");
+
+  document
+    .querySelectorAll(".meal-menu-add.open")
+    .forEach((m) => m.classList.remove("open"));
+
+  if (!isOpen) {
+    menu.classList.add("open");
+  }
+}
+
+function selectMeal(btn, meal) {
+  const wrapper = btn.closest(".meal-select-btn");
+  wrapper.querySelector(".meal-select-label").textContent = meal;
+  wrapper.querySelector(".meal-menu-add").classList.remove("open");
+  window.selectedMeal = meal; // whatever variable saveFood() should read from now
+}
+
+document.addEventListener("click", function () {
+  document
+    .querySelectorAll(".meal-menu-add.open")
+    .forEach((m) => m.classList.remove("open"));
+});
+
+// food item swapper
 function toggleMealMenu(swapBtn, index) {
   const menu = swapBtn.querySelector(".meal-menu");
   const mealGroupBody = swapBtn.closest(".meal-group-body");
@@ -107,7 +135,7 @@ function toggleMealGroup(headerEl, mealName) {
 }
 
 function saveFood(closeAfter = true) {
-  const meal = document.getElementById("meal-select").value || "Breakfast";
+  const meal = window.selectedMeal || "Breakfast";
   const servingsInput = document.getElementById("servings");
   const searchInput = document.getElementById("food-search");
 

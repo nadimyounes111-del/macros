@@ -188,8 +188,28 @@
   box-sizing: border-box;
   border-radius: 10px;
   gap: 10px;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--orange) transparent;
+}
+
+/* Chrome, Edge, Safari */
+#autocomplete-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+#autocomplete-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#autocomplete-list::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 999px;
+}
+
+#autocomplete-list::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
 }
 
 .food-item.active .food-subtitle {
@@ -221,7 +241,7 @@
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
-  margin: 10px 0;
+  margin-top: 10px;
   background-color: var(--dark-blue);
   border-radius: 12px;
   padding: 10px;
@@ -233,10 +253,6 @@
 .add-food-subtitle {
   font-size: var(--text-l);
   color: var(--light-blue);
-}
-
-#autocomplete-list::-webkit-scrollbar {
-  display: none;
 }
 
 .macro-edit-svg {
@@ -296,7 +312,7 @@
 .filters-wrapper {
   display: flex;
   padding: 10px 0;
-  z-index: 10;
+  z-index: 3;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -679,4 +695,61 @@
 .mail-submit.success {
   background-color: var(--green);
   color: var(--bg);
+}
+
+.meal-select-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+  background-color: var(--dark-blue);
+  border-radius: 8px;
+  padding: clamp(4px, 3.43px + 0.179vw, 6px) 0 clamp(4px, 3.43px + 0.179vw, 6px)
+    clamp(6px, 5.43px + 0.179vw, 8px);
+  justify-self: end;
+}
+
+.meal-select-label {
+  font-size: var(--text-base);
+  color: var(--light-blue);
+}
+
+.meal-select-down {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--light-blue);
+}
+
+.meal-menu-add {
+  display: none;
+  position: absolute;
+  top: 38px;
+  right: 20px;
+  background-color: var(--dark-blue);
+  border-radius: 8px;
+  padding: 4px;
+  flex-direction: column;
+  min-width: 100px;
+  z-index: 10;
+}
+
+.meal-menu-add button {
+  font-family: "Cal Sans";
+  background: none;
+  border: none;
+  color: var(--light-blue);
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: var(--text-base);
+}
+
+.meal-menu-add button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.meal-menu-add.open {
+  display: flex;
 }
