@@ -37,6 +37,7 @@
 - Empty state shows input option to request addition of food
 - Footer shows small disclaimer surrounding data acquisition and advice
 - All foods sourced from USDA FoodCentral or NCCDB, unless a brand name is written
+- Create custom icons by adding info in the pencil button, and filter by your custom foods, delete one with trash icon
 
 ### Settings - Modal
 

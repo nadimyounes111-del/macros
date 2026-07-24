@@ -30,7 +30,7 @@ function selectMeal(btn, meal) {
   const wrapper = btn.closest(".meal-select-btn");
   wrapper.querySelector(".meal-select-label").textContent = meal;
   wrapper.querySelector(".meal-menu-add").classList.remove("open");
-  window.selectedMeal = meal; // whatever variable saveFood() should read from now
+  window.selectedMeal = meal;
 }
 
 document.addEventListener("click", function () {
@@ -101,7 +101,13 @@ let collapsedMeals = {};
 
 function formatFoodName(rawName) {
   const [first, ...rest] = rawName.split(",");
-  const capitalize = (s) => s.trim().replace(/\b\w/g, (c) => c.toUpperCase());
+  const capitalize = (s) =>
+    s
+      .trim()
+      .replace(
+        /(^|\s)([a-z])/gi,
+        (_, boundary, c) => boundary + c.toUpperCase(),
+      );
   const title = capitalize(first);
   const subtitle = rest.length ? capitalize(rest.join(",")) : "";
   return { title, subtitle };
@@ -731,8 +737,9 @@ document
     window.customFoods = window.customFoods || [];
     window.customFoods.push(newFood);
     foods.push(newFood);
+    showToast("Custom food added");
 
-    saveCustomFoods(); // writes window.customFoods to Firestore — see below
+    saveCustomFoods();
 
     document.querySelector(".custom-card").classList.remove("visible");
     document.getElementById("autocomplete-list").style.display = "";
@@ -760,6 +767,16 @@ function deleteCustomFood(id) {
   const food = window.customFoods.find((f) => f.id === id);
   if (!food) return;
 
+  showToast(
+    `<span class="toast-title">Confirm delete</span>
+     <button class="toast-btn" onclick="confirmDeleteCustomFood('${id}')">Yes</button>`,
+  );
+}
+
+function confirmDeleteCustomFood(id) {
+  const food = window.customFoods.find((f) => f.id === id);
+  if (!food) return;
+
   lastDeletedCustomFood = food;
   window.customFoods = window.customFoods.filter((f) => f.id !== id);
   foods = foods.filter((f) => f.id !== id);
@@ -771,9 +788,7 @@ function deleteCustomFood(id) {
 
   document.getElementById("food-search").dispatchEvent(new Event("input"));
   showToast(
-    `<span class="toast-title">Item removed</span>
-    
-   <button class="toast-btn" onclick="undoDeleteCustomFood()">Undo</button>`,
+    `Item removed <button class="toast-btn" onclick="undoDeleteCustomFood()">Undo</button>`,
   );
 }
 
