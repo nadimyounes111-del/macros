@@ -232,25 +232,31 @@
 .food-item {
   display: flex;
   box-sizing: border-box;
-  padding: 8px 12px;
+  padding: 10px;
   border-radius: 6px;
-  min-height: clamp(52px, 50.29px + 0.536vw, 58px);
+  min-height: 57px;
   background-color: rgb(23, 22, 22);
   cursor: pointer;
-  font-size: var(--text-s);
-  justify-content: space-between;
   transition: all 0.2s ease;
+  overflow: hidden;
 }
+
+.food-item.expanded {
+  flex-direction: column;
+  min-height: 150px;
+  overflow: visible;
+}
+
+/* .food-item.expanded .add-food-bottom {
+  opacity: 1;
+} */
 
 .add-food-bottom {
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
   margin-top: 10px;
-  background-color: var(--table-bg);
   border-radius: 12px;
-  padding: 10px;
-  max-width: 600px;
   transition: all 0.2s ease;
   gap: 10px;
 }
@@ -262,6 +268,36 @@
 .add-food-subtitle {
   font-size: var(--text-l);
   color: var(--light-blue);
+}
+
+.unit-options {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.unit-chip {
+  display: flex;
+  background-color: var(--dark-blue);
+  color: var(--light-blue);
+  font-size: var(--text-base);
+  min-width: 40px;
+  border-radius: 25px;
+  padding: 3px 6px;
+  align-items: center;
+  justify-content: center;
+  height: max-content;
+  transition: all 0.2s ease;
+}
+
+.unit-chip.active {
+  color: white;
+  background-color: var(--orange);
+}
+
+.unit-chip:active {
+  transform: scale(0.95);
 }
 
 .macro-edit-svg {
@@ -398,9 +434,6 @@
 .add-food-servings {
   display: flex;
   align-items: center;
-  width: 150px;
-  background-color: var(--dark-blue);
-  border-radius: 8px;
 }
 
 .search-icon {
@@ -481,7 +514,7 @@
   font-size: var(--text-base);
   padding: clamp(5px, 3.57px + 0.446vw, 10px) clamp(8px, 6.29px + 0.536vw, 14px);
   color: var(--white);
-  background: none;
+  background: var(--table-bg);
   border: none;
   border-radius: clamp(6px, 5.43px + 0.179vw, 8px);
 }
@@ -492,14 +525,7 @@
 }
 
 #servings::placeholder {
-  color: var(--light-blue);
-}
-
-#serving-size-label {
-  display: flex;
-  padding: 4px 8px;
-  font-size: var(--text-base);
-  color: var(--light-blue);
+  color: var(--light-gray);
 }
 
 .macros-save {
