@@ -151,10 +151,18 @@ document
     const isOpen = card.classList.contains("visible");
     const bottom = document.querySelector(".add-food-bottom");
     const footer = document.querySelector(".footer-text");
+    const searchInput = document.getElementById("food-search");
 
     if (isOpen) {
       closeCustomCard();
     } else {
+      document
+        .querySelectorAll(".filters button")
+        .forEach((b) => b.classList.remove("active"));
+      activeFilter = null;
+      searchInput.value = "";
+      searchInput.dispatchEvent(new Event("input")); // refresh list FIRST, while card is still closed
+
       card.classList.add("visible");
       list.style.display = "none";
       bottom.classList.add("hidden");

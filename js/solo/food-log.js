@@ -90,6 +90,7 @@ document.querySelectorAll(".filters button").forEach((btn) => {
         .forEach((b) => b.classList.remove("active"));
       activeFilter = tag;
       this.classList.add("active");
+      closeCustomCard();
     }
 
     document.getElementById("food-search").dispatchEvent(new Event("input"));
@@ -356,6 +357,9 @@ function setupAddFood() {
   searchInput.value = "";
 
   searchInput.oninput = function () {
+    if (document.querySelector(".custom-card").classList.contains("visible")) {
+      closeCustomCard();
+    }
     const query = this.value.toLowerCase().trim();
     autocompleteList.innerHTML = "";
 
@@ -369,7 +373,9 @@ function setupAddFood() {
         })
       : foods;
 
-    if (activeFilter) {
+    if (activeFilter === "custom") {
+      matches = matches.filter((f) => f.isCustom);
+    } else if (activeFilter) {
       matches = matches.filter((f) => {
         const tags = (f.tag || "").split(",").map((t) => t.trim());
         return tags.includes(activeFilter);
@@ -385,7 +391,20 @@ function setupAddFood() {
       )
       .slice();
 
-    if (matches.length === 0) {
+    if (matches.length === 0 && activeFilter === "custom") {
+      autocompleteList.innerHTML = `
+    <div class="empty-state-list">
+      <div class="empty-state-list-wrap">
+       <svg class="empty-state-list-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M197.1 96C214.4 96 231.3 99.4 247 105.7L301.8 190.9L226.4 266.3C224.9 267.8 224 269.9 224.1 272.1C224.2 274.3 225.1 276.3 226.7 277.8L338.7 381.8C341.6 384.5 346.1 384.7 349.2 382.1C352.3 379.5 353 375.1 350.9 371.7L290.5 273.6L381.2 198C383.8 195.9 384.7 192.3 383.6 189.2L360.4 124.6C383.6 106.3 412.6 96 442.9 96C516.4 96 576 155.6 576 229.1L576 231.7C576 343.9 436.1 474.2 363.1 529.9C350.7 539.3 335.5 544 320 544C304.5 544 289.2 539.4 276.9 529.9C203.9 474.2 64 343.9 64 231.7L64 229.1C64 155.6 123.6 96 197.1 96z"/></svg>
+        <div class="double-span">
+       <span class="empty-state-list-text">You don't have any custom entries</span>
+         <span class="empty-state-list-text">Tap the pencil icon to add</span>
+         </div>
+       
+      </div>
+    </div>
+  `;
+    } else if (matches.length === 0) {
       autocompleteList.innerHTML = `
     <div class="empty-state-list">
       <div class="empty-state-list-wrap">
@@ -434,15 +453,31 @@ function setupAddFood() {
         li.className = "food-item";
         li.dataset.id = food.id;
 
-        const nameHtml = subtitle
-          ? `<span class="food-title">${title}</span><span class="food-subtitle">${subtitle}</span>`
-          : `<span class="food-title">${title}</span>`;
+        li.innerHTML = `
+        <div class="food-item-wrap">
+    <span class="food-title">${title}</span>
+    ${subtitle ? `<span class="food-subtitle">${subtitle}</span>` : ""}
+    </div>
+    ${
+      food.isCustom
+        ? `<button class="delete-custom-btn">
+             <svg class="delete-custom-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+               <path d="M232.7 69.9C237.1 56.8 249.3 48 263.1 48L377 48C390.8 48 403 56.8 407.4 69.9L416 96L512 96C529.7 96 544 110.3 544 128C544 145.7 529.7 160 512 160L128 160C110.3 160 96 145.7 96 128C96 110.3 110.3 96 128 96L224 96L232.7 69.9zM128 208L512 208L512 512C512 547.3 483.3 576 448 576L192 576C156.7 576 128 547.3 128 512L128 208zM216 272C202.7 272 192 282.7 192 296L192 488C192 501.3 202.7 512 216 512C229.3 512 240 501.3 240 488L240 296C240 282.7 229.3 272 216 272zM320 272C306.7 272 296 282.7 296 296L296 488C296 501.3 306.7 512 320 512C333.3 512 344 501.3 344 488L344 296C344 282.7 333.3 272 320 272zM424 272C410.7 272 400 282.7 400 296L400 488C400 501.3 410.7 512 424 512C437.3 512 448 501.3 448 488L448 296C448 282.7 437.3 272 424 272z"/>
+             </svg>
+           </button>`
+        : ""
+    }
+  `;
 
-        const deleteBtnHtml = food.isCustom
-          ? `<button class="delete-custom-btn" onclick="event.stopPropagation(); deleteCustomFood('${food.id}')">×</button>`
-          : "";
-
-        li.innerHTML = nameHtml + deleteBtnHtml;
+        if (food.isCustom) {
+          li.querySelector(".delete-custom-btn").addEventListener(
+            "click",
+            function (e) {
+              e.stopPropagation();
+              deleteCustomFood(food.id);
+            },
+          );
+        }
 
         li.addEventListener("click", function () {
           const alreadySelected = this.classList.contains("active");
@@ -462,6 +497,7 @@ function setupAddFood() {
           this.classList.add("active");
           document.getElementById("servings").focus();
         });
+
         autocompleteList.appendChild(li);
       });
     }
@@ -718,7 +754,13 @@ function saveCustomFoods() {
   }
 }
 
+let lastDeletedCustomFood = null;
+
 function deleteCustomFood(id) {
+  const food = window.customFoods.find((f) => f.id === id);
+  if (!food) return;
+
+  lastDeletedCustomFood = food;
   window.customFoods = window.customFoods.filter((f) => f.id !== id);
   foods = foods.filter((f) => f.id !== id);
   saveCustomFoods();
@@ -727,5 +769,19 @@ function deleteCustomFood(id) {
     resetFoodSelection();
   }
 
-  document.getElementById("food-search").dispatchEvent(new Event("input")); // re-render list without the deleted item
+  document.getElementById("food-search").dispatchEvent(new Event("input"));
+  showToast(
+    `<span class="toast-title">Item removed</span>
+    
+   <button class="toast-btn" onclick="undoDeleteCustomFood()">Undo</button>`,
+  );
+}
+
+function undoDeleteCustomFood() {
+  if (!lastDeletedCustomFood) return;
+  window.customFoods.push(lastDeletedCustomFood);
+  foods.push(lastDeletedCustomFood);
+  saveCustomFoods();
+  lastDeletedCustomFood = null;
+  document.getElementById("food-search").dispatchEvent(new Event("input"));
 }

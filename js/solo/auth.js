@@ -9,8 +9,6 @@ function handleAuthSubmit(e) {
 function toggleAuthMode() {
   authMode = authMode === "signin" ? "signup" : "signin";
 
-  document.getElementById("auth-name").style.display =
-    authMode === "signup" ? "block" : "none";
   document.getElementById("auth-submit-btn").textContent =
     authMode === "signup" ? "Sign Up" : "Sign In";
   document.getElementById("auth-toggle-text").textContent =
@@ -44,7 +42,7 @@ async function handleForgotPassword() {
 async function submitAuth() {
   const email = document.getElementById("auth-email").value.trim();
   const password = document.getElementById("auth-password").value;
-  const name = document.getElementById("auth-name").value.trim();
+
   const errorEl = document.getElementById("auth-error");
 
   errorEl.textContent = "";
@@ -59,15 +57,10 @@ async function submitAuth() {
 
   try {
     if (authMode === "signup") {
-      window.currentUser = await window.signUp(
-        email,
-        password,
-        name || email.split("@")[0],
-      );
+      window.currentUser = await window.signUp(email, password);
     } else {
       window.currentUser = await window.signIn(email, password);
     }
-    window.updateUserName();
     // spinner stays visible — onAuthReady redirects to app.html next
   } catch (e) {
     errorEl.textContent = friendlyAuthError(e.code);

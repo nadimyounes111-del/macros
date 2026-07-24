@@ -224,7 +224,13 @@
   background-color: #ff8000d7;
 }
 
+.food-item-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
 .food-item {
+  display: flex;
   box-sizing: border-box;
   padding: 8px 12px;
   border-radius: 6px;
@@ -232,8 +238,7 @@
   background-color: rgb(23, 22, 22);
   cursor: pointer;
   font-size: var(--text-s);
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   transition: all 0.2s ease;
 }
 
@@ -242,7 +247,7 @@
   box-sizing: border-box;
   flex-direction: column;
   margin-top: 10px;
-  background-color: var(--dark-blue);
+  background-color: var(--table-bg);
   border-radius: 12px;
   padding: 10px;
   max-width: 600px;
@@ -374,6 +379,11 @@
 .food-title {
   font-size: var(--text-base);
   color: var(--white);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .food-subtitle {
@@ -684,6 +694,7 @@
 .empty-state-list-text {
   color: var(--light-gray);
   font-size: var(--text-base);
+  text-align: center;
 }
 
 .empty-state-list-wrap {
@@ -694,24 +705,29 @@
   justify-content: center;
 }
 
+.double-span {
+  display: flex;
+  flex-direction: column;
+}
+
 .mail-form {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  background-color: var(--dark-blue);
+  background-color: var(--table-bg);
   border-radius: 8px;
   padding: 8px 12px;
 }
 
 .mail-input {
   all: unset;
-  background-color: var(--dark-blue);
+  background-color: var(--table-bg);
   font-size: var(--text-base);
   width: clamp(125px, 117.86px + 2.232vw, 150px);
 }
 
 .mail-input::placeholder {
-  color: var(--light-blue);
+  color: var(--light-gray);
 }
 
 .mail-submit {
@@ -799,8 +815,8 @@
 
 .custom-card {
   display: none;
-  margin: 20px 0; /* remove after */
-  gap: 10px;
+  gap: 20px;
+  margin-top: 40px;
 }
 
 .custom-card.visible {
@@ -820,6 +836,7 @@
   flex-direction: column;
   width: 100%;
   gap: 10px;
+  min-width: 0;
 }
 
 .custom-input {
@@ -883,11 +900,21 @@
 }
 
 .delete-custom-btn {
-  background: var(--white);
+  all: unset;
   border: none;
-  font-size: 18px;
+  font-size: var(--text-base);
   cursor: pointer;
-  padding: 0 4px;
   width: fit-content;
   color: var(--red);
+}
+
+.delete-custom-svg {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+  color: var(--red);
+}
+
+.food-item.active .delete-custom-svg {
+  color: white;
 }

@@ -45,7 +45,6 @@ firebaseReady.then(() => {
   window.onAuthReady((user) => {
     if (user) {
       window.currentUser = user;
-      window.updateUserName();
       loadFoods(user.uid).then(() => {
         window.initFirestore(window.currentUser.uid, () => initApp());
       });
@@ -64,7 +63,6 @@ function initApp() {
   initNotes();
   initWidgetToggles();
   populateWidgetToggles();
-  populateUsernameField();
   initSettingsToggles();
   populateSettingsToggles();
   maybeShowOnboarding();
@@ -97,41 +95,6 @@ function closeOnboarding() {
   document.getElementById("onboarding-modal").classList.remove("active");
   window.saveToFirestore({ onboardingSeen: true });
   document.body.classList.remove("modal-open");
-}
-
-async function submitNameChange() {
-  const newName = document.getElementById("new-username").value.trim();
-  if (!newName) return;
-
-  const btn = document.querySelector(".user-btn");
-  const originalText = btn.textContent;
-
-  btn.disabled = true;
-  btn.textContent = "Saving";
-
-  try {
-    await window.updateDisplayName(newName);
-    window.currentUser.displayName = newName;
-    window.updateUserName();
-    document.getElementById("new-username").value = newName;
-
-    btn.textContent = "Done!";
-    btn.classList.add("saved");
-    setTimeout(() => {
-      btn.textContent = originalText;
-      btn.classList.remove("saved");
-      btn.disabled = false;
-    }, 2400);
-  } catch (e) {
-    console.warn("Failed to update display name:", e);
-    btn.textContent = "Failed";
-    btn.classList.add("failed");
-    setTimeout(() => {
-      btn.textContent = originalText;
-      btn.classList.remove("failed");
-      btn.disabled = false;
-    }, 2400);
-  }
 }
 
 function signOut() {
@@ -311,9 +274,6 @@ const GUEST_DATA = {
 };
 
 function initGuestMode(onFirstLoad) {
-  window.currentUser = { displayName: "Guest", email: null, uid: "guest" };
-  window.updateUserName();
-
   window.onboardingSeen = true;
 
   const banner = document.getElementById("guest-banner");

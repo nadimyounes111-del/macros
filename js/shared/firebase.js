@@ -36,11 +36,8 @@ window.resetPassword = function (email) {
   return sendPasswordResetEmail(auth, email);
 };
 
-window.signUp = async function (email, password, displayName) {
+window.signUp = async function (email, password) {
   const cred = await createUserWithEmailAndPassword(auth, email, password);
-  if (displayName) {
-    await updateProfile(cred.user, { displayName });
-  }
   return cred.user;
 };
 
@@ -55,18 +52,6 @@ window.signOutUser = function () {
 
 window.onAuthReady = function (callback) {
   onAuthStateChanged(auth, callback);
-};
-
-window.updateDisplayName = async function (newName) {
-  await updateProfile(auth.currentUser, { displayName: newName });
-  await setDoc(docRef, { profile: { displayName: newName } }, { merge: true });
-};
-
-window.updateUserName = function () {
-  const el = document.querySelector(".user-name");
-  if (el && window.currentUser) {
-    el.textContent = window.currentUser.displayName || window.currentUser.email;
-  }
 };
 
 window.initFirestore = function (user, onFirstLoad) {
