@@ -126,6 +126,18 @@
           <div class="widget-thumbnail weight">
             <span data-icon="person" class="widget-svg weight"></span>
           </div>
+          <!-- <div class="widget-thumbnail groceries">
+            <svg
+              class="widget-svg groceries"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 640"
+            >
+              <path
+                d="M320 64C326.6 64 332.9 66.7 337.4 71.5L481.4 223.5L481.9 224L560 224C577.7 224 592 238.3 592 256C592 270.5 582.4 282.7 569.2 286.7L523.1 493.9C516.6 523.2 490.6 544 460.6 544L179.3 544C149.3 544 123.3 523.2 116.8 493.9L70.8 286.7C57.6 282.8 48 270.5 48 256C48 238.3 62.3 224 80 224L158.1 224L158.6 223.5L302.6 71.5C307.1 66.7 313.4 64 320 64zM320 122.9L224.2 224L415.8 224L320 122.9zM240 328C240 314.7 229.3 304 216 304C202.7 304 192 314.7 192 328L192 440C192 453.3 202.7 464 216 464C229.3 464 240 453.3 240 440L240 328zM320 304C306.7 304 296 314.7 296 328L296 440C296 453.3 306.7 464 320 464C333.3 464 344 453.3 344 440L344 328C344 314.7 333.3 304 320 304zM448 328C448 314.7 437.3 304 424 304C410.7 304 400 314.7 400 328L400 440C400 453.3 410.7 464 424 464C437.3 464 448 453.3 448 440L448 328z"
+              />
+            </svg>
+          </div> -->
           <div class="widget-thumbnail notes">
             <span data-icon="notes" class="widget-svg notes"></span>
           </div>
@@ -228,6 +240,27 @@
                 </div>
               </div>
             </div>
+
+            <!-- <div class="widget-card groceries" data-widget="groceries">
+              <div class="widget-header">
+                <span data-icon="supplements" class="widget-icon supp"></span>
+                <div class="widget-label">Supplements</div>
+              </div>
+              <div class="supp-body">
+                <div id="supp-list"></div>
+                <div class="supp-add-row">
+                  <input
+                    id="supp-input"
+                    type="text"
+                    placeholder="Add item"
+                    onkeydown="if (event.key === 'Enter') addSupp();"
+                  />
+                  <button class="add-supp-btn" onclick="addSupp()">
+                    <span data-icon="circlePlus" class="add-supp-svg"></span>
+                  </button>
+                </div>
+              </div>
+            </div> -->
 
             <div class="widget-card notes" data-widget="notes">
               <div class="widget-header">
@@ -349,7 +382,7 @@
 
       <!-- #region Add Food Page -->
 
-      <div class="add-food-page active" id="add-modal">
+      <div class="add-food-page" id="add-modal">
         <div class="add-food-wrapper">
           <div class="modal-header">
             <button
@@ -688,43 +721,6 @@
 
           <div id="autocomplete-list"></div>
 
-          <!-- <div class="add-food-bottom">
-            <div class="servings-meal">
-              <div class="add-food-servings">
-                <input
-                  class="servings-edit"
-                  id="servings"
-                  type="number"
-                  inputmode="decimal"
-                  min="0"
-                />
-                <span id="serving-size-label"></span>
-              </div>
-            </div>
-            <div class="macros-save">
-              <div id="macros-preview">
-                <div class="macro-item">
-                  <span data-icon="fire" class="macro-edit-svg cal"></span>
-                  <span class="macro-edit" id="cal-preview"></span>
-                </div>
-                <div class="macro-item">
-                  <span data-icon="chicken" class="macro-edit-svg pro"></span>
-                  <span class="macro-edit" id="pro-preview"></span>
-                </div>
-                <div class="macro-item">
-                  <span data-icon="wheat" class="macro-edit-svg carb"></span>
-                  <span class="macro-edit" id="carb-preview"></span>
-                </div>
-                <div class="macro-item">
-                  <span data-icon="avocado" class="macro-edit-svg fat"></span>
-                  <span class="macro-edit" id="fat-preview"></span>
-                </div>
-              </div>
-              <button class="save-food-btn" onclick="saveFood(false)">
-                <span class="save-food-svg">Add</span>
-              </button>
-            </div>
-          </div> -->
           <span class="footer-text"
             >Data sourced from USDA FoodData Central & NCCDB. For informational
             purposes only. Not medical advice</span

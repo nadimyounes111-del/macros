@@ -115,7 +115,6 @@ function formatFoodName(rawName) {
 
 function focusServingInput(event, wrap) {
   event.stopPropagation();
-  wrap.querySelector(".serving-edit").focus();
 }
 
 function toggleRowExpand(row) {
@@ -349,7 +348,6 @@ function renderLog() {
   document.getElementById("empty-state").style.display =
     window.foodLog.length === 0 ? "flex" : "none";
 
-  setupAddFood();
   updateSummary();
   injectIcons(document.getElementById("log-body"));
 }
@@ -463,6 +461,7 @@ function setupAddFood() {
         li.dataset.id = food.id;
 
         li.innerHTML = `
+        <div class="food-with-delete">
         <div class="food-item-wrap">
     <span class="food-title">${title}</span>
     ${subtitle ? `<span class="food-subtitle">${subtitle}</span>` : ""}
@@ -475,7 +474,7 @@ function setupAddFood() {
              </svg>
            </button>`
         : ""
-    }
+    } </div>
   `;
 
         if (food.isCustom) {
@@ -502,7 +501,6 @@ function setupAddFood() {
 
           renderUnitSelector(food);
           updatePreview();
-          document.getElementById("servings").focus();
         });
 
         autocompleteList.appendChild(li);
@@ -671,7 +669,7 @@ function createFoodPanel() {
   div.innerHTML = `
     <div class="servings-meal">
       <div class="add-food-servings">
-        <input class="servings-edit" id="servings" type="number" inputmode="decimal" min="0" />
+        <input class="servings-edit" id="servings" placeholder="Servings" type="number" inputmode="decimal" min="0" />
       </div>
        <div id="serving-size-label"></div>
     </div>
@@ -741,8 +739,16 @@ function createFoodPanel() {
       </button>
     </div>
   `;
-  div.querySelector("#servings").oninput = updatePreview;
-  div.addEventListener("click", (e) => e.stopPropagation());
+  const servingsInput = div.querySelector("#servings");
+  servingsInput.oninput = updatePreview;
+  servingsInput.addEventListener("click", (e) => e.stopPropagation());
+
+  const addBtn = div.querySelector(".save-food-btn");
+  addBtn.addEventListener("click", (e) => e.stopPropagation());
+  div
+    .querySelector("#serving-size-label")
+    .addEventListener("click", (e) => e.stopPropagation());
+
   return div;
 }
 
@@ -765,38 +771,42 @@ let selectedUnit = null;
 
 function renderUnitSelector(food) {
   const label = document.getElementById("serving-size-label");
-  if (!label) return; // panel not attached, nothing to update
+  if (!label) return;
 
-  label.className = ""; // reset from any previous state
+  label.className = "";
   label.innerHTML = "";
 
-  if (!food) {
-    return;
-  }
+  if (!food) return;
+
   if (food.isCustom) {
-    label.innerHTML = `<span>x ${food.unit}</span>`;
+    label.className = "unit-options";
+    const chip = document.createElement("div");
+    chip.className = "unit-chip active";
+    chip.textContent = `x ${food.unit}`;
+    label.appendChild(chip);
     return;
   }
+
   const options = getUnitOptions(food);
   selectedUnit = food.unit;
+  label.className = "unit-options";
 
   if (options.length <= 1) {
-    const span = document.createElement("span");
     const servingNum = parseFloat(food.serving);
-    span.textContent =
+    const chip = document.createElement("div");
+    chip.className = "unit-chip active";
+    chip.textContent =
       servingNum === 1 ? food.unit : `${food.serving}${food.unit}`;
-    label.appendChild(span);
+    label.appendChild(chip);
     return;
   }
-
-  label.className = "unit-options";
 
   options.forEach((u) => {
     const chip = document.createElement("div");
     chip.className = "unit-chip" + (u === food.unit ? " active" : "");
     chip.textContent = u;
     chip.addEventListener("click", function (e) {
-      e.stopPropagation(); // don't collapse the card
+      e.stopPropagation();
       label
         .querySelectorAll(".unit-chip")
         .forEach((c) => c.classList.remove("active"));

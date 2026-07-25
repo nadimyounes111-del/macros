@@ -391,6 +391,10 @@
   background-color: rgb(255, 128, 0, 0.12);
 }
 
+.widget-thumbnail.groceries {
+  background-color: rgb(28, 203, 22, 0.12);
+}
+
 .widget-svg {
   width: clamp(26px, 22.86px + 0.982vw, 40px);
   height: clamp(26px, 22.86px + 0.982vw, 40px);
@@ -410,6 +414,10 @@
 
 .widget-svg.weight {
   color: rgb(255, 128, 0);
+}
+
+.widget-svg.groceries {
+  color: rgb(28, 203, 22);
 }
 
 /* #endregion */

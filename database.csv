@@ -227,7 +227,7 @@ turkey-hotdog,turkey hot dog,1,x,100,5.5,1.7,7.8,NCCDB,,,,protein
 beetroot,beetroot,100,g,43,1.6,6.8,0.2,USDA,,oz,,vegetables
 hummus,hummus,1,cup,583,19.1,23.4,43.8,USDA,,"g,tbsp",246,
 guacamole,guacamole,100,g,92,1.5,3.9,7.1,NCCDB,,"oz,tbsp",,fats
-dates,"dates, medjool",1,date,66,0.4,16.4,0,USDA,,"g,oz",24,fruits
+dates,"dates, medjool",1,pc,66,0.4,16.4,0,USDA,,"g,oz",24,fruits
 edamame,edamame,100,g,121,11.9,3.6,5.2,NCCDB,,oz,,protein
 salmon-smoked,smoked salmon,100,g,117,18.3,0,4.3,NCCDB,,oz,,protein
 cheese-feta,feta cheese,1,cup,395,21.3,6.1,31.9,USDA,,"g,oz",150,dairy

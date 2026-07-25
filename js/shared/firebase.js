@@ -79,8 +79,10 @@ window.initFirestore = function (user, onFirstLoad) {
     const data = snap.data();
 
     if (data.foodLog) {
+      const changed =
+        JSON.stringify(data.foodLog) !== JSON.stringify(window.foodLog);
       window.foodLog = data.foodLog;
-      window.renderLog?.();
+      if (changed) window.renderLog?.();
     }
     if (data.collapsedMeals !== undefined) {
       collapsedMeals = data.collapsedMeals;
