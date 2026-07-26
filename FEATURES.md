@@ -23,6 +23,7 @@
 - Meal header also shows counter for held food items and how many are checked
 - Food item shows name, editable servings, serving unit, checkbox and delete buttons that shows undo toast
 - Food item can be dim/normal when checked, changed in settings
+- Food serving amount can be changed directly from lo by tapping on it
 - Info section shows macros that update with serving change
 - Info also contains meal swap button, opens menu to switch item to other section
 - Clear button shows a toast confirmation before clearing entire log
@@ -32,12 +33,12 @@
 - Opened by pressing green + button top right of thr screen
 - Search bar and filters, can be mixed (search within a filtered list)
 - List contains around 260 foods
-- Pressing a food item allows editting of bottom card to choose servings, unit, and view macros as you edit
+- Pressing a food item expands card and allows editting to choose servings, unit, and view macros as you edit
 - Adding a food shows successful toast
 - Empty state shows input option to request addition of food
 - Footer shows small disclaimer surrounding data acquisition and advice
 - All foods sourced from USDA FoodCentral or NCCDB, unless a brand name is written
-- Create custom icons by adding info in the pencil button, and filter by your custom foods, delete one with trash icon
+- Create custom foods by adding info in the pencil button, and filter by your custom foods, delete one with trash icon
 
 ### Settings - Modal
 

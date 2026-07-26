@@ -1,4 +1,4 @@
-// #region Open/Close
+// #region ===== Open/close page
 
 function openSettings() {
   populateGoalInputs();
@@ -16,7 +16,7 @@ function closeSettings() {
 
 // #endregion
 
-// #region Macro Goals
+// #region ===== Macro goals
 
 function populateGoalInputs() {
   document.getElementById("goal-cal").value = GOALS.calories;
@@ -46,7 +46,7 @@ function initGoalInputs() {
 
 // #endregion
 
-// #region Widget Toggles
+// #region ===== Widgets
 
 let enabledWidgets = {};
 
@@ -58,7 +58,7 @@ function initWidgetToggles() {
 }
 
 function isCurrentlyEnabled(widget) {
-  return enabledWidgets[widget] === true; // default to false if never set
+  return enabledWidgets[widget] === true;
 }
 
 function toggleWidget(widget, btn) {
@@ -84,11 +84,15 @@ function populateWidgetToggles() {
     const widget = btn.dataset.widget;
     applyWidgetState(widget, isCurrentlyEnabled(widget), btn);
   });
+
+  if (widgetModalOpen) {
+    showAllActiveWidgetCards();
+  }
 }
 
 // #endregion
 
-// #region Toggle protein count
+// #region ===== Food log options
 
 let showMealProtein = false;
 let showMealCal = true;

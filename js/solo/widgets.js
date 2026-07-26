@@ -1,4 +1,4 @@
-// #region Widget Overlay
+// #region ===== Overlay
 
 let widgetModalOpen = false;
 
@@ -21,20 +21,9 @@ function showAllActiveWidgetCards() {
   });
 }
 
-function populateWidgetToggles() {
-  document.querySelectorAll(".settings-checkbox").forEach((btn) => {
-    const widget = btn.dataset.widget;
-    applyWidgetState(widget, isCurrentlyEnabled(widget), btn);
-  });
-
-  if (widgetModalOpen) {
-    showAllActiveWidgetCards();
-  }
-}
-
 // #endregion
 
-// #region Water
+// #region ===== Hydration
 
 let waterUnit = "L";
 
@@ -73,7 +62,7 @@ function updateWaterUI() {
 
 // #endregion
 
-// #region Supplements
+// #region ===== Supplements
 
 let supplements = [];
 
@@ -87,7 +76,7 @@ function renderSupplements() {
     item.innerHTML = `
     <div class="supp-check-name">
       <button class="check-btn ${supp.checked ? "checked" : ""}" onclick="toggleSupp(${i})">
-        ${supp.checked ? checkedSVG : uncheckedSVG}
+        ${supp.checked ? ICONS.checkedSVG : ICONS.uncheckedSVG}
       </button>
       <span class="supp-name">${supp.name}</span>
       </div>
@@ -125,7 +114,7 @@ function saveSupplements() {
 
 // #endregion
 
-// #region Weight
+// #region ===== Weight
 
 let currentWeight = null;
 let previousWeight = null;
@@ -183,7 +172,7 @@ function updateWeightUI() {
 
 // #endregion
 
-// #region Notes
+// #region ===== Notes
 
 function initNotes() {
   document.getElementById("notes").addEventListener("input", function () {

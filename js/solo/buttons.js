@@ -1,6 +1,4 @@
-// #region Delete & Clear
-
-let lastDeleted = null;
+// #region ===== Toast
 
 let toastTimeout;
 
@@ -15,6 +13,12 @@ function showToast(html, extraClass = "") {
     toast.classList.remove("visible");
   }, 4000);
 }
+
+// #endregion
+
+// #region ===== Delete from food log
+
+let lastDeleted = null;
 
 function deleteEntry(event, index) {
   event.stopPropagation();
@@ -38,6 +42,12 @@ function undoDelete() {
   renderLog();
 }
 
+// #endregion
+
+// #region ===== Clear all
+
+let lastClearedLog = null;
+
 function clearAll() {
   if (window.foodLog.length === 0) return;
   showToast(
@@ -45,8 +55,6 @@ function clearAll() {
      <button class="toast-btn" onclick="confirmClearAll()">Yes</button>`,
   );
 }
-
-let lastClearedLog = null;
 
 function confirmClearAll() {
   lastClearedLog = [...window.foodLog];
@@ -68,15 +76,7 @@ function undoClearAll() {
 
 // #endregion
 
-// #region Undo
-
-// #endregion
-
-// #region Add Food
-
-function addModalEnter(e) {
-  if (e.key === "Enter") saveFood();
-}
+// #region ===== Open add food page
 
 function openFoodModal() {
   document.getElementById("add-modal").classList.add("active");
@@ -84,41 +84,17 @@ function openFoodModal() {
   setupAddFood();
   document.getElementById("food-search").focus();
   document.body.classList.add("modal-open");
-  document.addEventListener("keydown", addModalEnter);
 }
 
 function closeFoodModal() {
   document.getElementById("add-modal").classList.remove("active");
   resetFoodSelection();
   document.body.classList.remove("modal-open");
-  document.removeEventListener("keydown", addModalEnter);
 }
-
-document.addEventListener("keydown", function (e) {
-  if (e.code === "Space" && e.target === document.body) openFoodModal();
-
-  if ((e.metaKey || e.ctrlKey) && e.key === "z") {
-    e.preventDefault();
-    undoDelete();
-  }
-
-  if (
-    (e.metaKey || e.ctrlKey) &&
-    (e.key === "Backspace" || e.key === "Delete")
-  ) {
-    e.preventDefault();
-    if (confirm("Clear food log?")) clearAll();
-  }
-});
 
 // #endregion
 
-// custom
-document.querySelectorAll(".custom-icon-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.classList.toggle("active");
-  });
-});
+// #region ===== Custom entry
 
 function closeCustomCard() {
   const card = document.querySelector(".custom-card");
@@ -131,6 +107,12 @@ function closeCustomCard() {
 
   document.querySelector(".custom-icon-btn").classList.remove("active");
 }
+
+document.querySelectorAll(".custom-icon-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+  });
+});
 
 document
   .querySelector(".custom-icon-btn")
@@ -149,7 +131,7 @@ document
         .forEach((b) => b.classList.remove("active"));
       activeFilter = null;
       searchInput.value = "";
-      searchInput.dispatchEvent(new Event("input")); // refresh list FIRST, while card is still closed
+      searchInput.dispatchEvent(new Event("input"));
 
       card.classList.add("visible");
       list.style.display = "none";
@@ -157,3 +139,5 @@ document
       this.classList.add("active");
     }
   });
+
+// #endregion

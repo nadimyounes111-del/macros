@@ -1,18 +1,13 @@
-// Parser
+// #region ===== Database parsing
+
 let foods = [];
 let selectedFood = null;
 
 const YOUR_UID = "4zWkXoUNWxaBOOngN1jghHYOXiC3";
 
-// Routing: this file only runs on app.html
-const firebaseReady = new Promise((resolve) => {
-  const check = () => (window.onAuthReady ? resolve() : setTimeout(check, 20));
-  check();
-});
-
 function loadFoods(uid) {
   const csvFile = uid === YOUR_UID ? "foods.csv" : "database.csv";
-  foods.length = 0; // clear in case this ever runs more than once
+  foods.length = 0;
 
   return new Promise((resolve) => {
     Papa.parse(csvFile, {
@@ -34,7 +29,11 @@ function loadFoods(uid) {
   });
 }
 
-firebaseReady.then(() => {
+// #endregion
+
+// #region ===== Guest or User promise
+
+waitForFirebaseReady(() => {
   if (sessionStorage.getItem("guestMode") === "true") {
     loadFoods("guest").then(() => {
       initGuestMode(() => initApp());
@@ -54,6 +53,12 @@ firebaseReady.then(() => {
   });
 });
 
+// #endregion
+
+// #region ===== initApp
+
+// This function is the main paint for the entire UI, turns everything on after data is loaded
+
 function initApp() {
   document.getElementById("loading-screen").classList.add("hidden");
   renderLog();
@@ -70,8 +75,13 @@ function initApp() {
 
   setTimeout(() => {
     document.getElementById("page").classList.add("visible");
+    updateWaterUI();
   }, 50);
 }
+
+// #endregion
+
+// #region ===== Date header
 
 const now = new Date();
 document.getElementById("day-title").textContent = now.toLocaleDateString(
@@ -82,6 +92,10 @@ document.getElementById("day-title").textContent = now.toLocaleDateString(
     day: "numeric",
   },
 );
+
+// #endregion
+
+// #region ===== Onboarding
 
 function maybeShowOnboarding() {
   if (!window.onboardingSeen) {
@@ -97,12 +111,20 @@ function closeOnboarding() {
   document.body.classList.remove("modal-open");
 }
 
+// #endregion
+
+// #region ===== Sign out
+
 function signOut() {
   sessionStorage.removeItem("guestMode");
   window.signOutUser().then(() => {
     window.location.href = "/";
   });
 }
+
+// #endregion
+
+// #region ===== Guest mode & data
 
 const GUEST_DATA = {
   foodLog: [
@@ -311,3 +333,5 @@ function initGuestMode(onFirstLoad) {
 
   onFirstLoad?.();
 }
+
+// #endregion

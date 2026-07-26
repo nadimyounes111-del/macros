@@ -1,4 +1,4 @@
-/* #region ===== Font & Body ===== */
+/* #region ===== Font & Page */
 
 @font-face {
   font-family: "Cal Sans";
@@ -38,7 +38,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* #endregion */
 
-/* #region ===== Variables ===== */
+/* #region ===== Variables */
 
 :root {
   --orange: #ff8000;
@@ -46,7 +46,7 @@ input[type="number"]::-webkit-outer-spin-button {
   --black: black;
   --dark-blue: #1e2c59;
   --dark-bluelow: #1e2c5996;
-  --table-bg: rgb(33, 33, 33); /* #1a1a1a */
+  --table-bg: rgb(33, 33, 33);
   --light-gray: #696868;
   --light-grayP: #aca9a9;
   --white: #e1e1e1;
@@ -71,48 +71,45 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* #endregion */
 
-/* #region ===== Title ===== */
+/* #region ===== Toasts */
 
-.main-title {
+.toast {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-top: clamp(10px, 6px + 1.25vw, 24px);
+  align-items: center;
+  flex-direction: row;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background-color: var(--dark-blue);
+  color: var(--light-blue);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: var(--text-base);
+  opacity: 0;
+  gap: 10px;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  z-index: 10000;
 }
 
-.main-title-text {
+.toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.toast-btn {
+  all: unset;
+  width: fit-content;
+  display: flex;
+  padding: 3px 6px;
+  border-radius: 6px;
   color: var(--white);
-  font-size: clamp(46px, 35.14px + 3.393vw, 84px);
-}
-
-/* #endregion */
-
-/* #region ===== Footer ===== */
-
-.footer {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  margin-top: auto;
-  padding-top: 30px;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.footer-text {
-  display: flex;
-  margin-top: 10px;
-  text-align: center;
-  justify-content: center;
-  font-size: var(--text-xs);
-  color: var(--light-gray);
-  text-align: center;
-  max-width: 600px;
-}
-
-.footer-text.hidden {
-  display: none;
+  background-color: var(--orange);
+  cursor: pointer;
 }
 
 /* #endregion */

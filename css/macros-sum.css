@@ -1,32 +1,4 @@
-/* #region ===== Cards ===== */
-
-.macro-card {
-  background-color: var(--table-bg);
-  border-radius: 10px;
-  /* border: 2px solid rgba(255, 255, 255, 0.08); */
-  padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
-  box-sizing: border-box;
-  width: clamp(130px, 118.57px + 3.571vw, 170px);
-}
-
-.macro-card.over-goal {
-  background-color: rgba(255, 0, 0, 0.462);
-}
-
-.macro-header {
-  display: flex;
-  align-items: center;
-  gap: clamp(4px, 2.86px + 0.357vw, 8px);
-}
-
-.macro-val {
-  font-size: var(--text-base);
-  color: white;
-}
-
-/* #endregion */
-
-/* #region ===== Carousel ===== */
+/* #region ===== Carousel Layout */
 
 .carousel-section {
   margin: 10px 0 20px 0;
@@ -59,7 +31,34 @@
 
 /* #endregion */
 
-/* #region ===== SVGs & Fill Bar */
+/* #region ===== Card Layout */
+
+.macro-card {
+  background-color: var(--table-bg);
+  border-radius: 10px;
+  padding: clamp(6px, 4.29px + 0.536vw, 12px) clamp(8px, 7.14px + 0.536vw, 14px);
+  box-sizing: border-box;
+  width: clamp(130px, 118.57px + 3.571vw, 170px);
+}
+
+.macro-card.over-goal {
+  background-color: rgba(255, 0, 0, 0.462);
+}
+
+.macro-header {
+  display: flex;
+  align-items: center;
+  gap: clamp(4px, 2.86px + 0.357vw, 8px);
+}
+
+/* #endregion */
+
+/* #region ===== Card Inner */
+
+.macro-val {
+  font-size: var(--text-base);
+  color: white;
+}
 
 .macro-bar {
   height: 3px;

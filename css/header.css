@@ -1,4 +1,4 @@
-/* #region ===== Layout ===== */
+/* #region ===== Layout */
 
 .header-wrap {
   max-width: 740px;
@@ -23,11 +23,7 @@
 
 /* #endregion */
 
-/* #region ===== User ===== */
-
-/* #endregion */
-
-/* #region Settings */
+/* #region ===== Settings Button */
 
 .settings-svg {
   width: 28px;
@@ -46,6 +42,10 @@
 .settings-btn:active {
   transform: scale(0.95);
 }
+
+/* #endregion */
+
+/* #region ===== Add Food Button */
 
 .add-food-btn {
   all: unset;
@@ -72,10 +72,20 @@
   transform: scale(0.95);
 }
 
-.settings-svg-title-wrap {
+/* #endregion */
+
+/* #region ===== Page Title */
+
+.main-title {
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  margin-top: clamp(10px, 6px + 1.25vw, 24px);
+}
+
+.main-title-text {
+  color: var(--white);
+  font-size: clamp(46px, 35.14px + 3.393vw, 84px);
 }
 
 /* #endregion */

@@ -1,12 +1,31 @@
-/* #region Layout */
+/* #region ===== Layout */
 
-.options-wrapper {
+.settings-page {
+  position: fixed;
+  overflow-y: auto;
+  background-color: var(--bg);
+  justify-content: center;
+  inset: 0;
+  z-index: 9999;
+  padding: 25px 10px 10px 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+}
+
+.settings-page.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.settings-page-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: rgb(30, 30, 30);
-  padding: 10px;
-  border-radius: 10px;
-  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .settings-section {
@@ -25,6 +44,15 @@
   margin-bottom: 3px;
 }
 
+.options-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(30, 30, 30);
+  padding: 10px;
+  border-radius: 10px;
+  gap: 15px;
+}
+
 .settings-option-title {
   font-size: var(--text-base);
   color: var(--white);
@@ -38,14 +66,12 @@
 }
 
 .modal-body.settings {
-  /* height: 450px; */
-  /* overflow-y: auto; */
   gap: 12px;
 }
 
 /* #endregion */
 
-/* #region Checkbox */
+/* #region ===== Checkboxes */
 
 .settings-checkbox {
   all: unset;
@@ -77,12 +103,22 @@
 
 /* #endregion */
 
-/* #region Macros */
+/* #region ===== Account */
 
-.settings-edit-input:focus {
-  border: 2px solid var(--orange);
-  outline: none;
+.sign-out-svg {
+  width: var(--svg);
+  height: var(--svg);
+  color: var(--red);
+  cursor: pointer;
 }
+
+.settings-option-title.signout {
+  color: var(--red);
+}
+
+/* #endregion */
+
+/* #region ===== Macros */
 
 .settings-edit-input {
   display: flex;
@@ -98,9 +134,24 @@
   width: clamp(45px, 37.86px + 2.232vw, 70px);
 }
 
+.settings-edit-input:focus {
+  border: 2px solid var(--orange);
+  outline: none;
+}
+
 /* #endregion */
 
-/* #region Widgets */
+/* #region ===== Food Log */
+
+/* #endregion */
+
+/* #region ===== Widgets */
+
+.settings-svg-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
 .settings-title-svg {
   width: var(--svg);
@@ -125,56 +176,7 @@
 
 /* #endregion */
 
-/* #region SIgn out */
-
-.sign-out-svg {
-  width: var(--svg);
-  height: var(--svg);
-  color: var(--red);
-  cursor: pointer;
-}
-
-.settings-option-title.signout {
-  color: var(--red);
-}
-
-/* #endregion */
-
-/* #region Profile */
-
-.user-btn {
-  all: unset;
-  display: flex;
-  cursor: pointer;
-  width: fit-content;
-  justify-content: center;
-  border-radius: 6px;
-  padding: 5px 10px;
-  background-color: var(--orange);
-  transition: all 0.2s ease;
-  width: 80px;
-  font-size: var(--text-base);
-}
-
-.user-btn:active {
-  transform: scale(0.95);
-}
-
-.user-btn.saved {
-  background-color: green;
-}
-
-.user-btn:disabled {
-  pointer-events: none;
-}
-
-.user-btn.failed {
-  background-color: #ef4444;
-}
-
-/* #endregion */
-
-/* #region Contact */
+/* #region ===== Contact */
 
 .contact-text {
   font-size: var(--text-base);
@@ -188,3 +190,5 @@
   flex-direction: column;
   align-items: center;
 }
+
+/* #endregion */

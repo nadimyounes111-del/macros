@@ -1,4 +1,4 @@
-// #region Goals
+// #region ===== Overage & update
 
 window.foodLog = [];
 let GOALS = { calories: 0, protein: 0, carbs: 0, fat: 0 };
@@ -19,11 +19,6 @@ function updateSummary() {
     },
     { calories: 0, protein: 0, carbs: 0, fat: 0 },
   );
-
-  document.getElementById("sum-cal").textContent = totals.calories.toFixed(0);
-  document.getElementById("sum-pro").textContent = totals.protein.toFixed(0);
-  document.getElementById("sum-carb").textContent = totals.carbs.toFixed(0);
-  document.getElementById("sum-fat").textContent = totals.fat.toFixed(0);
 
   document.getElementById("sum-cal").textContent =
     totals.calories.toFixed(0) + " / " + GOALS.calories;

@@ -42,7 +42,11 @@
 
 /* #endregion */
 
-/* #region Overlay */
+/* #region ===== Overlay */
+
+.modal-overlay.widgets {
+  background: rgba(0, 0, 0, 0.85);
+}
 
 .widget-edit-panel {
   position: relative;
@@ -61,7 +65,7 @@
 
 /* #endregion */
 
-/* #region ===== Hydration ===== */
+/* #region ===== Hydration */
 
 .water-body {
   display: flex;
@@ -119,7 +123,7 @@
 
 /* #endregion */
 
-/* #region ===== Supplements ===== */
+/* #region ===== Supplements */
 
 .widget-card.supp {
   background-color: rgba(139, 92, 246, 0.12);
@@ -208,24 +212,9 @@
   color: var(--green);
 }
 
-.uncheck-svg {
-  width: var(--svg);
-  height: var(--svg);
-  flex-shrink: 0;
-  color: var(--light-gray);
-}
-
-.check-btn {
-  all: unset;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
 /* #endregion */
 
-/* #region ===== Weight ===== */
+/* #region ===== Weight */
 
 .weight-body {
   display: flex;
@@ -318,7 +307,7 @@
 
 /* #endregion */
 
-/* #region ===== Notes ===== */
+/* #region ===== Notes */
 
 .widget-card.notes {
   background-color: rgb(239, 210, 79, 0.2);
@@ -345,7 +334,7 @@
 
 /* #endregion */
 
-/* #region Thumbnails */
+/* #region ===== Thumbnails */
 
 .widget-container-top {
   display: flex;
