@@ -119,6 +119,7 @@
 .onboarding-wrap {
   display: flex;
   flex-direction: row;
+  background-color: rgb(43, 43, 43);
   padding: 10px;
   border-radius: 10px;
   gap: 10px;
