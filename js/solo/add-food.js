@@ -110,10 +110,10 @@ function setupAddFood() {
 
         li.innerHTML = `
         <div class="food-with-delete">
-        <div class="food-item-wrap">
-    <span class="food-title">${title}</span>
-    ${subtitle ? `<span class="food-subtitle">${subtitle}</span>` : ""}
-    </div>
+            <div class="food-item-wrap">
+                <span class="food-title">${title}</span>
+                <span class="food-subtitle${subtitle ? "" : " hidden-subtitle"}">${subtitle || "-"}</span>
+            </div>
     ${
       food.isCustom
         ? `<button class="delete-custom-btn">
@@ -140,7 +140,7 @@ function setupAddFood() {
 
           collapseExpandedCard();
 
-          if (wasThisExpanded) return; // clicking an open card just closes it
+          if (wasThisExpanded) return;
 
           selectedFood = food;
           this.appendChild(getFoodPanel());
@@ -423,6 +423,7 @@ function renderUnitSelector(food) {
   if (!food) return;
 
   if (food.isCustom) {
+    selectedUnit = food.unit;
     label.className = "unit-options";
     const chip = document.createElement("div");
     chip.className = "unit-chip active";

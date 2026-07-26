@@ -119,11 +119,11 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  width: var(--svg);
+  height: var(--svg);
 }
 
 .eye-svg {
-  width: var(--svg);
-  height: var(--svg);
   color: var(--light-gray);
 }
 

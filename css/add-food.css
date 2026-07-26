@@ -9,7 +9,7 @@
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
-  padding: 25px 10px 10px 10px;
+  padding: 15px 10px 10px 10px;
   transition:
     opacity 0.2s ease,
     visibility 0.2s ease;
@@ -266,14 +266,24 @@
   color: var(--bg);
 }
 
+.food-with-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
 .delete-custom-btn {
   all: unset;
+  display: flex;
   border: none;
   font-size: var(--text-base);
   cursor: pointer;
   width: fit-content;
   height: fit-content;
   color: var(--red);
+  align-items: center;
 }
 
 .delete-custom-svg {
@@ -347,7 +357,7 @@
 
 /* #endregion */
 
-/* #region ===== Food List */
+/* #region ===== Autocomplete List */
 
 #autocomplete-list {
   display: flex;
@@ -420,14 +430,6 @@
   width: 100%;
 }
 
-.food-with-delete {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-}
-
 .food-title {
   font-size: var(--text-base);
   color: var(--white);
@@ -441,6 +443,10 @@
 .food-subtitle {
   font-size: var(--text-base);
   color: var(--light-gray);
+}
+
+.hidden-subtitle {
+  color: transparent;
 }
 
 /* #endregion */
@@ -695,6 +701,10 @@
   color: var(--light-gray);
   text-align: center;
   max-width: 600px;
+}
+
+.footer-text.hidden {
+  display: none;
 }
 
 /* #endregion */
