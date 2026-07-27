@@ -173,6 +173,10 @@ function renderLog() {
   document.getElementById("empty-state").style.display =
     window.foodLog.length === 0 ? "flex" : "none";
 
+  document
+    .querySelector(".clear-btn")
+    .classList.toggle("hidden", window.foodLog.length === 0);
+
   updateSummary();
   injectIcons(document.getElementById("log-body"));
 }
@@ -257,13 +261,8 @@ function changeEntryMeal(index, newMeal) {
 function toggleCheck(event, btn, index) {
   event.stopPropagation();
   window.foodLog[index].checked = !window.foodLog[index].checked;
-  btn.dataset.checked = window.foodLog[index].checked;
-  btn.innerHTML = window.foodLog[index].checked
-    ? ICONS.checkedSVG
-    : ICONS.uncheckedSVG;
-  const row = btn.closest(".log-row");
-  row.classList.toggle("row-checked", window.foodLog[index].checked);
   saveLog();
+  renderLog();
 }
 
 // #endregion

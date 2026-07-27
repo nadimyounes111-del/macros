@@ -437,52 +437,39 @@ body.dim-disabled .row-checked {
 
 /* #region ===== Clear All Btn */
 
-.table-btn-wrapper {
+.table-btn-wrap {
   display: flex;
-  flex-direction: row;
-  gap: clamp(5px, 3.57px + 0.446vw, 10px);
+  justify-content: end;
 }
 
-.table-btn {
-  all: unset;
-  display: flex;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  transition: all 0.2s ease;
-}
-
-.table-btn:active {
-  transform: scale(0.95);
-}
-
-.clear-all-label {
-  font-size: var(--text-s);
-}
-
-.clear-all-btn {
+.clear-btn {
   all: unset;
   display: flex;
   cursor: pointer;
   position: relative;
-  padding: clamp(2px, 1.71px + 0.089vw, 3px) clamp(4px, 3.43px + 0.179vw, 6px);
-  border-radius: clamp(4px, 3.43px + 0.179vw, 6px);
+  padding: 3px;
   align-items: center;
-  gap: 3px;
+  justify-content: center;
+  background-color: red;
+  width: 22px;
+  height: 22px;
+  padding: 4px;
+  transition: all 0.2s ease;
+  border-radius: 50%;
 }
 
-.clear-all-svg {
-  width: clamp(14px, 12.29px + 0.536vw, 20px);
-  height: clamp(14px, 12.29px + 0.536vw, 20px);
+.clear-btn:active {
+  transform: scale(0.95);
 }
 
-.clear-all-btn {
-  background: red;
+.clear-btn.hidden {
+  display: none;
 }
 
-.clear-all-svg,
-.clear-all-label {
-  color: white;
+.clear-svg {
+  color: var(--white);
+  width: 100%;
+  height: 100%;
 }
 
 /* #endregion */

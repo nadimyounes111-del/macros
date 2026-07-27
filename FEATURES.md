@@ -1,9 +1,5 @@
 ## Norm Specifications
 
-### Base
-
-- Date changes automatically every day
-
 ### Widgets
 
 - Hydration: add/remove water amounts, toggle L or oz
@@ -26,7 +22,7 @@
 - Food serving amount can be changed directly from lo by tapping on it
 - Info section shows macros that update with serving change
 - Info also contains meal swap button, opens menu to switch item to other section
-- Clear button shows a toast confirmation before clearing entire log
+- Clear button (only active with 1+ items) shows a toast confirmation before clearing entire log
 
 ### Log Food - Modal
 
@@ -59,6 +55,7 @@
 
 ### Code
 
+- Date changes automatically every day
 - Uses firebase to store all info (authorization, food log, widgets, etc.)
 - Authorization stored in local storage so refresh allows auto log-in
 - Loading screen while data is being written from firebase

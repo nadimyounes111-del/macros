@@ -102,7 +102,7 @@
         <span class="main-title-text" id="day-title"></span>
       </div>
 
-      <!-- #regio ===== Widgets Container & Modal -->
+      <!-- #region ===== Widgets Container & Modal -->
 
       <div class="widget-container-top">
         <div class="widget-thumbnail-wrap" onclick="openAllWidgets()">
@@ -323,7 +323,7 @@
 
       <!-- #endregion -->
 
-      <!-- #regio ===== Food Log -->
+      <!-- #region ===== Food Log -->
       <div class="log-wrapper">
         <div id="food-log">
           <div id="empty-state">
@@ -335,19 +335,11 @@
 
           <div id="log-body"></div>
         </div>
-        <div class="table-button-wrap">
-          <div class="table-btn-wrapper">
-            <div class="table-btn">
-              <button
-                class="clear-all-btn"
-                id="clear-all-btn"
-                onclick="clearAll()"
-              >
-                <span data-icon="trash" class="clear-all-svg"></span>
-                <span class="clear-all-label">Clear</span>
-              </button>
-            </div>
-          </div>
+
+        <div class="table-btn-wrap">
+          <button class="clear-btn" id="clear-all-btn" onclick="clearAll()">
+            <span data-icon="trash" class="clear-svg"></span>
+          </button>
         </div>
       </div>
 
