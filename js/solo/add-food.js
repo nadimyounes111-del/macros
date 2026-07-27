@@ -575,6 +575,11 @@ document
       protein: protein,
       carbs: carbs,
       fat: fat,
+      altUnits: null,
+      gPerBaseU: null,
+      tag: null,
+      brand: null,
+      source: "custom",
       isCustom: true,
     };
 

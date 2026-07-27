@@ -64,7 +64,7 @@ milk-goat,goat milk,1,cup,168,8.7,10.8,10.1,NCCDB,,"floz,ml",,dairy
 milk-oat,oat milk,1,cup,117,2,10.6,6.7,NCCDB,,"floz,ml",,dairy
 milk-soy,unsweetened soy milk,1,cup,91,9,3,5,NCCDB,,"floz,ml",,dairy
 milk-coconut,unsweetened coconut milk,1,cup,44,0.5,1,4,NCCDB,,"floz,ml",,dairy
-oil-veg,vegetable oil,1,tsp,120,0,0,13.6,NCCDB,,"floz,ml",,fats
+oil-veg,vegetable oil,1,tbsp,120,0,0,13.6,NCCDB,,"floz,ml",,fats
 oil-olive,olive oil,1,tbsp,119,0,0,13.5,NCCDB,,"floz,ml",,fats
 potato,potato,100,g,58,2.6,9.9,0.1,USDA,,oz,,carbs
 potato-sweet,sweet potato,100,g,77,1.6,14.3,0.4,NCCDB,,oz,,carbs
