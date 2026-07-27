@@ -427,7 +427,7 @@ function renderUnitSelector(food) {
     label.className = "unit-options";
     const chip = document.createElement("div");
     chip.className = "unit-chip active";
-    chip.textContent = `x ${food.unit}`;
+    chip.textContent = food.unit;
     label.appendChild(chip);
     return;
   }
@@ -547,9 +547,9 @@ document
   .querySelector(".custom-save-btn")
   .addEventListener("click", function () {
     const name = document.getElementById("custom-title").value.trim();
-    const serving =
+    const rawServingSize =
       parseFloat(document.getElementById("custom-serving").value) || 1;
-    const unit =
+    const servingUnit =
       document.getElementById("custom-unit").value.trim() || "serving";
     const calories =
       parseFloat(document.getElementById("custom-cal").value) || 0;
@@ -560,21 +560,19 @@ document
     const note = document.getElementById("custom-subtitle").value.trim();
 
     if (!name) return;
+    if (rawServingSize <= 0) return;
 
     const fullName = note ? `${name}, ${note}` : name;
-    const servingSize = document.getElementById("custom-serving").value.trim();
-    const servingUnit = document.getElementById("custom-unit").value.trim();
-    const combinedUnit = `${servingSize}${servingUnit}`;
 
     const newFood = {
       id: `custom-${Date.now()}`,
       name: fullName,
       serving: 1,
-      unit: combinedUnit,
-      calories: calories,
-      protein: protein,
-      carbs: carbs,
-      fat: fat,
+      unit: servingUnit,
+      calories: calories / rawServingSize,
+      protein: protein / rawServingSize,
+      carbs: carbs / rawServingSize,
+      fat: fat / rawServingSize,
       altUnits: null,
       gPerBaseU: null,
       tag: null,
