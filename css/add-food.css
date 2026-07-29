@@ -274,23 +274,28 @@
   align-items: center;
 }
 
-.delete-custom-btn {
+.custom-options-btn {
   all: unset;
   display: flex;
-  border: none;
-  font-size: var(--text-base);
-  cursor: pointer;
-  width: fit-content;
-  height: fit-content;
-  color: var(--red);
+  position: relative;
   align-items: center;
+  justify-content: center;
 }
 
-.delete-custom-svg {
+.custom-options-svg {
   width: var(--svg);
   height: var(--svg);
+  color: var(--light-gray);
   flex-shrink: 0;
-  color: var(--red);
+}
+
+.custom-edit-label {
+  color: var(--light-gray);
+  font-size: var(--text-base);
+}
+
+.custom-edit-label.hidden {
+  display: none;
 }
 
 /* #endregion */
@@ -416,7 +421,10 @@
   flex-direction: column;
   min-height: clamp(132px, 125.71px + 1.964vw, 154px);
   justify-content: start;
-  overflow: hidden;
+}
+
+.food-item.menu-open {
+  overflow: visible;
 }
 
 .food-edit {

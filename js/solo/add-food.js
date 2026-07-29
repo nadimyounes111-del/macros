@@ -114,26 +114,18 @@ function setupAddFood() {
                 <span class="food-title">${title}</span>
                 <span class="food-subtitle${subtitle ? "" : " hidden-subtitle"}">${subtitle || "-"}</span>
             </div>
-    ${
-      food.isCustom
-        ? `<button class="delete-custom-btn">
-             <svg class="delete-custom-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-               <path d="M232.7 69.9C237.1 56.8 249.3 48 263.1 48L377 48C390.8 48 403 56.8 407.4 69.9L416 96L512 96C529.7 96 544 110.3 544 128C544 145.7 529.7 160 512 160L128 160C110.3 160 96 145.7 96 128C96 110.3 110.3 96 128 96L224 96L232.7 69.9zM128 208L512 208L512 512C512 547.3 483.3 576 448 576L192 576C156.7 576 128 547.3 128 512L128 208zM216 272C202.7 272 192 282.7 192 296L192 488C192 501.3 202.7 512 216 512C229.3 512 240 501.3 240 488L240 296C240 282.7 229.3 272 216 272zM320 272C306.7 272 296 282.7 296 296L296 488C296 501.3 306.7 512 320 512C333.3 512 344 501.3 344 488L344 296C344 282.7 333.3 272 320 272zM424 272C410.7 272 400 282.7 400 296L400 488C400 501.3 410.7 512 424 512C437.3 512 448 501.3 448 488L448 296C448 282.7 437.3 272 424 272z"/>
-             </svg>
-           </button>`
-        : ""
-    } </div>
-  `;
-
-        if (food.isCustom) {
-          li.querySelector(".delete-custom-btn").addEventListener(
-            "click",
-            function (e) {
-              e.stopPropagation();
-              deleteCustomFood(food.id);
-            },
-          );
-        }
+     ${
+       food.isCustom
+         ? `<div class="swap-btn custom-options-btn" onclick="event.stopPropagation(); toggleCustomMenu(this, '${food.id}')">
+       <svg class="custom-options-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M96 320C96 289.1 121.1 264 152 264C182.9 264 208 289.1 208 320C208 350.9 182.9 376 152 376C121.1 376 96 350.9 96 320zM264 320C264 289.1 289.1 264 320 264C350.9 264 376 289.1 376 320C376 350.9 350.9 376 320 376C289.1 376 264 350.9 264 320zM488 264C518.9 264 544 289.1 544 320C544 350.9 518.9 376 488 376C457.1 376 432 350.9 432 320C432 289.1 457.1 264 488 264z"/></svg>
+         <div class="meal-menu">
+           <button type="button" onclick="event.stopPropagation(); editCustomFood('${food.id}')">Edit</button>
+           <button type="button" onclick="event.stopPropagation(); deleteCustomFood('${food.id}')">Delete</button>
+         </div>
+       </button>`
+         : ""
+     } </div>
+      `;
 
         li.addEventListener("click", function () {
           const wasThisExpanded = this === expandedCardLi;
@@ -543,6 +535,59 @@ function resetFoodModalForNextEntry() {
 
 // #region ===== Creates custom item
 
+function showCustomCard() {
+  const card = document.querySelector(".custom-card");
+  const list = document.getElementById("autocomplete-list");
+  const footer = document.querySelector(".footer-text");
+
+  card.classList.add("visible");
+  list.style.display = "none";
+  footer.classList.add("hidden");
+  document.querySelector(".custom-icon-btn").classList.add("active");
+}
+
+function resetCustomForm() {
+  document.getElementById("custom-title").value = "";
+  document.getElementById("custom-serving").value = "";
+  document.getElementById("custom-unit").value = "";
+  document.getElementById("custom-cal").value = "";
+  document.getElementById("custom-pro").value = "";
+  document.getElementById("custom-carb").value = "";
+  document.getElementById("custom-fat").value = "";
+  document.getElementById("custom-subtitle").value = "";
+
+  document.querySelector(".custom-edit-label").classList.add("hidden");
+}
+
+function toggleCustomMenu(btn, foodId) {
+  const menu = btn.querySelector(".meal-menu");
+  const isOpen = menu.classList.contains("open");
+  const foodItem = btn.closest(".food-item");
+
+  document.querySelectorAll(".meal-menu.open").forEach((m) => {
+    m.classList.remove("open");
+    m.classList.remove("open-downward");
+  });
+  document
+    .querySelectorAll(".food-item.menu-open")
+    .forEach((el) => el.classList.remove("menu-open"));
+
+  if (!isOpen) {
+    menu.classList.add("open");
+    foodItem.classList.add("menu-open");
+
+    const btnRect = btn.getBoundingClientRect();
+    const listRect = document
+      .getElementById("autocomplete-list")
+      .getBoundingClientRect();
+    const spaceAbove = btnRect.top - listRect.top;
+
+    if (spaceAbove < 82) {
+      menu.classList.add("open-downward");
+    }
+  }
+}
+
 document
   .querySelector(".custom-save-btn")
   .addEventListener("click", function () {
@@ -564,40 +609,50 @@ document
 
     const fullName = note ? `${name}, ${note}` : name;
 
-    const newFood = {
-      id: `custom-${Date.now()}`,
-      name: fullName,
-      serving: 1,
-      unit: servingUnit,
-      calories: calories / rawServingSize,
-      protein: protein / rawServingSize,
-      carbs: carbs / rawServingSize,
-      fat: fat / rawServingSize,
-      altUnits: null,
-      gPerBaseU: null,
-      tag: null,
-      brand: null,
-      source: "custom",
-      isCustom: true,
-    };
+    if (editingFoodId) {
+      [window.customFoods, foods].forEach((list) => {
+        const food = list.find((f) => f.id === editingFoodId);
+        if (food) {
+          food.name = fullName;
+          food.unit = servingUnit;
+          food.calories = calories / rawServingSize;
+          food.protein = protein / rawServingSize;
+          food.carbs = carbs / rawServingSize;
+          food.fat = fat / rawServingSize;
+        }
+      });
+      showToast("Custom food updated");
+      document.getElementById("food-search").dispatchEvent(new Event("input"));
+      editingFoodId = null;
+    } else {
+      const newFood = {
+        id: `custom-${Date.now()}`,
+        name: fullName,
+        serving: 1,
+        unit: servingUnit,
+        calories: calories / rawServingSize,
+        protein: protein / rawServingSize,
+        carbs: carbs / rawServingSize,
+        fat: fat / rawServingSize,
+        altUnits: null,
+        gPerBaseU: null,
+        tag: null,
+        brand: null,
+        source: "custom",
+        isCustom: true,
+      };
 
-    window.customFoods = window.customFoods || [];
-    window.customFoods.push(newFood);
-    foods.push(newFood);
-    showToast("Custom food added");
+      window.customFoods = window.customFoods || [];
+      window.customFoods.push(newFood);
+      foods.push(newFood);
+      showToast("Custom food added");
+    }
 
     saveCustomFoods();
 
     document.querySelector(".custom-card").classList.remove("visible");
     document.getElementById("autocomplete-list").style.display = "";
-    document.getElementById("custom-title").value = "";
-    document.getElementById("custom-serving").value = "";
-    document.getElementById("custom-unit").value = "";
-    document.getElementById("custom-cal").value = "";
-    document.getElementById("custom-pro").value = "";
-    document.getElementById("custom-carb").value = "";
-    document.getElementById("custom-fat").value = "";
-    document.getElementById("custom-subtitle").value = "";
+    resetCustomForm();
 
     closeCustomCard();
   });
@@ -650,6 +705,33 @@ function undoDeleteCustomFood() {
   saveCustomFoods();
   lastDeletedCustomFood = null;
   document.getElementById("food-search").dispatchEvent(new Event("input"));
+}
+
+// #endregion
+
+// #region ===== Edid custom item
+
+let editingFoodId = null;
+
+function editCustomFood(id) {
+  const food = window.customFoods.find((f) => f.id === id);
+  if (!food) return;
+
+  editingFoodId = id;
+
+  const [name, ...noteParts] = food.name.split(",");
+  document.getElementById("custom-title").value = name.trim();
+  document.getElementById("custom-subtitle").value = noteParts.join(",").trim();
+  document.getElementById("custom-serving").value = 1;
+  document.getElementById("custom-unit").value = food.unit;
+  document.getElementById("custom-cal").value = food.calories;
+  document.getElementById("custom-pro").value = food.protein;
+  document.getElementById("custom-carb").value = food.carbs;
+  document.getElementById("custom-fat").value = food.fat;
+
+  document.querySelector(".custom-edit-label").classList.remove("hidden");
+
+  showCustomCard();
 }
 
 // #endregion

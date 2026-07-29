@@ -86,6 +86,7 @@ function renderLog() {
       const index = window.foodLog.indexOf(entry);
       const displayAmount = entry.unitAmount ?? entry.servings;
       const unit = entry.unit || entry.servingSize || "";
+      const { title, subtitle } = formatFoodName(entry.food);
 
       const row = document.createElement("div");
       row.className = "log-row" + (entry.checked ? " row-checked" : "");
@@ -99,7 +100,7 @@ function renderLog() {
           ${entry.checked ? ICONS.checkedSVG : ICONS.uncheckedSVG}
         </button>
       </div>
-    <div class="col-food">${formatFoodName(entry.food).title}</div>
+    <div class="col-food">${title}</div>
     </div>
 
       <div class="row-top-right">
@@ -126,30 +127,38 @@ function renderLog() {
 
   <div class="row-bottom-wrap">
 
-  <div class="macros-bottom">
-      <div class="col-cal">
-        <span class="macro-icon calories" data-icon="fire"></span>${Math.round(entry.calories)}
-      </div>
-      <div class="col-pro">
-        <span class="macro-icon protein" data-icon="chicken"></span>${Math.round(entry.protein)}
-      </div>
-      <div class="col-carb">
-        <span class="macro-icon carbs" data-icon="wheat"></span>${Math.round(entry.carbs)}
-      </div>
-      <div class="col-fat">
-        <span class="macro-icon fat" data-icon="avocado"></span>${Math.round(entry.fat)}
+  <div class="row-bottom-subtitle">
+       <span class="food-subtitle${subtitle ? "" : " food-subtitle-empty"}">${subtitle || "No additional notes"}</span>
+  </div>
+
+  <div class="row-bottom-utilities">
+    <div class="macros-bottom">
+        <div class="col-cal">
+          <span class="macro-icon calories" data-icon="fire"></span>${Math.round(entry.calories)}
+        </div>
+        <div class="col-pro">
+          <span class="macro-icon protein" data-icon="chicken"></span>${Math.round(entry.protein)}
+        </div>
+        <div class="col-carb">
+          <span class="macro-icon carbs" data-icon="wheat"></span>${Math.round(entry.carbs)}
+        </div>
+        <div class="col-fat">
+          <span class="macro-icon fat" data-icon="avocado"></span>${Math.round(entry.fat)}
+        </div>
+      
       </div>
     
-    </div>
-  
-    <div class="swap-btn" onclick="event.stopPropagation(); toggleMealMenu(this, ${index})">
-    <span data-icon="swap" class="swap-svg"></span>
-    <div class="meal-menu">
-      <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Breakfast')">Breakfast</button>
-      <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Lunch')">Lunch</button>
-      <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Snack')">Snack</button>
-      <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Dinner')">Dinner</button>
-    </div>
+      <div class="swap-btn" onclick="event.stopPropagation(); toggleMealMenu(this, ${index})">
+      <span data-icon="swap" class="swap-svg"></span>
+      <div class="meal-menu">
+        <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Breakfast')">Breakfast</button>
+        <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Lunch')">Lunch</button>
+        <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Snack')">Snack</button>
+        <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Dinner')">Dinner</button>
+      </div>
+</div>
+
+
   </div>
     
 
@@ -244,6 +253,9 @@ document.addEventListener("click", function () {
     .forEach((m) => m.classList.remove("open"));
   document
     .querySelectorAll(".meal-group-body.menu-open")
+    .forEach((el) => el.classList.remove("menu-open"));
+  document
+    .querySelectorAll(".food-item.menu-open")
     .forEach((el) => el.classList.remove("menu-open"));
 });
 

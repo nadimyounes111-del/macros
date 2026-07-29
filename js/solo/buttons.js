@@ -106,6 +106,8 @@ function closeCustomCard() {
   footer.classList.remove("hidden");
 
   document.querySelector(".custom-icon-btn").classList.remove("active");
+
+  editingFoodId = null;
 }
 
 document.querySelectorAll(".custom-icon-btn").forEach((btn) => {
@@ -133,10 +135,10 @@ document
       searchInput.value = "";
       searchInput.dispatchEvent(new Event("input"));
 
-      card.classList.add("visible");
-      list.style.display = "none";
-      footer.classList.add("hidden");
-      this.classList.add("active");
+      resetCustomForm();
+      editingFoodId = null;
+
+      showCustomCard();
     }
   });
 
