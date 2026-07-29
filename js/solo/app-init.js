@@ -3,14 +3,11 @@
 let foods = [];
 let selectedFood = null;
 
-const YOUR_UID = "4zWkXoUNWxaBOOngN1jghHYOXiC3";
-
-function loadFoods(uid) {
-  const csvFile = uid === YOUR_UID ? "foods.csv" : "database.csv";
+function loadFoods() {
   foods.length = 0;
 
   return new Promise((resolve) => {
-    Papa.parse(csvFile, {
+    Papa.parse("database.csv", {
       download: true,
       header: true,
       skipEmptyLines: true,
@@ -35,7 +32,7 @@ function loadFoods(uid) {
 
 waitForFirebaseReady(() => {
   if (sessionStorage.getItem("guestMode") === "true") {
-    loadFoods("guest").then(() => {
+    loadFoods().then(() => {
       initGuestMode(() => initApp());
     });
     return;
@@ -44,7 +41,7 @@ waitForFirebaseReady(() => {
   window.onAuthReady((user) => {
     if (user) {
       window.currentUser = user;
-      loadFoods(user.uid).then(() => {
+      loadFoods().then(() => {
         window.initFirestore(window.currentUser.uid, () => initApp());
       });
     } else {
