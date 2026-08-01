@@ -377,7 +377,7 @@
               <span data-icon="chevron-left" class="modal-close-svg"></span>
             </button>
             <span>Log Food</span>
-            <div
+            <!-- <div
               class="meal-select-btn"
               onclick="
                 event.stopPropagation();
@@ -424,7 +424,7 @@
                   Dinner
                 </button>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="search-custom-wrap">
@@ -445,6 +445,7 @@
               <span data-icon="custom-pen" class="custom-icon"></span>
             </button>
           </div>
+
           <div class="filters-wrapper">
             <div class="filters">
               <button type="button" data-tag="custom">
@@ -477,8 +478,9 @@
               </button>
             </div>
           </div>
-          <div class="filters-wrapper pack">
-            <div class="filters pack" id="pack-filters"></div>
+
+          <div class="pack-wrapper">
+            <div class="pack-filters" id="pack-filters"></div>
           </div>
 
           <div class="custom-card">
@@ -652,6 +654,57 @@
             </div>
 
             <div class="settings-section">
+              <span class="settings-header">Food Packs</span>
+              <span class="settings-subheader"
+                >Choose which packs to include in your food list</span
+              >
+              <div class="options-wrapper">
+                <div class="settings-option-wrap">
+                  <span class="settings-option-title">Protein Powder</span>
+
+                  <button class="settings-checkbox" data-pack="protein-powder">
+                    <span
+                      data-icon="circleUncheck"
+                      class="settings-checkbox-svg unchecked"
+                    ></span>
+                    <span
+                      data-icon="circleCheck"
+                      class="settings-checkbox-svg checked"
+                    ></span>
+                  </button>
+                </div>
+                <div class="settings-option-wrap">
+                  <span class="settings-option-title">Subway</span>
+
+                  <button class="settings-checkbox" data-pack="subway">
+                    <span
+                      data-icon="circleUncheck"
+                      class="settings-checkbox-svg unchecked"
+                    ></span>
+                    <span
+                      data-icon="circleCheck"
+                      class="settings-checkbox-svg checked"
+                    ></span>
+                  </button>
+                </div>
+                <!-- <div class="settings-option-wrap">
+                  <span class="settings-option-title">Chick-fil-a</span>
+
+                  <button class="settings-checkbox" data-pack="chick-fil-a">
+                    <span
+                      data-icon="circleUncheck"
+                      class="settings-checkbox-svg unchecked"
+                    ></span>
+                    <span
+                      data-icon="circleCheck"
+                      class="settings-checkbox-svg checked"
+                    ></span>
+                  </button>
+                </div> -->
+              </div>
+            </div>
+
+            <div class="settings-section">
               <span class="settings-header">Food Log</span>
               <span class="settings-subheader">Customize your food log</span>
 
@@ -696,43 +749,6 @@
                     class="settings-checkbox"
                     data-setting="dimCheckedEntries"
                   >
-                    <span
-                      data-icon="circleUncheck"
-                      class="settings-checkbox-svg unchecked"
-                    ></span>
-                    <span
-                      data-icon="circleCheck"
-                      class="settings-checkbox-svg checked"
-                    ></span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="settings-section">
-              <span class="settings-header">Food Packs</span>
-              <span class="settings-subheader"
-                >Choose which packs to include in your food list</span
-              >
-              <div class="options-wrapper">
-                <div class="settings-option-wrap">
-                  <span class="settings-option-title">Subway</span>
-
-                  <button class="settings-checkbox" data-pack="subway">
-                    <span
-                      data-icon="circleUncheck"
-                      class="settings-checkbox-svg unchecked"
-                    ></span>
-                    <span
-                      data-icon="circleCheck"
-                      class="settings-checkbox-svg checked"
-                    ></span>
-                  </button>
-                </div>
-                <div class="settings-option-wrap">
-                  <span class="settings-option-title">Chick-fil-a</span>
-
-                  <button class="settings-checkbox" data-pack="chick-fil-a">
                     <span
                       data-icon="circleUncheck"
                       class="settings-checkbox-svg unchecked"

@@ -2,7 +2,7 @@
 
 .settings-page {
   position: fixed;
-  overflow-y: auto;
+  display: flex;
   background-color: var(--bg);
   justify-content: center;
   inset: 0;
@@ -67,6 +67,7 @@
 
 .modal-body.settings {
   gap: 12px;
+  overflow-y: auto;
 }
 
 /* #endregion */

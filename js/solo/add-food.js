@@ -166,36 +166,6 @@ function setupAddFood() {
 
 // #endregion
 
-// #region ===== Meal selector in header
-
-function toggleMealSelectMenu(wrapper) {
-  const menu = wrapper.querySelector(".meal-menu-add");
-  const isOpen = menu.classList.contains("open");
-
-  document
-    .querySelectorAll(".meal-menu-add.open")
-    .forEach((m) => m.classList.remove("open"));
-
-  if (!isOpen) {
-    menu.classList.add("open");
-  }
-}
-
-function selectMeal(btn, meal) {
-  const wrapper = btn.closest(".meal-select-btn");
-  wrapper.querySelector(".meal-select-label").textContent = meal;
-  wrapper.querySelector(".meal-menu-add").classList.remove("open");
-  window.selectedMeal = meal;
-}
-
-document.addEventListener("click", function () {
-  document
-    .querySelectorAll(".meal-menu-add.open")
-    .forEach((m) => m.classList.remove("open"));
-});
-
-// #endregion
-
 // #region ===== Filters
 
 let activeFilter = null;
@@ -210,7 +180,7 @@ function wireFilterButton(btn) {
       this.classList.remove("active");
     } else {
       document
-        .querySelectorAll(".filters button")
+        .querySelectorAll(".filters button, .pack-filters button")
         .forEach((b) => b.classList.remove("active"));
       activeFilter = tag;
       this.classList.add("active");
@@ -228,8 +198,9 @@ document.querySelectorAll(".filters button").forEach(wireFilterButton);
 // #region ===== Food Pack Filters
 
 const PACK_INFO = {
-  subway: { label: "Subway", icon: "sandwich" },
-  "chick-fil-a": { label: "Chick-fil-A", icon: "sandwich" },
+  subway: { label: "Subway", logo: "assets/subway.jpg" },
+
+  "protein-powder": { label: "Protein Powder", logo: "assets/chick.jpeg" },
 };
 
 function renderPackFilters() {
@@ -244,8 +215,9 @@ function renderPackFilters() {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.dataset.tag = packKey;
+    if (activeFilter === packKey) btn.classList.add("active");
     btn.innerHTML = `
-      
+       <img src="${info.logo}" alt="${info.label}" class="filter-logo" />
       ${info.label}
     `;
     wireFilterButton(btn);
@@ -254,7 +226,7 @@ function renderPackFilters() {
 
   injectIcons(wrap);
 }
-// <span data-icon="${info.icon}" class="filter-svg"></span> above info label
+//  "chick-fil-a": { label: "Chick-fil-A", icon: "pack" },
 
 // #endregion
 
@@ -292,12 +264,17 @@ function createFoodPanel() {
   const div = document.createElement("div");
   div.className = "food-edit";
   div.innerHTML = `
+
+  
+    
     <div class="servings-meal">
       <div class="add-food-servings">
         <input class="serving-edit-af" id="servings" placeholder="Servings" type="number" inputmode="decimal" min="0" />
       </div>
        <div id="serving-size-label"></div>
     </div>
+
+
     
     <div class="macros-save-wrap">
       <div id="macros-preview">
@@ -318,10 +295,21 @@ function createFoodPanel() {
           <span class="macro-edit" id="fat-preview"></span>
         </div>
       </div>
-      <button class="save-food-btn" onclick="saveFood(false)">
+     
+    </div>
+
+         <div class="meal-options">
+      <div class="meal-chip" data-meal="Breakfast">Breakfast</div>
+      <div class="meal-chip" data-meal="Lunch">Lunch</div>
+      <div class="meal-chip" data-meal="Snack">Snack</div>
+      <div class="meal-chip" data-meal="Dinner">Dinner</div>
+       <button class="save-food-btn" onclick="saveFood(false)">
         <span class="save-food-text">Add</span>
       </button>
     </div>
+    
+
+   
   `;
 
   injectIcons(div);
@@ -329,6 +317,19 @@ function createFoodPanel() {
   const servingsInput = div.querySelector("#servings");
   servingsInput.oninput = updatePreview;
   servingsInput.addEventListener("click", (e) => e.stopPropagation());
+
+  const mealChips = div.querySelectorAll(".meal-options .meal-chip");
+  mealChips.forEach((chip) => {
+    if (chip.dataset.meal === (window.selectedMeal || "Breakfast")) {
+      chip.classList.add("active");
+    }
+    chip.addEventListener("click", function (e) {
+      e.stopPropagation();
+      mealChips.forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+      window.selectedMeal = chip.dataset.meal;
+    });
+  });
 
   const addBtn = div.querySelector(".save-food-btn");
   addBtn.addEventListener("click", (e) => e.stopPropagation());

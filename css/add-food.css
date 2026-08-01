@@ -31,68 +31,6 @@
 
 /* #endregion */
 
-/* #region ===== Meal Selector */
-
-.meal-select-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  cursor: pointer;
-  background-color: var(--dark-blue);
-  border-radius: 8px;
-  padding: clamp(4px, 3.43px + 0.179vw, 6px) 0 clamp(4px, 3.43px + 0.179vw, 6px)
-    clamp(6px, 5.43px + 0.179vw, 8px);
-  justify-self: end;
-}
-
-.meal-select-label {
-  font-size: var(--text-base);
-  color: var(--light-blue);
-}
-
-.meal-select-down {
-  width: var(--svg);
-  height: var(--svg);
-  color: var(--light-blue);
-  flex-shrink: 0;
-}
-
-.meal-menu-add {
-  display: none;
-  position: absolute;
-  top: 38px;
-  right: 20px;
-  background-color: var(--dark-blue);
-  border-radius: 8px;
-  padding: 4px;
-  flex-direction: column;
-  min-width: 100px;
-  z-index: 10;
-}
-
-.meal-menu-add button {
-  font-family: "Cal Sans";
-  background: none;
-  border: none;
-  color: var(--light-blue);
-  text-align: left;
-  padding: 8px 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: var(--text-base);
-}
-
-.meal-menu-add button:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-.meal-menu-add.open {
-  display: flex;
-}
-
-/* #endregion */
-
 /* #region ===== Search */
 
 .search-custom-wrap {
@@ -302,6 +240,62 @@
 
 /* #region ===== Filters */
 
+.pack-wrapper {
+  padding: 0;
+  display: flex;
+  z-index: 3;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pack-filters {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+  width: fit-content;
+  margin: 0;
+}
+
+.pack-filters button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--dark-blue);
+  font-size: var(--text-base);
+  color: var(--light-blue);
+  gap: 3px;
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.pack-filters button.active {
+  background-color: var(--orange);
+  color: white;
+}
+
+.pack-filters button:active {
+  transform: scale(0.95);
+}
+
+.pack-filters button.active .filter-svg {
+  color: white;
+}
+
+.filter-logo {
+  display: flex;
+  width: var(--svg);
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
 .filters-wrapper {
   display: flex;
   padding: 10px 0;
@@ -312,12 +306,13 @@
   gap: 10px;
 }
 
-.filters-wrapper.pack {
-  padding: 0;
-}
-
 .filters-wrapper::-webkit-scrollbar {
   display: none;
+}
+
+.filter-subtitle {
+  font-size: var(--text-l);
+  color: var(--light-gray);
 }
 
 .filters {
@@ -326,10 +321,6 @@
   white-space: nowrap;
   width: fit-content;
   margin: 0 auto;
-}
-
-.filters.pack {
-  margin: 0;
 }
 
 .filters button {
@@ -429,7 +420,9 @@
 
 .food-item.expanded {
   flex-direction: column;
-  min-height: clamp(132px, 125.71px + 1.964vw, 154px);
+  /* min-height: clamp(132px, 125.71px + 1.964vw, 154px); */
+  min-height: clamp(160px, 152.57px + 2.321vw, 186px);
+  /* min-height: clamp(94px, 88.29px + 1.786vw, 114px); */
   justify-content: start;
 }
 
@@ -585,15 +578,47 @@
 
 /* #endregion */
 
-/* #region ===== Save Food */
+/* #region ===== Meals & Save Food */
+
+.meal-options {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+}
+
+.meal-chip {
+  display: flex;
+  flex: 1;
+  background-color: var(--dark-blue);
+  color: var(--light-blue);
+  font-size: var(--text-base);
+  border-radius: 6px;
+  padding: 3px 6px;
+  align-items: center;
+  justify-content: center;
+  height: max-content;
+  transition: all 0.2s ease;
+}
+
+.meal-chip.active {
+  color: white;
+  background-color: var(--orange);
+}
+
+.meal-chip:active {
+  transform: scale(0.95);
+}
 
 .save-food-btn {
   all: unset;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
   cursor: pointer;
   transition: all 0.2s ease;
+  width: fit-content;
 }
 
 .save-food-btn:active {
@@ -605,7 +630,14 @@
   border-radius: 6px;
   font-size: var(--text-base);
   color: var(--bg);
-  padding: 5px 8px;
+  padding: 3px 6px;
+}
+
+.add-food-plus {
+  width: var(--svg);
+  height: var(--svg);
+  flex-shrink: 0;
+  color: var(--bg);
 }
 
 /* #endregion */
