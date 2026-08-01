@@ -1,8 +1,14 @@
 // #region ===== Sets up add food page
 
+function isPackFood(food) {
+  return Object.keys(PACK_INFO).includes(food.tag);
+}
+
 function setupAddFood() {
   const searchInput = document.getElementById("food-search");
   const autocompleteList = document.getElementById("autocomplete-list");
+
+  renderPackFilters();
 
   resetFoodSelection();
   searchInput.value = "";
@@ -27,6 +33,8 @@ function setupAddFood() {
           return queryWords.every((word) => name.includes(word));
         })
       : foods;
+
+    matches = matches.filter((f) => !isPackFood(f) || activeFilter === f.tag);
 
     if (activeFilter === "custom") {
       matches = matches.filter((f) => f.isCustom);
@@ -114,13 +122,14 @@ function setupAddFood() {
                 <span class="food-title">${title}</span>
                 <span class="food-subtitle${subtitle ? "" : " hidden-subtitle"}">${subtitle || "-"}</span>
             </div>
+            
      ${
        food.isCustom
          ? `<div class="swap-btn custom-options-btn" onclick="event.stopPropagation(); toggleCustomMenu(this, '${food.id}')">
        <svg class="custom-options-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M96 320C96 289.1 121.1 264 152 264C182.9 264 208 289.1 208 320C208 350.9 182.9 376 152 376C121.1 376 96 350.9 96 320zM264 320C264 289.1 289.1 264 320 264C350.9 264 376 289.1 376 320C376 350.9 350.9 376 320 376C289.1 376 264 350.9 264 320zM488 264C518.9 264 544 289.1 544 320C544 350.9 518.9 376 488 376C457.1 376 432 350.9 432 320C432 289.1 457.1 264 488 264z"/></svg>
          <div class="meal-menu">
            <button type="button" onclick="event.stopPropagation(); editCustomFood('${food.id}')">Edit</button>
-           <button type="button" onclick="event.stopPropagation(); deleteCustomFood('${food.id}')">Delete</button>
+           <button class="meal-menu-red" type="button" onclick="event.stopPropagation(); deleteCustomFood('${food.id}')">Delete</button>
          </div>
        </button>`
          : ""
@@ -191,7 +200,7 @@ document.addEventListener("click", function () {
 
 let activeFilter = null;
 
-document.querySelectorAll(".filters button").forEach((btn) => {
+function wireFilterButton(btn) {
   btn.addEventListener("click", function () {
     const tag = this.dataset.tag;
     if (tag === "recents") return;
@@ -210,7 +219,42 @@ document.querySelectorAll(".filters button").forEach((btn) => {
 
     document.getElementById("food-search").dispatchEvent(new Event("input"));
   });
-});
+}
+
+document.querySelectorAll(".filters button").forEach(wireFilterButton);
+
+// #endregion
+
+// #region ===== Food Pack Filters
+
+const PACK_INFO = {
+  subway: { label: "Subway", icon: "sandwich" },
+  "chick-fil-a": { label: "Chick-fil-A", icon: "sandwich" },
+};
+
+function renderPackFilters() {
+  const wrap = document.getElementById("pack-filters");
+  if (!wrap) return;
+  wrap.innerHTML = "";
+
+  Object.keys(PACK_INFO).forEach((packKey) => {
+    if (!isPackEnabled(packKey)) return;
+
+    const info = PACK_INFO[packKey];
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.dataset.tag = packKey;
+    btn.innerHTML = `
+      
+      ${info.label}
+    `;
+    wireFilterButton(btn);
+    wrap.appendChild(btn);
+  });
+
+  injectIcons(wrap);
+}
+// <span data-icon="${info.icon}" class="filter-svg"></span> above info label
 
 // #endregion
 
@@ -254,6 +298,7 @@ function createFoodPanel() {
       </div>
        <div id="serving-size-label"></div>
     </div>
+    
     <div class="macros-save-wrap">
       <div id="macros-preview">
         <div class="macro-item">

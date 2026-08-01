@@ -264,3 +264,32 @@ juice-apple,"apple juice, fresh",1,cup,114,0.2,26.6,0.3,NCCDB,,"floz,ml",248,fru
 water-coconut,"coconut water, unsweetened",1,cup,47,1.8,6.4,0.5,NCCDB,,"floz,ml",245,
 water-coconutsweet,"coconut water, sweetened",1,cup,85,1.5,17.2,0.4,NCCDB,,"floz,ml",245,
 oil-spray,"cooking oil spray",1,second,6,0,0,0.9,NCCDB,,,,
+chick-stuff,chick stuff,1,tbsp,18,0.1,0.4,1.7,chick-fil-a,,"g,oz",12,chick-fil-a
+# SUBWAY
+subway-steakphilly,"steak philly, sandwich",1,"6"" sub",510,28,43,25,subway,,,,subway
+subway-chipotlephilly,"chipotle philly, sandwich",1,"6"" sub",490,30,44,22,subway,,,,subway
+subway-cheesygarlicsteak,"cheesy garlic steak, sandwich",1,"6"" sub",510,26,49,23,subway,,,,subway
+subway-grilledchicken,"grilled chicken, sandwich",1,"6"" sub",510,31,43,24,subway,,,,subway
+subway-chickenbaconranch,"chicken & bacon ranch, sandwich",1,"6"" sub",580,35,44,29,subway,,,,subway
+subway-spicynachochicken,"spicy nacho chicken, sandwich",1,"6"" sub",440,24,49,17,subway,,,,subway
+subway-honeymustardbbqchicken,"honey mustard BBQ chicken, sandwich",1,"6"" sub",510,30,53,20,subway,,,,subway
+subway-sweetonionteriyakichicken,"sweet onion teriyaki chicken, sandwich",1,"6"" sub",430,29,55,11,subway,,,,subway
+subway-bmt,"B.M.T., sandwich",1,"6"" sub",610,27,44,36,subway,,,,subway
+subway-spicyitalian,"spicy italian, sandwich",1,"6"" sub",680,27,44,44,subway,,,,subway
+subway-5meatitalian,"5 meat italian, sandwich",1,"6"" sub",680,40,46,37,subway,,,,subway
+subway-meatballmarinara,"meatball marinara, sandwich",1,"6"" sub",570,27,53,28,subway,,,,subway
+subway-meatballpepperoni,"meatball pepperoni, sandwich",1,"6"" sub",690,33,56,38,subway,,,,subway
+subway-ovenroastedturkey,"oven-roasted turkey, sandwich",1,"6"" sub",480,26,42,23,subway,,,,subway
+subway-blackforestham,"black forest ham, sandwich",1,"6"" sub",490,25,44,23,subway,,,,subway
+subway-roastbeef,"roast beef, sandwich",1,"6"" sub",500,31,44,23,subway,,,,subway
+subway-coldcutcombo,"cold cut combo, sandwich",1,"6"" sub",530,25,43,29,subway,,,,subway
+subway-tuna,"tuna, sandwich",1,"6"" sub",570,27,42,33,subway,,,,subway
+subway-veggiedelite,"veggie delite, sandwich",1,"6"" sub",320,17,41,10,subway,,,,subway
+subway-allamericanclub,"all american club, sandwich",1,"6"" sub",540,27,45,28,subway,,,,subway
+subway-subwayclub,"subway club, sandwich",1,"6"" sub",500,31,43,24,subway,,,,subway
+subway-bighotpastrami,"big hot pastrami, sandwich",1,"6"" sub",550,30,44,30,subway,,,,subway
+subway-blt,"B.L.T., sandwich",1,"6"" sub",480,18,42,26,subway,,,,subway
+subway-buffalochicken,"buffalo chicken, sandwich",1,"6"" sub",510,31,55,19,subway,,,,subway
+subway-ovenroastedturkeyham,"oven-roasted turkey & ham, sandwich",1,"6"" sub",480,27,41,23,subway,,,,subway
+subway-pizzasub,"pizza sub, sandwich",1,"6"" sub",490,22,45,25,subway,,,,subway
+subway-veggiepatty,"veggie patty, sandwich",1,"6"" sub",470,19,58,19,subway,,,,subway

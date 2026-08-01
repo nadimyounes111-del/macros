@@ -162,6 +162,13 @@ window.initFirestore = function (user, onFirstLoad) {
       dimCheckedEntries = data.dimCheckedEntries;
       settingsChanged = true;
     }
+    if (
+      data.enabledPacks !== undefined &&
+      hasChanged(enabledPacks, data.enabledPacks)
+    ) {
+      enabledPacks = data.enabledPacks;
+      populatePackToggles();
+    }
     if (data.onboardingSeen !== undefined) {
       window.onboardingSeen = data.onboardingSeen;
     } else {

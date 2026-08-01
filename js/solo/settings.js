@@ -51,10 +51,12 @@ function initGoalInputs() {
 let enabledWidgets = {};
 
 function initWidgetToggles() {
-  document.querySelectorAll(".settings-checkbox").forEach((btn) => {
-    const widget = btn.dataset.widget;
-    btn.addEventListener("click", () => toggleWidget(widget, btn));
-  });
+  document
+    .querySelectorAll(".settings-checkbox[data-widget]")
+    .forEach((btn) => {
+      const widget = btn.dataset.widget;
+      btn.addEventListener("click", () => toggleWidget(widget, btn));
+    });
 }
 
 function isCurrentlyEnabled(widget) {
@@ -80,10 +82,12 @@ function applyWidgetState(widget, isEnabled, btn) {
 }
 
 function populateWidgetToggles() {
-  document.querySelectorAll(".settings-checkbox").forEach((btn) => {
-    const widget = btn.dataset.widget;
-    applyWidgetState(widget, isCurrentlyEnabled(widget), btn);
-  });
+  document
+    .querySelectorAll(".settings-checkbox[data-widget]")
+    .forEach((btn) => {
+      const widget = btn.dataset.widget;
+      applyWidgetState(widget, isCurrentlyEnabled(widget), btn);
+    });
 
   if (widgetModalOpen) {
     showAllActiveWidgetCards();
@@ -151,6 +155,40 @@ function populateSettingsToggles() {
   document.body.classList.toggle("hide-meal-protein", !showMealProtein);
   document.body.classList.toggle("hide-meal-cal", !showMealCal);
   document.body.classList.toggle("dim-disabled", !dimCheckedEntries);
+}
+
+// #endregion
+
+// #region ===== Food Packs
+
+let enabledPacks = {};
+
+function initPackToggles() {
+  document.querySelectorAll("[data-pack]").forEach((btn) => {
+    const pack = btn.dataset.pack;
+    btn.addEventListener("click", () => togglePack(pack, btn));
+  });
+}
+
+function isPackEnabled(pack) {
+  return enabledPacks[pack] === true;
+}
+
+function togglePack(pack, btn) {
+  enabledPacks[pack] = !isPackEnabled(pack);
+  applyPackState(pack, enabledPacks[pack], btn);
+  if (window.saveToFirestore) window.saveToFirestore({ enabledPacks });
+}
+
+function applyPackState(pack, isEnabled, btn) {
+  btn.classList.toggle("is-checked", isEnabled);
+}
+
+function populatePackToggles() {
+  document.querySelectorAll("[data-pack]").forEach((btn) => {
+    const pack = btn.dataset.pack;
+    applyPackState(pack, isPackEnabled(pack), btn);
+  });
 }
 
 // #endregion

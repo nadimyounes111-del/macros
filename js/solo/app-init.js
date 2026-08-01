@@ -64,6 +64,8 @@ function initApp() {
   initGoalInputs();
   initNotes();
   initWidgetToggles();
+  initPackToggles();
+  populatePackToggles();
   populateWidgetToggles();
   initSettingsToggles();
   populateSettingsToggles();
