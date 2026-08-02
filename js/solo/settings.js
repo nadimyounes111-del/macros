@@ -182,6 +182,7 @@ function togglePack(pack, btn) {
 
 function applyPackState(pack, isEnabled, btn) {
   btn.classList.toggle("is-checked", isEnabled);
+  renderPackFilters();
 }
 
 function populatePackToggles() {

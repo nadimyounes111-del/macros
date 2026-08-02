@@ -26,11 +26,13 @@ function setupAddFood() {
 
     const queryWords = query.split(/\s+/).filter(Boolean);
 
+    const strip = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+
     let matches = query
       ? foods.filter((f) => {
           if (!f.name) return false;
-          const name = f.name.toLowerCase();
-          return queryWords.every((word) => name.includes(word));
+          const name = strip(f.name);
+          return queryWords.every((word) => name.includes(strip(word)));
         })
       : foods;
 
@@ -197,10 +199,29 @@ document.querySelectorAll(".filters button").forEach(wireFilterButton);
 
 // #region ===== Food Pack Filters
 
-const PACK_INFO = {
-  subway: { label: "Subway", logo: "assets/subway.jpg" },
+document.querySelector(".food-pack-btn").addEventListener("click", function () {
+  const anyEnabled = Object.keys(PACK_INFO).some((packKey) =>
+    isPackEnabled(packKey),
+  );
 
-  "protein-powder": { label: "Protein Powder", logo: "assets/chick.jpeg" },
+  if (!anyEnabled) {
+    showToast(
+      `<span class="toast-title">No packs enabled</span>
+       <button class="toast-btn" onclick="openSettings()">Settings</button>`,
+    );
+    return;
+  }
+
+  const packs = document.querySelector(".pack-wrapper");
+  const isOpen = this.classList.contains("active");
+
+  this.classList.toggle("active", !isOpen);
+  packs.classList.toggle("open", !isOpen);
+});
+
+const PACK_INFO = {
+  subway: { label: "Subway", logo: "assets/subway.webp" },
+  "chick-fil-a": { label: "Chick-fil-a", logo: "assets/chick.jpeg" },
 };
 
 function renderPackFilters() {
@@ -208,8 +229,12 @@ function renderPackFilters() {
   if (!wrap) return;
   wrap.innerHTML = "";
 
+  let anyRendered = false;
+
   Object.keys(PACK_INFO).forEach((packKey) => {
     if (!isPackEnabled(packKey)) return;
+
+    anyRendered = true;
 
     const info = PACK_INFO[packKey];
     const btn = document.createElement("button");
@@ -225,8 +250,11 @@ function renderPackFilters() {
   });
 
   injectIcons(wrap);
+  if (!anyRendered) {
+    document.querySelector(".pack-wrapper")?.classList.remove("open");
+    document.querySelector(".food-pack-btn")?.classList.remove("active");
+  }
 }
-//  "chick-fil-a": { label: "Chick-fil-A", icon: "pack" },
 
 // #endregion
 
@@ -585,10 +613,22 @@ function showCustomCard() {
   const card = document.querySelector(".custom-card");
   const list = document.getElementById("autocomplete-list");
   const footer = document.querySelector(".footer-text");
+  const filters = document.querySelector(".filters-wrapper");
+  const packs = document.querySelector(".pack-wrapper");
 
   card.classList.add("visible");
   list.style.display = "none";
   footer.classList.add("hidden");
+  filters.classList.add("hidden");
+  packs.classList.add("hidden");
+  document.querySelector(".search-bar").classList.add("hidden");
+  document.querySelector(".food-pack-btn").classList.add("hidden");
+
+  document
+    .querySelectorAll(".filters button, .pack-filters button")
+    .forEach((b) => b.classList.remove("active"));
+  activeFilter = null;
+
   document.querySelector(".custom-icon-btn").classList.add("active");
 }
 

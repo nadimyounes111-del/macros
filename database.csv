@@ -261,11 +261,27 @@ juice-apple,"apple juice, fresh",1,cup,114,0.2,26.6,0.3,NCCDB,,"floz,ml",248,fru
 water-coconut,"coconut water, unsweetened",1,cup,47,1.8,6.4,0.5,NCCDB,,"floz,ml",245,
 water-coconutsweet,"coconut water, sweetened",1,cup,85,1.5,17.2,0.4,NCCDB,,"floz,ml",245,
 oil-spray,"cooking oil spray",1,second,6,0,0,0.9,NCCDB,,,,
-# PROTEIN POWDER
-protein-onw,"optimum nutrition whey, all flavors",1,scoop,120,24,4,1.5,BRAND,optimum nutrition whey,,,protein-powder
-protein-diso,"dymatize ISO100, all flavors",1,scoop,110,25,1,0,BRAND,dymatize ISO100,,,protein-powder
-protein-aiso,"allmax isoflex, all flavors",1,scoop,120,27,2,0,BRAND,allmax isoflex,,,protein-powder
-protein-gw,"ghost whey, all flavors",1,scoop,150,25,6,2.5,BRAND,ghost whey,,,protein-powder
+protein-onw,"optimum nutrition whey, all flavors",1,scoop,120,24,4,1.5,BRAND,optimum nutrition whey,,,protein
+protein-diso,"dymatize ISO100, all flavors",1,scoop,110,25,1,0,BRAND,dymatize ISO100,,,protein
+protein-aiso,"allmax isoflex, all flavors",1,scoop,120,27,2,0,BRAND,allmax isoflex,,,protein
+protein-gw,"ghost whey, all flavors",1,scoop,150,25,6,2.5,BRAND,ghost whey,,,protein
+# CHICK FIL A
+chick-fil-a-chickensandwich,"Chicken sandwich",1,sandwich,420,29,41,18,chick-fil-a,,,,chick-fil-a
+chick-fil-a-deluxesandwich,"Deluxe sandwich",1,sandwich,490,32,43,22,chick-fil-a,,,,chick-fil-a
+chick-fil-a-deluxesandwichnocheese,"deluxe sandwich, no cheese",1,sandwich,430,29,43,18,chick-fil-a,,,,chick-fil-a
+chick-fil-a-spicychickensandwich,"spicy chicken sandwich",1,sandwich,450,28,45,19,chick-fil-a,,,,chick-fil-a
+chick-fil-a-spicydeluxesandwich,"spicy deluxe sandwich",1,sandwich,540,34,47,26,chick-fil-a,,,,chick-fil-a
+chick-fil-a-spicydeluxesandwichnocheese,"spicy deluxe sandwich, no cheese",1,sandwich,460,31,46,19,chick-fil-a,,,,chick-fil-a
+chick-fil-a-grilledchickensandwich,"grilled chicken sandwich",1,sandwich,390,28,45,11,chick-fil-a,,,,chick-fil-a
+chick-fil-a-grilledchickenclubsandwich,"grilled chicken club sandwich",1,sandwich,440,37,45,15,chick-fil-a,,,,chick-fil-a
+chick-fil-a-grilledchickenclubnocheese,"grilled chicken club sandwich, no cheese",1,sandwich,520,37,45,22,chick-fil-a,,,,chick-fil-a
+chick-fil-a-coolwrap,"cool wrap",1,wrap,660,43,32,45,chick-fil-a,,,,chick-fil-a
+chick-fil-a-honeypepperpimentosandwich,"honey pepper pimento sandwich",1,sandwich,600,31,53,30,chick-fil-a,,,,chick-fil-a
+chick-fil-a-honeypepperpimentospicy,"honey pepper pimento sandwich, spicy filet",1,sandwich,620,33,56,31,chick-fil-a,,,,chick-fil-a
+chick-fil-a-honeypepperpimentogrilled,"honey pepper pimento sandwich, grilled filet",1,sandwich,450,34,42,20,chick-fil-a,,,,chick-fil-a
+chick-fil-a-nuggets,"nuggets",1,nugget,31.25,4.75,1.375,1.375,chick-fil-a,,,,chick-fil-a
+chick-fil-a-grillednuggets,"grilled nuggets",1,"nugget",16.25,3.125,0.125,0.375,chick-fil-a,,,,chick-fil-a
+chick-fil-a-chick-n-strips,"chick-n-strips",1,"strip",103.33,10.33,5.33,4.67,chick-fil-a,,,,chick-fil-a
 # SUBWAY
 subway-steakphilly,"steak philly, sandwich",1,"6"" sub",510,28,43,25,subway,,,,subway
 subway-chipotlephilly,"chipotle philly, sandwich",1,"6"" sub",490,30,44,22,subway,,,,subway
@@ -294,3 +310,42 @@ subway-buffalochicken,"buffalo chicken, sandwich",1,"6"" sub",510,31,55,19,subwa
 subway-ovenroastedturkeyham,"oven-roasted turkey & ham, sandwich",1,"6"" sub",480,27,41,23,subway,,,,subway
 subway-pizzasub,"pizza sub, sandwich",1,"6"" sub",490,22,45,25,subway,,,,subway
 subway-veggiepatty,"veggie patty, sandwich",1,"6"" sub",470,19,58,19,subway,,,,subway
+subway-grilledchickensmashedavocado,"grilled chicken & smashed avocado, fresh fit",1,"6"" sub",470,35,44,19,subway,,,,subway
+subway-hamturkeystacker,"ham & turkey stacker, fresh fit",1,"6"" sub",290,20,42,5,subway,,,,subway
+subway-turkeyranchdelite,"turkey & ranch delite, fresh fit",1,"6"" sub",380,26,41,13,subway,,,,subway
+subway-seasonedsteakfreshavocado,"seasoned steak & fresh avocado, fresh fit",1,"6"" sub",430,35,45,14,subway,,,,subway
+subway-steakphillywrap,"steak philly, wrap",1,wrap,710,46,56,35,subway,,,,subway
+subway-chipotlephillywrap,"chipotle philly, wrap",1,wrap,700,47,56,32,subway,,,,subway
+subway-cheesygarlicsteakwrap,"cheesy garlic steak, wrap",1,wrap,710,43,62,33,subway,,,,subway
+subway-grilledchickenwrap,"grilled chicken, wrap",1,wrap,680,48,55,31,subway,,,,subway
+subway-chickenbaconranchwrap,"chicken & bacon ranch, wrap",1,wrap,830,56,56,42,subway,,,,subway
+subway-spicynachochickenwrap,"spicy nacho chicken, wrap",1,wrap,610,40,59,24,subway,,,,subway
+subway-honeymustardbbqchickenwrap,"honey mustard BBQ chicken, wrap",1,wrap,680,46,63,27,subway,,,,subway
+subway-sweetonionteriyakichickenwrap,"sweet onion teriyaki chicken, wrap",1,wrap,620,45,76,16,subway,,,,subway
+subway-bmtwrap,"B.M.T., wrap",1,wrap,610,27,44,36,subway,,,,subway
+subway-spicyitalianwrap,"spicy italian, wrap",1,wrap,1010,39,57,69,subway,,,,subway
+subway-5meatitalianwrap,"5 meat italian, wrap",1,wrap,1000,66,60,56,subway,,,,subway
+subway-meatballmarinariawrap,"meatball marinara, wrap",1,wrap,890,40,76,49,subway,,,,subway
+subway-meatballpepperoniwrap,"meatball pepperoni, wrap",1,wrap,1050,47,77,63,subway,,,,subway
+subway-ovenroastedturkeywrap,"oven-roasted turkey, wrap",1,wrap,610,38,53,27,subway,,,,subway
+subway-blackforesthamwrap,"black forest ham, wrap",1,wrap,630,36,57,28,subway,,,,subway
+subway-roastbeefwrap,"roast beef, wrap",1,wrap,660,48,57,27,subway,,,,subway
+subway-coldcutcombowrap,"cold cut combo, wrap",1,wrap,720,35,54,40,subway,,,,subway
+subway-tunawrap,"tuna, wrap",1,wrap,900,41,52,59,subway,,,,subway
+subway-veggiedelitewrap,"veggie delite, wrap",1,wrap,400,17,53,13,subway,,,,subway
+subway-allamericanclubwrap,"all american club, wrap",1,wrap,760,44,57,39,subway,,,,subway
+subway-subwayclubwrap,"subway club, wrap",1,wrap,690,48,58,30,subway,,,,subway
+subway-bighotpastramiwrap,"big hot pastrami, wrap",1,wrap,890,49,56,54,subway,,,,subway
+subway-bltwrap,"B.L.T., wrap",1,wrap,710,30,53,42,subway,,,,subway
+subway-turkeyhamwrap,"turkey & ham, wrap",1,wrap,620,37,55,28,subway,,,,subway
+subway-pizzasubwrap,"pizza sub, wrap",1,wrap,730,30,56,42,subway,,,,subway
+subway-veggiepattywrap,"veggie patty, wrap",1,wrap,720,25,87,30,subway,,,,subway
+subway-bajachickenpocket,"baja chicken, protein pocket",1,"protein pocket",330,24,30,13,subway,,,,subway
+subway-italiantriopocket,"italian trio, protein pocket",1,"protein pocket",480,22,32,29,subway,,,,subway
+subway-peppercornranchchickenpocket,"peppercorn ranch chicken, protein pocket",1,"protein pocket",330,24,30,13,subway,,,,subway
+subway-turkeyhampocket,"turkey & ham, protein pocket",1,"protein pocket",320,21,32,11,subway,,,,subway
+subway-chocolatechipcookie,"chocolate chip cookie",1,cookie,210,2,30,10,subway,,,,subway
+subway-doublechocolatecookie,"double chocolate cookie",1,cookie,210,2,29,9,subway,,,,subway
+subway-oatmealraisincookie,"oatmeal raisin cookie",1,cookie,200,3,30,8,subway,,,,subway
+subway-raspberrycheesecakecookie,"raspberry cheesecake cookie",1,cookie,210,2,29,9,subway,,,,subway
+subway-whitechipmacadamiacookie,"white chip macadamia nut cookie",1,cookie,210,2,28,10,subway,,,,subway

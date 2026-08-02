@@ -100,10 +100,16 @@ function closeCustomCard() {
   const card = document.querySelector(".custom-card");
   const list = document.getElementById("autocomplete-list");
   const footer = document.querySelector(".footer-text");
+  const filters = document.querySelector(".filters-wrapper");
+  const packs = document.querySelector(".pack-wrapper");
 
   card.classList.remove("visible");
   list.style.display = "";
   footer.classList.remove("hidden");
+  filters.classList.remove("hidden");
+  packs.classList.remove("hidden");
+  document.querySelector(".search-bar").classList.remove("hidden");
+  document.querySelector(".food-pack-btn").classList.remove("hidden");
 
   document.querySelector(".custom-icon-btn").classList.remove("active");
 

@@ -377,54 +377,11 @@
               <span data-icon="chevron-left" class="modal-close-svg"></span>
             </button>
             <span>Log Food</span>
-            <!-- <div
-              class="meal-select-btn"
-              onclick="
-                event.stopPropagation();
-                toggleMealSelectMenu(this);
-              "
-            >
-              <span class="meal-select-label">Breakfast</span>
-              <span data-icon="caret-down" class="meal-select-down"></span>
-              <div class="meal-menu-add">
-                <button
-                  type="button"
-                  onclick="
-                    event.stopPropagation();
-                    selectMeal(this, 'Breakfast');
-                  "
-                >
-                  Breakfast
-                </button>
-                <button
-                  type="button"
-                  onclick="
-                    event.stopPropagation();
-                    selectMeal(this, 'Lunch');
-                  "
-                >
-                  Lunch
-                </button>
-                <button
-                  type="button"
-                  onclick="
-                    event.stopPropagation();
-                    selectMeal(this, 'Snack');
-                  "
-                >
-                  Snack
-                </button>
-                <button
-                  type="button"
-                  onclick="
-                    event.stopPropagation();
-                    selectMeal(this, 'Dinner');
-                  "
-                >
-                  Dinner
-                </button>
-              </div>
-            </div> -->
+
+            <div class="food-pack-btn">
+              <span data-icon="pack" class="food-pack-svg"></span>
+              <span class="food-pack-label">Packs</span>
+            </div>
           </div>
 
           <div class="search-custom-wrap">
@@ -654,25 +611,11 @@
             </div>
 
             <div class="settings-section">
-              <span class="settings-header">Food Packs</span>
+              <span class="settings-header">Packs</span>
               <span class="settings-subheader"
-                >Choose which packs to include in your food list</span
+                >Enable packs to include in your food list</span
               >
               <div class="options-wrapper">
-                <div class="settings-option-wrap">
-                  <span class="settings-option-title">Protein Powder</span>
-
-                  <button class="settings-checkbox" data-pack="protein-powder">
-                    <span
-                      data-icon="circleUncheck"
-                      class="settings-checkbox-svg unchecked"
-                    ></span>
-                    <span
-                      data-icon="circleCheck"
-                      class="settings-checkbox-svg checked"
-                    ></span>
-                  </button>
-                </div>
                 <div class="settings-option-wrap">
                   <span class="settings-option-title">Subway</span>
 
@@ -687,7 +630,8 @@
                     ></span>
                   </button>
                 </div>
-                <!-- <div class="settings-option-wrap">
+
+                <div class="settings-option-wrap">
                   <span class="settings-option-title">Chick-fil-a</span>
 
                   <button class="settings-checkbox" data-pack="chick-fil-a">
@@ -700,7 +644,7 @@
                       class="settings-checkbox-svg checked"
                     ></span>
                   </button>
-                </div> -->
+                </div>
               </div>
             </div>
 
