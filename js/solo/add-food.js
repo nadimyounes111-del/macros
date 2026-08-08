@@ -222,6 +222,8 @@ document.querySelector(".food-pack-btn").addEventListener("click", function () {
 const PACK_INFO = {
   subway: { label: "Subway", logo: "assets/subway.webp" },
   "chick-fil-a": { label: "Chick-fil-a", logo: "assets/chick.jpeg" },
+  canes: { label: "Raising Cane's", logo: "assets/canes.png" },
+  popeyes: { label: "Popeyes", logo: "assets/popeyes.png" },
 };
 
 function renderPackFilters() {
