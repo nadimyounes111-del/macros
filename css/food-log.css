@@ -393,7 +393,7 @@ body.dim-disabled .row-checked {
 
 /* #endregion */
 
-/* #region ===== Swap Meal */
+/* #region ===== Swappers */
 
 .swap-btn {
   all: unset;
@@ -405,11 +405,24 @@ body.dim-disabled .row-checked {
   transition: all 0.2s ease;
 }
 
+.meal-header.collapsed .swap-btn {
+  display: none;
+}
+
+.meal-menu button.current {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
 .swap-svg {
   width: var(--svg);
   height: var(--svg);
   flex-shrink: 0;
   color: var(--light-blue);
+}
+
+.swap-svg.meals {
+  color: var(--orange);
 }
 
 .swap-btn:active {

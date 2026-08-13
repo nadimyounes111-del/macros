@@ -116,6 +116,11 @@ input[type="number"]::-webkit-outer-spin-button {
   color: var(--white);
   background-color: var(--orange);
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toast-btn:active {
+  transform: scale(0.95);
 }
 
 /* #endregion */

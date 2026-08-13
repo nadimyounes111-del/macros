@@ -66,6 +66,15 @@ function renderLog() {
 
 
   <div class="expand-svg-wrap">
+ <div class="swap-btn" onclick="event.stopPropagation(); toggleMealSwapMenu(this)">
+  <span data-icon="swap" class="swap-svg meals"></span>
+  <div class="meal-menu">
+  <button type="button" class="${meal === "Breakfast" ? "current" : ""}" onclick="event.stopPropagation(); swapMealSections('${meal}', 'Breakfast')">Breakfast</button>
+  <button type="button" class="${meal === "Lunch" ? "current" : ""}" onclick="event.stopPropagation(); swapMealSections('${meal}', 'Lunch')">Lunch</button>
+  <button type="button" class="${meal === "Snack" ? "current" : ""}" onclick="event.stopPropagation(); swapMealSections('${meal}', 'Snack')">Snack</button>
+  <button type="button" class="${meal === "Dinner" ? "current" : ""}" onclick="event.stopPropagation(); swapMealSections('${meal}', 'Dinner')">Dinner</button>
+</div>
+</div>
   <span class="meal-progress${allChecked ? " all-checked" : ""}">${checkedCount}/${entries.length}</span>
 
 
@@ -149,13 +158,13 @@ function renderLog() {
       </div>
     
       <div class="swap-btn" onclick="event.stopPropagation(); toggleMealMenu(this, ${index})">
-      <span data-icon="swap" class="swap-svg"></span>
-      <div class="meal-menu">
-        <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Breakfast')">Breakfast</button>
-        <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Lunch')">Lunch</button>
-        <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Snack')">Snack</button>
-        <button type="button" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Dinner')">Dinner</button>
-      </div>
+      <span data-icon="move" class="swap-svg"></span>
+     <div class="meal-menu">
+  <button type="button" class="${entry.meal === "Breakfast" ? "current" : ""}" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Breakfast')">Breakfast</button>
+  <button type="button" class="${entry.meal === "Lunch" ? "current" : ""}" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Lunch')">Lunch</button>
+  <button type="button" class="${entry.meal === "Snack" ? "current" : ""}" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Snack')">Snack</button>
+  <button type="button" class="${entry.meal === "Dinner" ? "current" : ""}" onclick="event.stopPropagation(); changeEntryMeal(${index}, 'Dinner')">Dinner</button>
+</div>
 </div>
 
 
@@ -227,8 +236,9 @@ function toggleRowExpand(row) {
 
 // #endregion
 
-// #region ===== Meal swapper
+// #region ===== Swappers
 
+// food swap
 function toggleMealMenu(swapBtn, index) {
   const menu = swapBtn.querySelector(".meal-menu");
   const mealGroupBody = swapBtn.closest(".meal-group-body");
@@ -264,6 +274,30 @@ function changeEntryMeal(index, newMeal) {
   window.expandedRows.delete(String(index));
   saveLog();
   renderLog();
+}
+
+// meal swap
+function swapMealSections(mealA, mealB) {
+  window.foodLog.forEach((entry) => {
+    if (entry.meal === mealA) entry.meal = mealB;
+    else if (entry.meal === mealB) entry.meal = mealA;
+  });
+  window.expandedRows.clear();
+  saveLog();
+  renderLog();
+}
+
+function toggleMealSwapMenu(swapBtn) {
+  const menu = swapBtn.querySelector(".meal-menu");
+  const isOpen = menu.classList.contains("open");
+
+  document
+    .querySelectorAll(".meal-menu.open")
+    .forEach((m) => m.classList.remove("open"));
+
+  if (!isOpen) {
+    menu.classList.add("open");
+  }
 }
 
 // #endregion

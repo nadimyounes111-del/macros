@@ -31,6 +31,7 @@
 
 /* #endregion */
 
+/* #region ===== Food Pack */
 .food-pack-btn {
   display: flex;
   gap: 5px;
@@ -71,6 +72,8 @@
   flex-shrink: 0;
   color: var(--light-blue);
 }
+
+/* #endregion */
 
 /* #region ===== Search */
 
@@ -278,6 +281,10 @@
 
 .custom-edit-label.hidden {
   display: none;
+}
+
+.food-item.custom-food-item {
+  border-left: 3px solid var(--orange);
 }
 
 /* #endregion */
@@ -553,7 +560,7 @@
 .unit-options {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 6px;
   align-items: center;
 }
 
