@@ -440,6 +440,7 @@ body.dim-disabled .row-checked {
   flex-direction: column;
   min-width: 100px;
   z-index: 99;
+  cursor: default;
 }
 
 .meal-menu.open {

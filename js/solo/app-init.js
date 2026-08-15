@@ -19,6 +19,13 @@ function loadFoods() {
           firstCell.startsWith("#")
         )
           return;
+
+        if (row.data.name && row.data.name.includes("|")) {
+          const [namePart, hintPart] = row.data.name.split("|");
+          row.data.name = namePart.trim();
+          row.data.hint = hintPart.trim();
+        }
+
         foods.push(row.data);
       },
       complete: resolve,

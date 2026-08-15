@@ -483,10 +483,12 @@
 
 .food-item.expanded {
   flex-direction: column;
-  /* min-height: clamp(132px, 125.71px + 1.964vw, 154px); */
   min-height: clamp(160px, 152.57px + 2.321vw, 186px);
-  /* min-height: clamp(94px, 88.29px + 1.786vw, 114px); */
   justify-content: start;
+}
+
+.food-item.expanded.has-variants {
+  min-height: clamp(194px, 185.71px + 2.589vw, 223px);
 }
 
 .food-item.menu-open {
@@ -585,6 +587,10 @@
 
 .unit-chip:active {
   transform: scale(0.95);
+}
+
+#variant-options.hidden {
+  display: none;
 }
 
 /* #endregion */

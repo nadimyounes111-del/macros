@@ -36,6 +36,14 @@ function setupAddFood() {
         })
       : foods;
 
+    const seenGroups = new Set();
+    matches = matches.filter((f) => {
+      if (!f.group) return true;
+      if (seenGroups.has(f.group)) return false;
+      seenGroups.add(f.group);
+      return true;
+    });
+
     matches = matches.filter((f) => !isPackFood(f) || activeFilter === f.tag);
 
     if (activeFilter === "custom") {
@@ -117,6 +125,7 @@ function setupAddFood() {
     } else {
       matches.forEach(function (food) {
         const { title, subtitle } = formatFoodName(food.name);
+        const displaySubtitle = food.hint || subtitle;
         const li = document.createElement("li");
         li.className = "food-item";
         li.dataset.id = food.id;
@@ -127,7 +136,7 @@ function setupAddFood() {
         <div class="food-with-delete">
             <div class="food-item-wrap">
                 <span class="food-title">${title}</span>
-                <span class="food-subtitle${subtitle ? "" : " hidden-subtitle"}">${subtitle || "-"}</span>
+               <span class="food-subtitle${displaySubtitle ? "" : " hidden-subtitle"}">${displaySubtitle || "-"}</span>
             </div>
             
      ${
@@ -153,9 +162,15 @@ function setupAddFood() {
           selectedFood = food;
           this.appendChild(getFoodPanel());
           this.classList.add("expanded");
+
+          const hasVariants =
+            getGroupVariants(food) && getGroupVariants(food).length > 1;
+          this.classList.toggle("has-variants", hasVariants);
+
           expandedCardLi = this;
 
           renderUnitSelector(food);
+          renderVariantSelector(food);
           updatePreview();
         });
 
@@ -301,14 +316,14 @@ function createFoodPanel() {
   div.innerHTML = `
 
   
-    
+     <div class="unit-options" id="variant-options"></div>
+
     <div class="servings-meal">
       <div class="add-food-servings">
         <input class="serving-edit-af" id="servings" placeholder="Servings" type="number" inputmode="decimal" min="0" />
       </div>
        <div id="serving-size-label"></div>
     </div>
-
 
     
     <div class="macros-save-wrap">
@@ -342,6 +357,7 @@ function createFoodPanel() {
         <span class="save-food-text">Add</span>
       </button>
     </div>
+   
     
 
    
@@ -389,12 +405,14 @@ function collapseExpandedCard() {
   resetFoodSelection();
   getFoodPanel().remove();
   expandedCardLi.classList.remove("expanded");
+  expandedCardLi.classList.remove("has-variants");
   expandedCardLi = null;
 }
 
 function resetFoodSelection() {
   selectedFood = null;
   renderUnitSelector(null);
+  renderVariantSelector(null);
 
   const servingsInput = document.getElementById("servings");
   if (servingsInput) {
@@ -585,8 +603,12 @@ function saveFood(closeAfter = true) {
   const servings = convertToBaseServings(selectedFood, rawAmount, unit);
   if (servings === null) return;
 
+  const loggedName = selectedFood.variant
+    ? `${selectedFood.name}, ${selectedFood.variant}`
+    : selectedFood.name;
+
   const entry = {
-    food: selectedFood.name,
+    food: loggedName,
     meal: meal,
     servings: servings,
     unitAmount: rawAmount,
@@ -825,6 +847,49 @@ function editCustomFood(id) {
   document.querySelector(".custom-edit-label").classList.remove("hidden");
 
   showCustomCard();
+}
+
+// #endregion
+
+// #region ===== Variants
+
+function getGroupVariants(food) {
+  if (!food || !food.group) return null; // added: !food ||
+  return foods.filter((f) => f.group === food.group);
+}
+
+function renderVariantSelector(food) {
+  const container = document.getElementById("variant-options");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  const variants = getGroupVariants(food);
+  if (!variants || variants.length <= 1) {
+    container.classList.add("hidden");
+    return;
+  }
+
+  container.classList.remove("hidden");
+
+  variants.forEach((v) => {
+    const chip = document.createElement("div");
+    chip.className = "unit-chip" + (v.id === food.id ? " active" : "");
+    chip.textContent = v.variant;
+    chip.dataset.id = v.id;
+    chip.addEventListener("click", function (e) {
+      e.stopPropagation();
+      selectedFood = v;
+
+      container.querySelectorAll(".unit-chip").forEach((c) => {
+        c.classList.toggle("active", c.dataset.id === v.id);
+      });
+
+      renderUnitSelector(v);
+      updatePreview();
+    });
+    container.appendChild(chip);
+  });
 }
 
 // #endregion
