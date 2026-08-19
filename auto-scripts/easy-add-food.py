@@ -37,7 +37,7 @@ def parse_line(line):
         source = rest.strip()
 
     id_slug = re.sub(r'-+', '-', re.sub(r'[^a-z0-9]+', '-', name.lower())).strip('-')
-    return [id_slug, name, serving, unit, calories, protein, carbs, fat, source, brand, alt, '', tag]
+    return [id_slug, name, serving, unit, calories, protein, carbs, fat, source, brand, alt, '', tag, '', '']
 
 def copy(text):
     if sys.platform == 'darwin':

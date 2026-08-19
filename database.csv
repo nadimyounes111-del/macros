@@ -1,5 +1,5 @@
 id,name,serving,unit,calories,protein,carbs,fat,source,brand,altUnits,gPerBaseU,tag,group,variant
-# GENERAL,,,,,,,,,,,,,,
+# GENERAL
 beef-ground70raw,"ground beef 70% lean|Raw or cooked",100,g,332,14.4,0,30,USDA,,oz,,protein,ground-beef-70,raw
 beef-ground70cooked,"ground beef 70% lean",100,g,270,25.6,0,17.9,USDA,,oz,,protein,ground-beef-70,cooked
 beef-ground75raw,"ground beef 75% lean|Raw or cooked",100,g,293,15.8,0,25,USDA,,oz,,protein,ground-beef-75,raw
@@ -18,6 +18,7 @@ turkey-ground85raw,"ground turkey 85% lean|Raw or cooked",100,g,180,16.9,0,12.5,
 turkey-ground85cooked,"ground turkey 85% lean",100,g,258,25.1,0,17.5,USDA,,oz,,protein,ground-turkey-85,cooked
 turkey-ground93raw,"ground turkey 93% lean|Raw or cooked",100,g,150,18.7,0,8.3,USDA,,oz,,protein,ground-turkey-93,raw
 turkey-ground93cooked,"ground turkey 93% lean",100,g,213,27.1,0,11.6,USDA,,oz,,protein,ground-turkey-93,cooked
+chicken-sausage-medium,"chicken sausage,medium",1,x,38,2.9,0.9,2.5,NCCDB,,,,protein,,
 milk-almond,almond milk unsweetened,1,cup,37,1.3,0.8,3,NCCDB,,"floz,ml",,dairy,,
 apple,apple,100,g,52,0.3,10.6,0.2,NCCDB,,oz,,fruits,,
 asparagus,asparagus,100,g,20,2.2,1.7,0.1,NCCDB,,oz,,vegetables,,
@@ -60,8 +61,8 @@ sauce-alfredoclass,"classic alfredo sauce, carbone",1,cup,400,12,8,36,BRAND,carb
 sauce-alfredotruff,"black truffle alfredo sauce, carbone",1,cup,440,12,8,40,BRAND,carbone,,,,,
 sauce-alfredogarlic,"garlic alfredo sauce, carbone",1,cup,400,3,2,9,BRAND,carbone,,,,,
 milk-whole,milk|Fat options available,1,cup,146,8,11.3,7.8,NCCDB,,"floz,ml",,dairy,milk,whole
-milk-1pc,milk,1,cup,105,8.2,12.6,2.3,NCCDB,,"floz,ml",,dairy,milk,1%
 milk-2pc,milk,1,cup,122,8.2,11.9,4.6,NCCDB,,"floz,ml",,dairy,milk,2%
+milk-1pc,milk,1,cup,105,8.2,12.6,2.3,NCCDB,,"floz,ml",,dairy,milk,1%
 milk-skim,milk,1,cup,83,8.4,12,0.2,NCCDB,,"floz,ml",,dairy,milk,skim/0%
 milk-goat,goat milk,1,cup,168,8.7,10.8,10.1,NCCDB,,"floz,ml",,dairy,,
 milk-oat,oat milk,1,cup,117,2,10.6,6.7,NCCDB,,"floz,ml",,dairy,,
@@ -169,8 +170,8 @@ porkchop-loincooked,"pork loin chop, cooked",100,g,252,27,0,15.2,NCCDB,,oz,,prot
 porkchop-loinleancooked,"lean pork loin chop, cooked",100,g,214,28.8,0,10.1,NCCDB,,oz,,protein,,
 porkchop-sirloincooked,"pork sirloin chop, cooked",100,g,214,28.8,0,10.1,NCCDB,,oz,,protein,,
 porkchop-sirloinleancooked,"lean pork sirloin chop, cooked",100,g,170,28.2,0,5.5,NCCDB,,oz,,protein,,
-shrimp-cooked,"shrimp, cooked",100,g,99,24,0.2,0.3,NCCDB,,oz,,protein,,
-shrimp-raw,"shrimp, raw",100,g,85,20.1,0,0.5,USDA,,oz,,protein,,
+shrimp-raw,"shrimp|Raw or cooked",100,g,85,20.1,0,0.5,USDA,,oz,,protein,shrimp,raw
+shrimp-cooked,"shrimp",100,g,99,24,0.2,0.3,NCCDB,,oz,,protein,shrimp,cooked
 yogurt-greek0,greek yogurt|Fat options available,1,cup,149,25.2,8.9,0.9,NCCDB,,"g,oz",245,dairy,greek-yogurt,0%
 yogurt-greek2,greek yogurt,1,cup,186,25.7,9.6,4.6,NCCDB,,"g,oz",245,dairy,greek-yogurt,2%
 yogurt-greek5,greek yogurt,1,cup,234,10.4,14.8,14.8,NCCDB,,"g,oz",245,dairy,greek-yogurt,5%
@@ -184,7 +185,7 @@ cucumber,cucumber,100,g,14,0.6,1.7,0.2,NCCDB,,oz,,vegetables,,
 lettucer,lettuce,100,g,14,0.7,2.1,0.1,NCCDB,,oz,,vegetables,,
 cauliflowerr,cauliflower,100,g,25,1.9,2.9,0.3,NCCDB,,oz,,vegetables,,
 cabbager,cabbage,100,g,28,1,4.1,0.2,NCCDB,,oz,,vegetables,,
-cheese-cheddar,cheddar cheese|Reduced-fat options,100,g,403,22.9,3.4,33.3,NCCDB,,oz,,dairy,cheddar-cheese,regular
+cheese-cheddar,cheddar cheese|Reduced fat options,100,g,403,22.9,3.4,33.3,NCCDB,,oz,,dairy,cheddar-cheese,regular
 cheese-cheddar25,cheddar cheese,100,g,316,27.4,2.7,20.4,NCCDB,,oz,,dairy,cheddar-cheese,-25%
 cheese-cheddar50,cheddar cheese,100,g,268,26.5,4.8,15.8,NCCDB,,oz,,dairy,cheddar-cheese,-50%
 cheese-cheddar75,cheddar cheese,100,g,173,24.4,1.9,7,NCCDB,,oz,,dairy,cheddar-cheese,-75%
@@ -212,9 +213,9 @@ ricecake-salted,"lightly salted rice cake, quaker",1,x,35,1,7,0,BRAND,quaker,,,c
 garlic,garlic,100,g,130,6.6,25.5,0.4,NCCDB,,oz,,vegetables,,
 sugar,sugar,100,g,387,0,100,0,NCCDB,,oz,,carbs,,
 flour,white flour,100,g,375,10.9,74.3,1.5,NCCDB,,oz,,carbs,,
-cheese-american,american cheese,1,slice,78,3.9,1,6.5,NCCDB,,,,dairy,,
-cheese-americanfatsfree,fat-free american cheese,1,slice,31,4.8,2.8,0.2,NCCDB,,,,dairy,,
-cheese-americanlowfats,reduced-fat american cheese,1,slice,51,3.7,2.3,3,NCCDB,,,,dairy,,
+cheese-american,american cheese|Fat options available,1,slice,78,3.9,1,6.5,NCCDB,,,,dairy,american-cheese,regular
+cheese-americanlowfats,american cheese,1,slice,51,3.7,2.3,3,NCCDB,,,,dairy,american-cheese,low fat
+cheese-americanfatsfree,american cheese,1,slice,31,4.8,2.8,0.2,NCCDB,,,,dairy,american-cheese,fat free
 yogurt-0,yogurt|Fat options available,1,cup,123,10.4,19.8,0.2,NCCDB,,"g,oz",245,dairy,yogurt,0%
 yogurt-2,yogurt,1,cup,154,12.9,17.2,3.8,NCCDB,,"g,oz",245,dairy,yogurt,2%
 yogurt-5,yogurt,1,cup,226,8.7,12.3,16,NCCDB,,"g,oz",245,dairy,yogurt,5%
@@ -233,9 +234,9 @@ provolone,provolone,1,slice,98,7.2,0.6,7.5,USDA,,"g,oz",28,dairy,,
 cheese-swiss,swiss cheese,1,slice,110,7.5,0.4,8.7,USDA,,"g,oz",28,dairy,,
 gouda,gouda,100,g,356,24.9,2.2,27.4,NCCDB,,oz,,dairy,,
 cheese-colbyjack,colby jack cheese,1,slice,82,4.9,0.5,6.8,NCCDB,,"g,oz",21,dairy,,
-cheese-ricotta-whole,"ricotta cheese, whole milk",1,cup,369,18.5,17.9,26,NCCDB,,"g,tbsp",246,dairy,,
-cheese-ricotta-partskim,"ricotta cheese, part skim milk",1,cup,339,28,12.6,19.5,NCCDB,,"g,tbsp",246,dairy,,
-cheese-ricotta-nonfot,"ricotta cheese, non-fat",1,cup,265,23.7,14.6,0.5,NCCDB,,"g,tbsp",248,dairy,,
+cheese-ricotta-whole,"ricotta cheese|Fat options available",1,cup,369,18.5,17.9,26,NCCDB,,"g,tbsp",246,dairy,ricotta-cheese,whole
+cheese-ricotta-partskim,"ricotta cheese",1,cup,339,28,12.6,19.5,NCCDB,,"g,tbsp",246,dairy,ricotta-cheese,part skim
+cheese-ricotta-nonfot,"ricotta cheese",1,cup,265,23.7,14.6,0.5,NCCDB,,"g,tbsp",248,dairy,ricotta-cheese,non-fat
 sourcream,sour cream,1,cup,444,7.1,12.6,41.4,NCCDB,,"g,tbsp",230,dairy,,
 brusselsprouts,brussel sprouts,100,g,43,3.4,5.2,0.3,USDA,,oz,,vegetables,,
 kale,kale,100,g,35,2.9,0.2,1.5,NCCDB,,oz,,vegetables,,
@@ -258,14 +259,14 @@ sauce-terkiyaki,teriyaki sauce,1,tbsp,16,1.1,2.8,0,NCCDB,,"g,oz",18,,,
 mustard-honey,honey mustard,1,tbsp,62,0.2,2.9,5.6,NCCDB,,"g,oz",15,,,
 juice-orange,"orange juice, fresh",1,cup,112,2,24,0.9,NCCDB,,"floz,ml",248,fruits,,
 juice-apple,"apple juice, fresh",1,cup,114,0.2,26.6,0.3,NCCDB,,"floz,ml",248,fruits,,
-water-coconut,"coconut water, unsweetened",1,cup,47,1.8,6.4,0.5,NCCDB,,"floz,ml",245,,,
-water-coconutsweet,"coconut water, sweetened",1,cup,85,1.5,17.2,0.4,NCCDB,,"floz,ml",245,,,
+water-coconut,"coconut water|Regular or sweetened",1,cup,47,1.8,6.4,0.5,NCCDB,,"floz,ml",245,,coconut-water,regular
+water-coconutsweet,"coconut water",1,cup,85,1.5,17.2,0.4,NCCDB,,"floz,ml",245,,coconut-water,sweetened
 oil-spray,cooking oil spray,1,second,6,0,0,0.9,NCCDB,,,,,,
 protein-onw,"optimum nutrition whey, all flavors",1,scoop,120,24,4,1.5,BRAND,optimum nutrition whey,,,protein,,
 protein-diso,"dymatize ISO100, all flavors",1,scoop,110,25,1,0,BRAND,dymatize ISO100,,,protein,,
 protein-aiso,"allmax isoflex, all flavors",1,scoop,120,27,2,0,BRAND,allmax isoflex,,,protein,,
 protein-gw,"ghost whey, all flavors",1,scoop,150,25,6,2.5,BRAND,ghost whey,,,protein,,
-# CHICK FIL A,,,,,,,,,,,,,,
+# CHICK FIL A
 chick-fil-a-chickensandwich,Chicken sandwich,1,sandwich,420,29,41,18,chick-fil-a,,,,chick-fil-a,,
 chick-fil-a-deluxesandwich,Deluxe sandwich,1,sandwich,490,32,43,22,chick-fil-a,,,,chick-fil-a,,
 chick-fil-a-deluxesandwichnocheese,"deluxe sandwich, no cheese",1,sandwich,430,29,43,18,chick-fil-a,,,,chick-fil-a,,
@@ -282,7 +283,7 @@ chick-fil-a-honeypepperpimentogrilled,"honey pepper pimento sandwich, grilled fi
 chick-fil-a-nuggets,nuggets,1,nugget,31.25,4.75,1.375,1.375,chick-fil-a,,,,chick-fil-a,,
 chick-fil-a-grillednuggets,grilled nuggets,1,nugget,16.25,3.125,0.125,0.375,chick-fil-a,,,,chick-fil-a,,
 chick-fil-a-chick-n-strips,chick-n-strips,1,strip,103.33,10.33,5.33,4.67,chick-fil-a,,,,chick-fil-a,,
-# CANES,,,,,,,,,,,,,,
+# CANES
 canes-chickenfinger,chicken finger,1,piece,130,13,5,7,canes,,,,canes,,
 canes-crinklecutfries,crinkle-cut fries,1,side,400,5,50,20,canes,,,,canes,,
 canes-texastoast,texas toast,1,toast,150,4,23,4.5,canes,,,,canes,,
@@ -294,6 +295,14 @@ canes-boxcombo,box combo,1,combo,1290,62,98,72,canes,,,,canes,,
 canes-caniaccombo,caniac combo,1,combo,1840,90,125,108,canes,,,,canes,,
 canes-sandwichcombo,sandwich combo,1,combo,1140,51,108,56,canes,,,,canes,,
 canes-boxcombothepostyway,"box combo, the posty way",1,combo,1740,66,173,89,canes,,,,canes,,
+# POP TARTS
+pop-tart-frosted-strawberry,"strawberry",1,pc,185,2,35.5,4,poptarts,pop tarts,,,poptarts,,
+pop-tart-frosted-brown-sugar-cinnamon,"brown sugar cinnamon",1,pc,200,2.5,34.5,6,poptarts,pop tarts,,,poptarts,,
+pop-tart-frosted-s-mores,"s'mores",1,pc,185,2.5,33.5,4.5,poptarts,pop tarts,,,poptarts,,
+pop-tart-frosted-blueberry,"blueberry",1,pc,185,2,35.5,4,poptarts,pop tarts,,,poptarts,,
+pop-tart-frosted-cherry,"cherry",1,pc,185,2,35.5,4,poptarts,pop tarts,,,poptarts,,
+pop-tart-cookies-and-creme,"cookies and creme",1,pc,180,2,33.5,4.5,poptarts,pop tarts,,,poptarts,,
+pop-tart-chocolate-fudge,"chocolate fudge",1,pc,185,2,34.5,4.5,poptarts,pop tarts,,,poptarts,,
 # SUBWAY
 subway-steakphilly,"steak philly|Sandwich or wrap",1,x,510,28,43,25,subway,,,,subway,subway-steakphilly,"6"" sub"
 subway-steakphillylong,"steak philly",1,x,1020,56,86,50,subway,,,,subway,subway-steakphilly,footlong
@@ -362,7 +371,7 @@ subway-doublechocolatecookie,double chocolate cookie,1,cookie,210,2,29,9,subway,
 subway-oatmealraisincookie,oatmeal raisin cookie,1,cookie,200,3,30,8,subway,,,,subway,,
 subway-raspberrycheesecakecookie,raspberry cheesecake cookie,1,cookie,210,2,29,9,subway,,,,subway,,
 subway-whitechipmacadamiacookie,white chip macadamia nut cookie,1,cookie,210,2,28,10,subway,,,,subway,,
-# POPEYES,,,,,,,,,,,,,,
+# POPEYES
 popeyes-wing,signature chicken wing,1,wing,220,14,11,15,popeyes,,,,popeyes,,
 popeyes-leg,signature chicken leg,1,leg,200,15,9,12,popeyes,,,,popeyes,,
 popeyes-thigh,signature chicken thigh,1,thigh,490,25,18,34,popeyes,,,,popeyes,,

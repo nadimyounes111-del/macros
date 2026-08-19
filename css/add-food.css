@@ -488,7 +488,7 @@
 }
 
 .food-item.expanded.has-variants {
-  min-height: clamp(194px, 185.71px + 2.589vw, 223px);
+  min-height: clamp(160px, 152.57px + 2.321vw, 186px);
 }
 
 .food-item.menu-open {
@@ -529,8 +529,14 @@
 
 /* #region ===== Serving & Units */
 
+.servings-meal-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .servings-meal {
   display: flex;
+  width: fit-content;
   gap: 10px;
 }
 
@@ -707,6 +713,38 @@
   height: var(--svg);
   flex-shrink: 0;
   color: var(--bg);
+}
+
+#variant-options {
+  display: flex;
+  width: fit-content;
+}
+
+.meal-select-label {
+  display: flex;
+  font-size: var(--text-base);
+  color: var(--light-blue);
+  background-color: var(--dark-blue);
+  padding: 3px 6px 3px 0;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+}
+
+.meal-menu.variants {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 100%;
+  margin-right: 4px;
+  background-color: var(--dark-blue);
+  border-radius: 8px;
+  padding: 4px;
+  flex-direction: column;
+  min-width: 100px;
+  z-index: 99;
+  cursor: default;
 }
 
 /* #endregion */

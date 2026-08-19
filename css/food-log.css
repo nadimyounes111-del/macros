@@ -441,6 +441,7 @@ body.dim-disabled .row-checked {
   min-width: 100px;
   z-index: 99;
   cursor: default;
+  width: max-content;
 }
 
 .meal-menu.open {
@@ -462,6 +463,7 @@ body.dim-disabled .row-checked {
   border-radius: 6px;
   cursor: pointer;
   font-size: var(--text-base);
+  text-wrap: nowrap;
 }
 
 .meal-menu button.meal-menu-red {

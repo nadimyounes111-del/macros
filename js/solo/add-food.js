@@ -138,6 +138,7 @@ function setupAddFood() {
                 <span class="food-title">${title}</span>
                <span class="food-subtitle${displaySubtitle ? "" : " hidden-subtitle"}">${displaySubtitle || "-"}</span>
             </div>
+             
             
      ${
        food.isCustom
@@ -237,6 +238,14 @@ document.querySelector(".food-pack-btn").addEventListener("click", function () {
 
   this.classList.toggle("active", !isOpen);
   packs.classList.toggle("open", !isOpen);
+
+  if (isOpen && activeFilter && Object.keys(PACK_INFO).includes(activeFilter)) {
+    activeFilter = null;
+    document
+      .querySelectorAll(".filters button, .pack-filters button")
+      .forEach((b) => b.classList.remove("active"));
+    document.getElementById("food-search").dispatchEvent(new Event("input"));
+  }
 });
 
 const PACK_INFO = {
@@ -244,6 +253,7 @@ const PACK_INFO = {
   "chick-fil-a": { label: "Chick-fil-a", logo: "assets/chick.jpeg" },
   canes: { label: "Raising Cane's", logo: "assets/canes.png" },
   popeyes: { label: "Popeyes", logo: "assets/popeyes.png" },
+  poptarts: { label: "Pop Tarts", logo: "assets/poptarts.jpeg" },
 };
 
 function renderPackFilters() {
@@ -316,14 +326,17 @@ function createFoodPanel() {
   div.innerHTML = `
 
   
-     <div class="unit-options" id="variant-options"></div>
-
+<div class="servings-meal-wrapper">
     <div class="servings-meal">
       <div class="add-food-servings">
         <input class="serving-edit-af" id="servings" placeholder="Servings" type="number" inputmode="decimal" min="0" />
       </div>
        <div id="serving-size-label"></div>
     </div>
+
+     <div id="variant-options"></div>
+
+     </div>
 
     
     <div class="macros-save-wrap">
@@ -357,9 +370,6 @@ function createFoodPanel() {
         <span class="save-food-text">Add</span>
       </button>
     </div>
-   
-    
-
    
   `;
 
@@ -824,7 +834,7 @@ function undoDeleteCustomFood() {
 
 // #endregion
 
-// #region ===== Edid custom item
+// #region ===== Edit custom item
 
 let editingFoodId = null;
 
@@ -862,33 +872,46 @@ function renderVariantSelector(food) {
   const container = document.getElementById("variant-options");
   if (!container) return;
 
-  container.innerHTML = "";
-
   const variants = getGroupVariants(food);
   if (!variants || variants.length <= 1) {
     container.classList.add("hidden");
+    container.innerHTML = "";
     return;
   }
 
   container.classList.remove("hidden");
+  container.className = "swap-btn";
+  container.onclick = function (e) {
+    e.stopPropagation();
+    toggleCustomMenu(this, food.id);
+  };
+
+  container.innerHTML = `
+    <span class="meal-select-label">
+    <span class="macro-edit-svg cal" data-icon="caret-down"></span>
+    ${food.variant}
+    </span>
+    
+    <div class="meal-menu variants"></div>
+  `;
+
+  injectIcons(container);
+
+  const menu = container.querySelector(".meal-menu");
 
   variants.forEach((v) => {
-    const chip = document.createElement("div");
-    chip.className = "unit-chip" + (v.id === food.id ? " active" : "");
-    chip.textContent = v.variant;
-    chip.dataset.id = v.id;
-    chip.addEventListener("click", function (e) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    if (v.id === food.id) btn.classList.add("current");
+    btn.textContent = v.variant.replace(/\b\w/g, (c) => c.toUpperCase());
+    btn.addEventListener("click", function (e) {
       e.stopPropagation();
       selectedFood = v;
-
-      container.querySelectorAll(".unit-chip").forEach((c) => {
-        c.classList.toggle("active", c.dataset.id === v.id);
-      });
-
+      renderVariantSelector(v);
       renderUnitSelector(v);
       updatePreview();
     });
-    container.appendChild(chip);
+    menu.appendChild(btn);
   });
 }
 
