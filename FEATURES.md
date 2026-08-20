@@ -30,18 +30,20 @@
 - Opened by pressing green + button top right of thr screen
 - Search bar and filters, can be mixed (search within a filtered list)
 - List contains around 260 foods
-- Pressing a food item expands card and allows editting to choose servings, unit, and view macros as you edit
+- Pressing a food item expands card and allows editting to choose servings, unit, variant (if applicable), and view macros as you edit
 - Adding a food shows successful toast
 - Empty state shows input option to request addition of food
 - Footer shows small disclaimer surrounding data acquisition and advice
 - All foods sourced from USDA FoodCentral or NCCDB, unless a brand name is written
 - Create custom foods by adding info in the pencil button, and filter by your custom foods. Orange left border for separation
+- Opt into select food packs from settings page to show extra items based on interest (Subway, Chick-fil-a, etc.)
 - Edit or delete custom foods by using menu button on the card
 
 ### Settings - Modal
 
 - Account: allows signing out
 - Macros: edits daily macro goals for cards
+- Packs: allows addition of packs to the food database, toggleable using "Packs" button when needed
 - Food Log: allows dimming checked food entries, and showing protein/calories in meal headers
 - Widgets: allow toggling which widgets get shown, if all are off the section gets removed entirely
 - Contact us: provides email for contact
@@ -61,5 +63,3 @@
 - Uses firebase to store all info (authorization, food log, widgets, etc.)
 - Authorization stored in local storage so refresh allows auto log-in
 - Loading screen while data is being written from firebase
-
-add food packs and variants

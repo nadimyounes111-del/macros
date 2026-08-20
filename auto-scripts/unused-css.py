@@ -1,5 +1,7 @@
 """
 Finds CSS classes defined in .css files that are never referenced in .html or .js files
+
+NOT WORKING CORRECTLY
 """
 
 import re
@@ -7,16 +9,16 @@ import os
 from pathlib import Path
 from collections import defaultdict
 
-PROJECT_ROOT = "/Users/nadimyounes/Desktop/Macro Site/tracknorm" 
+PROJECT_ROOT = Path("/Users/nadimyounes/Desktop/Macro Site/tracknorm")
 
 CSS_FILES = [
+    "css/add-food.css",
     "css/base.css",
-    "css/buttons.css",
     "css/food-log.css",
     "css/header.css",
+    "css/landing.css",
     "css/macros-sum.css",
-    "css/modal.css",
-    "css/pin.css",
+    "css/modal-temp.css",
     "css/settings.css",
     "css/widgets.css",
 ]
@@ -26,6 +28,7 @@ HTML_JS_FILES = [
     "app.html",
     "js/shared/firebase.js",
     "js/shared/icons.js",
+    "js/solo/add-food.js"
     "js/solo/app-init.js",
     "js/solo/auth.js",
     "js/solo/buttons.js",

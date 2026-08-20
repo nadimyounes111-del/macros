@@ -18,7 +18,19 @@ turkey-ground85raw,"ground turkey 85% lean|Raw or cooked",100,g,180,16.9,0,12.5,
 turkey-ground85cooked,"ground turkey 85% lean",100,g,258,25.1,0,17.5,USDA,,oz,,protein,ground-turkey-85,cooked
 turkey-ground93raw,"ground turkey 93% lean|Raw or cooked",100,g,150,18.7,0,8.3,USDA,,oz,,protein,ground-turkey-93,raw
 turkey-ground93cooked,"ground turkey 93% lean",100,g,213,27.1,0,11.6,USDA,,oz,,protein,ground-turkey-93,cooked
-chicken-sausage-medium,"chicken sausage,medium",1,x,38,2.9,0.9,2.5,NCCDB,,,,protein,,
+ground-pork-96-raw,"ground pork 96% lean|Raw or cooked",100,g,121,21.1,0.2,4,USDA,,oz,,protein,ground-pork-96,raw
+ground-pork-96-cooked,"ground pork 96% lean",100,g,187,30.6,0,7.2,USDA,,oz,,protein,ground-pork-96,cooked
+ground-pork-84-raw,"ground pork 84% lean|Raw or cooked",100,g,218,18,0.4,16,USDA,,oz,,protein,ground-pork-84,raw
+ground-pork-84-cooked,"ground pork 84% lean",100,g,280,26.7,0.6,20,USDA,,oz,,protein,ground-pork-84,cooked
+chicken-sausage-small,"chicken sausage|3 sizes available",1,x,19,1.5,0.4,1.3,NCCDB,,,,protein,chicken-sausage,small
+chicken-sausage-medium,"chicken sausage",1,x,38,2.9,0.9,2.5,NCCDB,,,,protein,chicken-sausage,medium
+chicken-sausage-large,"chicken sausage",1,x,143,10.9,3.2,9.4,NCCDB,,,,protein,chicken-sausage,large
+turkey-sausage-small,"turkey sausage|3 sizes available",1,x,20,2.4,0,1,NCCDB,,,,protein,turkey-sausage,small
+turkey-sausage-medium,"turkey sausage",1,x,39,4.8,0,2.1,NCCDB,,,,protein,turkey-sausage,medium
+turkey-sausage-large,"turkey sausage",1,x,147,17.9,0,7.8,NCCDB,,,,protein,turkey-sausage,large
+pork-sausage-small,"pork sausage|3 sizes available",1,x,33,1.9,0.1,2.7,NCCDB,,,,protein,pork-sausage,small
+pork-sausage-medium,"pork sausage",1,x,65,3.7,0.3,5.5,NCCDB,,,,protein,pork-sausage,medium
+pork-sausage-large,"pork sausage",1,x,244,13.9,1,20.4,NCCDB,,,,orotein,pork-sausage,large
 milk-almond,almond milk unsweetened,1,cup,37,1.3,0.8,3,NCCDB,,"floz,ml",,dairy,,
 apple,apple,100,g,52,0.3,10.6,0.2,NCCDB,,oz,,fruits,,
 asparagus,asparagus,100,g,20,2.2,1.7,0.1,NCCDB,,oz,,vegetables,,
@@ -98,7 +110,7 @@ eggplant,eggplant,100,g,25,1,2.8,0.2,NCCDB,,oz,,protein,,
 mushroom-canned,"mushroom, canned",100,g,25,1.9,2.3,0.3,NCCDB,,oz,,vegetables,,
 mushroom-white,white mushroom,100,g,25,2.9,1.5,0.4,NCCDB,,oz,,vegetables,,
 zucchini,zucchini,100,g,17,1.2,2.1,0.3,NCCDB,,oz,,vegetables,,
-tortilla-corn6,"corn tortilla 6""",1,x,52,1.4,9.4,0.7,NCCDB,,,,carbs,,
+tortilla-corn6,"corn tortilla, 6-inch",1,x,52,1.4,9.4,0.7,NCCDB,,,,carbs,,
 tortilla-wheat6,"whole wheat tortilla|3 sizes available",1,x,81,3,13,1.5,NCCDB,,,,carbs,wheat-tortilla,6-inch
 tortilla-wheat8,"whole wheat tortilla",1,x,120,4.4,19.3,2.2,NCCDB,,,,carbs,wheat-tortilla,8-inch
 tortilla-wheat10,"whole wheat tortilla",1,x,176,6.5,28.3,3.2,NCCDB,,,,carbs,wheat-tortilla,10-inch
@@ -125,14 +137,11 @@ quinoa,"quinoa",1,cup,626,24,97.2,10.3,NCCDB,,"g,oz",170,carbs,quinoa,dry
 quinoa-cooked,"quinoa",1,cup,222,8.1,34.2,3.6,USDA,,"g,oz",185,carbs,quinoa,cooked
 chicken-drumraw,"chicken drumstick, raw",1,x,124,16.4,0,6,NCCDB,,,,protein,,
 chicken-drumskinlessraw,"chicken drumstick, skinless raw",1,x,78,12.1,0,2.9,NCCDB,,,,protein,,
-chicken-breastskinlessraw,"chicken breast, skinless raw",100,g,120,22.5,0,2.6,USDA,,oz,,protein,,
-chicken-breastskinlesscooked,"chicken breast, skinless cooked",100,g,173,30.9,0,4.5,NCCDB,,oz,,protein,,
-chicken-groundraw,"ground chicken, raw",100,g,143,17.4,0,8.1,USDA,,oz,,protein,,
-chicken-groundcooked,"ground chicken, cooked",100,g,189,23.3,0,10.9,USDA,,oz,,protein,,
+chicken-breastskinlessraw,"chicken breast|Skinless raw or cooked",100,g,120,22.5,0,2.6,USDA,,oz,,protein,chicken-breast-skinless,raw
+chicken-breastskinlesscooked,"chicken breast",100,g,173,30.9,0,4.5,NCCDB,,oz,,protein,chicken-breast-skinless,cooked
+chicken-groundraw,"ground chicken|Raw or cooked",100,g,143,17.4,0,8.1,USDA,,oz,,protein,ground-chicken,raw
+chicken-groundcooked,"ground chicken",100,g,189,23.3,0,10.9,USDA,,oz,,protein,ground-chicken,cooked
 chicken-breastsliced,"chicken breast, sliced",1,x,29,4.9,0.8,0.5,NCCDB,,,,protein,,
-turkey-sausage,"turkey sausage, medium",1,x,36,4.1,0.5,1.8,NCCDB,,,,protein,,
-pork-sausage,"pork sausage, medium",1,x,88,3,0.1,8.3,NCCDB,,,,protein,,
-pork-ground,ground pork,100,g,301,27.1,0,21.4,NCCDB,,oz,,protein,,
 pork-baconraw,"pork bacon, sliced raw",1,x,37,2.7,0.1,2.8,NCCDB,,,,protein,,
 salami-2,"salami|2 sizes available",1,slice,19,1.1,0,1.6,NCCDB,,,,,salami,2-inch
 salami-3,"salami",1,slice,38,2.1,0.1,3.2,NCCDB,,,,,salami,3-inch
@@ -267,19 +276,19 @@ protein-diso,"dymatize ISO100, all flavors",1,scoop,110,25,1,0,BRAND,dymatize IS
 protein-aiso,"allmax isoflex, all flavors",1,scoop,120,27,2,0,BRAND,allmax isoflex,,,protein,,
 protein-gw,"ghost whey, all flavors",1,scoop,150,25,6,2.5,BRAND,ghost whey,,,protein,,
 # CHICK FIL A
-chick-fil-a-chickensandwich,Chicken sandwich,1,sandwich,420,29,41,18,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-deluxesandwich,Deluxe sandwich,1,sandwich,490,32,43,22,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-deluxesandwichnocheese,"deluxe sandwich, no cheese",1,sandwich,430,29,43,18,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-spicychickensandwich,spicy chicken sandwich,1,sandwich,450,28,45,19,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-spicydeluxesandwich,spicy deluxe sandwich,1,sandwich,540,34,47,26,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-spicydeluxesandwichnocheese,"spicy deluxe sandwich, no cheese",1,sandwich,460,31,46,19,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-grilledchickensandwich,grilled chicken sandwich,1,sandwich,390,28,45,11,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-grilledchickenclubsandwich,grilled chicken club sandwich,1,sandwich,440,37,45,15,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-grilledchickenclubnocheese,"grilled chicken club sandwich, no cheese",1,sandwich,520,37,45,22,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-coolwrap,cool wrap,1,wrap,660,43,32,45,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-honeypepperpimentosandwich,honey pepper pimento sandwich,1,sandwich,600,31,53,30,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-honeypepperpimentospicy,"honey pepper pimento sandwich, spicy filet",1,sandwich,620,33,56,31,chick-fil-a,,,,chick-fil-a,,
-chick-fil-a-honeypepperpimentogrilled,"honey pepper pimento sandwich, grilled filet",1,sandwich,450,34,42,20,chick-fil-a,,,,chick-fil-a,,
+chick-fil-a-chickensandwich,Chicken sandwich,1,x,420,29,41,18,chick-fil-a,,,,chick-fil-a,,
+chick-fil-a-deluxesandwich,Deluxe sandwich|Cheese options available,1,x,490,32,43,22,chick-fil-a,,,,chick-fil-a,deluxe sandwich,cheese
+chick-fil-a-deluxesandwichnocheese,"deluxe sandwich",1,x,430,29,43,18,chick-fil-a,,,,chick-fil-a,deluxe sandwich,no cheese
+chick-fil-a-spicychickensandwich,spicy chicken sandwich,1,x,450,28,45,19,chick-fil-a,,,,chick-fil-a,,
+chick-fil-a-spicydeluxesandwich,spicy deluxe sandwich|Cheese options available,1,x,540,34,47,26,chick-fil-a,,,,chick-fil-a,spicy deluxe sandwich,cheese
+chick-fil-a-spicydeluxesandwichnocheese,"spicy deluxe sandwich",1,x,460,31,46,19,chick-fil-a,,,,chick-fil-a,spicy deluxe sandwich,no cheese
+chick-fil-a-grilledchickensandwich,grilled chicken sandwich,1,x,390,28,45,11,chick-fil-a,,,,chick-fil-a,,
+chick-fil-a-grilledchickenclubsandwich,grilled chicken club sandwich|Cheese options available,1,x,440,37,45,15,chick-fil-a,,,,chick-fil-a,grilled chicken club sandwich,cheese
+chick-fil-a-grilledchickenclubnocheese,"grilled chicken club sandwich",1,x,520,37,45,22,chick-fil-a,,,,chick-fil-a,grilled chicken club sandwich,no cheese
+chick-fil-a-coolwrap,cool wrap,1,x,660,43,32,45,chick-fil-a,,,,chick-fil-a,,
+chick-fil-a-honeypepperpimentosandwich,honey pepper pimento sandwich,1,x,600,31,53,30,chick-fil-a,,,,chick-fil-a,,
+chick-fil-a-honeypepperpimentospicy,"honey pepper pimento sandwich, spicy filet",1,x,620,33,56,31,chick-fil-a,,,,chick-fil-a,,
+chick-fil-a-honeypepperpimentogrilled,"honey pepper pimento sandwich, grilled filet",1,x,450,34,42,20,chick-fil-a,,,,chick-fil-a,,
 chick-fil-a-nuggets,nuggets,1,nugget,31.25,4.75,1.375,1.375,chick-fil-a,,,,chick-fil-a,,
 chick-fil-a-grillednuggets,grilled nuggets,1,nugget,16.25,3.125,0.125,0.375,chick-fil-a,,,,chick-fil-a,,
 chick-fil-a-chick-n-strips,chick-n-strips,1,strip,103.33,10.33,5.33,4.67,chick-fil-a,,,,chick-fil-a,,
@@ -307,65 +316,87 @@ pop-tart-chocolate-fudge,"chocolate fudge",1,pc,185,2,34.5,4.5,poptarts,pop tart
 subway-steakphilly,"steak philly|Sandwich or wrap",1,x,510,28,43,25,subway,,,,subway,subway-steakphilly,"6"" sub"
 subway-steakphillylong,"steak philly",1,x,1020,56,86,50,subway,,,,subway,subway-steakphilly,footlong
 subway-steakphillywrap,"steak philly",1,x,710,46,56,35,subway,,,,subway,subway-steakphilly,wrap
-subway-chipotlephilly,"chipotle philly, sandwich",1,"6"" sub",490,30,44,22,subway,,,,subway,,
-subway-cheesygarlicsteak,"cheesy garlic steak, sandwich",1,"6"" sub",510,26,49,23,subway,,,,subway,,
-subway-grilledchicken,"grilled chicken, sandwich",1,"6"" sub",510,31,43,24,subway,,,,subway,,
-subway-chickenbaconranch,"chicken & bacon ranch, sandwich",1,"6"" sub",580,35,44,29,subway,,,,subway,,
-subway-spicynachochicken,"spicy nacho chicken, sandwich",1,"6"" sub",440,24,49,17,subway,,,,subway,,
-subway-honeymustardbbqchicken,"honey mustard BBQ chicken, sandwich",1,"6"" sub",510,30,53,20,subway,,,,subway,,
-subway-sweetonionteriyakichicken,"sweet onion teriyaki chicken, sandwich",1,"6"" sub",430,29,55,11,subway,,,,subway,,
-subway-bmt,"B.M.T., sandwich",1,"6"" sub",610,27,44,36,subway,,,,subway,,
-subway-spicyitalian,"spicy italian, sandwich",1,"6"" sub",680,27,44,44,subway,,,,subway,,
-subway-5meatitalian,"5 meat italian, sandwich",1,"6"" sub",680,40,46,37,subway,,,,subway,,
-subway-meatballmarinara,"meatball marinara, sandwich",1,"6"" sub",570,27,53,28,subway,,,,subway,,
-subway-meatballpepperoni,"meatball pepperoni, sandwich",1,"6"" sub",690,33,56,38,subway,,,,subway,,
-subway-ovenroastedturkey,"oven-roasted turkey, sandwich",1,"6"" sub",480,26,42,23,subway,,,,subway,,
-subway-blackforestham,"black forest ham, sandwich",1,"6"" sub",490,25,44,23,subway,,,,subway,,
-subway-roastbeef,"roast beef, sandwich",1,"6"" sub",500,31,44,23,subway,,,,subway,,
-subway-coldcutcombo,"cold cut combo, sandwich",1,"6"" sub",530,25,43,29,subway,,,,subway,,
-subway-tuna,"tuna, sandwich",1,"6"" sub",570,27,42,33,subway,,,,subway,,
-subway-veggiedelite,"veggie delite, sandwich",1,"6"" sub",320,17,41,10,subway,,,,subway,,
-subway-allamericanclub,"all american club, sandwich",1,"6"" sub",540,27,45,28,subway,,,,subway,,
-subway-subwayclub,"subway club, sandwich",1,"6"" sub",500,31,43,24,subway,,,,subway,,
-subway-bighotpastrami,"big hot pastrami, sandwich",1,"6"" sub",550,30,44,30,subway,,,,subway,,
-subway-blt,"B.L.T., sandwich",1,"6"" sub",480,18,42,26,subway,,,,subway,,
-subway-buffalochicken,"buffalo chicken, sandwich",1,"6"" sub",510,31,55,19,subway,,,,subway,,
-subway-ovenroastedturkeyham,"oven-roasted turkey & ham, sandwich",1,"6"" sub",480,27,41,23,subway,,,,subway,,
-subway-pizzasub,"pizza sub, sandwich",1,"6"" sub",490,22,45,25,subway,,,,subway,,
-subway-veggiepatty,"veggie patty, sandwich",1,"6"" sub",470,19,58,19,subway,,,,subway,,
-subway-grilledchickensmashedavocado,"grilled chicken & smashed avocado, fresh fit",1,"6"" sub",470,35,44,19,subway,,,,subway,,
-subway-hamturkeystacker,"ham & turkey stacker, fresh fit",1,"6"" sub",290,20,42,5,subway,,,,subway,,
-subway-turkeyranchdelite,"turkey & ranch delite, fresh fit",1,"6"" sub",380,26,41,13,subway,,,,subway,,
-subway-seasonedsteaksmashedavocado,"seasoned steak & smashed avocado, sandwich",1,"6"" sub",460,35,45,16,subway,,,,subway,,
-subway-chipotlephillywrap,"chipotle philly, wrap",1,wrap,700,47,56,32,subway,,,,subway,,
-subway-cheesygarlicsteakwrap,"cheesy garlic steak, wrap",1,wrap,710,43,62,33,subway,,,,subway,,
-subway-grilledchickenwrap,"grilled chicken, wrap",1,wrap,680,48,55,31,subway,,,,subway,,
-subway-chickenbaconranchwrap,"chicken & bacon ranch, wrap",1,wrap,830,56,56,42,subway,,,,subway,,
-subway-spicynachochickenwrap,"spicy nacho chicken, wrap",1,wrap,610,40,59,24,subway,,,,subway,,
-subway-honeymustardbbqchickenwrap,"honey mustard BBQ chicken, wrap",1,wrap,680,46,63,27,subway,,,,subway,,
-subway-sweetonionteriyakichickenwrap,"sweet onion teriyaki chicken, wrap",1,wrap,620,45,76,16,subway,,,,subway,,
-subway-bmtwrap,"B.M.T., wrap",1,wrap,610,27,44,36,subway,,,,subway,,
-subway-spicyitalianwrap,"spicy italian, wrap",1,wrap,1010,39,57,69,subway,,,,subway,,
-subway-5meatitalianwrap,"5 meat italian, wrap",1,wrap,1000,66,60,56,subway,,,,subway,,
-subway-meatballmarinariawrap,"meatball marinara, wrap",1,wrap,890,40,76,49,subway,,,,subway,,
-subway-meatballpepperoniwrap,"meatball pepperoni, wrap",1,wrap,1050,47,77,63,subway,,,,subway,,
-subway-ovenroastedturkeywrap,"oven-roasted turkey, wrap",1,wrap,610,38,53,27,subway,,,,subway,,
-subway-blackforesthamwrap,"black forest ham, wrap",1,wrap,630,36,57,28,subway,,,,subway,,
-subway-roastbeefwrap,"roast beef, wrap",1,wrap,660,48,57,27,subway,,,,subway,,
-subway-coldcutcombowrap,"cold cut combo, wrap",1,wrap,720,35,54,40,subway,,,,subway,,
-subway-tunawrap,"tuna, wrap",1,wrap,900,41,52,59,subway,,,,subway,,
-subway-veggiedelitewrap,"veggie delite, wrap",1,wrap,400,17,53,13,subway,,,,subway,,
-subway-allamericanclubwrap,"all american club, wrap",1,wrap,760,44,57,39,subway,,,,subway,,
-subway-subwayclubwrap,"subway club, wrap",1,wrap,690,48,58,30,subway,,,,subway,,
-subway-bighotpastramiwrap,"big hot pastrami, wrap",1,wrap,890,49,56,54,subway,,,,subway,,
-subway-bltwrap,"B.L.T., wrap",1,wrap,710,30,53,42,subway,,,,subway,,
-subway-turkeyhamwrap,"turkey & ham, wrap",1,wrap,620,37,55,28,subway,,,,subway,,
-subway-pizzasubwrap,"pizza sub, wrap",1,wrap,730,30,56,42,subway,,,,subway,,
-subway-veggiepattywrap,"veggie patty, wrap",1,wrap,720,25,87,30,subway,,,,subway,,
-subway-bajachickenpocket,"baja chicken, protein pocket",1,protein pocket,330,24,30,13,subway,,,,subway,,
-subway-italiantriopocket,"italian trio, protein pocket",1,protein pocket,480,22,32,29,subway,,,,subway,,
-subway-peppercornranchchickenpocket,"peppercorn ranch chicken, protein pocket",1,protein pocket,330,24,30,13,subway,,,,subway,,
-subway-turkeyhampocket,"turkey & ham, protein pocket",1,protein pocket,320,21,32,11,subway,,,,subway,,
+subway-chipotlephilly,"chipotle philly|Sandwich or wrap",1,x,490,30,44,22,subway,,,,subway,subway-chipotlephilly,"6"" sub"
+subway-chipotlephillylong,"chipotle philly",1,x,980,60,88,44,subway,,,,subway,subway-chipotlephilly,footlong
+subway-chipotlephillywrap,"chipotle philly",1,x,700,47,56,32,subway,,,,subway,subway-chipotlephilly,wrap
+subway-cheesygarlicsteak,"cheesy garlic steak|Sandwich or wrap",1,x,510,26,49,23,subway,,,,subway,subway-cheesygarlicsteak,"6"" sub"
+subway-cheesygarlicsteaklong,"cheesy garlic steak",1,x,1020,52,98,46,subway,,,,subway,subway-cheesygarlicsteak,footlong
+subway-cheesygarlicsteakwrap,"cheesy garlic steak",1,x,710,43,62,33,subway,,,,subway,subway-cheesygarlicsteak,wrap
+subway-grilledchicken,"grilled chicken|Sandwich or wrap",1,x,510,31,43,24,subway,,,,subway,subway-grilledchicken,"6"" sub"
+subway-grilledchickenlong,"grilled chicken",1,x,1020,62,86,48,subway,,,,subway,subway-grilledchicken,footlong
+subway-grilledchickenwrap,"grilled chicken",1,x,680,48,55,31,subway,,,,subway,subway-grilledchicken,wrap
+subway-chickenbaconranch,"chicken & bacon ranch|Sandwich or wrap",1,x,580,35,44,29,subway,,,,subway,subway-chickenbaconranch,"6"" sub"
+subway-chickenbaconranchlong,"chicken & bacon ranch",1,x,1160,70,88,58,subway,,,,subway,subway-chickenbaconranch,footlong
+subway-chickenbaconranchwrap,"chicken & bacon ranch",1,x,830,56,56,42,subway,,,,subway,subway-chickenbaconranch,wrap
+subway-spicynachochicken,"spicy nacho chicken|Sandwich or wrap",1,x,440,24,49,17,subway,,,,subway,subway-spicynachochicken,"6"" sub"
+subway-spicynachochickenlong,"spicy nacho chicken",1,x,880,48,98,34,subway,,,,subway,subway-spicynachochicken,footlong
+subway-spicynachochickenwrap,"spicy nacho chicken",1,x,610,40,59,24,subway,,,,subway,subway-spicynachochicken,wrap
+subway-honeymustardbbqchicken,"honey mustard BBQ chicken|Sandwich or wrap",1,x,510,30,53,20,subway,,,,subway,subway-honeymustardbbqchicken,"6"" sub"
+subway-honeymustardbbqchickenlong,"honey mustard BBQ chicken",1,x,1020,60,106,40,subway,,,,subway,subway-honeymustardbbqchicken,footlong
+subway-honeymustardbbqchickenwrap,"honey mustard BBQ chicken",1,x,680,46,63,27,subway,,,,subway,subway-honeymustardbbqchicken,wrap
+subway-sweetonionteriyakichicken,"sweet onion teriyaki chicken|Sandwich or wrap",1,x,430,29,55,11,subway,,,,subway,subway-sweetonionteriyakichicken,"6"" sub"
+subway-sweetonionteriyakichickenlong,"sweet onion teriyaki chicken",1,x,860,58,110,22,subway,,,,subway,subway-sweetonionteriyakichicken,footlong
+subway-sweetonionteriyakichickenwrap,"sweet onion teriyaki chicken",1,x,620,45,76,16,subway,,,,subway,subway-sweetonionteriyakichicken,wrap
+subway-bmt,"B.M.T.|Sandwich or wrap",1,x,610,27,44,36,subway,,,,subway,subway-bmt,"6"" sub"
+subway-bmtlong,"B.M.T.",1,x,1220,54,88,72,subway,,,,subway,subway-bmt,footlong
+subway-bmtwrap,"B.M.T.",1,x,610,27,44,36,subway,,,,subway,subway-bmt,wrap
+subway-spicyitalian,"spicy italian|Sandwich or wrap",1,x,680,27,44,44,subway,,,,subway,subway-spicyitalian,"6"" sub"
+subway-spicyitalianlong,"spicy italian",1,x,1360,54,88,88,subway,,,,subway,subway-spicyitalian,footlong
+subway-spicyitalianwrap,"spicy italian",1,x,1010,39,57,69,subway,,,,subway,subway-spicyitalian,wrap
+subway-5meatitalian,"5 meat italian|Sandwich or wrap",1,x,680,40,46,37,subway,,,,subway,subway-5meatitalian,"6"" sub"
+subway-5meatitalianlong,"5 meat italian",1,x,1360,80,92,74,subway,,,,subway,subway-5meatitalian,footlong
+subway-5meatitalianwrap,"5 meat italian",1,x,1000,66,60,56,subway,,,,subway,subway-5meatitalian,wrap
+subway-meatballmarinara,"meatball marinara|Sandwich or wrap",1,x,570,27,53,28,subway,,,,subway,subway-meatballmarinara,"6"" sub"
+subway-meatballmarinaralong,"meatball marinara",1,x,1140,54,106,56,subway,,,,subway,subway-meatballmarinara,footlong
+subway-meatballmarinariawrap,"meatball marinara",1,x,890,40,76,49,subway,,,,subway,subway-meatballmarinara,wrap
+subway-meatballpepperoni,"meatball pepperoni|Sandwich or wrap",1,x,690,33,56,38,subway,,,,subway,subway-meatballpepperoni,"6"" sub"
+subway-meatballpepperonilong,"meatball pepperoni",1,x,1380,66,112,76,subway,,,,subway,subway-meatballpepperoni,footlong
+subway-meatballpepperoniwrap,"meatball pepperoni",1,x,1050,47,77,63,subway,,,,subway,subway-meatballpepperoni,wrap
+subway-ovenroastedturkey,"oven-roasted turkey|Sandwich or wrap",1,x,480,26,42,23,subway,,,,subway,subway-ovenroastedturkey,"6"" sub"
+subway-ovenroastedturkeylong,"oven-roasted turkey",1,x,960,52,84,46,subway,,,,subway,subway-ovenroastedturkey,footlong
+subway-ovenroastedturkeywrap,"oven-roasted turkey",1,x,610,38,53,27,subway,,,,subway,subway-ovenroastedturkey,wrap
+subway-blackforestham,"black forest ham|Sandwich or wrap",1,x,490,25,44,23,subway,,,,subway,subway-blackforestham,"6"" sub"
+subway-blackforesthamlong,"black forest ham",1,x,980,50,88,46,subway,,,,subway,subway-blackforestham,footlong
+subway-blackforesthamwrap,"black forest ham",1,x,630,36,57,28,subway,,,,subway,subway-blackforestham,wrap
+subway-roastbeef,"roast beef|Sandwich or wrap",1,x,500,31,44,23,subway,,,,subway,subway-roastbeef,"6"" sub"
+subway-roastbeeflong,"roast beef",1,x,1000,62,88,46,subway,,,,subway,subway-roastbeef,footlong
+subway-roastbeefwrap,"roast beef",1,x,660,48,57,27,subway,,,,subway,subway-roastbeef,wrap
+subway-coldcutcombo,"cold cut combo|Sandwich or wrap",1,x,530,25,43,29,subway,,,,subway,subway-coldcutcombo,"6"" sub"
+subway-coldcutcombolong,"cold cut combo",1,x,1060,50,86,58,subway,,,,subway,subway-coldcutcombo,footlong
+subway-coldcutcombowrap,"cold cut combo",1,x,720,35,54,40,subway,,,,subway,subway-coldcutcombo,wrap
+subway-tuna,"tuna|Sandwich or wrap",1,x,570,27,42,33,subway,,,,subway,subway-tuna,"6"" sub"
+subway-tunalong,"tuna",1,x,1140,54,84,66,subway,,,,subway,subway-tuna,footlong
+subway-tunawrap,"tuna",1,x,900,41,52,59,subway,,,,subway,subway-tuna,wrap
+subway-veggiedelite,"veggie delite|Sandwich or wrap",1,x,320,17,41,10,subway,,,,subway,subway-veggiedelite,"6"" sub"
+subway-veggiedelitelong,"veggie delite",1,x,640,34,82,20,subway,,,,subway,subway-veggiedelite,footlong
+subway-veggiedelitewrap,"veggie delite",1,x,400,17,53,13,subway,,,,subway,subway-veggiedelite,wrap
+subway-allamericanclub,"all american club|Sandwich or wrap",1,x,540,27,45,28,subway,,,,subway,subway-allamericanclub,"6"" sub"
+subway-allamericanclublong,"all american club",1,x,1080,54,90,56,subway,,,,subway,subway-allamericanclub,footlong
+subway-allamericanclubwrap,"all american club",1,x,760,44,57,39,subway,,,,subway,subway-allamericanclub,wrap
+subway-subwayclub,"subway club|Sandwich or wrap",1,x,500,31,43,24,subway,,,,subway,subway-subwayclub,"6"" sub"
+subway-subwayclublong,"subway club",1,x,1000,62,86,48,subway,,,,subway,subway-subwayclub,footlong
+subway-subwayclubwrap,"subway club",1,x,690,48,58,30,subway,,,,subway,subway-subwayclub,wrap
+subway-bighotpastrami,"big hot pastrami|Sandwich or wrap",1,x,550,30,44,30,subway,,,,subway,subway-bighotpastrami,"6"" sub"
+subway-bighotpastramilong,"big hot pastrami",1,x,1100,60,88,60,subway,,,,subway,subway-bighotpastrami,footlong
+subway-bighotpastramiwrap,"big hot pastrami",1,x,890,49,56,54,subway,,,,subway,subway-bighotpastrami,wrap
+subway-blt,"B.L.T.|Sandwich or wrap",1,x,480,18,42,26,subway,,,,subway,subway-blt,"6"" sub"
+subway-bltlong,"B.L.T.",1,x,960,36,84,52,subway,,,,subway,subway-blt,footlong
+subway-bltwrap,"B.L.T.",1,x,710,30,53,42,subway,,,,subway,subway-blt,wrap
+subway-ovenroastedturkeyham,"oven-roasted turkey & ham|Sandwich or wrap",1,x,480,27,41,23,subway,,,,subway,subway-ovenroastedturkeyham,"6"" sub"
+subway-ovenroastedturkeyhamlong,"oven-roasted turkey & ham",1,x,960,54,82,46,subway,,,,subway,subway-ovenroastedturkeyham,footlong
+subway-ovenroastedturkeyhamwrap,"oven-roasted turkey & ham",1,x,620,37,55,28,subway,,,,subway,subway-ovenroastedturkeyham,wrap
+subway-pizzasub,"pizza sub|Sandwich or wrap",1,x,490,22,45,25,subway,,,,subway,subway-pizzasub,"6"" sub"
+subway-pizzasublong,"pizza sub",1,x,980,44,90,50,subway,,,,subway,subway-pizzasub,footlong
+subway-pizzasubwrap,"pizza sub",1,x,730,30,56,42,subway,,,,subway,subway-pizzasub,wrap
+subway-veggiepatty,"veggie patty|Sandwich or wrap",1,x,470,19,58,19,subway,,,,subway,subway-veggiepatty,"6"" sub"
+subway-veggiepattylong,"veggie patty",1,x,940,38,116,38,subway,,,,subway,subway-veggiepatty,footlong
+subway-veggiepattywrap,"veggie patty",1,x,720,25,87,30,subway,,,,subway,subway-veggiepatty,wrap
+subway-buffalochicken,"buffalo chicken|Sandwich",1,x,510,31,55,19,subway,,,,subway,subway-buffalochicken,"6"" sub"
+subway-buffalochickenlong,"buffalo chicken",1,x,1020,62,110,38,subway,,,,subway,subway-buffalochicken,footlong
+subway-bajachickenpocket,"baja chicken, protein pocket",1,x,330,24,30,13,subway,,,,subway,,
+subway-italiantriopocket,"italian trio, protein pocket",1,x,480,22,32,29,subway,,,,subway,,
+subway-peppercornranchchickenpocket,"peppercorn ranch chicken, protein pocket",1,x,330,24,30,13,subway,,,,subway,,
+subway-turkeyhampocket,"turkey & ham, protein pocket",1,x,320,21,32,11,subway,,,,subway,,
 subway-chocolatechipcookie,chocolate chip cookie,1,cookie,210,2,30,10,subway,,,,subway,,
 subway-doublechocolatecookie,double chocolate cookie,1,cookie,210,2,29,9,subway,,,,subway,,
 subway-oatmealraisincookie,oatmeal raisin cookie,1,cookie,200,3,30,8,subway,,,,subway,,
